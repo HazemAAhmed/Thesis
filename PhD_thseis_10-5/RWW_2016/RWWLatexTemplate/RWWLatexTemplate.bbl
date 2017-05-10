@@ -1,0 +1,36 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{#1}
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{RWWExample:Cantrell}
+W.~H. Cantrell, ``Tuning analysis for the high-{Q} class-{E} power amplifier,''
+  \emph{{IEEE} Trans. Microwave Theory Tech.}, vol.~48, no.~12, pp. 2397--2402,
+  Dec. 2000.
+
+\bibitem{RWWExample:Cantrell2}
+W.~H. Cantrell and W.~A. Davis, ``Amplitude modulator utilizing a high-{Q}
+  class-{E} {DC}-{DC} converter,'' in \emph{2003 {IEEE} MTT-S Int. Microwave
+  Symp. Dig.}, vol.~3, June 2003, pp. 1721--1724.
+
+\bibitem{RWWExample:book}
+H.~L. Krauss, C.~W. Bostian, and F.~H. Raab, \emph{Solid State Radio
+  Engineering}.\hskip 1em plus 0.5em minus 0.4em\relax New York: J. Wiley \&
+  Sons, 1980.
+
+\end{thebibliography}

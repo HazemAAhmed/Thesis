@@ -1,0 +1,66 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{#1}
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{standard}
+\emph{{EPC radio-frequency protocols class-1 generation-2 UHF RFID protocol for
+  communications at 860 MHz 960 MHz version 1.1.0 2006}}, EPC Global Std.
+
+\bibitem{Aloha4_Vogt}
+H.~Vogt, ``{Efficient object identification with passive RFID rags},'' in
+  \emph{International Conference on Pervasive Computing, Zürich,}, Aug. 2002.
+
+\bibitem{2012_journal_CR}
+L.~C. V.~L. D.~De~Donno, L.~Tarricone and M.~M. Tentzeris, ``Performance
+  enhancement of the rfid epc gen2 protocol by exploiting collision recovery,''
+  \emph{Progress In Electromagnetics Research B,}, vol. 43, 53-72, 2012.
+
+\bibitem{CR_TA_2015}
+H.~Wu and Y.~Zeng, ``Passive rfid tag anticollision algorithm for capture
+  effect,'' \emph{Sensors Journal, IEEE}, vol.~15, no.~1, pp. 218--226, Jan
+  2015.
+
+\bibitem{2013_orthogonal}
+\BIBentryALTinterwordspacing
+J.~Kaitovic, R.~Langwieser, and M.~Rupp, ``\BIBforeignlanguage{English}{A smart
+  collision recovery receiver for rfids},''
+  \emph{\BIBforeignlanguage{English}{EURASIP Journal on Embedded Systems}},
+  vol. 2013, no.~1, 2013. [Online]. Available:
+  \url{http://dx.doi.org/10.1186/1687-3963-2013-7}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Math_book_quartic}
+M.~Abramowitz and I.~A. Stegun, \emph{Solutions of Quartic Equations}.\hskip
+  1em plus 0.5em minus 0.4em\relax New York: Dover,, 1972.
+
+\bibitem{Descartes_rule}
+D.~Struik, \emph{A Source Book in Mathematics 1200-1800}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Princeton University Press, 1986.
+
+\bibitem{2012_orthogonal_codes}
+J.~Kaitovic, M.~Simko, R.~Langwieser, and M.~Rupp, ``Channel estimation in tag
+  collision scenarios,'' in \emph{RFID (RFID), 2012 IEEE International
+  Conference on}, April 2012, pp. 74--80.
+
+\bibitem{Ct_calculation}
+C.~Wang, M.~Daneshmand, K.~Sohraby, and B.~Li, ``Performance analysis of rfid
+  generation-2 protocol,'' \emph{Wireless Communications, IEEE Transactions
+  on}, vol.~8, no.~5, pp. 2592--2601, May 2009.
+
+\end{thebibliography}
