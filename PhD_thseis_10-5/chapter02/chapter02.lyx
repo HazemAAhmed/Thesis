@@ -441,10 +441,117 @@ Middle-ware
 \end_layout
 
 \begin_layout Standard
+In some applications, the tag identifier is used as an input for a database
+ to get an information related to this object e.g.
+ shipment orders, expiring date.
+ etc.
+ This kind of processing is done in a set of software tools called middle-ware.
+ The EPCglobal standards 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ define specifications for the middle-ware of RFID systems.
+ Meanwhile, RFID systems are still evolving technology.
+ Thus, RFID middle-ware should be flexible enough so that it could be adapted
+ to the future changes with minimal efforts.
+\end_layout
+
+\begin_layout Section
+Frequency Bands
+\end_layout
+
+\begin_layout Standard
+The most important differentiation criteria for RFID systems are the operating
+ frequency of the reader.
+ Selecting the most adequate frequency is a function of the following properties
+:
+\end_layout
+
+\begin_layout Standard
+- Technical properties of the application e.g.
+ The RFID channel contains
+\end_layout
+
+\begin_layout Standard
+metals or not.
+\end_layout
+
+\begin_layout Standard
+- Cost of the system.
+\end_layout
+
+\begin_layout Standard
+- Behavior of the electromagnetic waves at these different frequencies.
+\end_layout
+
+\begin_layout Standard
+First RFID users started with Low Frequency (LF) 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "LF"
+description "Low Frequency"
+
+\end_inset
+
+ band RFID systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LF_RFID"
+
+\end_inset
+
+.
+ After few years, the RFID systems have operated in High Frequency (HF)
+ 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "HF"
+description "High Frequency"
+
+\end_inset
+
+ band 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HF_RFID"
+
+\end_inset
+
+.
+ Using only these two band made a big limitation on the RFID applications.
+ Thus, Recent years, the number of RFID systems operating in the Ultra High
+ Frequency (UHF) 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UHF"
+description "Ultra High Frequency"
+
+\end_inset
+
+ range have increased because of the dramatic decrease in its component's
+ price 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "UHF_RFID"
+
+\end_inset
+
+.
+ Thus, it is expected to see the RFID microwave band more available and
+ affordable in the market.
+ The availability of all bands with affordable costs will give the RFID
+ users more facilities to take easier decision in which band they need to
+ build up their applications.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -721,7 +828,7 @@ Microwave (
 
 \size small
  
-\begin_inset Formula $\unit[+10]{m}$
+\begin_inset Formula $\unit[>10]{m}$
 \end_inset
 
 
@@ -757,88 +864,7 @@ Microwave (
 
 \end_inset
 
- In some applications, the tag identifier is used as an input for a database
- to get an information related to this object e.g.
- shipment orders, expiring date.
- etc.
- This kind of processing is done in a set of software tools called middle-ware.
- The EPCglobal standards 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "standard"
 
-\end_inset
-
- define specifications for the middle-ware of RFID systems.
- Meanwhile, RFID systems are still evolving technology.
- Thus, RFID middle-ware should be flexible enough so that it could be adapted
- to the future changes with minimal efforts.
-\end_layout
-
-\begin_layout Section
-Frequency Bands
-\end_layout
-
-\begin_layout Standard
-The most important differentiation criteria for RFID systems are the operating
- frequency of the reader.
- Selecting the most adequate frequency is a function of the following properties
-:
-\end_layout
-
-\begin_layout Itemize
-Technical properties of the application e.g.
- The RFID channel contains metals or not.
-\end_layout
-
-\begin_layout Itemize
-Cost of the system.
-\end_layout
-
-\begin_layout Itemize
-Behavior of the electromagnetic waves at these different frequencies.
-\end_layout
-
-\begin_layout Standard
-First RFID users started with Low Frequency (LF) 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "LF"
-description "Low Frequency"
-
-\end_inset
-
- band RFID systems.
- After few years, the RFID systems have operated in High Frequency (HF)
- 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "HF"
-description "High Frequency"
-
-\end_inset
-
- band.
- Using only these two band made a big limitation on the RFID applications.
- Thus, Recent years, the number of RFID systems operating in the Ultra High
- Frequency (UHF) 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "UHF"
-description "Ultra High Frequency"
-
-\end_inset
-
- range have increased because of the dramatic decrease in its component's
- price.
- Thus, it is expected to see the RFID microwave band more available and
- affordable in the market.
- The availability of all bands with affordable costs will give the RFID
- users more facilities to take easier decision in which band they need to
- build up their applications.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
@@ -1205,12 +1231,12 @@ reference "tab:Frequency-Bands-for"
 \end_layout
 
 \begin_layout Section
-RFID Standards
+RFID Communications Standards
 \end_layout
 
 \begin_layout Standard
-There are different standards of communication between the RFID reader and
- the corresponding tags.
+There are different standards of the communication between the RFID reader
+ and the corresponding tags.
  Although EPC-C1G2 standard is the most extended and adopted for passive
  dense RFID networks, yet, there are further other standards.
  Table 
