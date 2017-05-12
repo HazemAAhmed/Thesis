@@ -1,0 +1,1401 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass IEEEtran
+\begin_preamble
+
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding default
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.85in
+\topmargin 0.85in
+\rightmargin 0.75in
+\bottommargin 1.125in
+\headheight 0.01in
+\headsep 0.01in
+\columnsep 0.25in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 2
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color red
+A Closed Form Solution for Frame Slotted ALOHA Utilizing Time and Multiple
+ Collision Recovery Coefficients
+\end_layout
+
+\begin_layout Author
+
+\color red
+Hazem A.
+ Ahmed, Hamed Salah, Joerg Robert, Albert Heuberger
+\begin_inset Newline newline
+\end_inset
+
+Friedrich-Alexander-Universität Erlangen-Nürnberg
+\begin_inset Newline newline
+\end_inset
+
+ Email: {hazem.a.elsaid, hamed.kenawy, joerg.robert, albert.heuberger}@fau.de
+\end_layout
+
+\begin_layout Abstract
+
+\color red
+Minimizing the reading time of large tag populations is a critical issue
+ in Radio Frequency Identification (RFID) systems.
+ The usual approach to reduce the reading time is to select the frame size
+ attaining the highest throughput per frame.
+ Previous studies have focused on conventional frame length calculations.
+ In such systems, only the answer of a single tag is considered as a successful
+ slot.
+ If multiple tags respond simultaneously within a slot a collision occurs.
+ Then, all tags within this slot are discarded.
+ However, modern system have the capability of converting part of the collided
+ slots into successful slots.
+ This is called Collision Recovery.
+ Moreover, modern RFID readers have the ability to identify the type of
+ the slot (successful, collided, or empty).
+ Then, the readers are able to terminate the slot earlier when they recognizes
+ that there is no tag reply.
+ This system is called a time aware system.
+ Recent studies focused on calculating the optimal frame length taking into
+ consideration the time aware and the collision recovery properties.
+ However, these studies have assumed constant collision recovery probability
+ coefficients, i.e.
+ the probability to recover one tag from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags is constant, regardless of the number of collided tags 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Moreover, they proposed only numerical solutions for the optimum frame
+ length.
+ In this paper we propose a novel closed form solution for the optimal Frame
+ Slotted ALOHA (FSA) frame length.
+ The novel solution considers the multiple collision recovery probability
+ coefficients, and the different slot durations.
+ Timing comparisons are presented in the simulation results to show the
+ reading time reduction using the proposed frame length compared to other
+ the state-of-the-art algorithms.
+\end_layout
+
+\begin_layout Abstract
+
+\color red
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\color red
+Introduction
+\end_layout
+
+\begin_layout Standard
+
+\color red
+Radio Frequency Identification (RFID) is an identification technology that
+ wirelessly transmits the identity of a tag which may be attached to an
+ object or a person.
+ If tags respond simultaneously to a reader, a collision on the air interface
+ occurs and the information is discarded, leading to reduced throughput.
+ Our research focuses on the improvement of the throughput using the EPCglobal
+ class 1 gen 2 RFID standards 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+.
+ The conventionally used anti-collision algorithm is Framed Slotted ALOHA
+ (FSA), which is a Medium Access Control (MAC) layer protocol.
+ Using this algorithm, only the single tag replies (successful slot) are
+ able to be decoded and then identified.
+ Therefore, the conventional definition of the reading efficiency 
+\begin_inset Formula $\eta_{conv}$
+\end_inset
+
+ is equivalent to the probability of success 
+\begin_inset Formula $P(S)$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\color red
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{conv}}=P(S)=P(1),\label{eq:eff basic equ}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where, 
+\size footnotesize
+
+\begin_inset Formula $P(1)=\frac{n}{L}\left(1-\frac{1}{L}\right)^{n-1}$
+\end_inset
+
+
+\size default
+, 
+\begin_inset Formula $n$
+\end_inset
+
+ represents the number of tags in the reading area, and 
+\begin_inset Formula $L$
+\end_inset
+
+ is the frame length.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color red
+The main goal is to find the optimal frame length 
+\begin_inset Formula $L$
+\end_inset
+
+, which maximizes the reading efficiency 
+\begin_inset Formula $\eta_{conv}$
+\end_inset
+
+.
+ Based on (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff basic equ"
+
+\end_inset
+
+), the reading efficiency 
+\begin_inset Formula $\eta_{_{conv}}$
+\end_inset
+
+ is maximized to 
+\begin_inset Formula $\eta_{_{conv(max)}}=36\%$
+\end_inset
+
+ when 
+\begin_inset Formula $L=n$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt"
+
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+ considered the RFID reader capability of collision resolving.
+ They have used the characteristics of the RFID signals to separate signals
+ from collisions on the physical layer (PHY).
+ They have proposed a new reading efficiency metric that includes the tags
+ which are recovered based on the PHY layer.
+ The authors assumed that the probability to recover a single tag from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags is constant and equals to 
+\begin_inset Formula $100\%$
+\end_inset
+
+, independently of the value of 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ However in reality, the probability to recover a single tag from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags reduces with the number of collided tags 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Moreover, there are no practical readers that offer a 
+\begin_inset Formula $100\%$
+\end_inset
+
+ collision recovery probability.
+ Finally, the authors did not consider the effects of the different slot
+ durations.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CR_TA_2015"
+
+\end_inset
+
+, the authors merged the collision recovery probability with the effect
+ of the different slut durations for a new reading efficiency metric.
+ They have assumed also a constant collision recovery capability, regardless
+ of the number of collided tags.
+ However, this probability decreases with an increasing number of collided
+ tags.
+ Moreover, they proposed a numerical solution for the optimum frame length
+ by searching for the value of the frame length 
+\begin_inset Formula $L$
+\end_inset
+
+ which maximizes the reading efficiency.
+ Thus, they require a Multi-dimensional look-up table.
+\end_layout
+
+\begin_layout Standard
+
+\color red
+In this paper, we propose a novel reading efficiency metric called Time
+ Aware Multiple Collision Recovery Coefficients Reading Efficiency 
+\begin_inset Formula $\eta_{_{TAMCRC}}$
+\end_inset
+
+.
+ The new metric includes different collision recovery coefficients for each
+ number of collided tags.
+ Furthermore, it takes into consideration the different slot durations.
+ Hence, we propose a novel closed form solution for the optimum FSA frame
+ length at RFID systems.
+ The proposed solution gives a direct relation between the optimal frame
+ length and the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ in the reading area, in addition to the collision recovery coefficients
+ and the different slot durations.
+\end_layout
+
+\begin_layout Standard
+
+\color red
+This paper organized as follows: Section II presents the system model under
+ variable slot duration and multiple collision recovery coefficients and
+ the proposed corresponding closed form solution for the optimal frame length.
+ Then, section III gives numerical results on the improvements of the new
+ optimization criterion, before we conclude in section IV.
+ 
+\end_layout
+
+\begin_layout Section
+
+\color red
+Proposed System Model 
+\end_layout
+
+\begin_layout Standard
+
+\color red
+In this section we present a new FSA reading efficiency metric called Time
+ Aware Multiple Collision Recovery Coefficients Reading Efficiency 
+\begin_inset Formula $\eta_{_{TAMCRC}}$
+\end_inset
+
+.
+ The main contribution in this new efficiency is: It contains a unique collision
+ recovery coefficient 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ for each probability of collision 
+\begin_inset Formula $P(i)$
+\end_inset
+
+.
+ These new coefficients indicate the ability of the reader to recover one
+ tag from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags, where this ability varies based on the number of collided
+ tags.
+ Moreover, it takes into consideration the different slot durations.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color red
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Collision-distribution-in"
+
+\end_inset
+
+ presents the distribution of the average collision probability in a frame
+ length uniformly distributed within 
+\size scriptsize
+
+\begin_inset Formula $0.5\leq\frac{L}{n}\leq2$
+\end_inset
+
+
+\size default
+, which is the practical range of the RFID frame length.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Collision-distribution-in"
+
+\end_inset
+
+, the probability that a collision results from two or three collided tags
+ is approx.
+ 
+\begin_inset Formula $85\%$
+\end_inset
+
+.
+ Moreover, the values of the collision recovery coefficient 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ when 
+\begin_inset Formula $i\geq4$
+\end_inset
+
+ (i\SpecialChar \@.
+e\SpecialChar \@.
+ 4 or more collided tags) will be small.
+ Therefore, we will only consider up to three collided tags.
+ We will now normalize the slot duration 
+\begin_inset Formula $t_{k}$
+\end_inset
+
+ of successful and collided tags to unity.
+ We furthermore take the assumption that empty slots are shorter than successful
+ slots (i\SpecialChar \@.
+e\SpecialChar \@.
+ 
+\begin_inset Formula $t_{0}\leq t_{k}$
+\end_inset
+
+), which is the case for practical readers.
+ Then, the proposed reading efficiency 
+\begin_inset Formula $\eta_{_{TAMCRC}}$
+\end_inset
+
+ can be expressed as:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color red
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{TAMCRC}}=\frac{P(1)+\alpha_{2}P_{col.}(2)+\alpha_{3}P_{col.}(3)}{1+P(0)\cdot(C_{t}-1)},\label{eq:new coll prob}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $C_{t}=\frac{t_{0}}{t_{k}}$
+\end_inset
+
+ represents the slots duration constant, and 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+ are respectively the second, third collision recovery coefficients.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\color red
+\begin_inset Graphics
+	filename collision_distribution.eps
+	lyxscale 15
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color red
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Collision distribution probability in FSA, under condition of 
+\begin_inset Formula $\frac{n}{2}\leq L\leq2n$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Collision-distribution-in"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+The next step is to derive a closed form for the new optimum frame length
+ 
+\begin_inset Formula $L_{_{TAMCRC}}$
+\end_inset
+
+ which maximizes 
+\begin_inset Formula $\eta_{_{TAMCRC}}$
+\end_inset
+
+.
+ According to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2013_orthogonal"
+
+\end_inset
+
+, if 
+\begin_inset Formula $L\gg1$
+\end_inset
+
+, and 
+\begin_inset Formula $n\gg i$
+\end_inset
+
+ we get:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color red
+\begin_inset Formula 
+\begin{equation}
+P(i)\backsimeq\frac{1}{i!}\cdot\beta^{-i}\cdot e^{-\frac{1}{\beta}},\label{eq:approx_P(i)}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where, 
+\begin_inset Formula $\beta=\frac{L}{n}$
+\end_inset
+
+.
+ After substituting by (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:approx_P(i)"
+
+\end_inset
+
+) in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:new coll prob"
+
+\end_inset
+
+) we obtain:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color red
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{TAMCRC}}=\frac{e^{-\frac{1}{\beta}}\cdot\left(\beta^{-1}+\frac{\alpha_{2}}{2}\beta^{-2}+\frac{\alpha_{3}}{6}\beta^{-3}\right)}{1+e^{-\frac{1}{\beta}}\cdot(C_{t}-1)}\label{eq:eff_proposed_simpl}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Now we have to find the value of 
+\begin_inset Formula $\beta$
+\end_inset
+
+ which maximizes 
+\begin_inset Formula $\eta_{_{TAMCRC}}$
+\end_inset
+
+.
+ This is achieved by differentiating the reading efficiency in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff_proposed_simpl"
+
+\end_inset
+
+) with respect to 
+\begin_inset Formula $\beta$
+\end_inset
+
+ and equate the result to zero:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color red
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\eta_{_{TAMCRC}}}{\partial\beta}=0\label{eq:diff}
+\end{equation}
+
+\end_inset
+
+
+\size default
+After differentiating and simplifications, the final equation is a fourth
+ order polynomial:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\color red
+\begin_inset Formula 
+\begin{equation}
+a\cdot\beta^{4}+b\cdot\beta^{3}+c\cdot\beta^{2}+d\cdot\beta+e=0,\label{eq:final_fourth}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where: 
+\size scriptsize
+
+\begin_inset Formula $a=\underset{(-)}{\underbrace{-C_{t}}}$
+\end_inset
+
+, 
+\begin_inset Formula $b=\underset{(-)}{\underbrace{C_{t}\cdot(1-\alpha_{2})-1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color red
+\begin_inset Formula $c=\underset{(+)}{\underbrace{\underset{(+)}{\underbrace{2-C_{t}-\alpha_{2}}}+\underset{(+)}{\underbrace{\frac{C_{t}}{2}(\alpha_{2}-\alpha_{3})}}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color red
+\begin_inset Formula $d=\underset{(+)}{\underbrace{\frac{1}{2}(\alpha_{2}-\alpha_{3})+\frac{1}{2}\alpha_{2}\cdot(1-C_{t})+\frac{1}{6}C_{t}\cdot\alpha_{3}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color red
+\begin_inset Formula $e=\underset{(+)}{\underbrace{\frac{1}{6}\alpha_{3}\cdot(2-C_{t})}}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+As 
+\begin_inset Formula $0\leq\alpha_{i}\leq1$
+\end_inset
+
+, 
+\begin_inset Formula $0<C_{t}\leq1$
+\end_inset
+
+, and 
+\begin_inset Formula $\alpha_{2}\geq\alpha_{3}$
+\end_inset
+
+, equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final_fourth"
+
+\end_inset
+
+) has four roots 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Math_book_quartic"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color red
+\begin_inset Formula 
+\begin{eqnarray}
+\beta_{1,2} & = & -\frac{b}{4a}-S\pm0.5\sqrt{\underset{X}{\underbrace{-4S^{2}-2P+\frac{q}{S}}}}\label{eq:roots}\\
+\beta_{3,4} & = & -\frac{b}{4a}+S\pm0.5\sqrt{\underset{Y}{\underbrace{-4S^{2}-2P-\frac{q}{S}}}},\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+with 
+\begin_inset Formula $P=\frac{8ac-3b^{2}}{8a^{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $q=\frac{b^{3}-4abc+8a^{2}d}{8a^{3}}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+and
+\size scriptsize
+ 
+\begin_inset Formula $S=0.5\sqrt{-\frac{2}{3}P+\frac{1}{3a}\left(Q+\frac{\triangle_{0}}{Q}\right)}$
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $Q=\sqrt[3]{\frac{\triangle_{1}+\sqrt{\triangle_{1}^{2}-4\triangle_{0}^{3}}}{2}}$
+\end_inset
+
+
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+with
+\size scriptsize
+ 
+\begin_inset Formula $\triangle_{0}=c^{2}-3bd+12ae$
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\triangle_{1}=2c^{3}-9bcd+27ad^{2}-72ace$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+According to the practical ranges of the collision recovery coefficients
+ 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+, we can prove that the signs of the polynomial coefficients are constants
+ and do not change in all ranges of 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{t}.$
+\end_inset
+
+ Thus their signs will be: 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $a=(-)$
+\end_inset
+
+, 
+\begin_inset Formula $b=(-)$
+\end_inset
+
+, 
+\begin_inset Formula $c=(+)$
+\end_inset
+
+, 
+\begin_inset Formula $d=(+)$
+\end_inset
+
+, and 
+\begin_inset Formula $e=(+)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Using Descartes’ rules of sign 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
+\end_inset
+
+ we can count the number of real positive solutions of the polynomial.
+\end_layout
+
+\begin_layout Standard
+
+\color red
+Let us assume that the polynomial in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final_fourth"
+
+\end_inset
+
+) is 
+\begin_inset Formula $P(\beta)$
+\end_inset
+
+, and let 
+\begin_inset Formula $\nu$
+\end_inset
+
+ be the number of variations in the sign of the coefficients 
+\begin_inset Formula $a,\, b,\, c,\, d,\, e$
+\end_inset
+
+, i\SpecialChar \@.
+e\SpecialChar \@.
+ 
+\begin_inset Formula $\nu=1$
+\end_inset
+
+, and let 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ be the number of real positive solutions.
+ According to Descartes’ rules of sign 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
+\end_inset
+
+ we get:
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+\begin_inset Formula $n_{p}\leq\nu$
+\end_inset
+
+, which means that 
+\begin_inset Formula $n_{p}=0\,\textrm{or}\,1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+\begin_inset Formula $\nu-n_{p}$
+\end_inset
+
+ is an even integer.
+ Therefore 
+\begin_inset Formula $n_{p}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\color red
+Consequently, there is only one valid real positive solution, one valid
+ real negative solution, and two complex solutions for our equation.
+ Our target is to identify which solution from the four solutions is the
+ valid one.
+ We have either 
+\begin_inset Formula $\beta_{1,2}$
+\end_inset
+
+ or 
+\begin_inset Formula $\beta_{3,4}$
+\end_inset
+
+ real solutions, so 
+\begin_inset Formula $S$
+\end_inset
+
+ should be a positive real number, and the complex values come only from
+ the square roots 
+\begin_inset Formula $\sqrt{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sqrt{Y}$
+\end_inset
+
+ .
+ According to the coefficient signs: 
+\begin_inset Formula $q$
+\end_inset
+
+ must be always positive real value.
+ Therefore, in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:roots"
+
+\end_inset
+
+) the value of 
+\begin_inset Formula $X>Y$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\beta_{3,4}$
+\end_inset
+
+ have to be the complex roots, with 
+\begin_inset Formula $\beta_{1}>\beta_{2}$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $\beta_{2}$
+\end_inset
+
+ is the negative root and 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ is the positive real root.
+ Based on the above discussions, the proposed closed form optimum frame
+ length 
+\begin_inset Formula $L_{TAMCRC}$
+\end_inset
+
+ under time and multiple collision recovery coefficients environment leads
+ to:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color red
+\begin_inset Formula 
+\begin{equation}
+L_{TAMCRC}=\left(-\frac{b}{4a}-S+0.5\sqrt{-4S^{2}-2P+\frac{q}{S}}\right)\cdot n\label{eq:closed form}
+\end{equation}
+
+\end_inset
+
+
+\size default
+The proposed equation gives a linear relation wrt.
+ the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+, and includes the effect of different collision recovery coefficients and
+ the slot duration constant.
+ The values of these coefficients are set based on the RFID reader type
+ as shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_orthogonal_codes"
+
+\end_inset
+
+.
+ The value of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ can be calculated based on the transmission rate as shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ct_calculation"
+
+\end_inset
+
+.
+ Based on (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+), if the RFID reader has no collision resolving capability (
+\begin_inset Formula $\alpha_{2}=\alpha_{3}=0$
+\end_inset
+
+) and equal slots durations are used (
+\begin_inset Formula $C_{t}=1$
+\end_inset
+
+), we get 
+\begin_inset Formula $L_{TAMCRC}=n$
+\end_inset
+
+.
+ This is identical to the optimum frame length in the conventional case.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\color red
+\begin_inset Graphics
+	filename Max_eff_validation_0.1_0.5_0.9.eps
+	lyxscale 13
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color red
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Maximum reading efficiency 
+\begin_inset Formula $0\leq C_{t}\leq1$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Maximum-efficiency-using"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\color red
+Simulation Results
+\end_layout
+
+\begin_layout Standard
+
+\color red
+In this section, we will firstly discuss the accuracy of our closed form,
+ then we will show the gain of using the proposed closed form shown in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+) in terms of mean reading time reduction compared to the literature.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Maximum-efficiency-using"
+
+\end_inset
+
+ presents the maximum efficiency using the proposed closed form compared
+ to the numerical solutions in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CR_TA_2015"
+
+\end_inset
+
+ for different values of collision recovery coefficients 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ in the full range of the slots duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+ It is clear that the proposed formula almost approaches the numerical solution.
+ There is a small bias between the curves due to the approximation in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:approx_P(i)"
+
+\end_inset
+
+).
+ However, the closed form equation has a direct relation of the optimum
+ frame length function of the number of tags in the reading area, the collision
+ recovery coefficients, and the slots duration constant, so we need neither
+ storage nor searching each reading cycle.
+ However using the numerical methods, we have to store and search in a multidime
+nsional look-up table to get the optimal frame length corresponding to each
+ parameters combination.
+\end_layout
+
+\begin_layout Standard
+
+\color red
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Mean-reduction-in"
+
+\end_inset
+
+ presents the mean reading time reduction using the proposed frame length
+ equation compared to the frame length proposed by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+.
+ The simulation results are based on the slot duration constant 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+, as it is considered as a practical value used in the EPCglobal class 1
+ gen 2 standards 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+.
+ The authors in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+ used identical collision recovery coefficients, then based on that has
+ a constant frame lengths.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Mean-reduction-in"
+
+\end_inset
+
+, the mean reduction in reading time increases, when the collision recovery
+ coefficients decreases.
+ In this case, the proposed frame length will adapt for the new optimum
+ size.
+ However, the frame length proposed by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+ is fixed based on the assumption of 
+\begin_inset Formula $100\%$
+\end_inset
+
+ collision recovery capability.
+ 
+\end_layout
+
+\begin_layout Section
+
+\color red
+Conclusion
+\end_layout
+
+\begin_layout Standard
+
+\color red
+This paper proposes a novel closed form solution for the optimum value of
+ the FSA (Frame Slotted ALOHA) frame length in RFID systems.
+ The proposed equation takes the effect of different collision recovery
+ probabilities into account, as well as the different slot durations.
+ The theoretical derivations lead to a new optimization criterion that can
+ be easily implemented in RFID readers.
+ The closed form solution needs neither storage nor searching like the numerical
+ solutions presented in the literature.
+ Timing comparisons were presented to show the mean reading time reduction
+ using the proposed frame length compared to other proposals.
+\end_layout
+
+\begin_layout Section*
+
+\color red
+Acknowledgment
+\end_layout
+
+\begin_layout Standard
+
+\color red
+The authors are grateful to department OK at Fraunhofer IIS in Erlangen,
+ Germany, for the support of this work.
+\end_layout
+
+\begin_layout Standard
+
+\color red
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\color red
+\begin_inset Graphics
+	filename saving_time_new.eps
+	lyxscale 10
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mean reading time reduction using the proposed frame length compared to
+ the proposal of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Mean-reduction-in"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Lopt_PJY_MAC"
+options "ieeetr"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
