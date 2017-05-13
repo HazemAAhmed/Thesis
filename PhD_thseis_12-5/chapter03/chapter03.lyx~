@@ -312,10 +312,10 @@ reference "fig:Common-existing-MAC-Layer"
  deterministic protocols and probabilistic protocols.
  Deterministic protocols are used in the systems with known number of tags
  to be identified in the reading area.
- These types of protocols use mainly tree algorithms in their identification
- processes.
- However, the probabilistic protocols are in systems with unknown number
- of tags (most commonly used).
+ These types of protocols are mainly based on tree algorithms for the identifica
+tion processes.
+ Probabilistic protocols are in systems with unknown number of tags (most
+ commonly used).
  Probabilistic protocols are mainly based on ALOHA algorithm.
  
 \begin_inset Float figure
@@ -369,9 +369,16 @@ Deterministic Anti-collision Protocols
 \end_layout
 
 \begin_layout Standard
-It is commonly named Tree-based anti-collision protocols.
- In such algorithms, the reader aims to identify a set of tags in the coverage
- area in subsequent time slots.
+It is commonly named tree-based anti-collision protocols.
+ In these algorithms, the reader aims to identify a set of tags in the coverage
+ area in subsequent time slots 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tree1"
+
+\end_inset
+
+.
  Each time slot contains a query command, transmitted from the reader, and
  the response of tags in the reading area.
  If there is more than one tag reply, a collision occurs and the reader
@@ -382,11 +389,11 @@ It is commonly named Tree-based anti-collision protocols.
 \end_layout
 
 \begin_layout Subsubsection*
-Binary Tree
+Binary tree
 \end_layout
 
 \begin_layout Standard
-Binary tree algorithm 
+The binary tree algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Binary_tree"
@@ -395,13 +402,13 @@ key "Binary_tree"
 
  is commonly used in tree-based anti-collision protocols.
  In this algorithm, if a collision occurs in a time slot, each collided
- tag select randomly 0 or 1 .
+ tag select randomly '0' or '1' .
  Thus, the colliding tags will be separated into two subgroups.
- Tags, which have selected 0 , always transmit their IDs to the reader first.
+ Tags, which have selected '0' always transmit their IDs to the reader first.
  If a collision re-occurs, collided tags are splitted again by selecting
- 0 or 1.
- Tags, which have selected 1 , have to wait until all other tags which have
- select 0 are successfully identified by the reader.
+ '0' or '1'.
+ Tags, which have selected '1' have to wait until all other tags which have
+ selected '0' are successfully identified by the reader.
  This procedure continues recursively until the subset is reduced to one
  tag, that is identified without collisions.
  
@@ -454,26 +461,14 @@ reference "fig:Binary-tree-anti-collision"
 
 \end_inset
 
- shows an example for the binary tree algorithm resolving the collision
- of 
-\begin_inset Formula $4$
-\end_inset
-
- tags in a reading area.
+ shows an example of the binary tree algorithm resolving the collision of
+ four tags in a reading area.
  Thus, we have a collided time slot at the beginning.
  At time slot 
 \begin_inset Formula $2$
 \end_inset
 
-, each collided tag has to choose 
-\begin_inset Formula $0$
-\end_inset
-
- or 
-\begin_inset Formula $1$
-\end_inset
-
- randomly.
+, each collided tag has to choose '0' or '1' randomly.
  In our example, tags 
 \begin_inset Formula $1$
 \end_inset
@@ -482,11 +477,7 @@ reference "fig:Binary-tree-anti-collision"
 \begin_inset Formula $2$
 \end_inset
 
- have selected 
-\begin_inset Formula $0$
-\end_inset
-
-.
+ have selected '0'.
  However, tags 
 \begin_inset Formula $3$
 \end_inset
@@ -495,11 +486,7 @@ reference "fig:Binary-tree-anti-collision"
 \begin_inset Formula $4$
 \end_inset
 
- have selected 
-\begin_inset Formula $1$
-\end_inset
-
-.
+ have selected '1'.
  According to binary tree algorithm, tags 
 \begin_inset Formula $3$
 \end_inset
@@ -530,7 +517,7 @@ reference "fig:Binary-tree-anti-collision"
 \end_inset
 
 .
- Due to collision, both tag 
+ Due to collision, both tags 
 \begin_inset Formula $1$
 \end_inset
 
@@ -538,16 +525,8 @@ reference "fig:Binary-tree-anti-collision"
 \begin_inset Formula $2$
 \end_inset
 
- have to choose either 
-\begin_inset Formula $0$
-\end_inset
-
- or 
-\begin_inset Formula $1$
-\end_inset
-
-.
- In this example, both tag 
+ have to choose either '0' or '1'.
+ In this example, both tags 
 \begin_inset Formula $1$
 \end_inset
 
@@ -555,11 +534,7 @@ reference "fig:Binary-tree-anti-collision"
 \begin_inset Formula $2$
 \end_inset
 
- have selected 
-\begin_inset Formula $1$
-\end_inset
-
-.
+ have selected '1'.
  This resulted and empty slot in time slot 
 \begin_inset Formula $3$
 \end_inset
@@ -573,19 +548,11 @@ reference "fig:Binary-tree-anti-collision"
 \begin_inset Formula $1$
 \end_inset
 
- has selected 
-\begin_inset Formula $0$
-\end_inset
-
- and tag 
+ has selected '0' and tag 
 \begin_inset Formula $2$
 \end_inset
 
- has selected 
-\begin_inset Formula $1$
-\end_inset
-
-.
+ has selected '1'.
  This random selection made them separated and resulted two successive successfu
 l slots in time slots 
 \begin_inset Formula $5$
@@ -649,25 +616,26 @@ name "fig:Query-tree-anti-collision"
 \end_layout
 
 \begin_layout Subsubsection*
-Query Tree
+Query tree
 \end_layout
 
 \begin_layout Standard
-Query tree algorithm 
+Another category from tree algorithm is the query tree algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Query_tree"
 
 \end_inset
 
- is also commonly used in tree-based anti-collision algorithm.
+.
+ It is also commonly used in tree-based anti-collision algorithm.
  In this algorithm, the broadcast is a query signal asking the tags for
  a reply.
  If there is a collision, it starts splitting the collided tags into two
  groups by sending a new query signal with a single bit 0 or 1 randomly.
  Tags in the reading area receive this signal and match this bit with its
  ID.
- If this bit matches their ID, then, they transmit their ID.
+ If this bit matches their ID, they transmit their ID.
  If a collision happened again, the reader adds another random bit 0 or
  1 to its next query signal.
  This process is repeated until the reader receives a successful single
@@ -684,7 +652,7 @@ reference "fig:Query-tree-anti-collision"
 
  presents an example for the query tree algorithm resolving the collision
  of 4 tags in a reading area.
- At time slot 1 ,the reader broadcasts a query signal asking them for a
+ At time slot 1, the reader broadcasts a query signal asking them for a
  reply.
  A collision between the four tags is happening.
  The reader sends a '0' in a new query signal at time slot 2 .
@@ -693,8 +661,8 @@ reference "fig:Query-tree-anti-collision"
  Thereby, the reader has sent a '00' in its next query signal in time slot
  3.
  At this time, there is a collision between two tags, leading the reader
- to send '000' in time slot 4 .
- At last, the reader has received a single successful reply from tag 1 .
+ to send '000' in time slot 4.
+ At last, the reader has received a single successful reply from tag 1.
  This process is repeated until the reader identify all the tags in the
  reading area.
 \begin_inset Float figure
@@ -744,8 +712,15 @@ Probabilistic Anti-collision Protocols
 
 \begin_layout Standard
 The main problem of using tree-based protocols is that these protocols are
- not efficient in dense network (large number of tags), due to the increase
- in identification time.
+ not efficient in dense networks (large number of tags), due to the increase
+ in identification time 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha1"
+
+\end_inset
+
+.
  Therefore, in dense network, ALOHA anti-collision protocols are more suitable.
  ALOHA anti-collision protocols are the most commonly used in UHF active
  and passive RFID.
@@ -817,17 +792,17 @@ reference "fig:Example-for-slotted"
  However, time is divided into slots.
  In this protocol, the reader broadcasts a query signal which includes the
  beginning of each slot.
- Each tag chooses randomly if it will transmit at this slot or wait for
- another slot.
+ Each tag chooses randomly if it will transmit in this slot or wait for
+ a coming slot.
  The main advantage of this technique compared to basic ALOHA is: In slotted
- ALOHA, tag's replies are completely synchronized.
- Therefore, collided slots are completely overlapping tags.
- However, in basic ALOHA protocol, the partial overlapping exists.
+ ALOHA, tag replies are completely synchronized.
+ Therefore, collided slots are completely timing overlapping tags.
+ However, in basic ALOHA protocol, the partial timing overlapping exists.
  
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -886,10 +861,10 @@ key "Aloha1"
 \end_inset
 
 .
- FSA anti-collision protocol uses fixed frame length.
- Thus, the frame length is fixed during the complete tags identification
+ The FSA anti-collision protocol uses a fixed frame length.
+ Thus, the frame length is fixed during the complete tag identification
  process.
- At the beginning of each frame, the reader broadcasts a Query signal to
+ At the beginning of each frame, the reader broadcasts a query signal to
  all the tags.
  This signal includes the frame size.
  Each tag has to choose random number between 
@@ -916,16 +891,8 @@ reference "fig:Example-for-frame"
 
 \end_inset
 
- presents an example for the identification process for 
-\begin_inset Formula $4$
-\end_inset
-
- tags using FSA.
- In this example, the frame length is selected to be 
-\begin_inset Formula $4$
-\end_inset
-
- slots.
+ presents an example for the identification process of four tags using FSA.
+ In this example, the frame length is selected to be four slots.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -933,21 +900,15 @@ reference "fig:Example-for-frame"
 
 \end_inset
 
-, tag 4 transmits at the first slot alone.
+, tag 4 transmits in the first slot alone.
  Thus, it is a successful slot.
- At the second slot, no tag has replied.
- So, it was an empty slot.
- At the third slot, tags 
-\begin_inset Formula $3,\,4$
-\end_inset
-
- have replied together, which resulted a collided slot.
- According to the FSA rules, tags 
-\begin_inset Formula $3,\,4$
-\end_inset
-
- are not allowed to resubmit their IDs again during the same frame.
- Thus at slot 
+ In the second slot, no tag has replied.
+ So, it is an empty slot.
+ In the third slot, tags 3 and 4 have replied together, which results in
+ a collided slot.
+ According to the FSA rules, tags 3 and 4 are not allowed to resubmit their
+ IDs again during the same frame.
+ Thus in slot 
 \begin_inset Formula $4$
 \end_inset
 
@@ -956,8 +917,7 @@ reference "fig:Example-for-frame"
 \end_inset
 
  only is allowed to reply to have another successful slot.
- In the next frame, the same procedure is repeated until we have the all
- tags are identified.
+ In the next frame, the same procedure is repeated until all tags are identified.
  
 \begin_inset Float figure
 wide false
@@ -1032,19 +992,19 @@ key "FSA_2012"
 
  is the most widely used anti-collision protocol for RFID systems owing
  to its simplicity and robustness.
- In DFSA, the reading process is divided into successive frames, in which,
+ In DFSA, the reading process is divided into successive frames, in which
  each frame includes a specific number of slots.
  During the reading process, each active tag randomly assigns itself to
  one of the available slots in the frame.
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Dynamic_Frame_slotted_ALOHA.emf
+	filename Dynamic_Frame_slotted_ALOHA_2.emf
 	lyxscale 13
 	width 60page%
 
@@ -1195,7 +1155,7 @@ reference "fig:Framed-Slotted-ALOHA"
 \begin_inset Formula $L=64$
 \end_inset
 
- and different number of tags.
+ and different numbers of tags.
  The main goal of optimizing the DFSA algorithm is finding the optimal frame
  length 
 \begin_inset Formula $L$
@@ -1249,13 +1209,6 @@ key "Vogt_1"
 \end_inset
 
  for the next reading frame.
- Therefore, the system performance mainly depends on the precision of the
- estimated number of tags 
-\begin_inset Formula $\hat{n}$
-\end_inset
-
- then adapting the frame length of DFSA to keep on working with maximum
- efficiency.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1264,7 +1217,7 @@ reference "fig:Flow-chart-of"
 \end_inset
 
  presents a summary for dynamic Framed Slotted ALOHA (DFSA).
- As shown in the chart, the reader starts with initial frame length.
+ As shown in the chart, the reader starts with an initial frame length.
  Then, it broadcasts this frame length to the tags in the reading area.
  Afterwards, it performs a normal FSA.
 \begin_inset Float figure
@@ -1361,8 +1314,14 @@ DFSA with EPCglobal C1G2
 \end_layout
 
 \begin_layout Standard
-In this section, a brief introduction about DFSA with EPCglobal C1 G2 will
- be described.
+In this section, a brief introduction about DFSA with EPCglobal C1 G2 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ will be described.
  Reading process for an 
 \begin_inset Formula $n$
 \end_inset
@@ -1376,14 +1335,7 @@ reference "fig:Conventional-variable-frame"
 
 \end_inset
 
- shows an example for the frame length adaptation in EPCglobal C1 G2 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "standard"
-
-\end_inset
-
-.
+ shows an example for the frame length adaptation in EPCglobal C1 G2.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1403,7 +1355,7 @@ reference "fig:Conventional-variable-frame"
  Then each slot is checked.
  If there is no tag reply, the frame length should be decreased.
  If it is an collided slot, the frame length is increased.
- Finally if the slot is a successful slot, the frame length will remain
+ Finally, if the slot is a successful slot, the frame length will remain
  as it is.
  
 \begin_inset Float figure
@@ -1638,7 +1590,7 @@ reference "fig:Single-tag-reply"
 \end_inset
 
  shows the case of single tag reply.
- In this case, the tag replies with its Random Number 16 (RN16) 
+ In this case, the tag replies with its Random Number 16 (RN16)
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "RN16"
@@ -1647,9 +1599,9 @@ description "Random Number 16"
 \end_inset
 
 , which is 16 bits random number.
- When the reader receive this RN16 it will acknowledge this tag with an
+ When the reader receives this RN16 it will acknowledge this tag with an
  ACK command includes this RN16.
- As soon as the tag receives a valid Acknowledgment (ACK) 
+ As soon as the tag receives a valid Acknowledgment (ACK)
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "ACK"
@@ -1658,7 +1610,6 @@ description "Acknowledgment"
 \end_inset
 
  with its RN16, it will reply with its unique Electronic Product Code (EPC)
- 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "EPC"
@@ -1667,7 +1618,7 @@ description "Electronic Product Code"
 \end_inset
 
 .
- Finally the reader will send a handle command to the tag to mute it until
+ Finally, the reader will send a handle command to the tag to mute it until
  the end of the complete reading process.
  In figure 
 \begin_inset CommandInset ref
@@ -1810,7 +1761,7 @@ where
 \begin_inset Formula $100\%$
 \end_inset
 
-, independent of 
+, independently of the actual 
 \begin_inset Formula $i$
 \end_inset
 
@@ -1819,7 +1770,7 @@ where
 \end_layout
 
 \begin_layout Standard
-According to equations (
+According to (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:eff_PHY_2"
@@ -1840,7 +1791,7 @@ reference "eq:rff_PHY"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \noindent
@@ -1885,7 +1836,7 @@ name "fig:Differences-between-the-1"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \noindent
@@ -2010,12 +1961,19 @@ name "fig:Measured-Slots-durations-1"
 \end_layout
 
 \begin_layout Subsection
-Slots Durations in UHF RFID 
+Slots Durations in EPCglobal C1 G2
 \end_layout
 
 \begin_layout Standard
-Conventional RFID systems can not identify the type of the slots in FSA.
- Therefore, such systems consider the slot duration of FSA is constant,
+Conventional RFID systems cannot identify the type of the slots in FSA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Vogt_1"
+
+\end_inset
+
+.
+ Therefore, such systems consider that the slot duration of FSA is constant,
  neglecting the type of the slot.
  Modern RFID readers can quickly identify the type of a slot (i\SpecialChar \@.
 e\SpecialChar \@.
@@ -2092,7 +2050,7 @@ According to the above discussion, the reading efficiency equation will
 To sum up, the main lack in the previous RFID researches is that the MAC
  layer is optimized independent on the PHY layer layer.
  However, the PHY-layer properties affects the optimization parameters of
- the MAC layer e.g.
+ the MAC layer, e.g.
  the number of tags estimation and the optimum frame length.
  In this thesis, I will concentrate on optimizing DFSA anti-collision protocol,
  either number of tags estimation or frame length optimization.
