@@ -255,8 +255,7 @@ In this protocol, a single frequency band is divided to time slots and is
  assigned to tags.
  One of the most important features of this technique is that each tag must
  be synchronized to the time slots and send its information at the beginning
- of the selected slot as e.g.
- 
+ of the selected slot 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "TDMA"
@@ -267,14 +266,14 @@ key "TDMA"
  This technique can be directly applied to passive RFID systems.
  In such systems, the simplicity of tags transfers the complexity to the
  readers, where the reader has to control the time synchronization.
- However in active RFID systems, synchronization can be either centralized
- or distributed on the tags.
+ However, in active RFID systems, synchronization can be either centralized
+ or distributed to the tags.
 \end_layout
 
 \begin_layout Standard
 In UHF passive dense RFID system, both TDMA and SDMA are the most commonly
  used PHY-layer anti-collision protocols.
- In such systems, there is only a single reader versus a large number of
+ In these systems, there is only a single reader versus a large number of
  tags.
  Thus, there is no problem to increase the complexity of the reader.
  However, the tags should be as cheap and simple as possible.

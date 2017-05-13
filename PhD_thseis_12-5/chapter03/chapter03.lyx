@@ -312,10 +312,10 @@ reference "fig:Common-existing-MAC-Layer"
  deterministic protocols and probabilistic protocols.
  Deterministic protocols are used in the systems with known number of tags
  to be identified in the reading area.
- These types of protocols use mainly tree algorithms in their identification
- processes.
- However, the probabilistic protocols are in systems with unknown number
- of tags (most commonly used).
+ These types of protocols are mainly based on tree algorithms for the identifica
+tion processes.
+ Probabilistic protocols are in systems with unknown number of tags (most
+ commonly used).
  Probabilistic protocols are mainly based on ALOHA algorithm.
  
 \begin_inset Float figure
@@ -369,7 +369,7 @@ Deterministic Anti-collision Protocols
 \end_layout
 
 \begin_layout Standard
-It is commonly named Tree-based anti-collision protocols.
+It is commonly named tree-based anti-collision protocols.
  In such algorithms, the reader aims to identify a set of tags in the coverage
  area in subsequent time slots.
  Each time slot contains a query command, transmitted from the reader, and
@@ -382,7 +382,7 @@ It is commonly named Tree-based anti-collision protocols.
 \end_layout
 
 \begin_layout Subsubsection*
-Binary Tree
+Binary tree
 \end_layout
 
 \begin_layout Standard
@@ -649,7 +649,7 @@ name "fig:Query-tree-anti-collision"
 \end_layout
 
 \begin_layout Subsubsection*
-Query Tree
+Query tree
 \end_layout
 
 \begin_layout Standard
