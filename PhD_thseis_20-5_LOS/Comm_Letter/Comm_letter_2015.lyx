@@ -1,0 +1,1836 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass IEEEtran
+\begin_preamble
+\usepackage[nospace]{cite}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 10
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.3cm
+\topmargin 2.2cm
+\rightmargin 1.1cm
+\bottommargin 2.3cm
+\headheight 1.5cm
+\headsep 1cm
+\footskip 1.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 2
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A Time and Capture Probability Aware Closed Form Frame Slotted ALOHA Frame
+ Length Optimization
+\end_layout
+
+\begin_layout Author
+Hamed Salah, Hazem A.
+ Ahmed, Joerg Robert, Albert Heuberger 
+\begin_inset Newline newline
+\end_inset
+
+Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), Information Technology
+ (Communication Electronics)
+\begin_inset Newline newline
+\end_inset
+
+{hamed.kenawy, hazem.a.elsaid, joerg.robert, albert.heuberger}@fau.de
+\end_layout
+
+\begin_layout Abstract
+Minimizing the reading time in dense Radio-Frequency Identification (RFID)
+ networks is a critical issue.
+ Commonly used RFID systems are based on Frame Slotted ALOHA (FSA) for tag
+ anti-collision management.
+ The usual approach for improved reading times with large tag populations
+ is the optimization of the number of slots per frame.
+ In real RFID systems, the slot duration depends on the slot type (i\SpecialChar \@.
+e\SpecialChar \@.
+ idle,
+ successful, or collided).
+ In addition, collided slots might be converted to successful slots by capturing
+ the strongest transponder, i\SpecialChar \@.
+e\SpecialChar \@.
+ the so-called capture effect.
+ Recent publications have proposed numerical solutions for obtaining the
+ optimum frame length under these assumptions.
+ The authors employ numerical solutions that require Multi-dimensional look-up
+ tables for obtaining the optimum frame length.
+ In this paper we propose a closed form solution for the analytical calculation
+ of the optimum frame length.
+ The proposed solution gives a novel closed form equation for the frame
+ length considering the different slot durations and the capture effect.
+ Moreover, the paper presents a new method to calculate the capture probability
+ per frame.
+ Simulations indicate that the proposed solution gives accurate results
+ for all relevant parameter configurations without any need for Multi-dimensiona
+l look-up tables.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+INTRODUCTION
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+IEEEPARstart{O}{ver}
+\end_layout
+
+\end_inset
+
+ the recent years, the number of applications that use Radio-Frequency Identific
+ation (RFID) has increased, and that number will further grow in the near
+ future.
+ One main application is the area of logistics, where e\SpecialChar \@.
+g\SpecialChar \@.
+ hundreds of tags
+ (transponders) may be closely placed on pallets.
+ This naturally requires fast RFID readers in order to not slow down the
+ delivery process of the actual goods.
+ Commonly used RFID standards in the area of logistics (e\SpecialChar \@.
+g\SpecialChar \@.
+ ISO 18000-6C
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+) base on TDMA (time division multiple access).
+ In commercial RFID systems, the tags have to be of low price and simple
+ design.
+ Hence, they neither can sense the channel nor communicate with the other
+ tags.
+ Thus, there is a certain probability of tag-collisions, i.e.
+ multiple tags answer simultaneously.
+ This collision probability increases in dense networks with many tags.
+ Hence, the readers are responsible for efficiently coordinating the network,
+ and for the avoidance of collisions using anti-collision algorithms.
+\end_layout
+
+\begin_layout Standard
+The EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ uses an anti-collision algorithm based on Framed Slotted ALOHA (FSA) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha2_Floerkemeier"
+
+\end_inset
+
+.
+ The reader signals the frame length (i\SpecialChar \@.
+e\SpecialChar \@.
+ the number of available slots in
+ the frame) to the tags.
+ Each tag then randomly assigns itself to one of the available slots and
+ replies to the reader within this slot.
+ Using this algorithm, the reader is able to successfully decode the data
+ in a specific slot if only one tag replies within this slot.
+ We call this slot type a successful slot.
+ Furthermore, we have empty slots (i\SpecialChar \@.
+e\SpecialChar \@.
+ no tag replies) and collided slots
+ (i\SpecialChar \@.
+e\SpecialChar \@.
+ multiple tags reply).
+ Due to collisions the reader is not able to identify all tags in one frame.
+ Hence, it has to use multiple frames to read all tags.
+ As a tag is deactivated after its successful reading, the number of tags
+ will decrease from frame to frame and all parameters have to be adjusted.
+\end_layout
+
+\begin_layout Standard
+The conventional definition of the reading efficiency 
+\begin_inset Formula $\eta_{conv}$
+\end_inset
+
+ for FSA w\SpecialChar \@.
+r\SpecialChar \@.
+t\SpecialChar \@.
+ a single frame is equivalent to the expected number of successful
+ slots 
+\begin_inset Formula $S$
+\end_inset
+
+ divided by the summation of the expected number of empty 
+\begin_inset Formula $E$
+\end_inset
+
+, successful 
+\begin_inset Formula $S$
+\end_inset
+
+, and collided 
+\begin_inset Formula $C$
+\end_inset
+
+ slots.
+\end_layout
+
+\begin_layout Standard
+For a given number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ and a frame length of 
+\begin_inset Formula $L$
+\end_inset
+
+ slots, the main goal is finding the optimal frame length 
+\begin_inset Formula $L$
+\end_inset
+
+, which maximizes the reading efficiency 
+\begin_inset Formula $\eta_{_{conv}}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha2_Floerkemeier"
+
+\end_inset
+
+.
+ The reading efficiency 
+\begin_inset Formula $\eta_{_{_{conv}}}$
+\end_inset
+
+ is maximized to 
+\begin_inset Formula $\eta_{_{_{conv}}}=36\%$
+\end_inset
+
+ for 
+\begin_inset Formula $L=n$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha2_Floerkemeier"
+
+\end_inset
+
+.
+ However, this assumption is not precise, as it does not take into consideration
+ the near-far problem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "near_far1"
+
+\end_inset
+
+, which is very common in passive RFID systems.
+ A tag that is close to the reader would reply with a significantly higher
+ level than other tags that are more distant.
+ In many cases, the reader would be able to decode the closest tag, even
+ in case of a collided slot.
+ This effect is the so-called capture effect.
+ Another important aspect that has to be taken into consideration is the
+ duration of the slots.
+ The conventional FSA anti-collision algorithms assumes identical durations
+ of empty, successful, and collided slots.
+ However, in actual RFID systems these durations differ significantly between
+ the different slot types 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "4_1_closed_form_Lopt_not_accurate"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+According to the literature we can divide the previous research for the
+ optimization of the frame length into three different groups:
+\end_layout
+
+\begin_layout Standard
+The first group considered only the capture probability for the frame length
+ optimizations, such as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+.
+ The authors proposed a closed form equation for the optimum frame length
+ maximizing the reading throughput per frame.
+\end_layout
+
+\begin_layout Standard
+The second group considered only the different slot durations, such as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "4_1_closed_form_Lopt_not_accurate,optimizin_total_latency"
+
+\end_inset
+
+.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "optimizin_total_latency"
+
+\end_inset
+
+ the authors have optimized the total latency to read a bunch of tags.
+ However, no closed form solution for the optimum frame length was derived.
+ They calculate the optimum frame length numerically.
+ Only 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "4_1_closed_form_Lopt_not_accurate"
+
+\end_inset
+
+ proposed a closed form equation for the optimum frame length taking into
+ consideration the different slot durations.
+ However, the authors did not take into their consideration the effect of
+ the capture probability.
+ Additionally, the equation uses the Lambert-W function that does not exist
+ in an explicit form.
+\end_layout
+
+\begin_layout Standard
+Finally, the third group considered the different slot durations and the
+ capture effect, such as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_time_2015,Ref_4_4_2013_Cap_time,2012_curve_fitting"
+
+\end_inset
+
+.
+ Both 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_time_2015,Ref_4_4_2013_Cap_time"
+
+\end_inset
+
+ gave numerical solutions for the optimum frame length versus the capture
+ probability and the number of tags.
+ The main problems of their numerical solutions occur when taking into account
+ the multiple degrees of freedom: the solutions require a complex multidimension
+al look-up table that has to consider all possible degrees of freedom.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_curve_fitting"
+
+\end_inset
+
+ uses curve fitting to find a closed form solution for the optimum frame
+ length at a specific capture probability and timing.
+ However, this solution can not be generalized for all values of slot's
+ timing and capture probabilities.
+\end_layout
+
+\begin_layout Standard
+In this work, we will derive a closed form solution for the optimum frame
+ length by optimizing the reading throughput per frame that does not require
+ any look-up table 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_time_2015,Ref_4_4_2013_Cap_time"
+
+\end_inset
+
+.
+ In addition, we take into consideration the capture effect and the different
+ slot durations.
+ The capture probability takes a value between 
+\begin_inset Formula $0$
+\end_inset
+
+ and 
+\begin_inset Formula $1$
+\end_inset
+
+, and the ratio between the empty and collided slot varies between 
+\begin_inset Formula $0.18$
+\end_inset
+
+ and 
+\begin_inset Formula $0.7$
+\end_inset
+
+ based on the derived formula in section IV, so two dimensional search is
+ needed to calculate the frame length numerically which is time consuming
+ in a critical time application like RFID.
+ Moreover, we will clarify how we calculate the capture probability based
+ on the physical layer.
+ Afterwards, we will clarify the effect on the optimum frame length calculations
+ due to the estimation error of the capture probability.
+ This paper is organized as follows: Section II presents our system model
+ and considers the different slot durations and the capture effect.
+ In section III, we analytically derive a new closed form equation for the
+ optimal frame length based on the Time and Capture Probability Aware FSA.
+ Finally, we show how we estimate the capture probability and calculate
+ the value of the slot duration constant before proving our derivations
+ by comparing our analytical equations to numerical results.
+\end_layout
+
+\begin_layout Section
+SYSTEM MODEL WITH DIFFERENT SLOT DURATIONS CONSIDERING THE CAPTURE EFFECT
+\end_layout
+
+\begin_layout Standard
+In this section we introduce the Time and Collision Recovery Aware reading
+ efficiency 
+\begin_inset Formula $\eta_{_{TCA}}$
+\end_inset
+
+.
+ The main properties for this efficiency are the consideration of the different
+ slot durations and the capture probability.
+ Firstly, we consider the different slot durations.
+ The new time aware reading efficiency is then given by:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{TA}}=\frac{S\cdot t_{s}}{E\cdot t_{e}+S\cdot t_{s}+C\cdot t_{c}},\label{eq:TA_efficiency}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{s}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ are the durations of the empty, the successful, and the collided slots,
+ respectively.
+ In addition, 
+\size small
+
+\begin_inset Formula $E=L\left(1-\frac{1}{L}\right)^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $S=n\left(1-\frac{1}{L}\right)^{n-1}$
+\end_inset
+
+
+\size default
+, and 
+\size small
+
+\begin_inset Formula $C=L-E-S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Adding the capture effect assuming a capture probability 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, the actual values of 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, and 
+\begin_inset Formula $C$
+\end_inset
+
+ have to be converted to 
+\begin_inset Formula $E_{c}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{c}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{c}$
+\end_inset
+
+, respectively 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+.
+ Their relation is given by:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+E_{c}=E,\,S_{c}=S+\alpha\cdot C,\,C_{c}=(1-\alpha)\cdot C.\label{eq:Succ and Coll with cap}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Basically, collided slots are converted to successful slots with probability
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ From (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Succ and Coll with cap"
+
+\end_inset
+
+), the time and capture probability aware efficiency 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_time_2015"
+
+\end_inset
+
+ can then be written as:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{_{TCA}}}=\frac{t_{s}\cdot S_{c}}{t_{e}\cdot E_{c}+t_{s}\cdot S_{c}+t_{c}\cdot C_{c}}.\label{eq:eff-semi_simple}
+\end{equation}
+
+\end_inset
+
+
+\size default
+The goal is now the maximization of 
+\begin_inset Formula $\eta_{_{_{TCA}}}$
+\end_inset
+
+ for obtaining the maximum reading efficiency.
+\end_layout
+
+\begin_layout Section
+DERIVATION OF THE PROPOSED CLOSED FORM SOLUTION FOR THE OPTIMAL FRAME LENGTH
+\end_layout
+
+\begin_layout Standard
+In this section we derive the proposed optimal time and capture-aware frame
+ size 
+\begin_inset Formula $L_{_{TCA}}$
+\end_inset
+
+ that takes into consideration the different slot durations and the capture
+ effect.
+ This is achieved by differentiating the reading efficiency 
+\begin_inset Formula $\eta_{_{_{TCA}}}$
+\end_inset
+
+ of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff-semi_simple"
+
+\end_inset
+
+) with respect to the frame length 
+\begin_inset Formula $L$
+\end_inset
+
+ and equate the result to zero.
+\end_layout
+
+\begin_layout Standard
+Clearly, the frame length 
+\begin_inset Formula $L$
+\end_inset
+
+ is an integer value.
+ Therefore, differentiating the equation is not fully correct.
+ However, we will later show that the resulting error is negligible.
+ According to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Succ and Coll with cap"
+
+\end_inset
+
+), 
+\begin_inset Formula $E_{c}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{c}$
+\end_inset
+
+, and 
+\begin_inset Formula $C_{c}$
+\end_inset
+
+ are a function of 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ However, 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{s},$
+\end_inset
+
+ 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ are constants for a given system configuration.
+ Thus, the equation can be simplified to: 
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{(t_{e}E_{c}+t_{s}S_{c}+t_{c}C_{c})t_{s}\frac{d}{dL}(S_{c})-t_{s}S_{c}\frac{d}{dL}(t_{e}E_{c}+t_{s}S_{c}+t_{c}C_{c})}{(t_{e}E_{c}+t_{s}S_{c}+t_{c}C_{c})^{2}}\\
+=0.\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After multiplying both sides by the denominator and dividing by 
+\begin_inset Formula $t_{s}$
+\end_inset
+
+ (non-zero constant), and subtracting the term, which is multiplied by 
+\begin_inset Formula $t_{s},$
+\end_inset
+
+ the equation results in:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\left(t_{e}E_{c}+t_{c}C_{c}\right)\frac{d}{dL}(S_{c})=S_{c}\frac{d}{dL}\left(t_{e}E_{c}+t_{c}C_{c}\right).\label{eq:simple differentiation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then, the substitution by the values of 
+\begin_inset Formula $E_{c}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{c}$
+\end_inset
+
+, and 
+\begin_inset Formula $C_{c}$
+\end_inset
+
+ from (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Succ and Coll with cap"
+
+\end_inset
+
+) leads to the final exact equation for the proposed time and capture probabilit
+y aware frame length:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{eqnarray}
+(1-\alpha)\cdot(1-\frac{n}{L_{_{TCA}}})+\alpha\cdot C_{t}\cdot\left(1-\frac{1}{L_{_{TCA}}}\right)\label{eq:Lopt comlex expresion}\\
++\left(C_{t}-1\right)\cdot(1-\alpha)\cdot\left(1-\frac{1}{L_{_{TCA}}}\right)^{n} & = & 0,\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of tags, and 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ is the slot duration constant defined as 
+\begin_inset Formula $C_{t}=\frac{t_{e}}{t_{c}}$
+\end_inset
+
+.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion"
+
+\end_inset
+
+) shows the exact relation between the proposed capture and time-aware optimum
+ frame length 
+\begin_inset Formula $L_{_{CTA}}$
+\end_inset
+
+ and the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ This equation takes into consideration the capture effect and the different
+ slot durations.
+ However, this solution depends on a recursive equation.
+ For reaching an explicit equation, (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion"
+
+\end_inset
+
+) can be expressed as:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{eqnarray}
+(1-\alpha)\cdot(1-\frac{1}{\beta})+\alpha\cdot C_{t}\cdot\left(1-\frac{1}{\beta n}\right)\label{eq:bita equation}\\
++\left(C_{t}-1\right)\cdot(1-\alpha)\cdot\left(1-\frac{1}{\beta n}\right)^{n} & = & 0,\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\beta=\frac{L_{TCA}}{n}$
+\end_inset
+
+.
+ As we are focusing on systems with a large number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+, we can use the approximation
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\underset{n\rightarrow\infty}{\lim}\left(1-\frac{1}{\beta n}\right)^{n}=e^{-\frac{1}{\beta}},\label{eq:approx_1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which simplifies (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:bita equation"
+
+\end_inset
+
+) to:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{eqnarray}
+(1-\alpha)\cdot\left(1-\frac{1}{\beta}\right)+\alpha\cdot C_{t}\cdot\left(1-\frac{1}{\beta n}\right)\label{eq:first_approx}\\
++(1-\alpha)\cdot\left(C_{t}-1\right)e^{-\frac{1}{\beta}} & = & 0.\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The analysis of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion"
+
+\end_inset
+
+) indicates that the relevant values for 
+\size footnotesize
+
+\begin_inset Formula $\beta=\frac{L_{TCA}}{n}$
+\end_inset
+
+
+\size default
+ are in the region close to one 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ref_4_4_2013_Cap_time"
+
+\end_inset
+
+.
+ Hence, we can develop a Taylor series for 
+\begin_inset Formula $e^{-\frac{1}{\beta}}$
+\end_inset
+
+ around one which leads to:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+e^{-\frac{1}{\beta}}\simeq1-\frac{1}{\beta}+\frac{1}{2\beta^{2}}.\label{eq:taylor}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After substituting (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:first_approx"
+
+\end_inset
+
+) and some additional simplifications, we get:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\beta^{2}C_{t}-\beta C_{t}(1+\frac{\alpha}{n})-0.5\left(1-\alpha\right)\cdot\left(1-C_{t}\right)=0.\label{eq:quadratic equation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $\frac{\alpha}{n}\ll1,$
+\end_inset
+
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:quadratic equation"
+
+\end_inset
+
+) can be expressed as:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\beta^{2}C_{t}-\beta C_{t}-0.5\left(1-\alpha\right)\cdot\left(1-C_{t}\right)=0.\label{eq:final quadratic equation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By solving (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final quadratic equation"
+
+\end_inset
+
+) and rejecting the negative solution we finally reach to the final solution:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+L_{_{TCA}}=\frac{n}{2}\left(\left(1-\alpha\right)+\sqrt{\left(1-\alpha\right)^{2}+\frac{2}{C_{t}}\left(1-\alpha\right)\cdot\left(1-C_{t}\right)}\right).\label{eq:closed form}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As the optimization of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff-semi_simple"
+
+\end_inset
+
+) is a convex optimization problem, and there exits only one non-negative
+ solution of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final quadratic equation"
+
+\end_inset
+
+), (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+) leads to the global optimum.
+ According to the literature, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_time_2015"
+
+\end_inset
+
+ is the only work who used the same performance metric 
+\begin_inset Formula $\eta_{_{_{TCA}}}$
+\end_inset
+
+to get the optimum frame length.
+ However, in this work the authors did not propose any closed form solution
+ and they have to rely on Multi-dimensional look-up tables.
+ According to the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the proposed frame length in equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+) takes only discrete values of power 
+\begin_inset Formula $2$
+\end_inset
+
+.
+ Therefore, the possible quantized values of the optimum frame length can
+ be expressed as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+L_{_{QTCA}}=2^{\text{round}\left(\text{log}_{2}L_{TCA}\right)}.\label{eq:closed form quantized}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We will proof in the simulation results that 
+\begin_inset Formula $L_{QTCA}$
+\end_inset
+
+ leads to the optimum solution.
+\end_layout
+
+\begin_layout Section
+CAPTURE PROBABILITY AND SLOT DURATION CONSTANT CALCULATIONS
+\end_layout
+
+\begin_layout Standard
+In this section we will discuss in details how can we calculate the slot
+ duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ and the capture probability from the physical layer:
+\end_layout
+
+\begin_layout Subsection
+Slots Duration Constant calculation
+\end_layout
+
+\begin_layout Standard
+Based on the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ is 
+\begin_inset Formula $C_{t}=\frac{t_{e}}{t_{c}}$
+\end_inset
+
+, where 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+ is given by:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+t_{e}=T_{QRep}+T_{1}+T_{3}.\label{eq:te}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here, 
+\begin_inset Formula $T_{QRep}$
+\end_inset
+
+ is the query repeat command time, 
+\size small
+
+\begin_inset Formula $T_{QRep}=3.5\cdot DR\cdot T_{pri}$
+\end_inset
+
+
+\size default
+, 
+\begin_inset Formula $T_{pri}=\frac{1}{BLF}$
+\end_inset
+
+, 
+\size small
+
+\begin_inset Formula $BLF$
+\end_inset
+
+
+\size default
+ is the backscatter link frequency of the tag reply, and 
+\size small
+
+\begin_inset Formula $DR$
+\end_inset
+
+
+\size default
+ is the so-called divide ratio constant that can take the two values
+\size small
+ 
+\begin_inset Formula $DR=8\,\mbox{or}\,\frac{64}{3}$
+\end_inset
+
+
+\size default
+.
+ Next, 
+\begin_inset Formula $T_{1}$
+\end_inset
+
+ is the time from the reader transmission to the tag response with 
+\begin_inset Formula $T_{1}=\textrm{max}\left\{ DR\cdot T_{pri},\,10\cdot T_{pri}\right\} $
+\end_inset
+
+.
+ Finally,
+\begin_inset Formula $T_{3}$
+\end_inset
+
+ is the time that the reader waits after 
+\begin_inset Formula $T_{1}$
+\end_inset
+
+ before issuing another command.
+ As it has no constrains it can be assumed to be zero.
+\end_layout
+
+\begin_layout Standard
+Next, 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ is given by:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+t_{c}=T_{QRep}+T_{1}+T_{2}+T_{RN16},\label{eq:tc}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $T_{2}$
+\end_inset
+
+ is the reader response time starting from the end of the tag response,
+ 
+\begin_inset Formula $T_{2}=6\cdot T_{pri}$
+\end_inset
+
+, and 
+\begin_inset Formula $T_{RN16}$
+\end_inset
+
+ is the duration of the 
+\begin_inset Formula $16$
+\end_inset
+
+ bits temporary identifier reply of the tag.
+ It includes 
+\begin_inset Formula $16$
+\end_inset
+
+ bits data, 
+\begin_inset Formula $6$
+\end_inset
+
+ bits preamble, 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ pilot tones, i\SpecialChar \@.
+e\SpecialChar \@.
+ 
+\begin_inset Formula $T_{RN16}=(22+n_{p})\cdot T_{pri}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+After substituting (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:te"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:tc"
+
+\end_inset
+
+) in 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ equation, the the final expression of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ is:
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename capture_probability_vs_SNR.eps
+	lyxscale 12
+	width 100col%
+	height 13pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Capture probability versus the signal to noise ratio 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Capture-probability-versus"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+C_{t}=\frac{3.5\cdot DR+\textrm{max}\left\{ \mbox{\ensuremath{DR}},\,10\right\} }{3.5\cdot DR+\textrm{max}\left\{ DR,\,10\right\} +6+22\cdot M+n_{p}\cdot M}.\label{eq:ct_final}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $M$
+\end_inset
+
+ equals to 
+\begin_inset Formula $1,\,2,\,4$
+\end_inset
+
+, or 
+\begin_inset Formula $8$
+\end_inset
+
+ which represents the modulation types FM0, Miller 2, 4, or 8, respectively.
+\end_layout
+
+\begin_layout Subsection
+Capture Probability Calculation
+\end_layout
+
+\begin_layout Standard
+The capture probability varies in the range of 
+\begin_inset Formula $0\leq\alpha\leq1$
+\end_inset
+
+.
+ Its value depends on the Signal to Noise Ratio (SNR).
+ In this work, we measure the SNR for each slot.
+ Then, we calculate the average SNR per frame.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2010_Trans_CR"
+
+\end_inset
+
+, the authors proposed a method to capture the strongest tag reply based
+ the physical layer properties.
+ They have proposed a Bit Error Rate (BER) curve versus the SNR.
+ We want to calculate the capture probability for a complete collided RN16
+ packet, which includes 
+\begin_inset Formula $16$
+\end_inset
+
+ random successive bits.
+ The BER is mapped to Packet Error Rate (PER) by simulation as the channel
+ is not Binary Symmetric Channel (BSC).
+ The capture probability can be expressed as: 
+\begin_inset Formula $\alpha=(1-PER)$
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Capture-probability-versus"
+
+\end_inset
+
+ presents the values of the capture probabilities versus the average signal
+ to noise ratio per frame.
+ In this work, we calculate the average capture probability from the correspondi
+ng average SNR at the current frame.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Error_in_frame_length.eps
+	lyxscale 12
+	width 100col%
+	height 13pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Effect of the SNR measurement error on the proposed formula using sampling
+ rate 
+\begin_inset Formula $f_{s}=\unit[8]{MHz}$
+\end_inset
+
+, and symbol rate 
+\begin_inset Formula $\unit[640]{kHz}$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Effect-of-the"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+SIMULATIONS RESULTS AND COMPARISONS
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Effect-of-the"
+
+\end_inset
+
+ shows the relative error of the proposed formula (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+) due to the average SNR measurement error.
+ According to the European standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the bandwidth of the UHF RFID systems is 
+\begin_inset Formula $\unit[4]{MHz}$
+\end_inset
+
+, so we used a sampling frequency of 
+\begin_inset Formula $f_{s}=\unit[8]{MHz}$
+\end_inset
+
+.
+ To clarify the worst case effect of the estimation error, we used the highest
+ symbol rate 
+\begin_inset Formula $\unit[640]{kHz}$
+\end_inset
+
+ in this simulations.
+ The SNR per slot is measured at the first part of each slot 
+\begin_inset Formula $T_{1}$
+\end_inset
+
+.
+ The average SNR per frame is calculated as 
+\begin_inset Formula $E\left\{ \frac{\left|h\right|^{2}\cdot x^{2}}{\sigma^{2}}\right\} $
+\end_inset
+
+ , where 
+\begin_inset Formula $\text{\sigma}$
+\end_inset
+
+ is the standard deviation of the Additive White Gaussian Noise (AWGN) per
+ slot, and we used normalized signal power i.e.
+ 
+\begin_inset Formula $E\left\{ x^{2}\right\} =1$
+\end_inset
+
+ .
+ Based on 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2010_Trans_CR"
+
+\end_inset
+
+, we assumed that the equivalent channel coefficients 
+\begin_inset Formula $h$
+\end_inset
+
+ follow Rayleigh fading.
+ The single Rayleigh channel coefficients are independent zero mean circularly
+ symmetric complex Gaussian random variables with normalized energy 
+\begin_inset Formula $E\left\{ \left|h\right|^{2}\right\} =1$
+\end_inset
+
+, and all tags are statistically identical, which means all of them experience
+ the same path loss.
+ Therefore, the average SNR per frame is 
+\begin_inset Formula $E\left\{ \frac{1}{\sigma^{2}}\right\} $
+\end_inset
+
+.
+ Afterwards, we get the error in the measured SNR by comparing the measured
+ value by the nominal one.
+ According to the relation between the capture probability 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and the SNR (shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Capture-probability-versus"
+
+\end_inset
+
+), and the relation between the proposed optimum frame length and the capture
+ probability in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+), the estimation error of the measured SNR is mapped to an error of the
+ proposed frame length versus the SNR.
+ Based on Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Effect-of-the"
+
+\end_inset
+
+, for a constant value of the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+, the error in the frame length decreases when the SNR increases.
+ Moreover, when the slots duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ decreases, the error in the proposed formula increases up to 
+\begin_inset Formula $5\%$
+\end_inset
+
+ at zero dB SNR, which is negligible.
+\end_layout
+
+\begin_layout Standard
+Now we will compare the proposed closed form equation in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+) with the numerical results in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_time_2015"
+
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Non-quantized"
+
+\end_inset
+
+ shows the non-quantized optimal frame length of both algorithms for the
+ full range of the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+ Assuming a fixed number of 
+\begin_inset Formula $n=100$
+\end_inset
+
+ tags, figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Non-quantized"
+
+\end_inset
+
+ indicates that the proposed closed form approaches the numerical solution
+ for different 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ in the full range of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+ Due to the proposed approximations, there are slight differences between
+ the proposed closed form and the numerical solution, where the numerical
+ is the exact solution.
+ According to the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ the frame length is allowed to take only quantized values (power of 
+\begin_inset Formula $2$
+\end_inset
+
+).
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Quantized-Frame-Length"
+
+\end_inset
+
+ shows that the proposed frame length fully match the numerical solution
+ in the full range of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+CONCLUSIONS
+\end_layout
+
+\begin_layout Standard
+This paper proposes a novel closed form solution for analytically calculating
+ the optimum frame length for Frame Slotted ALOHA.
+ We especially consider the effects of unequal slot durations and the capture
+ probability, which have to be taken into account for optimizing the reading
+ speed in real RFID systems.
+ The theoretical derivations lead to a new analytical optimum frame length
+ equation that can be easily implemented in RFID readers.
+ The optimum frame length for different slot durations in addition to the
+ capture effect has been previously addressed in literature.
+ However, the authors did not derive any any closed form solution for this
+ problem.
+ Our proposed frame equation gives a direct linear relation with the number
+ of tags in the reading area instead of using Multi-dimensional look-up
+ tables.
+ Furthermore, our analytical solution can be used for further optimizations
+ of RFID systems.
+ Simulation results prove the correctness of our analytical solution.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Lopt_vs_n_diff_Ct_diff_alpha.eps
+	lyxscale 12
+	width 100col%
+	height 13pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Non-quantized Frame Length 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Non-quantized"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Lopt_vs_Ct_quantized_0.001_0.01_new.eps
+	lyxscale 12
+	width 100col%
+	height 13pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Quantized Frame Length 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Quantized-Frame-Length"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Optimum frame length 
+\begin_inset Formula $L_{_{TCA}}$
+\end_inset
+
+ as a function of the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ (
+\begin_inset Formula $n=100$
+\end_inset
+
+ tags) for the capture probabilities 
+\begin_inset Formula $\alpha=0.25,\,0.5,\,0.75$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Frame size ct"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Lopt_second_review"
+options "ieeetr"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

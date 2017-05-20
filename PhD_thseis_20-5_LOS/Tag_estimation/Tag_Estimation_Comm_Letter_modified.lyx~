@@ -1,0 +1,1880 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass IEEEtran
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding default
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.8cm
+\topmargin 2cm
+\rightmargin 1.8cm
+\bottommargin 2.1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A Closed Form Solution For Collision Recovery Aware Maximum Likelihood Tag
+ Estimation
+\end_layout
+
+\begin_layout Abstract
+Radio Frequency Identification (RFID) is a wireless technology allowing
+ for automatic identification of tags (transponders).
+ In case of large tag populations, the estimation algorithm has to be fast
+ and accurate.
+ Previous studies depend on the Medium Access (MAC) Layer information, i.e,
+ the working frame length, number of collided, successful, and empty slots
+ per frame.
+ However, modern systems have a collision recovery capability.
+ They have the ability to convert part of collided slots into successful
+ slots.
+ In such systems, the number of collided and successful slots at the MAC
+ layer are not accurate information about the real number of tags at the
+ reading area.
+ In this work, we propose a novel tag estimation method taking into consideratio
+n the collision recovery capability of the system.
+ The main advantage of the proposed method is that it gives a novel closed
+ form solution for the estimated number of tags considering the collision
+ recovery probability of the used system.
+ Simulation results indicate that the proposed solution gives more accurate
+ results compared to the literature without any need for Multi-dimensional
+ look-up tables.
+ Timing comparisons are presented in simulation results to show the mean
+ reduction in identification delay using the proposed estimation method
+ compared to other proposals.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Recently the number of applications that use RFID technology have increased,
+ and the reading speed became one of the most critical issues in these applicati
+ons.
+ In RFID systems, the tags typically share a common communications channel.
+ Thus, there is a certain probability of tag-collisions, i\SpecialChar \@.
+e\SpecialChar \@.
+ multiple tags
+ answer simultaneously.
+ This collision probability naturally increases in dense networks with many
+ tags.
+ Since passive tags are the most practical tags in the market, because of
+ their low price and simple design, they cannot sense the channel or communicate
+ with the other tags.
+ As a result, the reader is responsible for coordinating the network and
+ has to avoid tags collisions using specific anti-collision algorithms.
+\end_layout
+
+\begin_layout Standard
+The conventional anti-collision algorithm is the Framed Slotted ALOHA (FSA)
+ algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt"
+
+\end_inset
+
+, which is only a Medium Access Control (MAC) layer protocol.
+ In such systems, only the answer of a single tag is considered as a successful
+ slot, and if multiple tags respond simultaneously, a collision occurs.
+ Then all the replied tags are discarded.
+ The performance of FSA-based protocols is maximized by adapting the frame
+ length 
+\begin_inset Formula $L$
+\end_inset
+
+ to the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ However in practical applications, the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ in the interrogation region is unknown.
+ Furthermore, the number of tags may even vary, e\SpecialChar \@.
+g\SpecialChar \@.
+ when the tags are mounted
+ on moving goods.
+ Therefore, Dynamic Framed Slotted ALOHA (DFSA) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Vogt_1"
+
+\end_inset
+
+ is commonly used.
+ DFSA first estimates the number of tags in the interrogation area, and
+ then calculates the optimal frame size 
+\begin_inset Formula $L$
+\end_inset
+
+ for the next reading cycle.
+ Therefore, the system performance is controlled by how precise and fast
+ we estimate the number of tags in the interrogation area.
+\end_layout
+
+\begin_layout Standard
+A simple estimation methods have been proposed by Vogt and Schoute.
+ The lower bound estimation method proposed by Vogt 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Vogt_1"
+
+\end_inset
+
+ states that the remaining number of tags is double the number of collided
+ slots in the previous frame.
+ Schoute 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DFSA_shoute_Random"
+
+\end_inset
+
+ proposed a posterior expected factor of 
+\begin_inset Formula $2.39$
+\end_inset
+
+ to estimate the number of tags in the interrogation area.
+ However, these methods depend only on a single information which is the
+ number of collided slots.
+ Therefore, these methods lead to increase the tags estimation error in
+ dense networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Letter_2012"
+
+\end_inset
+
+.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt"
+
+\end_inset
+
+, The author proposed more complex estimation method minimizing the distance
+ between the observed empty 
+\begin_inset Formula $E_{obs}$
+\end_inset
+
+, successful 
+\begin_inset Formula $S_{obs}$
+\end_inset
+
+, collided 
+\begin_inset Formula $C_{obs}$
+\end_inset
+
+ slots and the expected values 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $C$
+\end_inset
+
+ for a given frame length 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ i.e., 
+\begin_inset Formula $\varepsilon_{conv}(L,\, S_{obs},\, C_{obs},\, E_{obs})=\underset{n}{min}\left\{ \left|E-E_{obs}\right|+\left|S-S_{obs}\right|+\left|C-C_{obs}\right|\right\} $
+\end_inset
+
+.
+ However, This method requires numerical searching to find the optimum value
+ of 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Moreover, the author assumed that tags are identically distributed in slots,
+ which is generally not accurate assumption.
+ Another approach proposed by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen"
+
+\end_inset
+
+.
+ The author assumed that tags in the frame are distributed using the binomial
+ model.
+ Once the 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $C$
+\end_inset
+
+ are obtained for given 
+\begin_inset Formula $L$
+\end_inset
+
+, a posteriori distribution is calculated.
+ Afterwards, the author searches for number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ which maximizes the given a posteriori probability.
+ An improved version of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen"
+
+\end_inset
+
+ includes the mutual dependence of different slot types is presented in
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Modified_chen"
+
+\end_inset
+
+.
+ However, this method is more complex and needs more iterations to find
+ the optimum value of 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Moreover, it does not improve the performance of the FSA compared to the
+ proposal in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen"
+
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Letter_2012"
+
+\end_inset
+
+ used the same approach in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen"
+
+\end_inset
+
+ but using Poisson model instead of the binomial model to reach to a less
+ complex equation and decrease the searching complexity.
+ However, it is still needs iterations of searching to obtain the optimum
+ value of 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_estimation_interpolation,2014_estimation_interpolation"
+
+\end_inset
+
+, these proposals included a closed form solutions for estimated number
+ of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ without need for searching iterations.
+ However, both methods use numerical interpolations to reach to the optimum
+ value of 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Therefore, both result equations can not be used utilizing further parameters
+ like the collision recovery probability which will be discussed later.
+ Modern systems have the capability to convert part of collided slots into
+ successful slots.
+ In such systems, the number of collided and successful slots which delivered
+ to the MAC layer are not accurate information about the real number of
+ tags at the reading area.
+ Therefore we should take into consideration the collision recovery probability
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+ used the estimation approach of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt"
+
+\end_inset
+
+ taking into consideration the collision recovery probability.
+ However this method leads to have multi-dimensional searching, which time
+ consuming and high complexity.
+\end_layout
+
+\begin_layout Standard
+In this paper, we propose a novel closed form solution for the estimated
+ number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ taking into consideration the collision recovery probability of the system.
+ Then we show how to calculate the collision recovery probability from the
+ physical layer parameters.
+ The proposed solution gives a direct relation between the estimated number
+ of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ and the frame length 
+\begin_inset Formula $L$
+\end_inset
+
+ , successful and collided number of slots 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $C$
+\end_inset
+
+, and the collision recovery probability 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ This paper is organized as follows: Section II presents the system model
+ under collision recovery probability in addition to an example to calculate
+ the collision recovery coefficients.
+ Next, section III presents the derivation of the proposed closed form solution
+ for the estimated number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Finally, section IV gives numerical results on the improvements of the
+ new optimization criterion, before we conclude in section V.
+ 
+\end_layout
+
+\begin_layout Section
+Proposed System Model Under Collision Recovery Probability
+\end_layout
+
+\begin_layout Standard
+In this section, we will describe a novel collision recovery aware number
+ of tags estimation method.
+ The proposed method is based on the classical Maximum Likelihood (ML) estimatio
+n in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen"
+
+\end_inset
+
+.
+ According to the classical ML estimation method, it searches for the optimum
+ value of 
+\begin_inset Formula $n_{est}$
+\end_inset
+
+ which maximizes the conditional probability of observing vector 
+\begin_inset Formula $v=\left\langle C,\, S,\, E\right\rangle $
+\end_inset
+
+ given that 
+\begin_inset Formula $n$
+\end_inset
+
+ tags transmit at a frame length 
+\begin_inset Formula $L.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+P(n/L,S,C,E)=\frac{L!}{E!S!C!}P_{e}^{E}P_{s}^{S}P_{c}^{C},\label{eq:chen}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $C$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $E$
+\end_inset
+
+ are successively the number of collided, successful, and empty slots per
+ a frame length 
+\begin_inset Formula $L$
+\end_inset
+
+, and 
+\begin_inset Formula $P_{e}$
+\end_inset
+
+, 
+\begin_inset Formula $P_{s}$
+\end_inset
+
+, 
+\begin_inset Formula $P_{c}$
+\end_inset
+
+ are respectively the probabilities of empty, successful and collided transmissi
+on per slot.
+ However, modern RFID readers have a collision recovery capability.
+ Thus, the physical layer convert part of collided slots into successful
+ slots based on the following relation:
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+E=E_{b},\, S=S_{b}+\alpha\cdot C_{b},\, C=C_{b}-\alpha\cdot C_{b},\label{eq:Succ and Coll with cap}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $C_{b}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{b}$
+\end_inset
+
+, 
+\begin_inset Formula $E_{b}$
+\end_inset
+
+ are successively the number of collided, successful, and empty slots before
+ collision recovery of the system, and 
+\begin_inset Formula $C$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $E$
+\end_inset
+
+ are respectively the number of collided, successful, and empty slots after
+ collision recovery of the system.
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is the collision recovery probability.
+ 
+\end_layout
+
+\begin_layout Standard
+In MAC layer, only the values of 
+\begin_inset Formula $C$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $E$
+\end_inset
+
+ after collision recovery are known, and there is no information about these
+ values before collision recovery.
+ Thus, the conventional estimation systems including the classical ML number
+ of tags estimation in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:chen"
+
+\end_inset
+
+) use the values of 
+\begin_inset Formula $C$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $E$
+\end_inset
+
+ after collision recovery in their calculations .
+ However, these values are not accurate indicator about the actual number
+ of tags in the reading area.
+ In the proposed system, we estimate the value of the current average collision
+ recovery probability 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ as shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Comm_Letter_ours_2015"
+
+\end_inset
+
+.
+ Afterwards, we calculate the corresponding values of 
+\begin_inset Formula $C_{b}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{b}$
+\end_inset
+
+, 
+\begin_inset Formula $E_{b}$
+\end_inset
+
+ as:
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+E_{b}=E,\, C_{b}=\frac{C}{1-\alpha},\, S_{b}=S-\frac{\alpha}{1-\alpha}C\label{eq:inv_equation}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Under condition:
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+L=E_{b}+S_{b}+C_{b}\label{eq:condition}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Thus, 
+\begin_inset Formula $C_{b(max)}=L-E_{b}$
+\end_inset
+
+ and 
+\begin_inset Formula $S_{b(min)}=0$
+\end_inset
+
+.
+ Therefor, the proposed collision recovery aware ML conditional probability
+ can be formalized as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P(n/L,S,C,E,\alpha)=\frac{L!}{E_{b}!S_{b}!C_{b}!}P_{e}^{E_{b}}P_{s}^{S_{b}}P_{c}^{C_{b}}\label{eq:proposed probability}
+\end{equation}
+
+\end_inset
+
+In this work, we are interested in the dense RFID network so we can use
+ the approximation suggested in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Letter_2012"
+
+\end_inset
+
+ for the tag probability of transmission per slot, which are considered
+ as independent Poisson random variables with unknown mean 
+\begin_inset Formula $\gamma=\frac{n_{est}}{L}$
+\end_inset
+
+ to have:
+\begin_inset Formula 
+\begin{equation}
+P_{e}=e^{-\gamma},\, P_{s}=\gamma\cdot e^{-\gamma},\, P_{c}=1-e^{-\gamma}-\gamma\cdot e^{-\gamma}\label{eq:probabilities}
+\end{equation}
+
+\end_inset
+
+After substituting by (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:probabilities"
+
+\end_inset
+
+) in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:proposed probability"
+
+\end_inset
+
+) and normalizing the result equation from the constant 
+\begin_inset Formula $\frac{L!}{E_{b}!S_{b}!C_{b}!}$
+\end_inset
+
+, the result proposed conditional probability will be:
+\begin_inset Formula 
+\begin{equation}
+P(n/L,S,C,E,\alpha)=\gamma^{S_{b}}\cdot e^{-\gamma\cdot L}\cdot\left(e^{-\gamma}-1-\gamma\right)^{C_{b}}\label{eq:final probability}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Derivation of The Proposed Closed Form Solution for The Estimated Number
+ of Tags
+\end_layout
+
+\begin_layout Standard
+The computation of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final probability"
+
+\end_inset
+
+) is done numerically to obtain the optimum value of 
+\begin_inset Formula $n_{est}$
+\end_inset
+
+ which maximizes (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final probability"
+
+\end_inset
+
+).
+ Thus, the calculation of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final probability"
+
+\end_inset
+
+) may lead to numerical instability problems using low-complexity devices.
+ Therefore, in this section, we propose a closed form solution for the collision
+ recovery aware estimation.
+ This is achieved by differentiating (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final probability"
+
+\end_inset
+
+) with respect to 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ and equate the results to zero.
+ After differentiating, the equation can be simplified as:
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+e^{-\gamma}\left(1+\frac{\gamma\left(\gamma\cdot L-S_{b}\right)}{\left(\gamma\cdot L-S_{b}-\gamma\cdot C_{b}\right)}\right)-1=0\label{eq:after_diff}
+\end{equation}
+
+\end_inset
+
+
+\size default
+The analysis of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:after_diff"
+
+\end_inset
+
+) indicates that the relevant values for 
+\size footnotesize
+
+\begin_inset Formula $\gamma$
+\end_inset
+
+
+\size default
+ are in the region close to one 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Comm_Letter_ours_2015"
+
+\end_inset
+
+.
+ Hence, we can develop a Taylor series for 
+\begin_inset Formula $e^{-\gamma}$
+\end_inset
+
+ around one which leads to:
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+e^{-\gamma}\simeq1-\gamma+\frac{1}{2}\gamma^{2}-\frac{1}{6}\gamma^{3}.\label{eq:taylor}
+\end{equation}
+
+\end_inset
+
+
+\size default
+After substituting (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:after_diff"
+
+\end_inset
+
+) and some additional simplifications, the final equation is a fourth order
+ polynomial:
+\end_layout
+
+\begin_layout Standard
+\align block
+
+\size footnotesize
+\begin_inset Formula 
+\begin{eqnarray}
+\underset{(a)}{\underbrace{\frac{1}{120}\left(L-C_{b}\right)}}\gamma^{4}+\underset{(b)}{\underbrace{\frac{1}{24}\left(L-C_{b}-\frac{S_{b}}{5}\right)}}\gamma^{3}+\underset{(c)}{\underbrace{\frac{1}{6}\left(L-C_{b}-\frac{S_{b}}{4}\right)}}\gamma^{2}\nonumber \\
++\underset{(d)}{\underbrace{\frac{1}{2}\left(L-C_{b}-\frac{S_{b}}{3}\right)}}\gamma-\underset{(e)}{\underbrace{\left(C_{b}+\frac{S_{b}}{2}\right)}}=0\label{eq:final_fourth}
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+Equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final_fourth"
+
+\end_inset
+
+) has four roots 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{eqnarray}
+\gamma_{1,2} & = & -\frac{b}{4a}-S\pm0.5\sqrt{\underset{X}{\underbrace{-4S^{2}-2P+\frac{q}{S}}}}\label{eq:roots}\\
+\gamma_{3,4} & = & -\frac{b}{4a}+S\pm0.5\sqrt{\underset{Y}{\underbrace{-4S^{2}-2P-\frac{q}{S}}}},\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+where 
+\size small
+
+\begin_inset Formula $P=\frac{8ac-3b^{2}}{8a^{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $q=\frac{b^{3}-4abc+8a^{2}d}{8a^{3}}$
+\end_inset
+
+
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+and,
+\size footnotesize
+ 
+\size small
+
+\begin_inset Formula $S=0.5\sqrt{-\frac{2}{3}P+\frac{1}{3a}\left(Q+\frac{\triangle_{0}}{Q}\right)}$
+\end_inset
+
+, 
+\begin_inset Formula $Q=\sqrt[3]{\frac{\triangle_{1}+\sqrt{\triangle_{1}^{2}-4\triangle_{0}^{3}}}{2}}$
+\end_inset
+
+
+\size footnotesize
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+with, 
+\size small
+
+\begin_inset Formula $\triangle_{0}=c^{2}-3bd+12ae$
+\end_inset
+
+, 
+\begin_inset Formula $\triangle_{1}=2c^{3}-9bcd+27ad^{2}-72ace$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:condition"
+
+\end_inset
+
+), we can proof that the signs of the polynomial coefficients are constant
+ and can be as follows: 
+\begin_inset Formula $a=+$
+\end_inset
+
+, 
+\begin_inset Formula $b=+$
+\end_inset
+
+, 
+\begin_inset Formula $c=+$
+\end_inset
+
+, 
+\begin_inset Formula $d=+$
+\end_inset
+
+, and 
+\begin_inset Formula $e=-$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Using Descartes’ rules of sign 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
+\end_inset
+
+, we can count the number of real positive solutions that a polynomial has.
+ Assume that the polynomial in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final_fourth"
+
+\end_inset
+
+) is 
+\begin_inset Formula $P(\gamma)$
+\end_inset
+
+, and let 
+\begin_inset Formula $\nu$
+\end_inset
+
+ be the number of variations in the sign of the coefficients 
+\begin_inset Formula $a,\, b,\, c,\, d,\, e$
+\end_inset
+
+, so 
+\begin_inset Formula $\nu=1$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ be the number of real positive solutions.
+ According to Descartes’ rules of sign 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $n_{p}\leq\nu$
+\end_inset
+
+ which means that 
+\begin_inset Formula $n_{p}=0\, or\,1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\nu-n_{p}$
+\end_inset
+
+ must be an even integer.
+ Therefore, 
+\begin_inset Formula $n_{p}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+According to the above two Descartes’ rules of sign, there is only one valid
+ real positive solution for the equation.
+ Now, we will identify which solution is the valid one.
+ There are two possibilities for the solutions: 
+\end_layout
+
+\begin_layout Standard
+1.
+ One positive real solution and the remaining three solutions are negative.
+ In this case, all solutions are real and we need just to identify what
+ is the root which has the largest values from the four solutions.
+ According to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:roots"
+
+\end_inset
+
+), the value of the square roots 
+\begin_inset Formula $\sqrt{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sqrt{Y}$
+\end_inset
+
+ are positive real, because we do not have complex solutions.
+ This means, 
+\begin_inset Formula $\gamma_{1}>\gamma_{2}$
+\end_inset
+
+ and also 
+\begin_inset Formula $\gamma_{3}>\gamma_{4}$
+\end_inset
+
+.
+ So, the solution will be either 
+\begin_inset Formula $\gamma_{1}$
+\end_inset
+
+ or 
+\begin_inset Formula $\gamma_{3}$
+\end_inset
+
+.
+ Moreover, the value of 
+\begin_inset Formula $S$
+\end_inset
+
+ should be also positive real, and 
+\begin_inset Formula $q$
+\end_inset
+
+ has always negative real value.
+ so 
+\begin_inset Formula $\gamma_{3}>\gamma_{1}$
+\end_inset
+
+ which means in this case that our solution is 
+\begin_inset Formula $\gamma_{3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+2.
+ Two complex solutions, one real positive solution, and one negative solution.
+ In this case, we have either 
+\begin_inset Formula $\gamma_{1,2}$
+\end_inset
+
+ or 
+\begin_inset Formula $\gamma_{3,4}$
+\end_inset
+
+ real solutions.
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ should be positive real number, and the complex value comes only from the
+ square roots 
+\begin_inset Formula $\sqrt{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sqrt{Y}$
+\end_inset
+
+ .
+ Moreover, 
+\begin_inset Formula $q$
+\end_inset
+
+ has always negative real value.
+ Therefore, in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:roots"
+
+\end_inset
+
+) the value of 
+\begin_inset Formula $X<Y$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\gamma_{1,2}$
+\end_inset
+
+ must be the complex roots, and as mentioned before that 
+\begin_inset Formula $\gamma_{3}>\gamma_{4}$
+\end_inset
+
+, so 
+\begin_inset Formula $\gamma_{4}$
+\end_inset
+
+ is the negative root and 
+\begin_inset Formula $\gamma_{3}$
+\end_inset
+
+ is the positive real root.
+\end_layout
+
+\begin_layout Standard
+Based on the above discussion, the proposed closed form solution for the
+ collision recovery aware tag estimation is:
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+n_{est}=\left(-\frac{b}{4a}+S+0.5\sqrt{-4S^{2}-2P-\frac{q}{S}}\right)\cdot L\label{eq:closed form}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Collision Recovery Probability Calculation
+\end_layout
+
+\begin_layout Standard
+In this part, we will give an example about how we calculate the collision
+ recovery probability 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ The capture probability varies in the range of 
+\begin_inset Formula $0\leq\alpha\leq1$
+\end_inset
+
+.
+ Its value depends on the Signal to Noise Ratio (SNR).
+ In this work, we measure the SNR for each slot.
+ Then, we calculate the average SNR per frame.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2010_Trans_CR"
+
+\end_inset
+
+, the authors proposed a method to capture the strongest tag reply based
+ the physical layer properties.
+ They have proposed a Bit Error Rate (BER) curve versus the SNR.
+ We want to calculate the capture probability for a complete collided RN16
+ packet, which includes 
+\begin_inset Formula $16$
+\end_inset
+
+ random successive bits.
+ The BER is mapped to Packet Error Rate (PER) by simulation as the channel
+ is not Binary Symmetric Channel (BSC).
+ The capture probability can be expressed as: 
+\begin_inset Formula $\alpha=(1-PER)$
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Capture-probability-versus"
+
+\end_inset
+
+ presents the values of the capture probabilities versus the average signal
+ to noise ratio per frame.
+ In this work, we calculate the average capture probability from the correspondi
+ng average SNR at the current frame.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename capture_probability_vs_SNR.eps
+	lyxscale 12
+	width 90col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Capture probability versus the signal to noise ratio 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Capture-probability-versus"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Estimation Error No CR_Trial.eps
+	lyxscale 12
+	width 95col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+System has no collision recovery capability 
+\begin_inset Formula $(\alpha=0)$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:System-has-no"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Estimation Error with CR 07_trial.eps
+	lyxscale 13
+	width 95col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+System has collision recovery capability 
+\begin_inset Formula $(\alpha=0.7)$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:System-has-collision"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relative estimation error 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ vs normalized number of tags 
+\begin_inset Formula $\nicefrac{n}{L}$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Relative-estimation-error"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Estimation Error alpha.eps
+	lyxscale 12
+	width 95col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relative estimation error vs.
+ collision recovery probability 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ , where, 
+\begin_inset Formula $L=n$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Relative-estimation-error alpha"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Simulation Results
+\end_layout
+
+\begin_layout Standard
+Firstly, we will define a performance metric called relative estimation
+ error 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+.
+ It can be defined as
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+\epsilon=\left|\frac{n_{est}-n}{n}\right|\times100\,\%\label{eq:relative error}
+\end{equation}
+
+\end_inset
+
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Relative-estimation-error"
+
+\end_inset
+
+ shows the percentage of the relative estimation error for the proposed
+ system compared to the literature versus the normalized number of tags
+ 
+\size default
+
+\begin_inset Formula $\nicefrac{n}{L}$
+\end_inset
+
+
+\size small
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:System-has-no"
+
+\end_inset
+
+ shows system which has no collision recovery capability (
+\begin_inset Formula $\alpha=0$
+\end_inset
+
+).
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:System-has-no"
+
+\end_inset
+
+, the proposed system gives identical relative estimation error compared
+ to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen"
+
+\end_inset
+
+.
+ However the proposed system gives a closed form solution but the solution
+ of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen"
+
+\end_inset
+
+ is based on numerical searching.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Modified_chen"
+
+\end_inset
+
+ which included the mutual independence of slot types has almost the same
+ results compared to the proposed results.
+ However, it includes a very complex searching algorithms compared to the
+ proposed closed form solution.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:System-has-collision"
+
+\end_inset
+
+ shows an example for modern systems, which have collision recovery capability.
+ We used collision recovery probability 
+\size default
+
+\begin_inset Formula $\alpha=0.7$
+\end_inset
+
+.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:System-has-collision"
+
+\end_inset
+
+, The proposed curve has more accurate estimation performance compared to
+ all the literature.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Relative-estimation-error alpha"
+
+\end_inset
+
+ shows the relative estimation error versus the collision recovery probability
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ assuming that the number if tags in the reading area is equal to the frame
+ length i.e.
+ 
+\begin_inset Formula $n=L$
+\end_inset
+
+.
+ Based on figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Relative-estimation-error alpha"
+
+\end_inset
+
+, when the value of the collision recovery probability increases, the performanc
+e of all other proposals decreases, except the proposed method has almost
+ constant performance independent on the value of the collision recovery
+ probability.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Average-identification-delay"
+
+\end_inset
+
+ shows the average identification delay for a bunch of tags.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:System-has-no-time"
+
+\end_inset
+
+ shows the identification time for systems with no collision recovery capability
+ (
+\begin_inset Formula $\alpha=0$
+\end_inset
+
+).
+ In these simulations we have assumed that the optimum frame length is the
+ nearest quantized 
+\begin_inset Formula $2^{Q}$
+\end_inset
+
+ for 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+ According to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:System-has-no-time"
+
+\end_inset
+
+, the proposed system gives identical results compared to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Modified_chen"
+
+\end_inset
+
+ better than the other literature.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:System-has-collision-time"
+
+\end_inset
+
+, shows the average identification delay for systems has a collision recovery
+ probability 
+\begin_inset Formula $\alpha=0.7$
+\end_inset
+
+.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:System-has-collision-time"
+
+\end_inset
+
+, the average identification delay has decreased for all the systems due
+ to the collision recovery capability.
+ However the proposed system saves the total identification time with almost
+ 
+\begin_inset Formula $10$
+\end_inset
+
+ % compared to the others due to the performance of estimation only.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Total_time_comp_no_CR_final.eps
+	lyxscale 12
+	width 95col%
+	height 15pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+System has no collision recovery capability 
+\begin_inset Formula $(\alpha=0)$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:System-has-no-time"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Total_time_comp_CR_0_7_final.eps
+	lyxscale 12
+	width 95col%
+	height 15pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+System has collision recovery capability 
+\begin_inset Formula $(\alpha=0.7)$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:System-has-collision-time"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average identification delay 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Average-identification-delay"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+This paper proposes a novel closed form solution for the estimated number
+ of tags taking into consideration the collision recovery probability of
+ the system.
+ The theoretical derivations lead to a new analytical number of tags estimation
+ equation that can be easily implemented in RFID readers.
+ Using the proposed formula, we need neither look-up tables nor searching.
+ Furthermore, our analytical solution can be used for further optimizations
+ of RFID systems.
+ Simulation results prove the correctness of our analytical solution.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "TagEstimation"
+options "bibtotoc,ieeetr"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
