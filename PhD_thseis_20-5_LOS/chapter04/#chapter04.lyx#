@@ -174,21 +174,29 @@ key "standard"
  empty, successful, or collided.
  The performance of this scheme strongly depends on the value of the variable
  
-\begin_inset Formula $C$
+\begin_inset Formula $c$
 \end_inset
 
-, where 
-\begin_inset Formula $C\in(0.1,\,0.5)$
+,
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$c$"
+description "Q-slot constant"
+
+\end_inset
+
+ where 
+\begin_inset Formula $c\in(0.1,\,0.5)$
 \end_inset
 
 .
  Since the value of 
-\begin_inset Formula $C$
+\begin_inset Formula $c$
 \end_inset
 
  is not clearly defined in the standard, there are different proposals optimizin
 g the value of 
-\begin_inset Formula $C$
+\begin_inset Formula $c$
 \end_inset
 
 .
@@ -240,19 +248,35 @@ key "2007_Q+-"
 \end_inset
 
  is replaced by two variables: 
-\begin_inset Formula $C_{e}$
+\begin_inset Formula $c_{e}$
 \end_inset
 
  and 
-\begin_inset Formula $C_{c}$
+\begin_inset Formula $c_{c}$
 \end_inset
 
 .
  
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$c_e$"
+description "Empty Q-slot constant"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$c_c$"
+description "Collided Q-slot constant"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $C_{e}$
+\begin_inset Formula $c_{e}$
 \end_inset
 
  is used when an empty slot is detected by the reader, whereas, 
@@ -285,7 +309,7 @@ key "Optimum-C"
 \end_inset
 
 , where the optimum value of 
-\begin_inset Formula $C$
+\begin_inset Formula $c$
 \end_inset
 
  is calculated numerically versus the previous value of 
@@ -303,7 +327,7 @@ key "Optimum-C"
 \end_inset
 
 , 
-\begin_inset Formula $C\in\left[0.1,...,0.5\right]$
+\begin_inset Formula $c\in\left[0.1,...,0.5\right]$
 \end_inset
 
  with step 
@@ -314,18 +338,26 @@ key "Optimum-C"
  At last, the best combination is the one which gives the minimum identification
  delay.
  
-\end_layout
-
-\begin_layout Paragraph*
-Slot Count Selection (SCS) Algorithm: 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "SCS"
-description "Slot Count Selection"
+symbol "$c_1$"
+description "Collided slot count selection constant"
 
 \end_inset
 
 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$c_2$"
+description "Empty slot count selection constant"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(SCS) Algorithm: 
 \end_layout
 
 \begin_layout Standard
@@ -444,6 +476,13 @@ key "Aloha2_Floerkemeier"
 \end_inset
 
 .
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\hat{n}$"
+description "Estimated number of tags"
+
+\end_inset
+
  Then, they adjust the optimum frame length 
 \begin_inset Formula $L$
 \end_inset
@@ -538,6 +577,38 @@ key "DFSA_shoute_Random"
 \end_inset
 
  is expressed as follows:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$C_{rate}$"
+description "Estimated collision rate"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$P_s$"
+description "Probability of successful slot"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$P_c$"
+description "Probability of collided slot"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$P_e$"
+description "Probability of empty slot"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 C_{rate}=\frac{P_{c}}{1-Ps}\label{eq:Schout_1}
@@ -722,6 +793,13 @@ key "Aloha4_Vogt"
 \end_inset
 
 .
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\varepsilon_{conv}$"
+description "Minimum squared error estimator"
+
+\end_inset
+
  It minimizes the distance between the observed empty 
 \begin_inset Formula $E$
 \end_inset
@@ -752,6 +830,30 @@ key "Aloha4_Vogt"
 
 .
  It is presented as:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$E_{exp}$"
+description "Expected number of empty slots"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$S_{exp}$"
+description "Expected number of successful slots"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$C_{exp}$"
+description "Expected number of collided slots"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \varepsilon_{conv}(L,\,S,\,C,\,E)=\underset{n}{\mbox{min}}\left\{ \left|E_{exp}-E\right|+\left|S_{exp}-S\right|+\left|C_{exp}-C\right|\right\} \label{eq:MSE}
@@ -832,13 +934,6 @@ Maximum Likelihood (ML) Tag Estimation
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "ML"
-description "Maximum Likelihood"
-
-\end_inset
-
 The main concept of ML tag estimation is to compute the conditional probability
  of an observed event assuming that this conditional probability is function
  of the number of tags 
@@ -1495,15 +1590,7 @@ reference "eq:chen"
 \begin_inset Formula $\alpha$
 \end_inset
 
- is estimated, as it will be schonetails in the following section as shown
- in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Comm_Letter_ours_2015"
-
-\end_inset
-
-.
+ is estimated, as it will be shown in details in the following section.
  Finally, the expected corresponding values of 
 \begin_inset Formula $C_{b}$
 \end_inset
@@ -1670,7 +1757,15 @@ key "Letter_2012"
 \end_inset
 
  for the tag probability of transmission per slot, which is considered as
- independent Poisson random variables with unknown mean 
+ independent 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\gamma$"
+description "Mean of Poisson random variable"
+
+\end_inset
+
+s with unknown mean 
 \begin_inset Formula $\gamma=\frac{\hat{n}}{L}$
 \end_inset
 
@@ -1698,6 +1793,22 @@ reference "eq:proposed probability"
 \end_inset
 
 ) the proposed conditional probability is:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\alpha$"
+description "Collision recovery probability"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\alpha$"
+description "Collision recovery probability"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 P(\hat{n}|L,S,C,E,\alpha)=\left(\frac{L!}{E_{b}!S_{b}!C_{b}!}\right)\gamma^{S_{b}}\cdot e^{-\gamma\cdot L}\cdot\left(e^{-\gamma}-1-\gamma\right)^{C_{b}}\label{eq:non-normalized probability}
@@ -1764,7 +1875,7 @@ reference "eq:final probability"
 \end_layout
 
 \begin_layout Subsection
-Derivation of The Proposed Closed Form Solution
+Derivation of the Proposed Closed Form Solution
 \end_layout
 
 \begin_layout Standard
@@ -2201,14 +2312,14 @@ Based on the above discussion, the proposed closed form solution for the
 
 \end_inset
 
-Equation 
+Equation (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:closed form-4"
 
 \end_inset
 
- gives a direct and linear relation between the estimated number of tags
+) gives a direct and linear relation between the estimated number of tags
  
 \family roman
 \series medium
@@ -2242,30 +2353,29 @@ and the current frame length
 \end_inset
 
 .
- Equation 
+ Equation (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:closed form-4"
 
 \end_inset
 
- gives an alternative solution to the numerical searching with equation
- 
+) gives an alternative solution to the numerical searching with (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:final probability"
 
 \end_inset
 
-.
- Thus, using equation 
+).
+ Thus, using (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:closed form-4"
 
 \end_inset
 
-, neither look-up tables nor searching, which reduces the complexity and
+), neither look-up tables nor searching, which reduces the complexity and
  the processing time of the estimation algorithm, is needed.
  
 \size default
@@ -2326,144 +2436,10 @@ The collision recovery capability is the ability of the reader to actively
  characterization of the RFID reader e.g.
  (receiver type, number of antennas, etc.).
  Second, the function of the current Signal-to-Noise Ratio (SNR).
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "SNR"
-description "Signal to Noise Ratio"
-
-\end_inset
-
  Therefore, it extends the capture probability, which is mainly an effect
  of the channel, resulting in a significantly higher probability to recover
  collided slots.
  
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Estimation Error No CR_Trial_paper.emf
-	lyxscale 20
-	width 65page%
-	height 27pheight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-System has no collision recovery capability 
-\begin_inset Formula $(\alpha=0)$
-\end_inset
-
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:System-has-no"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Estimation Error with CR 07_trial.emf
-	lyxscale 20
-	width 65page%
-	height 27pheight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-System has collision recovery capability 
-\begin_inset Formula $(\alpha=0.7)$
-\end_inset
-
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:System-has-collision"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Relative estimation error 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- vs normalized number of tags 
-\begin_inset Formula $\nicefrac{n}{L}$
-\end_inset
-
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Relative-estimation-error"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2482,24 +2458,9 @@ key "2010_Trans_CR"
 \end_inset
 
 .
- These three receivers are: 1) the Minimum Mean-Square Error (MMSE)
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "MMSE"
-description "Minimum Mean-Square Error"
-
-\end_inset
-
- receiver, 2) the 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "ZF"
-description "Zero Forcing"
-
-\end_inset
-
- (ZF) receiver with two receiver antennas, and 3) the ZF receiver with a
- single receiver antenna.
+ These three receivers are: 1) the Minimum Mean-Square Error (MMSE) receiver,
+ 2) the (ZF) receiver with two receiver antennas, and 3) the ZF receiver
+ with a single receiver antenna.
  The authors of 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2509,15 +2470,8 @@ key "2010_Trans_CR"
 
  presented Bit Error Rate (BER) curves for the different receiver types
  as a function of the SNR.
- Thus, the BER can be mapped to a Packet Error Rate (PER)
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "PER"
-description "Packet Error Rate"
-
-\end_inset
-
- by means of simulations using the same methodology presented in 
+ Thus, the BER can be mapped to a Packet Error Rate (PER) by means of simulation
+s using the same methodology presented in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Comm_Letter_ours_2015"
@@ -2574,6 +2528,132 @@ reference "fig:Capture-probability-versus-1"
 
  dB.
  
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Estimation Error No CR_Trial_paper.emf
+	lyxscale 20
+	width 65page%
+	height 27pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+System without collision recovery capability 
+\begin_inset Formula $(\alpha=0)$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:System-has-no"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Estimation Error with CR 07_trial.emf
+	lyxscale 20
+	width 65page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+System with collision recovery capability 
+\begin_inset Formula $(\alpha=0.7)$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:System-has-collision"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relative estimation error 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ vs normalized number of tags 
+\begin_inset Formula $\nicefrac{n}{L}$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Relative-estimation-error"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2584,7 +2664,7 @@ Performance Analysis
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3066,10 +3146,10 @@ reference "fig:System-has-collision-time"
  to the collision recovery capability.
  However the proposed system saves the total identification time with almost
  
-\begin_inset Formula $10$
+\begin_inset Formula $\unit[10]{\%}$
 \end_inset
 
- % compared to others due to the performance of estimation only.
+ compared to others due to the performance of estimation only.
 \end_layout
 
 \begin_layout Standard

@@ -154,8 +154,15 @@ EPCglobal C1 G2 Reading Process
 \begin_layout Standard
 This section will describe, in brief, the conventional reading algorithm
  of the EPCglobal C1 G2 standards.
- The reader initially powers the tags in the reading area with a continuous
- wave (CW).
+ The reader initially powers the tags in the reading area with a 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CW"
+description "continuous wave"
+
+\end_inset
+
+ (CW).
  At this time, the powered tags are in the ready state waiting for the frame
  size information from the reader.
  Then, the reader broadcasts the frame size and notifies all tags of the
@@ -163,7 +170,7 @@ This section will describe, in brief, the conventional reading algorithm
  As soon as the tags receive this command, each tag selects a slot from
  the frame by setting its slot counter, and enters the Arbitrate state.
  When the tag slot counter is equal to zero, the tag enters the Reply state
- and backscatters its 
+ and Backscatter its 
 \begin_inset Formula $16$
 \end_inset
 
@@ -222,10 +229,10 @@ name "fig:Tag-response-of"
 \end_layout
 
 \begin_layout Standard
-According to Frame Slotted ALOHA, there are three probailities for each
+According to Frame Slotted ALOHA, there are three probabilities for each
  slot: 1.
  No tag reply: The reader considers this slot as an empty slot and transmits
- a Query-Rep command asking the tags to decrement their slot counters.
+ a Query-Rep command asking the tags to decrements their slot counters.
  2.
  Only one tag responds (successful slot): The reader transmits an acknowledge
  command including the received RN16.
@@ -1389,7 +1396,7 @@ Based on the new system, we propose a new reading efficiency formula considering
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\eta_{new}=\sum_{R=1}^{M}P(R)\cdot\left(\sum_{l=1}^{R}P_{S_{l}}(R)\cdot R_{sol}\cdot\beta\right),\label{eq:new_eff}
+\eta_{new}=\sum_{R=1}^{M}P(R)\cdot\left(\sum_{l=1}^{R}P_{S_{l}}(R)\cdot R_{sol}\cdot\varphi\right),\label{eq:new_eff}
 \end{equation}
 
 \end_inset
@@ -1402,7 +1409,7 @@ where
 \begin_inset Formula $R$
 \end_inset
 
- tag are active in one slot.
+ tags are active in one slot.
  It can be presented as:
 \begin_inset Float table
 wide false
@@ -2418,7 +2425,7 @@ where
  Therefore, the proposed efficiency should include a factor representing
  the effect of the pseudo parallel spreading in time.
  This factor is called the pseudo parallel factor 
-\begin_inset Formula $\beta$
+\begin_inset Formula $\varphi$
 \end_inset
 
 .
@@ -2435,7 +2442,7 @@ reference "tab:System-Parameters-of"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\beta=\left(\frac{1}{0.3+0.7\cdot R_{sol}}\right)\label{eq:pseud_parallel_factor}
+\varphi=\left(\frac{1}{0.3+0.7\cdot R_{sol}}\right)\label{eq:pseud_parallel_factor}
 \end{equation}
 
 \end_inset

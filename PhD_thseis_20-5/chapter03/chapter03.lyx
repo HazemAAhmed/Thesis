@@ -973,6 +973,14 @@ key "DFSA_shoute_Random"
 
 \end_inset
 
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "DFSA"
+description "Dynamic Frame Slotted ALOHA"
+
+\end_inset
+
 .
  In this algorithm, the number of slots per frame is variable as shown in
  figure 

@@ -89,15 +89,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-prefix "List of Abbreviations"
-symbol "RFID"
-description "Radio Frequency Identification"
-
-\end_inset
-
- Radio Frequency Identification (RFID) is a technology that uses communication
+Radio Frequency Identification (RFID) is a technology that uses communication
  through radio waves to transfer data between a reader and electronic tags
  attached to the object, either to be identified or tracked.
  The RFID technology has benefits with respect to (wrt.) other identification
@@ -228,29 +220,14 @@ name "fig:RFID-System"
 \begin_layout Standard
 According to the previously published RFID work, Frame Slotted ALOHA (FSA)
  
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "FSA"
-description "Framed Slotted ALOHA"
-
-\end_inset
-
-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "FSA_2012,FAS_1,FSA2,FSA3,FSA4"
 
 \end_inset
 
- is the most widely used Medium Access Control (MAC) 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "MAC"
-description "Medium Access Control"
-
-\end_inset
-
- anti-collision protocol for RFID systems due to its simplicity and robustness.
+ is the most widely used Medium Access Control (MAC) anti-collision protocol
+ for RFID systems due to its simplicity and robustness.
  In FSA, the communication timing between the reader and the tags is divided
  into TDMA frames, each frame includes a specific number of slots.
  The frame length is function of the existing number of tags in the reading

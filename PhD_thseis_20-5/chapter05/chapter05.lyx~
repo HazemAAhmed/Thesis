@@ -5712,8 +5712,8 @@ name "fig:Summary_no_estimation"
 
 \end_layout
 
-\begin_layout Standard
-1- Average reading time without number of tags estimation: Figure 
+\begin_layout Enumerate
+Average reading time without number of tags estimation: Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Summary_no_estimation"
@@ -5810,8 +5810,8 @@ name "fig:Summary_Without-no_Patent"
 
 \end_layout
 
-\begin_layout Standard
-2- Average reading time with the conventional ML number of tags estimation:
+\begin_layout Enumerate
+Average reading time with the conventional ML number of tags estimation:
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5841,8 +5841,8 @@ key "Chen"
  
 \end_layout
 
-\begin_layout Standard
-3- Average reading time with the collision recovery aware ML number of tags
+\begin_layout Enumerate
+Average reading time with the collision recovery aware ML number of tags
  estimation: Figure 
 \begin_inset CommandInset ref
 LatexCommand ref

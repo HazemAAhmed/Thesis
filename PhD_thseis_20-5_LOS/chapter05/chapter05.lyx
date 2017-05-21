@@ -248,6 +248,46 @@ For calculating the proposed optimal Time-Aware frame size
 .
  Let the Time-Aware reading efficiency be the ratio between the total successful
  time and the total frame time:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\eta_{_{TA}}$"
+description "Time-Aware reading efficiency"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$t_c$"
+description "Collided slot durations"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$t_e$"
+description "Empty slot durations"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$t_s$"
+description "Successful slot durations"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$L_{TA}$"
+description "Time aware frame length"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -841,6 +881,38 @@ Here,
 \end_inset
 
  is the query repeat command time:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$DR$"
+description "Devided Ratio"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$C_t$"
+description "Slot duration constant"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$T_{QRep}$"
+description "Query repeat time"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$n_p$"
+description "Number of pilot tones"
+
+\end_inset
+
+
 \size small
 
 \begin_inset Formula 
@@ -2276,6 +2348,22 @@ In conventional FSA systems, the slots durations are considered as constant
  the reading area.
  Then, according to literature, the mean reduction in number of slots is
  calculated according to the following equation:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\zeta$"
+description "Mean reduction in number of slots"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\zeta_{t}$"
+description "Mean reduction in reading time"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \unit[\zeta]{\%}=\left(\frac{\mbox{Slots_{conv.}}-\mbox{Slots_{proposed}}}{\mbox{Slots_{conv.}}}\right)\times100
@@ -2678,6 +2766,22 @@ reference "eq:eff-semi_simple"
 ).
  Therefore the time and collision recovery probability aware efficiency
  can then be written as:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\eta_{TCA}$"
+description "Time and collision recovery aware reading efficiency"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$L_{TCA}$"
+description "Time and collision recovery aware frame length"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3621,6 +3725,22 @@ The main contribution in this efficiency is that it contains a unique collision
 \end_inset
 
  is expressed as:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\eta_{MCRC}$"
+description "Multiple collision recovery aware reading efficiency"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$L_{MCRC}$"
+description "Multiple collision recovery aware frame length"
+
+\end_inset
+
+
 \size small
 
 \begin_inset Formula 
@@ -3692,6 +3812,30 @@ Therefore, the proposed
 \end_inset
 
  for the practical RFID environment can be expressed as follows:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\alpha_{4}$"
+description "Fourth collision recovery coefficient"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\alpha_{2}$"
+description "Second collision recovery coefficient"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\alpha_{3}$"
+description "Third collision recovery coefficient"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3715,7 +3859,7 @@ where
 \end_inset
 
 , and 
-\begin_inset Formula $\alpha_{2}$
+\begin_inset Formula $\alpha_{4}$
 \end_inset
 
  are respectively the second, third, and fourth collision recovery coefficients.
@@ -4753,6 +4897,22 @@ e\SpecialChar \@.
 \end_inset
 
  can be expressed as:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\eta_{TAMCRC}$"
+description "Time and multiple collision recovery aware reading efficiency"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$L_{TAMCRC}$"
+description "Time and multiple collision recovery aware frame length"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5627,15 +5787,8 @@ The following simulation results assume the following parameters: Slots
 \begin_inset Formula $ts=\unit[1060]{\mu s}$
 \end_inset
 
-, which are practical values from real measurements using a 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "USRP"
-description "Universal Software Defined Radio Peripheral"
-
-\end_inset
-
-Universal Software Defined Radio Peripheral (USRP B210) 
+, which are practical values from real measurements using a Universal Software
+ Defined Radio Peripheral (USRP B210) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "USRP"

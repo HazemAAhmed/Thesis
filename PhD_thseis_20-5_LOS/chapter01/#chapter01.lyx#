@@ -85,19 +85,11 @@
 \begin_body
 
 \begin_layout Chapter
-INTRODUCTION
+Introduction
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-prefix "List of Abbreviations"
-symbol "RFID"
-description "Radio Frequency Identification"
-
-\end_inset
-
- Radio Frequency Identification (RFID) is a technology that uses communication
+Radio Frequency Identification (RFID) is a technology that uses communication
  through radio waves to transfer data between a reader and electronic tags
  attached to the object, either to be identified or tracked.
  The RFID technology has benefits with respect to (wrt.) other identification
@@ -228,29 +220,14 @@ name "fig:RFID-System"
 \begin_layout Standard
 According to the previously published RFID work, Frame Slotted ALOHA (FSA)
  
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "FSA"
-description "Framed Slotted ALOHA"
-
-\end_inset
-
-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "FSA_2012,FAS_1,FSA2,FSA3,FSA4"
 
 \end_inset
 
- is the most widely used Medium Access Control (MAC) 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "MAC"
-description "Medium Access Control"
-
-\end_inset
-
- anti-collision protocol for RFID systems due to its simplicity and robustness.
+ is the most widely used Medium Access Control (MAC) anti-collision protocol
+ for RFID systems due to its simplicity and robustness.
  In FSA, the communication timing between the reader and the tags is divided
  into TDMA frames, each frame includes a specific number of slots.
  The frame length is function of the existing number of tags in the reading
@@ -387,8 +364,8 @@ A novel closed-form solution for the optimal FSA frame length was established,
  The values of the collision recovery coefficients are extracted from the
  physical layer parameters.
  Timing comparisons are presented in simulation results to show the mean
- reduction in reading time using the proposed frame length compared to 
- other proposals.
+ reduction in reading time using the proposed frame length compared to other
+ proposals.
 \end_layout
 
 \begin_layout Enumerate
@@ -402,9 +379,10 @@ Another new closed-form solution for the optimal Frame Slotted ALOHA (FSA)
 \end_layout
 
 \begin_layout Enumerate
-Finally, compatible improvements of UHF standard are proposed.
+Finally, compatible improvements of the EPCglobal C1 G2 standard are proposed.
  In this system, there are some compatible modifications in the UHF RFID
- tags/Readers, to be capable of acknowledging more than a sole tag per slot.
+ tags/readers, to be capable of acknowledging more than a single tag per
+ slot.
  
 \end_layout
 
@@ -416,13 +394,13 @@ Document Outline
 A brief outline of this document is presented as follows.
  Chapter 2 introduces the historical background and literature survey of
  RFID systems.
- Chapter 3 presents the collision problem in the RFID systems and the existing
+ Chapter 3 presents collision problem in the RFID systems and the existing
  anti-collision algorithms.
  Moreover, the concept of proposed cross-layer anti-collision algorithm
  will be defined.
- Chapter 4 reports the most commonly used number of tags' estimation algorithms
+ Chapter 4 reports the most commonly used number of tags estimation algorithms
  in the RFID system.
- Afterwards, the proposed collision recovery aware Maximum likelihood estimation
+ Afterwards, the proposed collision recovery aware maximum likelihood estimation
  algorithm is discussed.
  In this part, a closed-form solution for the estimated number of tags in
  the reading area is suggested taking into consideration the collision recovery
@@ -432,12 +410,11 @@ A brief outline of this document is presented as follows.
  Hence, in every case, a closed-form solution for the optimum FSA frame
  length is an analytically derived function of the estimated number of tags
  and the PHY-layer parameters.
- Chapter 6 provides compatible improvements of UHF standard.
- In this system, such modifications in the UHF RFID tags/Readers, can acknowledg
-e more than single tag per slot.
- Last but not least, chapter 7 concludes this document by highlighting the
- main issues addressed in this thesis and outlining some of the future research
- aspects.
+ Chapter 6 provides compatible improvements of the EPCglobal C1 G2 standard.
+ In this system, such modifications to tags/readers, can acknowledge more
+ than single tag per slot.
+ Finally, chapter 7 concludes this document by highlighting the main issues
+ addressed in this thesis and outlining some of the future research aspects.
 \end_layout
 
 \end_body

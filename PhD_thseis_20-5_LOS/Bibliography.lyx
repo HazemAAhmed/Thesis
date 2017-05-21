@@ -72,7 +72,7 @@
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "PhD_thesis,WCNC_2016,TagEstimation,ISJ_2016,RWW_2016,comm_Letter"
+bibfiles "PhD_thesis,Biased_vogt,comm_Letter,ISJ_2016,RWW_2016,TagEstimation,WCNC_2016"
 options "bibtotoc,ieeetr"
 
 \end_inset

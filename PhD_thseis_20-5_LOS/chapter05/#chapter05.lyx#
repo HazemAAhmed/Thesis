@@ -248,6 +248,46 @@ For calculating the proposed optimal Time-Aware frame size
 .
  Let the Time-Aware reading efficiency be the ratio between the total successful
  time and the total frame time:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\eta_{_{TA}}$"
+description "Time-Aware reading efficiency"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "t_c"
+description "Collided slot duration"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "t_s"
+description "Successful slot duration"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "t_e"
+description "Empty slot duration"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$L_{TA}$"
+description "Time-Aware frame length"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4078,7 +4118,21 @@ key "Descartes_rule"
 \end_inset
 
 , there is only one valid real positive solution for the equation.
- After analyzing  The proposed closed form optimum frame length 
+ After analyzing (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final_fourth"
+
+\end_inset
+
+) using Descartes’ rules of sign 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
+\end_inset
+
+, the proposed closed form optimum frame length 
 \begin_inset Formula $L_{MCRC}$
 \end_inset
 
@@ -4167,7 +4221,7 @@ Now the calculation of the the collision recovery coefficients
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4187,7 +4241,19 @@ status collapsed
 \begin_layout Plain Layout
 Collision recovery coefficients versus SNR using the strongest tag reply
  receiver.
- 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+, and 
+\begin_inset Formula $\alpha_{4}$
+\end_inset
+
+ are respectively the collision recovery probability or two, three, and
+ four collided tags per slot
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Collision-recovery-coefficients"
@@ -4362,7 +4428,7 @@ s, we used the highest symbol rate
 \end_layout
 
 \begin_layout Subsection
-Closed Form Solution VS.
+Closed Form Solution vs.
  Numerical Solution
 \end_layout
 
@@ -4442,7 +4508,7 @@ reference "fig:Frame-length-comparision"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4460,7 +4526,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Percentages of saving time using the proposed MCR compared to the conventional
+Mean reading time reduction using the proposed MCR compared to the conventional
  frame length 
 \begin_inset Formula $L=n$
 \end_inset
@@ -4494,7 +4560,7 @@ name "fig:Percentages-of-saving_MCR_perfect"
 \end_layout
 
 \begin_layout Subsection
-Mean Reduction in Reading Time
+Mean Reading Time Reduction
 \end_layout
 
 \begin_layout Standard
@@ -4560,7 +4626,7 @@ reference "fig:Percentages-of-saving_MCR_perfect"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4578,7 +4644,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Percentages of saving time using the proposed MCRA compared to the conventional
+Mean reading time reduction using the proposed MCRA compared to the conventional
  frame length 
 \begin_inset Formula $L=n$
 \end_inset
@@ -4679,7 +4745,7 @@ In this section we present a new FSA reading efficiency metric called Time
 \end_layout
 
 \begin_layout Subsection
-Closed Form Solution For Time Multiple Collision Recovery Aware System
+Closed Form Solution for Time Multiple Collision Recovery Aware System
 \end_layout
 
 \begin_layout Standard
@@ -5091,18 +5157,11 @@ According to the practical ranges of the collision recovery coefficients
 \begin_inset Newline newline
 \end_inset
 
-Using Descartes’ rules of sign 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Descartes_rule"
 
-\end_inset
-
- we can count the number of real positive solutions of the polynomial.
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5213,137 +5272,29 @@ name "fig:Frame-length-comparision_TAMCR"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Assuming that the polynomial in (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:final_fourth-1"
-
-\end_inset
-
-) is 
-\begin_inset Formula $P(\beta)$
-\end_inset
-
-, and let 
-\begin_inset Formula $\nu$
-\end_inset
-
- be the number of variations in the sign of the coefficients 
-\begin_inset Formula $a,\,b,\,c,\,d,\,e$
-\end_inset
-
-, i\SpecialChar \@.
-e\SpecialChar \@.
- 
-\begin_inset Formula $\nu=1$
-\end_inset
-
-, and let 
-\begin_inset Formula $n_{p}$
-\end_inset
-
- be the number of real positive solutions.
- According to Descartes’ rules of sign 
+According to Descartes’ rules of sign 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Descartes_rule"
 
 \end_inset
 
- we get:
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $n_{p}\leq\nu$
-\end_inset
-
-, which means that 
-\begin_inset Formula $n_{p}=0\,\textrm{or}\,1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\nu-n_{p}$
-\end_inset
-
- is an even integer.
- Therefore 
-\begin_inset Formula $n_{p}=1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Consequently, there are only three valid soluitons: one real positive solution,
- one real negative solution, and two complex solutions for this equation.
- The main target is to identify which of the four solutions is the valid
- one.
- We have either 
-\begin_inset Formula $\beta_{1,2}$
-\end_inset
-
- or 
-\begin_inset Formula $\beta_{3,4}$
-\end_inset
-
- real solutions, so 
-\begin_inset Formula $S$
-\end_inset
-
- should be a real positive number, and the complex values come only from
- the square roots 
-\begin_inset Formula $\sqrt{X}$
-\end_inset
-
- and 
-\begin_inset Formula $\sqrt{Y}$
-\end_inset
-
-.
- According to the coefficient signs: 
-\begin_inset Formula $q$
-\end_inset
-
- must be always a real positive value.
- Therefore, in (
+, there is only one valid real positive solution for the equation.
+ After analyzing (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:roots-1"
+reference "eq:final_fourth"
 
 \end_inset
 
-) the value of 
-\begin_inset Formula $X>Y$
+) using Descartes’ rules of sign 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
 \end_inset
 
-.
- So 
-\begin_inset Formula $\beta_{3,4}$
-\end_inset
-
- have to be the complex roots, with 
-\begin_inset Formula $\beta_{1}>\beta_{2}$
-\end_inset
-
-.
- Therefore, 
-\begin_inset Formula $\beta_{2}$
-\end_inset
-
- is the negative root and 
-\begin_inset Formula $\beta_{1}$
-\end_inset
-
- is the positive real root.
- Based on the above discussions, the proposed closed form optimum frame
- length 
+, the proposed closed form optimum frame length 
 \begin_inset Formula $L_{TAMCRC}$
 \end_inset
 
@@ -5415,7 +5366,7 @@ reference "eq:closed form-3"
 \end_layout
 
 \begin_layout Subsection
-Closed Form Solution VS.
+Closed Form Solution vs.
  Numerical Solution
 \end_layout
 
@@ -5546,7 +5497,7 @@ reference "fig:Percentages-of-saving-TMCRA-perfect"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5564,8 +5515,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Percentages of saving time using the proposed TMCRA compared to the conventional
- frame length 
+Mean reading time reduction using the proposed TMCRA compared to the conventiona
+l frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -5622,7 +5573,7 @@ reference "fig:Percentages-of-saving-TMCRA-Estimation"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5640,8 +5591,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Percentages of saving time using the proposed TMCRA compared to the conventional
- frame length 
+Mean reading time reduction using the proposed TMCRA compared to the conventiona
+l frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -5674,7 +5625,7 @@ name "fig:Percentages-of-saving-TMCRA-Estimation"
 \end_layout
 
 \begin_layout Section
-Summary Results
+Performance Comparison of the proposed algorithms
 \end_layout
 
 \begin_layout Standard
@@ -5716,15 +5667,8 @@ The following simulation results assume the following parameters: Slots
 \begin_inset Formula $ts=\unit[1060]{\mu s}$
 \end_inset
 
-, which are practical values from real measurements using a 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "USRP"
-description "Universal Software Defined Radio Peripheral"
-
-\end_inset
-
-Universal Software Defined Radio Peripheral (USRP B210) 
+, which are practical values from real measurements using a Universal Software
+ Defined Radio Peripheral (USRP B210) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "USRP"
@@ -5801,8 +5745,8 @@ name "fig:Summary_no_estimation"
 
 \end_layout
 
-\begin_layout Standard
-1- Average reading time without number of tags estimation: Figure 
+\begin_layout Enumerate
+Average reading time without number of tags estimation: Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Summary_no_estimation"
@@ -5899,8 +5843,8 @@ name "fig:Summary_Without-no_Patent"
 
 \end_layout
 
-\begin_layout Standard
-2- Average reading time with the conventional ML number of tags estimation:
+\begin_layout Enumerate
+Average reading time with the conventional ML number of tags estimation:
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5930,8 +5874,8 @@ key "Chen"
  
 \end_layout
 
-\begin_layout Standard
-3- Average reading time with the collision recovery aware ML number of tags
+\begin_layout Enumerate
+Average reading time with the collision recovery aware ML number of tags
  estimation: Figure 
 \begin_inset CommandInset ref
 LatexCommand ref

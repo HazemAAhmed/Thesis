@@ -474,7 +474,7 @@ status open
 \backslash
 renewcommand{
 \backslash
-nomname}{List of Abbreviations} 
+nomname}{List of Symbols} 
 \backslash
 printnomenclature[5em]
 \end_layout

@@ -402,7 +402,7 @@ key "Binary_tree"
 
  is commonly used in tree-based anti-collision protocols.
  In this algorithm, if a collision occurs in a time slot, each collided
- tag select randomly '0' or '1' .
+ tag select randomly '0' or '1'.
  Thus, the colliding tags will be separated into two subgroups.
  Tags, which have selected '0' always transmit their IDs to the reader first.
  If a collision re-occurs, collided tags are splitted again by selecting
@@ -655,7 +655,7 @@ reference "fig:Query-tree-anti-collision"
  At time slot 1, the reader broadcasts a query signal asking them for a
  reply.
  A collision between the four tags is happening.
- The reader sends a '0' in a new query signal at time slot 2 .
+ The reader sends a '0' in a new query signal at time slot 2.
  However, there are three tags sharing this bit, so a collision between
  the three tags is happening.
  Thereby, the reader has sent a '00' in its next query signal in time slot

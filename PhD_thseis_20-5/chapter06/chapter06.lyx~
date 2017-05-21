@@ -154,8 +154,15 @@ EPCglobal C1 G2 Reading Process
 \begin_layout Standard
 This section will describe, in brief, the conventional reading algorithm
  of the EPCglobal C1 G2 standards.
- The reader initially powers the tags in the reading area with a continuous
- wave (CW).
+ The reader initially powers the tags in the reading area with a 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CW"
+description "continuous wave"
+
+\end_inset
+
+ (CW).
  At this time, the powered tags are in the ready state waiting for the frame
  size information from the reader.
  Then, the reader broadcasts the frame size and notifies all tags of the
@@ -163,7 +170,7 @@ This section will describe, in brief, the conventional reading algorithm
  As soon as the tags receive this command, each tag selects a slot from
  the frame by setting its slot counter, and enters the Arbitrate state.
  When the tag slot counter is equal to zero, the tag enters the Reply state
- and backscatters its 
+ and Backscatter its 
 \begin_inset Formula $16$
 \end_inset
 
@@ -222,10 +229,10 @@ name "fig:Tag-response-of"
 \end_layout
 
 \begin_layout Standard
-According to Frame Slotted ALOHA, there are three probailities for each
+According to Frame Slotted ALOHA, there are three probabilities for each
  slot: 1.
  No tag reply: The reader considers this slot as an empty slot and transmits
- a Query-Rep command asking the tags to decrement their slot counters.
+ a Query-Rep command asking the tags to decrements their slot counters.
  2.
  Only one tag responds (successful slot): The reader transmits an acknowledge
  command including the received RN16.
@@ -235,9 +242,8 @@ According to Frame Slotted ALOHA, there are three probailities for each
  Multiple tags reply (collided Slot): this case has two possibilities: 
 \end_layout
 
-\begin_layout Standard
-1- Systems that have no collision recovery capability as shown in figure
- 
+\begin_layout Enumerate
+Systems that have no collision recovery capability as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Two-tags-collided"
@@ -291,8 +297,8 @@ name "fig:Two-tags-collided"
 
 \end_layout
 
-\begin_layout Standard
-2- Systems that have collision recovery capability as shown in figure 
+\begin_layout Enumerate
+Systems that have collision recovery capability as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Two-tags-collided"
@@ -1313,8 +1319,8 @@ reference "tab:Set-of-8"
  In case of a collided slot, the reader executes the following steps:
 \end_layout
 
-\begin_layout Standard
-- Uses the orthogonal pilots to do channel estimation for the collided tags.
+\begin_layout Itemize
+Uses the orthogonal pilots to do channel estimation for the collided tags.
  Afterwards, it employs the channel information to recover the collided
  RN16s using a MIMO receiver, e.g.
  the receiver proposed in 
@@ -1327,8 +1333,8 @@ key "2013_orthogonal"
 .
 \end_layout
 
-\begin_layout Standard
-- Counts the number of recovered tags replies in the 
+\begin_layout Itemize
+Counts the number of recovered tags replies in the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1339,9 +1345,9 @@ Reply Counter
 .
 \end_layout
 
-\begin_layout Standard
-- Recognizes whether one of these replies is a conventional pilot or not
- by checking if one of the collided pilots is the conventional one, 
+\begin_layout Itemize
+Recognizes whether one of these replies is a conventional pilot or not by
+ checking if one of the collided pilots is the conventional one, 
 \begin_inset Formula $P_{1}$
 \end_inset
 
@@ -1403,7 +1409,7 @@ where
 \begin_inset Formula $R$
 \end_inset
 
- tag are active in one slot.
+ tags are active in one slot.
  It can be presented as:
 \begin_inset Float table
 wide false
@@ -2445,7 +2451,7 @@ reference "tab:System-Parameters-of"
 \end_layout
 
 \begin_layout Section
-Measurement And Simulation Results
+Measurement and Simulation Results
 \end_layout
 
 \begin_layout Standard

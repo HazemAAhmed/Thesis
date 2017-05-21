@@ -488,15 +488,7 @@ metals or not.
 \end_layout
 
 \begin_layout Standard
-First RFID users started with Low Frequency (LF) 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "LF"
-description "Low Frequency"
-
-\end_inset
-
- band RFID systems 
+First RFID users started with Low Frequency (LF) band RFID systems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "LF_RFID"
@@ -505,14 +497,6 @@ key "LF_RFID"
 
 .
  After few years, the RFID systems have operated in High Frequency (HF)
- 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "HF"
-description "High Frequency"
-
-\end_inset
-
  band 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -523,16 +507,8 @@ key "HF_RFID"
 .
  Using only these two band made a big limitation on the RFID applications.
  Thus, Recent years, the number of RFID systems operating in the Ultra High
- Frequency (UHF) 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "UHF"
-description "Ultra High Frequency"
-
-\end_inset
-
- range have increased because of the dramatic decrease in its component's
- price 
+ Frequency (UHF)  range have increased because of the dramatic decrease
+ in its component's price 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "UHF_RFID"

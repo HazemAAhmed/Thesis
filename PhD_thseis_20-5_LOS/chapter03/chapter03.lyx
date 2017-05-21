@@ -115,14 +115,6 @@ reference "fig:Existing-PHY-Layer-anti-collisio"
 
 \begin_layout Paragraph
 Frequency Division Multiple Access (FDMA):
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "FDMA"
-description "Frequency Division Multiple Access"
-
-\end_inset
-
- 
 \end_layout
 
 \begin_layout Standard
@@ -182,15 +174,7 @@ name "fig:Existing-PHY-Layer-anti-collisio"
 \end_layout
 
 \begin_layout Paragraph*
-Space Division Multiple Access (SDMA):
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "SDMA"
-description "Space Division Multiple Access"
-
-\end_inset
-
- 
+Space Division Multiple Access (SDMA): 
 \end_layout
 
 \begin_layout Standard
@@ -210,15 +194,7 @@ key "SDMA"
 \end_layout
 
 \begin_layout Paragraph*
-Code Division Multiple Access (CDMA):
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "CDMA"
-description "Code Division Multiple Access"
-
-\end_inset
-
- 
+Code Division Multiple Access (CDMA): 
 \end_layout
 
 \begin_layout Standard
@@ -239,15 +215,7 @@ key "CDMA"
 \end_layout
 
 \begin_layout Paragraph*
-Time Division Multiple Access (TDMA):
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "TDMA"
-description "Time Division Multiple Access"
-
-\end_inset
-
- 
+Time Division Multiple Access (TDMA): 
 \end_layout
 
 \begin_layout Standard
@@ -765,15 +733,8 @@ Slotted ALOHA
 \end_layout
 
 \begin_layout Standard
-The second ALOHA anti-collision protocol is the slotted ALOHA (SA) 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "SA"
-description "Slotted ALOHA"
-
-\end_inset
-
- protocol 
+The second ALOHA anti-collision protocol is the slotted ALOHA (SA)  protocol
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Slotted_ALOHA"
@@ -845,15 +806,7 @@ Framed Slotted ALOHA (FSA)
 \end_layout
 
 \begin_layout Standard
-The third group is Framed Slotted ALOHA (FSA)
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "FSA"
-description "Framed Slotted ALOHA"
-
-\end_inset
-
- 
+The third group is Framed Slotted ALOHA (FSA) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Aloha1"
@@ -1075,6 +1028,54 @@ key "Aloha4_Vogt"
 \end_inset
 
  slots can be expressed by the following equations:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$E$"
+description "Number of empty slots"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$C$"
+description "Number of collided slots"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$S$"
+description "Number of successful slots"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$L$"
+description "Frame Slotted ALOHA frame length"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$n$"
+description "number of tags in the reading area"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\eta_{conv}$"
+description "Conventional FSA reading efficiency"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1178,6 +1179,14 @@ reference "eq:eff calss f(L)"
 \end_inset
 
  is maximized when:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$L_{opt}$"
+description "Optimum FSA frame length"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 L_{opt}=n\label{eq:L=n}
@@ -1349,6 +1358,14 @@ reference "fig:Conventional-variable-frame"
 
 , where 
 \begin_inset Formula $Q_{ini}=4$
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$Q_{ini}$"
+description "Slot count parameter"
+
 \end_inset
 
 .
@@ -1590,34 +1607,12 @@ reference "fig:Single-tag-reply"
 \end_inset
 
  shows the case of single tag reply.
- In this case, the tag replies with its Random Number 16 (RN16)
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "RN16"
-description "Random Number 16"
-
-\end_inset
-
-, which is 16 bits random number.
+ In this case, the tag replies with its Random Number 16 (RN16), which is
+ 16 bits random number.
  When the reader receives this RN16 it will acknowledge this tag with an
  ACK command includes this RN16.
- As soon as the tag receives a valid Acknowledgment (ACK)
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "ACK"
-description "Acknowledgment"
-
-\end_inset
-
- with its RN16, it will reply with its unique Electronic Product Code (EPC)
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "EPC"
-description "Electronic Product Code"
-
-\end_inset
-
-.
+ As soon as the tag receives a valid Acknowledgment (ACK) with its RN16,
+ it will reply with its unique Electronic Product Code (EPC).
  Finally, the reader will send a handle command to the tag to mute it until
  the end of the complete reading process.
  In figure 
@@ -1714,6 +1709,14 @@ where
 \begin_inset Formula $\sum_{i=2}^{n}P(i)$
 \end_inset
 
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$P(i)$"
+description "Probability of $i$ tag rely per slot"
+
+\end_inset
+
  is the probability of collision, 
 \begin_inset Formula $\alpha$
 \end_inset
@@ -1750,6 +1753,14 @@ where
 
 , and 
 \begin_inset Formula $M$
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$M$"
+description "Number of collided tags per slot"
+
 \end_inset
 
  represents the number of collided tags that the reader is capable to recover.
@@ -2021,7 +2032,15 @@ key "USRP"
 \end_inset
 
 .
- In these measurements, we used sampling frequency of 
+ In these measurements, we used 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$f_s$"
+description "Sampling frequency"
+
+\end_inset
+
+ of 
 \begin_inset Formula $f_{s}=\unit[8]{MHz}$
 \end_inset
 
@@ -2029,7 +2048,15 @@ key "USRP"
 \begin_inset Formula $\unit[4]{MHz}$
 \end_inset
 
-, tags Backscatter Link Frequency 
+, tags 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$BLF$"
+description "Backscatter Link Frequency"
+
+\end_inset
+
+ 
 \begin_inset Formula $BLF=\unit[160]{kbps}$
 \end_inset
 
