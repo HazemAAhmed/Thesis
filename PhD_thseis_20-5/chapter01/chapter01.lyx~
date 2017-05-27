@@ -85,7 +85,7 @@
 \begin_body
 
 \begin_layout Chapter
-INTRODUCTION
+Introduction
 \end_layout
 
 \begin_layout Standard
@@ -117,7 +117,7 @@ key "Intro_RFID"
 ng, etc 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Barcodes_VS_RFID_1,Barcodes_Vs_RFID_2,Barcodes_vs_RFID_3,Barcodes_vs_RFID_4"
+key "Barcodes_VS_RFID_1,Barcodes_Vs_RFID_2,Barcodes_vs_RFID_4"
 
 \end_inset
 
@@ -130,7 +130,7 @@ key "Barcodes_VS_RFID_1,Barcodes_Vs_RFID_2,Barcodes_vs_RFID_3,Barcodes_vs_RFID_4
  
 \begin_inset CommandInset citation
 LatexCommand cite
-key "2017_RFID_1,2017_RFID_2,2017_RFID_3,2017_RFID_4"
+key "2017_RFID_1,2017_RFID_2,2017_RFID_3"
 
 \end_inset
 
@@ -238,7 +238,7 @@ description "Framed Slotted ALOHA"
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "FSA_2012,FAS_1,FSA2,FSA3,FSA4"
+key "FAS_1,FSA2,FSA3,FSA4"
 
 \end_inset
 

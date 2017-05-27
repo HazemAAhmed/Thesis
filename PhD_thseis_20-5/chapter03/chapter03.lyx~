@@ -973,6 +973,14 @@ key "DFSA_shoute_Random"
 
 \end_inset
 
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "DFSA"
+description "Dynamic Frame Slotted ALOHA"
+
+\end_inset
+
 .
  In this algorithm, the number of slots per frame is variable as shown in
  figure 
@@ -986,7 +994,7 @@ reference "fig:Slots-of-Dynamic"
  According to the previously published RFID work, DFSA 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "FSA_2012"
+key "Letter_2012"
 
 \end_inset
 
@@ -1693,7 +1701,7 @@ Recently, some research groups (e.g.
  
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Capture_2011,2013_cap_Letter"
+key "Capture_2011"
 
 \end_inset
 

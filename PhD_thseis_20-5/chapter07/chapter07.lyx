@@ -74,65 +74,21 @@ Conclusion And Future Work
 \end_layout
 
 \begin_layout Standard
-During the past decade, there has been a great interest in RFID due to the
- vast array of applications used in this field.
+Nowadays, there has been a great interest in RFID due to the vast array
+ of applications used in this field.
  RFID systems provide low cost and low power object identification and tracking
  mechanisms, being the key requirement for anticipated ultra dense applications,
  e.g., Logistics.
- In such applications, dense number of tags are expected.
- Furthermore, the number of tags are unknown.
- Thus, the most suitable standard for such applications is the EPCglobal
- C1 G2.
- This standard uses UHF frequency range and passive tags, which gives the
- advantage of having cheap identification process and 
-\begin_inset Formula $\unit[10]{m}$
-\end_inset
-
- reading range.
- In such systems, there are some challenges that need to be overcome.
- The principle challenge is to have a robust tag anti-collision and hence,
- reducing the mean reading time for a bunch of RFID tags.The conventional
- anti-collision protocol, which is used by EPCglobal C1 G2 is DFSA.
- The main optimization parameters in DFSA is having a precise number of
- tags estimation, then, calculating the optimum frame length, giving the
- optimum reading efficiency and hence, the mean identification time is minimized.
+ In such applications, dense number of tags are expected and fast identification
+ is required.
+ In this thesis, different proposals aimed to minimize the total identification
+ time by optimizing the FSA anti-collision algorithm.
  
 \end_layout
 
 \begin_layout Standard
-Recently the PHY-Layer of the RFID readers has been improved to possess
- the capability of converting part of the collided slots to successful slots.
- Moreover, the readers have the capability to identify the slot type and
- terminate the empty slots after a certain time out of no tag reply.
- This property allows the reader to convert FSA slots from equal slots duration
- to unequal slots durations.
- All these PHY parameters became important parameters in optimizing the
- MAC anti-collision protocol e.g., number of tags estimation and finding the
- optimum FSA frame length.
-\end_layout
-
-\begin_layout Standard
-In this thesis, a promising ML collision recovery aware number of tags estimatio
-n algorithm is presented.
- This algorithm uses ML estimation taking into consideration the collision
- recovery capability of the RFID reader.
- Moreover, a closed form solution for the estimated number of tags as a
- function of the used frame length, MAC/PHY layer parameters is proposed.
- This closed form solution reduces the complexity of the system, as neither
- look-up tables nor numerical searching is needed.
- Apart from that, a case study to optimize the FSA frame length is presented.
- Each case study takes into consideration the effect of considering a special
- scenario of PHY layer parameters.
-\end_layout
-
-\begin_layout Standard
-In all previous proposals, all modifications were only in the reader side
- to completely follow the EPCglobal C1 G2 standard.
- However, due to the limitation of the used EPCglobal C1 G2's tags, there
- is still a room of improvement between the mean reading time of the proposed
- algorithm and the theoretical limit of the mean reading time.
- Therefore, new backwards to the EPCglobal C1 G2 standards are presented
- to approach the theoretical limit.
+This chapter will summarize the main outcomes of this thesis , as well as
+ the possible issues that may be addressed in future works
 \end_layout
 
 \begin_layout Section
@@ -146,8 +102,8 @@ The advanced RFID readers proposed in this thesis improve performances and
  optimize the MAC anti-collision protocols.
  They merged the collision recovery coefficients and the differences in
  slot durations.
- Thus, in order to gain from the collision recovery expertise, changes in
- the number of tags estimations should be applied.
+ Thus, in order to benefit from the collision recovery expertise, changes
+ in the number of tags estimations should be applied.
  Besides, the higher collision recovery capability of the system, the shorter
  optimum frame length is recommended.
  According to the differences in slot duration results, the smaller the

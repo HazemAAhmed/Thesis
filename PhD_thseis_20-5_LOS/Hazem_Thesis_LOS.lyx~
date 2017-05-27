@@ -431,18 +431,6 @@ filename "chapter07/chapter07.lyx"
 \end_layout
 
 \begin_layout Paragraph*
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pagenumbering{gobble}
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -494,6 +482,14 @@ printnomenclature[5em]
 \end_layout
 
 \begin_layout Standard
+
+\lang american
+\begin_inset CommandInset include
+LatexCommand include
+filename "Bibliography.lyx"
+
+\end_inset
+
 
 \end_layout
 

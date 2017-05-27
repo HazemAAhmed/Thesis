@@ -430,17 +430,10 @@ filename "chapter07/chapter07.lyx"
 
 \end_layout
 
-\begin_layout Paragraph*
-\begin_inset ERT
-status open
+\begin_layout Standard
 
-\begin_layout Plain Layout
-
-
-\backslash
-pagenumbering{gobble}
-\end_layout
-
+\lang ngerman
+\begin_inset Newpage cleardoublepage
 \end_inset
 
 

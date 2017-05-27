@@ -1247,14 +1247,7 @@ reference "tab:RFID-standards-classification"
 \end_inset
 
  shows the most common RFID standards with a short description for each
- one
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Performance_RFID_standard"
-
-\end_inset
-
-.
+ one.
  This work discusses Generation 2, Class 1 standard, because it is the most
  suitable standard for dense RFID network, as the cost of the system is
  ideal for such applications.
@@ -1286,6 +1279,45 @@ Readers Collisions
 \begin_layout Standard
 There are two main types of readers collisions or interference in RFID systems:
  multiple readers to tag collision and reader to reader collision.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Reader_Tag_interfierence.emf
+	lyxscale 12
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Multiple readers to a single tag collision 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Multiple-readers-collisions"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*

@@ -402,7 +402,7 @@ key "Binary_tree"
 
  is commonly used in tree-based anti-collision protocols.
  In this algorithm, if a collision occurs in a time slot, each collided
- tag select randomly '0' or '1' .
+ tag select randomly '0' or '1'.
  Thus, the colliding tags will be separated into two subgroups.
  Tags, which have selected '0' always transmit their IDs to the reader first.
  If a collision re-occurs, collided tags are splitted again by selecting
@@ -655,7 +655,7 @@ reference "fig:Query-tree-anti-collision"
  At time slot 1, the reader broadcasts a query signal asking them for a
  reply.
  A collision between the four tags is happening.
- The reader sends a '0' in a new query signal at time slot 2 .
+ The reader sends a '0' in a new query signal at time slot 2.
  However, there are three tags sharing this bit, so a collision between
  the three tags is happening.
  Thereby, the reader has sent a '00' in its next query signal in time slot
@@ -970,6 +970,14 @@ The final type of ALOHA anti-collision protocols is Dynamic Framed Slotted
 \begin_inset CommandInset citation
 LatexCommand cite
 key "DFSA_shoute_Random"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "DFSA"
+description "Dynamic Frame Slotted ALOHA"
 
 \end_inset
 
@@ -1693,7 +1701,7 @@ Recently, some research groups (e.g.
  
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Capture_2011,2013_cap_Letter"
+key "Capture_2011"
 
 \end_inset
 
@@ -1965,7 +1973,14 @@ Slots Durations in EPCglobal C1 G2
 \end_layout
 
 \begin_layout Standard
-Conventional RFID systems cannot identify the type of the slots in FSA .
+Conventional RFID systems cannot identify the type of the slots in FSA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Vogt_1"
+
+\end_inset
+
+.
  Therefore, such systems consider that the slot duration of FSA is constant,
  neglecting the type of the slot.
  Modern RFID readers can quickly identify the type of a slot (i\SpecialChar \@.
@@ -2040,10 +2055,10 @@ According to the above discussion, the reading efficiency equation will
 \end_layout
 
 \begin_layout Standard
-To sum up, the main lack in the previous RFID researches is that the MAC
+Summarizing, the main lack in the previous RFID researches is that the MAC
  layer is optimized independent on the PHY layer layer.
  However, the PHY-layer properties affects the optimization parameters of
- the MAC layer e.g.
+ the MAC layer, e.g.
  the number of tags estimation and the optimum frame length.
  In this thesis, I will concentrate on optimizing DFSA anti-collision protocol,
  either number of tags estimation or frame length optimization.

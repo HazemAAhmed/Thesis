@@ -1247,17 +1247,10 @@ reference "tab:RFID-standards-classification"
 \end_inset
 
  shows the most common RFID standards with a short description for each
- one
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Performance_RFID_standard"
-
-\end_inset
-
-.
- This work discusses Generation 2, Class 1 standard, because it is the most
- suitable standard for dense RFID network, as the cost of the system is
- ideal for such applications.
+ one.
+ This thesis discusses Generation 2, Class 1 standard, because it is the
+ most suitable standard for dense RFID network, as the cost of the system
+ is ideal for such applications.
  
 \end_layout
 
