@@ -96,7 +96,7 @@ Estimation of the Tag Population
 \end_layout
 
 \begin_layout Standard
-In this chapter, the most common estimation algorithms, following the EPCglobal
+In this chapter, the most common estimation algorithms following the EPCglobal
  C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -105,8 +105,15 @@ key "standard"
 \end_inset
 
  are presented.
- Afterwards, a novel number of tags estimation method called: Collision
- Recovery Aware Tag Estimation will be introduced.
+ Afterwards, a novel number of tags estimation method called 
+\begin_inset Quotes eld
+\end_inset
+
+Collision Recovery Aware Tag Estimation
+\begin_inset Quotes erd
+\end_inset
+
+ will be introduced.
  The proposed method takes into consideration the collision recovery probability
  from the physical layer.
  
@@ -116,10 +123,10 @@ key "standard"
 This chapter is organized as follows: section 1 shows the conventional number
  of tags estimation algorithms with performance analysis comparisons between
  them.
- Section 2 presents a novel collision recovery aware number of tags estimation
+ Section 2 presents the novel collision recovery aware number of tags estimation
  method.
- In this algorithm, a closed form solution for the estimated number of tags
- will be displayed.
+ Using this algorithm, a closed form solution for the estimated number of
+ tags will be presented.
  The proposed solution gives a direct relation between the estimated number
  of tags and the frame length, successful and collided number of slots and
  the physical layer collision recovery probability.
@@ -127,11 +134,11 @@ This chapter is organized as follows: section 1 shows the conventional number
 \end_layout
 
 \begin_layout Section
-State-of-the-Art Estimation Protocols
+State-of-the-Art Estimation Algorithms
 \end_layout
 
 \begin_layout Standard
-The performance of FSA algorithm strongly depends on the number of tags
+The performance of the FSA algorithm strongly depends on the number of tags
  estimation and the frame size.
  So, for fast identification of the ID of RFID tags, a precise estimation
  of the number of RFID tags is the key issue for Framed-Slotted ALOHA based
@@ -3056,10 +3063,10 @@ reference "fig:System-has-collision-time"
  to the collision recovery capability.
  However the proposed system saves the total identification time with almost
  
-\begin_inset Formula $10$
+\begin_inset Formula $\unit[10]{\%}$
 \end_inset
 
- % compared to others due to the performance of estimation only.
+ compared to others due to the performance of estimation only.
 \end_layout
 
 \begin_layout Standard

@@ -97,9 +97,23 @@ Historical Development of RFID
 
 \begin_layout Standard
 In the year 1935, the first notion of RFID system was invented by a Scottish
- physicist called Robert Alexander for detecting aircraft.
- In 1950, the British government developed the first prototype of the RFID
- system, which is known as Identify Friend (IFF) system.
+ physicist called Robert Alexander for detecting aircraft 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_History_2"
+
+\end_inset
+
+.
+ Next, in 1950, the British government developed the first prototype of
+ the RFID system, which is known as Identify Friend (IFF) system 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_history_3"
+
+\end_inset
+
+.
  This system was designed for aeronautical applications.
  Between the 1950s and 1960s, there was a big development in the RFID systems
  for different applications, e.g.
@@ -141,7 +155,14 @@ key "Intro_RFID"
 
  technology to track goods in their supply chain.
  In Europe, RFID was intended to improve industrial applications and to
- enable short-range systems for animal control.
+ enable short-range systems for animal control 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_history_1"
+
+\end_inset
+
+.
  In Japan, RFID was used for contact-less payments in transportation systems
  
 \begin_inset CommandInset citation
@@ -171,7 +192,7 @@ reference "fig:RFID-System-components"
  2) RFID reader and antennas which control data transmission and the whole
  identification process.
  3) Processing device commonly called Middle-ware.
- It is always software processing device.
+ It is always a software processing device.
  All the external processing depending on the application is done on this
  device using the EPC code which is identified by the reader from the tag.
  In the following sections, each component will be described in further
@@ -209,7 +230,7 @@ key "Passive_tags_1,Passive_tags_2"
 \end_inset
 
 .
- They are extremely simple and inexpensive devices (less than 0.1 €).
+ They are extremely simple and inexpensive devices (less than 0.10 €).
  Passive tags do not contain any power source so they derive all of the
  required energy for their operation from the signals emitted by the reader.
  This energy activates the circuit of the tags.
@@ -223,8 +244,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename RFID-system.jpg
-	lyxscale 50
+	filename RFID system.emf
+	lyxscale 10
 	width 50page%
 
 \end_inset
@@ -329,10 +350,20 @@ key "Active_Tags_1"
  It is responsible to access the tag information.
  The reader decodes the received data from the tags then sends this information
  to the middle-ware.
- Readers can be classified according to the type of tags as follow:
+ The reader performance depends strongly on two factors: First, the decoder
+ architecture.
+ Second, the antenna design.
 \end_layout
 
 \begin_layout Paragraph*
+Decoder architecture
+\end_layout
+
+\begin_layout Standard
+Readers can be classified according to the type of tags as follow:
+\end_layout
+
+\begin_layout Subparagraph*
 Readers dealing with active tags 
 \end_layout
 
@@ -351,13 +382,20 @@ key "Passive_tags_2"
 .
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subparagraph*
 Readers dealing with passive tags
 \end_layout
 
 \begin_layout Standard
 They have to meet the following key requirement: Their transmission power
- must be sufficient to feed the surrounding passive tags.
+ must be sufficient to feed the surrounding passive tags 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FSA4"
+
+\end_inset
+
+.
  These tags obtain energy from the transmitted signal using back-scattering
  technique.
  Back-scattering technique is the reflection of the reader’s carrier wave
@@ -366,7 +404,7 @@ They have to meet the following key requirement: Their transmission power
  the information sent by the tag.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph
 Antennas
 \end_layout
 
@@ -379,7 +417,7 @@ key "Antenna"
 \end_inset
 
 .
- In case of low range applications, such as LF
+ In case of low range applications, such as LF 
 \begin_inset Formula $(\unit[125]{kHz})$
 \end_inset
 
@@ -395,7 +433,7 @@ key "Antenna"
  In RFID systems, there are two types of antenna polarization: 
 \end_layout
 
-\begin_layout Paragraph*
+\begin_layout Subparagraph*
 Linearly polarized antennas
 \end_layout
 
@@ -414,7 +452,7 @@ key "Antenna_LP1"
  tags.
 \end_layout
 
-\begin_layout Paragraph*
+\begin_layout Subparagraph*
 Circularly polarized antennas
 \end_layout
 
@@ -443,8 +481,7 @@ Middle-ware
 \begin_layout Standard
 In some applications, the tag identifier is used as an input for a database
  to get an information related to this object e.g.
- shipment orders, expiring date.
- etc.
+ shipment orders, expiring date, etc.
  This kind of processing is done in a set of software tools called middle-ware.
  The EPCglobal standards 
 \begin_inset CommandInset citation
@@ -454,7 +491,7 @@ key "standard"
 \end_inset
 
  define specifications for the middle-ware of RFID systems.
- Meanwhile, RFID systems are still evolving technology.
+ Meanwhile, RFID systems are still an evolving technology.
  Thus, RFID middle-ware should be flexible enough so that it could be adapted
  to the future changes with minimal efforts.
 \end_layout
@@ -470,25 +507,21 @@ The most important differentiation criteria for RFID systems are the operating
 :
 \end_layout
 
-\begin_layout Standard
-- Technical properties of the application e.g.
- The RFID channel contains
+\begin_layout Itemize
+Technical properties of the application e.g.
+ The RFID channel contains metals or not.
+\end_layout
+
+\begin_layout Itemize
+Cost of the system.
+\end_layout
+
+\begin_layout Itemize
+Behavior of the electromagnetic waves at these different frequencies.
 \end_layout
 
 \begin_layout Standard
-metals or not.
-\end_layout
-
-\begin_layout Standard
-- Cost of the system.
-\end_layout
-
-\begin_layout Standard
-- Behavior of the electromagnetic waves at these different frequencies.
-\end_layout
-
-\begin_layout Standard
-First RFID users started with Low Frequency (LF) 
+First RFID systems started with Low Frequency (LF) 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "LF"
@@ -558,6 +591,13 @@ status open
 
 \begin_layout Plain Layout
 Frequency Bands for RFID Systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HF_RFID"
+
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Frequency-Bands-for"
@@ -813,7 +853,7 @@ Ultra High Frequency (UHF)
 
 \size small
 Microwave (
-\begin_inset Formula $\mu W$
+\begin_inset Formula $\mbox{\ensuremath{\mu}W}$
 \end_inset
 
 )
@@ -864,7 +904,53 @@ Microwave (
 
 \end_inset
 
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Frequency-Bands-for"
 
+\end_inset
+
+ presents the most common frequencies for each band as well as the maximum
+ allowed distance for each band.
+ It is necessary to note that Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Frequency-Bands-for"
+
+\end_inset
+
+ does not present the only possible operating frequencies.
+ It presents only the most commonly used frequencies in each band.
+ Thus, it is possible to find systems, operating at different frequencies,
+ within each frequency band.
+ This thesis focused upon the UHF frequency band, because it is suitable
+ for the passive dense RFID applications.
+ 
+\end_layout
+
+\begin_layout Section
+RFID Communication Standards
+\end_layout
+
+\begin_layout Standard
+There are different standards of the communication between the RFID reader
+ and the corresponding tags.
+ Although the EPCglobal C1G2 standard is the most extended and adopted for
+ passive dense RFID networks, yet, there are further other standards.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:RFID-standards-classification"
+
+\end_inset
+
+ shows the most common RFID standards with a short description for each
+ one.
+ This thesis discusses the Generation 2, Class 1 standard, because it is
+ the most suitable standard for dense RFID network, as the cost of the system
+ is ideal for such applications.
+ 
 \begin_inset Float table
 wide false
 sideways false
@@ -875,6 +961,13 @@ status collapsed
 
 \begin_layout Plain Layout
 RFID standards classification 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:RFID-standards-classification"
@@ -1205,60 +1298,33 @@ Capability to power on other tags
 
 \end_inset
 
-Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Frequency-Bands-for"
 
-\end_inset
-
- presents the most common frequencies for each band as well as the maximum
- allowed distance for each band.
- It is necessary to note that Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Frequency-Bands-for"
-
-\end_inset
-
- does not present the only possible operating frequencies.
- It presents only the most commonly used frequencies in each band.
- Thus, it is possible to find systems, operating at different frequencies,
- within each frequency band.
- This thesis focused upon the UHF frequency band, because it is suitable
- for the passive dense RFID applications.
- 
 \end_layout
 
 \begin_layout Section
-RFID Communication Standards
+Collision Problems
 \end_layout
 
 \begin_layout Standard
-There are different standards of the communication between the RFID reader
- and the corresponding tags.
- Although EPC-C1G2 standard is the most extended and adopted for passive
- dense RFID networks, yet, there are further other standards.
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:RFID-standards-classification"
-
-\end_inset
-
- shows the most common RFID standards with a short description for each
- one
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Performance_RFID_standard"
-
-\end_inset
-
-.
- This work discusses Generation 2, Class 1 standard, because it is the most
- suitable standard for dense RFID network, as the cost of the system is
- ideal for such applications.
+In RFID systems, both readers and tags communicate using the same frequency.
+ Thus, simultaneous transmission could happen that leads to collisions.
+ Collisions destroy the identification number EPC of the tag and may also
+ interfere control commands of the readers.
+ Thereby, the collision problem is the main source of delays in the identificati
+on process.
+ There are two types of collisions: reader collisions and tag collisions.
+ The following sections describe in details both types and how each of them
+ affects the performance of the system.
  
+\end_layout
+
+\begin_layout Subsection
+Readers Collisions
+\end_layout
+
+\begin_layout Standard
+There are two main types of readers collisions or interference in RFID systems:
+ multiple readers to tag collision and reader to reader collision.
 \begin_inset Float figure
 wide false
 sideways false
@@ -1298,33 +1364,6 @@ name "fig:Multiple-readers-collisions"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Collision Problems
-\end_layout
-
-\begin_layout Standard
-In RFID systems, both readers and tags communicate using the same the same
- frequency.
- Thus, simultaneous transmission could happen, that lead to collisions.
- Collisions destroy the identification number EPC of the tag and may also
- interfere control commands of the readers.
- Thereby, the collision problem is the main source of delays in the identificati
-on process.
- There are two types of collisions: reader collisions and tag collisions.
- The following sections describe in details both types and how each of them
- affects the performance of the system.
- 
-\end_layout
-
-\begin_layout Subsection
-Readers Collisions
-\end_layout
-
-\begin_layout Standard
-There are two main types of readers collisions or interference in RFID systems:
- multiple readers to tag collision and reader to reader collision.
 \end_layout
 
 \begin_layout Paragraph*

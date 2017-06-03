@@ -97,9 +97,23 @@ Historical Development of RFID
 
 \begin_layout Standard
 In the year 1935, the first notion of RFID system was invented by a Scottish
- physicist called Robert Alexander for detecting aircraft.
- In 1950, the British government developed the first prototype of the RFID
- system, which is known as Identify Friend (IFF) system.
+ physicist called Robert Alexander for detecting aircraft 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_History_2"
+
+\end_inset
+
+.
+ Next, in 1950, the British government developed the first prototype of
+ the RFID system, which is known as Identify Friend (IFF) system 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_history_3"
+
+\end_inset
+
+.
  This system was designed for aeronautical applications.
  Between the 1950s and 1960s, there was a big development in the RFID systems
  for different applications, e.g.
@@ -141,7 +155,14 @@ key "Intro_RFID"
 
  technology to track goods in their supply chain.
  In Europe, RFID was intended to improve industrial applications and to
- enable short-range systems for animal control.
+ enable short-range systems for animal control 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_history_1"
+
+\end_inset
+
+.
  In Japan, RFID was used for contact-less payments in transportation systems
  
 \begin_inset CommandInset citation
@@ -171,7 +192,7 @@ reference "fig:RFID-System-components"
  2) RFID reader and antennas which control data transmission and the whole
  identification process.
  3) Processing device commonly called Middle-ware.
- It is always software processing device.
+ It is always a software processing device.
  All the external processing depending on the application is done on this
  device using the EPC code which is identified by the reader from the tag.
  In the following sections, each component will be described in further
@@ -209,7 +230,7 @@ key "Passive_tags_1,Passive_tags_2"
 \end_inset
 
 .
- They are extremely simple and inexpensive devices (less than 0.1 €).
+ They are extremely simple and inexpensive devices (less than 0.10 €).
  Passive tags do not contain any power source so they derive all of the
  required energy for their operation from the signals emitted by the reader.
  This energy activates the circuit of the tags.
@@ -329,10 +350,20 @@ key "Active_Tags_1"
  It is responsible to access the tag information.
  The reader decodes the received data from the tags then sends this information
  to the middle-ware.
- Readers can be classified according to the type of tags as follow:
+ The reader performance depends strongly on two factors: First, the decoder
+ architecture.
+ Second, the antenna design.
 \end_layout
 
 \begin_layout Paragraph*
+Decoder architecture
+\end_layout
+
+\begin_layout Standard
+Readers can be classified according to the type of tags as follow:
+\end_layout
+
+\begin_layout Subparagraph*
 Readers dealing with active tags 
 \end_layout
 
@@ -351,13 +382,20 @@ key "Passive_tags_2"
 .
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subparagraph*
 Readers dealing with passive tags
 \end_layout
 
 \begin_layout Standard
 They have to meet the following key requirement: Their transmission power
- must be sufficient to feed the surrounding passive tags.
+ must be sufficient to feed the surrounding passive tags 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FSA4"
+
+\end_inset
+
+.
  These tags obtain energy from the transmitted signal using back-scattering
  technique.
  Back-scattering technique is the reflection of the reader’s carrier wave
@@ -366,7 +404,7 @@ They have to meet the following key requirement: Their transmission power
  the information sent by the tag.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph
 Antennas
 \end_layout
 
@@ -379,7 +417,7 @@ key "Antenna"
 \end_inset
 
 .
- In case of low range applications, such as LF
+ In case of low range applications, such as LF 
 \begin_inset Formula $(\unit[125]{kHz})$
 \end_inset
 
@@ -395,7 +433,7 @@ key "Antenna"
  In RFID systems, there are two types of antenna polarization: 
 \end_layout
 
-\begin_layout Paragraph*
+\begin_layout Subparagraph*
 Linearly polarized antennas
 \end_layout
 
@@ -414,7 +452,7 @@ key "Antenna_LP1"
  tags.
 \end_layout
 
-\begin_layout Paragraph*
+\begin_layout Subparagraph*
 Circularly polarized antennas
 \end_layout
 
@@ -443,8 +481,7 @@ Middle-ware
 \begin_layout Standard
 In some applications, the tag identifier is used as an input for a database
  to get an information related to this object e.g.
- shipment orders, expiring date.
- etc.
+ shipment orders, expiring date, etc.
  This kind of processing is done in a set of software tools called middle-ware.
  The EPCglobal standards 
 \begin_inset CommandInset citation
@@ -454,7 +491,7 @@ key "standard"
 \end_inset
 
  define specifications for the middle-ware of RFID systems.
- Meanwhile, RFID systems are still evolving technology.
+ Meanwhile, RFID systems are still an evolving technology.
  Thus, RFID middle-ware should be flexible enough so that it could be adapted
  to the future changes with minimal efforts.
 \end_layout
@@ -470,25 +507,21 @@ The most important differentiation criteria for RFID systems are the operating
 :
 \end_layout
 
-\begin_layout Standard
-- Technical properties of the application e.g.
- The RFID channel contains
+\begin_layout Itemize
+Technical properties of the application e.g.
+ The RFID channel contains metals or not.
+\end_layout
+
+\begin_layout Itemize
+Cost of the system.
+\end_layout
+
+\begin_layout Itemize
+Behavior of the electromagnetic waves at these different frequencies.
 \end_layout
 
 \begin_layout Standard
-metals or not.
-\end_layout
-
-\begin_layout Standard
-- Cost of the system.
-\end_layout
-
-\begin_layout Standard
-- Behavior of the electromagnetic waves at these different frequencies.
-\end_layout
-
-\begin_layout Standard
-First RFID users started with Low Frequency (LF) 
+First RFID systems started with Low Frequency (LF) 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "LF"
@@ -558,6 +591,13 @@ status open
 
 \begin_layout Plain Layout
 Frequency Bands for RFID Systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HF_RFID"
+
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Frequency-Bands-for"
@@ -813,7 +853,7 @@ Ultra High Frequency (UHF)
 
 \size small
 Microwave (
-\begin_inset Formula $\mu W$
+\begin_inset Formula $\mbox{\ensuremath{\mu}W}$
 \end_inset
 
 )
@@ -864,7 +904,53 @@ Microwave (
 
 \end_inset
 
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Frequency-Bands-for"
 
+\end_inset
+
+ presents the most common frequencies for each band as well as the maximum
+ allowed distance for each band.
+ It is necessary to note that Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Frequency-Bands-for"
+
+\end_inset
+
+ does not present the only possible operating frequencies.
+ It presents only the most commonly used frequencies in each band.
+ Thus, it is possible to find systems, operating at different frequencies,
+ within each frequency band.
+ This thesis focused upon the UHF frequency band, because it is suitable
+ for the passive dense RFID applications.
+ 
+\end_layout
+
+\begin_layout Section
+RFID Communication Standards
+\end_layout
+
+\begin_layout Standard
+There are different standards of the communication between the RFID reader
+ and the corresponding tags.
+ Although the EPCglobal C1G2 standard is the most extended and adopted for
+ passive dense RFID networks, yet, there are further other standards.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:RFID-standards-classification"
+
+\end_inset
+
+ shows the most common RFID standards with a short description for each
+ one.
+ This thesis discusses the Generation 2, Class 1 standard, because it is
+ the most suitable standard for dense RFID network, as the cost of the system
+ is ideal for such applications.
+ 
 \begin_inset Float table
 wide false
 sideways false
@@ -875,6 +961,13 @@ status collapsed
 
 \begin_layout Plain Layout
 RFID standards classification 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:RFID-standards-classification"
@@ -1205,53 +1298,7 @@ Capability to power on other tags
 
 \end_inset
 
-Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Frequency-Bands-for"
 
-\end_inset
-
- presents the most common frequencies for each band as well as the maximum
- allowed distance for each band.
- It is necessary to note that Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Frequency-Bands-for"
-
-\end_inset
-
- does not present the only possible operating frequencies.
- It presents only the most commonly used frequencies in each band.
- Thus, it is possible to find systems, operating at different frequencies,
- within each frequency band.
- This thesis focused upon the UHF frequency band, because it is suitable
- for the passive dense RFID applications.
- 
-\end_layout
-
-\begin_layout Section
-RFID Communication Standards
-\end_layout
-
-\begin_layout Standard
-There are different standards of the communication between the RFID reader
- and the corresponding tags.
- Although the EPCglobal C1G2 standard is the most extended and adopted for
- passive dense RFID networks, yet, there are further other standards.
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:RFID-standards-classification"
-
-\end_inset
-
- shows the most common RFID standards with a short description for each
- one.
- This thesis discusses Generation 2, Class 1 standard, because it is the
- most suitable standard for dense RFID network, as the cost of the system
- is ideal for such applications.
- 
 \end_layout
 
 \begin_layout Section
@@ -1259,9 +1306,8 @@ Collision Problems
 \end_layout
 
 \begin_layout Standard
-In RFID systems, both readers and tags communicate using the same the same
- frequency.
- Thus, simultaneous transmission could happen, that lead to collisions.
+In RFID systems, both readers and tags communicate using the same frequency.
+ Thus, simultaneous transmission could happen that leads to collisions.
  Collisions destroy the identification number EPC of the tag and may also
  interfere control commands of the readers.
  Thereby, the collision problem is the main source of delays in the identificati
@@ -1282,7 +1328,7 @@ There are two main types of readers collisions or interference in RFID systems:
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1413,15 +1459,15 @@ key "Reader_collision_3,Reader_collision_4"
 \end_inset
 
 .
- Such interference can be occurred even if there is no overlapping area
- between the reading areas.
+ Such interference can occur even if there is no overlapping area between
+ the reading areas.
  This interference affects the total identification time of the interfered
  system.
  
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1484,8 +1530,8 @@ reference "fig:Multiple-tags-to"
 .
  The main objective is to identify all tags in the reading area in the minimum
  possible time.
- However, in dense network, the number of tag collisions increase, which
- decrease the reading efficiency, and hence increase the reading time.
+ However, in dense networks, the number of tag collisions increases, which
+ decreases the reading efficiency, and hence increases the reading time.
  Different research groups are currently associated with how efficiently
  develop an anti-collision protocol for such systems.
 \end_layout
@@ -1493,15 +1539,360 @@ reference "fig:Multiple-tags-to"
 \begin_layout Standard
 Anti-collision protocols can be classified into two main types: Physical
  layer protocols and MAC layers protocols.
+ 
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+RFID standards classification 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:RFID-standards-classification-1"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="15" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Standards Classification
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Generation 1, Class 0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Read only passive tags
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Unique EPC programmed in the factory
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Generation 1, Class 0+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Identical to the normal Generation 1, Class 0 tags
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tags can be programmed by users
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Generation 1, Class 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Similar to Generation 1, Class 0 or 0+ tags
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Identified by readers from different companies
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Generation 2, Class 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Faster data rates then Generation 1 tags
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rewritable memories
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Generation 2, Class 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Similar to Generation 2, Class 1 tags
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+More noise immunity
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Generation 2, Class 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Semi-passive or battery assisted tags
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Generation 2, Class 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Active tags
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Generation 2, Class 5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Active tags
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Capability to power on other tags 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 In this thesis, I am focusing on the applications which include only a single
  RFID reader and dense RFID tag populations.
  The main motivation of this thesis is to minimize the total identification
  time for a dense and passive RFID networks.
- Therefore, in this thesis, there are different proposals to solve tags
- collisions problem by enhancing the existing anti-collision protocols taking
+ Therefore, in this thesis, there are different proposals to solve the tag
+ collision problem by enhancing the existing anti-collision protocols taking
  into consideration the physical layer parameters.
  Moreover, the applications of the dense RFID networks are following the
  EPCglobal C1 G2 standards 
@@ -1512,10 +1903,11 @@ key "standard"
 \end_inset
 
 .
- Thus, the proposed improvements in this thesis are done only in the reader
+ Thus, the proposed improvements in this thesis are done only on the reader
  side.
  Finally, chapter 6 will propose slight modifications in the standard to
- have further improvements and, at last, compare the results together.
+ have further improvements and, at last, compare the results against each
+ other.
  
 \end_layout
 

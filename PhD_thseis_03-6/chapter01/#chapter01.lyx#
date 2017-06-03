@@ -99,7 +99,7 @@ description "Radio Frequency Identification"
 
  Radio Frequency Identification (RFID) is a technology that uses communication
  through radio waves to transfer data between a reader and electronic tags
- attached to the object, either to be identified or tracked.
+ attached to an object, either to be identified or tracked.
  The RFID technology has benefits with respect to (wrt.) other identification
  technologies 
 \begin_inset CommandInset citation
@@ -135,10 +135,7 @@ key "2017_RFID_1,2017_RFID_2,2017_RFID_3"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-In this chapter, the research motivation will be presented.
+ In this chapter, the research motivation will be presented.
  In addition, the thesis contributions and outline will be highlighted.
 \end_layout
 
@@ -238,7 +235,7 @@ description "Framed Slotted ALOHA"
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "FAS_1,FSA2,FSA3,FSA4"
+key "FSA2,FSA4"
 
 \end_inset
 
@@ -352,14 +349,14 @@ n the collision recovery capability of the system.
 rm solution for the tag population estimator, which considers the collision
  recovery probability of the used system.
  Simulation results indicate that the proposed solution is more precise
- compared to the literature.
+ compared to the methods presented in the literature.
  Timing comparisons presented in the simulation results show the reduced
  identification delay of the proposed estimation method compared to other
  proposals.
 \end_layout
 
 \begin_layout Enumerate
-A closed-form solution for the optimum frame length for FSA was provided,
+A closed-form solution for the optimum frame length for FSA was provided
  by optimizing the Time-Aware Framed Slotted ALOHA reading efficiency, which
  considers the differences in the slot durations.
  Simulations indicate that the proposed solution gives the most accurate
@@ -369,7 +366,7 @@ A closed-form solution for the optimum frame length for FSA was provided,
 
 \begin_layout Enumerate
 Another closed-form solution for the optimum frame length for FSA was settled
- by optimizing the Time and constant collision recovery coefficients Aware
+ by optimizing the Time and constant collision recovery coefficients aware
  reading efficiency.
  The proposed solution gives a novel closed form equation for the frame
  length considering the different slot durations and the collision recovery
@@ -392,8 +389,8 @@ A novel closed-form solution for the optimal FSA frame length was established,
 \end_layout
 
 \begin_layout Enumerate
-Another new closed-form solution for the optimal Frame Slotted ALOHA (FSA)
- frame length was generated.
+Further, a new closed-form solution for the optimal Frame Slotted ALOHA
+ (FSA) frame length was generated.
  The novel solution considers the multiple collision recovery probability
  coefficients, and the different slot durations.
  Timing comparisons are presented in the simulation results to show the

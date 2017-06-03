@@ -223,9 +223,10 @@ Radio Frequency Identification (RFID) is a rapidly emerging technology that
  object or a person.
  The RFID technology took more attention since the adoption of the EPCglobal
  Class 1 Gen 2 standard in 2005.
- RFID has replaced other automatic identification systems like barcodes
- in some applications, e.g., logistics.
- In such applications, identification time is very critical performance
+ It has replaced other automatic identification systems like barcodes in
+ some applications, e.g.
+ logistics.
+ In such applications, the identification time is very critical performance
  parameter.
  Currently, developments are underway in various areas of RFID to decrease
  the total identification time for a bunch of tags.
@@ -256,7 +257,7 @@ In this thesis, a novel tag estimation method is introduced, taking into
  solution for the tag population estimator, which considers the collision
  recovery probability of the used system.
  Simulation results indicate that the proposed solution is more accurate
- when compared to state of the art.
+ when compared to state-of-the-art.
 \end_layout
 
 \begin_layout Standard
@@ -273,11 +274,12 @@ nts system.
  Moreover, a new calculation method of the collision recovery probability
  per frame is presented.
  In the third scenario, the multiple collision recovery coefficients system
- is introduced, where, the differences in the collision recovery probability
- coefficients are examined with equal slots durations.
+ is introduced.
+ There, the differences in the collision recovery probability coefficients
+ are examined with equal slots durations.
  In this regard, the values of the collision recovery coefficients are extracted
  from the physical layer parameters.
- Finally, Time-aware and Multiple collision recovery system is suggested,
+ Finally, a Time-aware and Multiple collision recovery system is suggested,
  taking into account the multiple collision recovery probability coefficients
  in addition to the different slot durations.
  For each scenario, timing comparisons are presented in the latter simulation
@@ -287,8 +289,8 @@ nts system.
 
 \begin_layout Standard
 This thesis focuses on the EPCglobal C1 G2 standard.
- Therefore, the tags could not be modified, and all the improvements are
- done only in the reader side.
+ Therefore, the tags cannot be modified, and all the improvements are done
+ only on the reader side.
  However, due to the limitation of the EPCglobal C1 G2, there is still a
  room of improvement between the proposed solutions and the theoretical
  lower bound of the identification time.
