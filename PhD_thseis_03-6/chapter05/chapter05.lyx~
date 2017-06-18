@@ -130,9 +130,10 @@ key "2009_capture"
  In such a system, it is better to increase the number of collided slots
  compared to the number of empty slots by decreasing the optimum frame length.
  This is because these systems are able to gain more from the collided slots
- compared to the empty slots.
+ compared to the empty slots by converting the collided slots to successful
+ slots.
  In addition, most of the previous studies assumed constant slot durations
- regardless the type of slot.
+ regardless the type of the slot.
  However, the duration of the slots in RFID systems depends on the slot
  type e.g.
  idle, successful, or collided.
@@ -154,8 +155,9 @@ key "standard"
 
 \begin_layout Standard
 This chapter is organized as follows: Section 1 discusses the effect of
- time differences in slot durations on the reading efficiency to have a
- new performance metric called time aware reading efficiency.
+ the different slot durations.
+ For this, we will introduce the reading efficiency to have a new performance
+ metric called time aware reading efficiency.
  Afterwards, a new closed form solution for the optimum frame length, which
  maximizes the reading efficiency, is proposed.
  In section 2, the effect of the collision recovery probability with constant
@@ -174,12 +176,12 @@ This chapter is organized as follows: Section 1 discusses the effect of
 \end_layout
 
 \begin_layout Section
-Time Aware Frame Length
+Time Aware System
 \end_layout
 
 \begin_layout Standard
-In recent years, some research groups focused upon optimizing the frame
- length in case of non-equal slot durations: In 
+In the recent years, some research groups have focused on optimizing the
+ frame length in case of non-equal slot durations: In 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "4_2_numerical_time_Lopt,Ref_4_4_2013_Cap_time"
@@ -201,7 +203,7 @@ key "ICC_2006"
 , the mean number of resolved tags in unit time is optimized.
  This is done by considering the different slot durations.
  However, this approach is based on a complex multidimensional table look-up,
- which is relatively time consuming.
+ which may be time consuming.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -212,7 +214,7 @@ key "optimizin_total_latency"
  suggested to search for the optimum frame length that minimizes the mean
  time needed to resolve a bunch of tags.
  However, the author reached a recursive Bellman-equation, which is difficult
- to be applied in systems with real time restrictions.
+ to be applied in systems with real-time restrictions.
 \end_layout
 
 \begin_layout Standard
@@ -334,7 +336,11 @@ reference "eq:eff-semi_simple"
 \begin_inset Formula $L$
 \end_inset
 
-, and equate the result to zero:
+ and equate the result to zero, where 
+\begin_inset Formula $L$
+\end_inset
+
+ can only has integer values:
 \size small
 
 \begin_inset Formula 
@@ -622,7 +628,7 @@ reference "eq:Lopt comlex expresion-1"
 
 
 \size default
-Analysis of (
+The analysis of (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:Lopt comlex expresion-1"
@@ -814,10 +820,8 @@ C_{t}=\frac{t_{e}}{t_{c}},\label{eq:ct-1}
 \end_inset
 
 
-\size footnotesize
-w
 \size default
-here the empty slot duration 
+the empty slot duration 
 \begin_inset Formula $t_{e}$
 \end_inset
 
@@ -1974,8 +1978,7 @@ reference "tab:Slots-durations-constant-1"
 
 \end_inset
 
- shows the values of the slots durations constant of the EPCglobal C1 G2
- standards.
+ shows the values of the slot duration constant of the EPCglobal C1 G2 standards.
  According to table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1996,25 +1999,7 @@ reference "tab:Slots-durations-constant-1"
 \end_inset
 
 , and this affects the optimum frame length directly.
- According to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Measured-Slots-durations-1"
-
-\end_inset
-
-, the slot duration constant 
-\begin_inset Formula $C_{t}=0.18$
-\end_inset
-
-, which verify the theoretical results in table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Slots-durations-constant-1"
-
-\end_inset
-
-.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -2065,7 +2050,7 @@ reference "fig:Frame size ct-1"
 
 \end_inset
 
-, the proposed equation approaches the numerical solution proposed at 
+, the proposed equation approaches the numerical solution proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "optimizin_total_latency"
@@ -2077,14 +2062,6 @@ key "optimizin_total_latency"
 \end_inset
 
  with very small bias coming from the Taylor series approximation in (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:taylor-1"
-
-\end_inset
-
-).
- This small bias is due to Taylor series approximation in (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:taylor-1"
@@ -2126,13 +2103,10 @@ reference "fig:Quantized-Frame-Length_time"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -2265,7 +2239,7 @@ name "fig:Frame size ct-1"
 \end_layout
 
 \begin_layout Subsection
-Mean Reduction in Reading Time
+Mean Reading Time Reduction
 \end_layout
 
 \begin_layout Standard
@@ -2287,7 +2261,7 @@ In time aware systems, the slots durations are variable.
  Therefore, the total identification time can only be calculated as time
  in seconds.
  Afterwards, the percentage of mean reading time reduction is calculated
- as follow:
+ as follows:
 \begin_inset Formula 
 \begin{equation}
 \unit[\zeta_{t}]{\%}=\left(\frac{\mbox{T{}_{conv.}}-\mbox{T{}_{proposed}}}{\mbox{\mbox{T{}_{conv.}}}}\right)\times100
@@ -2358,7 +2332,7 @@ e\SpecialChar \@.
 placement t
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -2468,14 +2442,14 @@ key "DFSA_shoute_Random"
 \begin_inset Formula $9\,\%$
 \end_inset
 
- for better estimation algorithms like MFML 
+ for better estimation algorithms like 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MFML"
 
 \end_inset
 
- and Biased Chebyshev 
+ and 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Biased_vogt"
@@ -2496,10 +2470,10 @@ reference "fig:Percentage-of-Time"
 
 , the better estimation algorithms, the less reading time reduction, because
  it decreases the number of iterations in FSA process.
- However, using non-accurate number of tags estimation algorithms, FSA needs
- more iterations, with more FSA frame length adaptations, which gives more
- importance for the proposed formula compared to the classical frame length
- adaptations.
+ However, using a non-accurate number of tags estimation algorithms, FSA
+ needs more iterations, with more FSA frame length adaptations.
+ That gives more importance for the proposed formula compared to the classical
+ frame length adaptations.
  
 \begin_inset Float figure
 placement t
@@ -2554,12 +2528,12 @@ name "fig:Percentage-of-Time"
 \end_layout
 
 \begin_layout Section
-Time and Collision Recovery Aware Frame Length
+Time and Collision Recovery System
 \end_layout
 
 \begin_layout Standard
-As mentioned before in chapter 4, modern RFID readers are able to decode
- one of the collided tags, which is called the collision recovery capability
+As mentioned in chapter 4, modern RFID readers are able to decode one of
+ multiple collided tags, which is called the collision recovery capability
  
 \begin_inset Formula $\alpha$
 \end_inset
@@ -2626,7 +2600,7 @@ key "2012_curve_fitting"
 
 \begin_layout Standard
 In this section, a closed form solution for the optimum frame length will
- be derived by optimizing the reading throughput per frame which does not
+ be derived by optimizing the reading throughput per frame, which does not
  require any look-up table 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2642,7 +2616,7 @@ key "Capture_time_2015,Ref_4_4_2013_Cap_time"
 \end_layout
 
 \begin_layout Subsection
-Closed Form Solution For Time and Collision Recovery Aware System
+Closed Form Solution for Time and Collision Recovery System
 \end_layout
 
 \begin_layout Standard
@@ -2878,7 +2852,7 @@ where
 \end_inset
 
 .
- (
+ Equation (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:Lopt comlex expresion"
@@ -2930,7 +2904,7 @@ where
 \begin_inset Formula $n$
 \end_inset
 
-, the following approximation can be used
+, again the following approximation can be used
 \end_layout
 
 \begin_layout Standard
@@ -3265,7 +3239,7 @@ Closed Form Solution vs.
 \end_layout
 
 \begin_layout Standard
-We will compare now the proposed closed form equation in (
+We will now compare the proposed closed form equation in (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:closed form"
@@ -3314,7 +3288,7 @@ reference "fig:Non-quantized"
 \end_inset
 
 .
- Due to the Taylor series approximations in equation 
+ Due to the Taylor series approximations in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:taylor"
@@ -3357,9 +3331,9 @@ Mean Reduction of Reading Time
 \end_layout
 
 \begin_layout Standard
-As mentioned before, the most common performance metric of comparison is
- the mean reduction in reading time compared to the conventional frame length
- 
+As mentioned previously, the most common performance metric of comparison
+ is the mean reduction in reading time compared to the conventional frame
+ length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -3541,7 +3515,7 @@ name "fig:Percentages-of-saving_ct_alpha_with"
 \end_layout
 
 \begin_layout Section
-Multiple Collision Recovery Aware System Frame Length
+Multiple Collision Recovery System
 \end_layout
 
 \begin_layout Standard
@@ -3600,7 +3574,7 @@ This section will introduce a new FSA efficiency metric called Multiple
 \end_layout
 
 \begin_layout Standard
-The main contribution in this efficiency is that it contains a unique collision
+The main contribution of this efficiency is that it contains a unique collision
  recovery coefficient 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
@@ -3645,7 +3619,7 @@ reference "fig:Collision-distribution-in"
 \end_inset
 
  uniformly.
- According 
+ According to 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ref_4_4_2013_Cap_time"
@@ -3653,7 +3627,7 @@ key "Ref_4_4_2013_Cap_time"
 \end_inset
 
 , this is the practical range of the frame length in RFID systems.
- According to figure 
+ As shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Collision-distribution-in"
@@ -3820,7 +3794,7 @@ where
 \end_inset
 
 .
- After substituting by (
+ After substituting (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:approx_P(i)"
@@ -4213,7 +4187,7 @@ Collision recovery coefficients versus SNR using the strongest tag reply
 \end_inset
 
  are respectively the collision recovery probability or two, three, and
- four collided tags per slot
+ four collided tags per slot.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Collision-recovery-coefficients"
@@ -4381,7 +4355,7 @@ reference "fig:Collision-recovery-coefficients"
  is used, and the tags used FM0 as an encoding scheme.
  Finally, to clarify the worst case effect of the collision recovery coefficient
 s, we used the highest symbol rate 
-\begin_inset Formula $\unit[640]{kHz}$
+\begin_inset Formula $\unit[\mbox{BLF}=640]{kHz}$
 \end_inset
 
 .
@@ -4439,7 +4413,7 @@ reference "fig:Frame-length-comparision"
 \end_inset
 
  shows a comparison frame length comparison between the proposed formula
- in (
+ (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:closed form"
@@ -4468,7 +4442,7 @@ reference "fig:Frame-length-comparision"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4524,18 +4498,8 @@ Mean Reading Time Reduction
 \end_layout
 
 \begin_layout Standard
-According to practical measurements, the typical range of the SNR for successful
- slots is 
-\begin_inset Formula $4$
-\end_inset
-
- to 
-\begin_inset Formula $\unit[10]{dB}$
-\end_inset
-
-.
- Therefore, the total average number of slots needed to identify a complete
- bunch of tags is calculated using the strongest tag reply receiver in 
+The total average number of slots needed to identify a complete bunch of
+ tags is calculated using the strongest tag reply receiver in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2013_capture"
@@ -4560,7 +4524,7 @@ reference "fig:Percentages-of-saving_MCR_perfect"
 \begin_inset Formula $L=n$
 \end_inset
 
- for perfect number of tags estimation.
+ assuming perfect number of tags estimation.
  The simulation uses 
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
@@ -4582,11 +4546,46 @@ reference "fig:Percentages-of-saving_MCR_perfect"
 \end_inset
 
  increases, the collision recovery probability increases.
- Hence, the the mean reduction in reading time also increases.
+ Hence, the the mean reading time reduction also increases.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving_MCR_with"
+
+\end_inset
+
+ shows the percentages of saving time with the proposed MCR compared to
+ the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ using different anti-collision algorithms with 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+ and 
+\begin_inset Formula $SNR=\unit{\unit[4]{dB}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In this section, the FSA reading efficiency is proposed for equal slot duration
+ system with multiple collision recovery coefficients.
+ However, practically, there are differences in the slot durations depending
+ on the slot type.
+ Therefore, in the following section, the FSA reading efficiency will consider
+ the differences in slot durations as well as the differences in the collision
+ recovery coefficients.
+ 
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4637,43 +4636,8 @@ name "fig:Percentages-of-saving_MCR_with"
 
 \end_layout
 
-\begin_layout Standard
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Percentages-of-saving_MCR_with"
-
-\end_inset
-
- shows the percentages of saving time with the proposed MCR compared to
- the conventional frame length 
-\begin_inset Formula $L=n$
-\end_inset
-
- using different anti-collision algorithms with 
-\begin_inset Formula $C_{t}=0.2$
-\end_inset
-
- and 
-\begin_inset Formula $SNR=\unit{\unit[4]{dB}}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-In this section, FSA reading efficiency is proposed for equal slot duration
- system with multiple collision recovery coefficients.
- However, practically, there are differences in slot durations depending
- on the slot type.
- Therefore, in the following section, the FSA reading efficiency will consider
- the differences in slot durations as well as the differences in the collision
- recovery coefficients.
- 
-\end_layout
-
 \begin_layout Section
-Time and Multiple Collision Recovery Frame Length
+Time and Multiple Collision Recovery System
 \end_layout
 
 \begin_layout Standard
@@ -4734,7 +4698,7 @@ reference "fig:Collision-distribution-in"
  (i\SpecialChar \@.
 e\SpecialChar \@.
  4 or more collided tags) will be small.
- Therefore, up to three collided tags will only be considered.
+ Therefore, only up to three collided tags will be considered.
  The next step is normalizing the slot duration 
 \begin_inset Formula $t_{k}$
 \end_inset
@@ -5297,7 +5261,7 @@ key "2012_orthogonal_codes"
  can be calculated based on the transmission rate as shown in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Ct_calculation"
+key "Comm_Letter_ours_2015"
 
 \end_inset
 
@@ -5373,8 +5337,8 @@ reference "fig:Frame-length-comparision_TAMCR"
 
 \end_inset
 
-, the proposed formula approaches the numerical solution at the full range
- of the complete range of 
+, the proposed formula approaches the numerical solution within the full
+ range of the complete range of 
 \begin_inset Formula $C_{t}$
 \end_inset
 
@@ -5407,7 +5371,7 @@ reference "fig:Quantized-Frame-Length-cr-t"
 \end_layout
 
 \begin_layout Subsection
-Mean Reduction in Reading Time
+Mean Reading Time Reduction
 \end_layout
 
 \begin_layout Standard
@@ -5418,8 +5382,8 @@ reference "fig:Percentages-of-saving-TMCRA-perfect"
 
 \end_inset
 
- presents the percentages of saving time using the proposed TMCRA compared
- to the conventional frame length 
+ presents the saved time using the proposed TMCRA compared to the conventional
+ frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -5457,7 +5421,7 @@ reference "fig:Percentages-of-saving-TMCRA-perfect"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5533,7 +5497,7 @@ reference "fig:Percentages-of-saving-TMCRA-Estimation"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5585,7 +5549,7 @@ name "fig:Percentages-of-saving-TMCRA-Estimation"
 \end_layout
 
 \begin_layout Section
-Performance Comparison of the proposed algorithms
+Comparison of the Proposed Algorithms
 \end_layout
 
 \begin_layout Standard
@@ -5643,7 +5607,7 @@ key "USRP"
 \end_inset
 
 .
- Average Signal to Noise Ration 
+ We assume 
 \begin_inset Formula $SNR=\unit[10]{dB}$
 \end_inset
 
@@ -5944,7 +5908,7 @@ key "standard"
 , the tags could not be modified.
  Thus in the next chapter, backwards compatible improvement of the EPCglobal
  Class 1 Gen 2 standard will be proposed.
- This proposed system is compatible with the EPCglobal class 1 gen 2 standards,
+ This proposed system is compatible with the EPCglobal C1 G2 standards,
  i.e.
  the proposed tags could be jointly operated with conventional tags and
  identified by conventional readers without affecting the performance.

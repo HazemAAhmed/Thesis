@@ -430,7 +430,12 @@ filename "chapter07/chapter07.lyx"
 
 \end_layout
 
-\begin_layout Paragraph*
+\begin_layout Standard
+
+\lang ngerman
+\begin_inset Newpage cleardoublepage
+\end_inset
+
 
 \end_layout
 

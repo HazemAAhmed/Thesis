@@ -2386,6 +2386,22 @@ t_{s}=t_{s(a)}+t_{s(b)},\label{eq:successful_slot_time}
 \end_inset
 
  can be expressed as:
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$T_{RN16}$"
+description "RN16 time"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$T_{EPC}$"
+description "EPC time"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

@@ -138,24 +138,24 @@ State-of-the-Art Estimation Algorithms
 \end_layout
 
 \begin_layout Standard
-The performance of the FSA algorithm strongly depends on the number of tags
- estimation and the frame size.
- So, for fast identification of the ID of RFID tags, a precise estimation
- of the number of RFID tags is the key issue for Framed-Slotted ALOHA based
+The performance of the FSA algorithm strongly depends on the precision of
+ the number of tags estimation and the frame size.
+ For fast identification of the ID of RFID tags, a precise estimation of
+ the number of RFID tags is the key issue for Framed-Slotted ALOHA based
  protocol.
- A tag estimation function calculates the number of tags based on feedback
+ The tag estimation function calculates the number of tags based on feedback
  from the previous frame, which includes the number of slots filled with
  empty, successful and collided slots.
- This information is then used by the function to obtain a tag estimate,
- and hence the optimal frame size 
+ This information is then used by the function to obtain the number of tag
+ estimate, and hence the optimal frame size 
 \begin_inset Formula $L$
 \end_inset
 
  for a given round.
  According to the literature, the most common estimation algorithms are
  classified into four groups: heuristic Q-slot family, indirect heuristics
- Q-frame family, error minimization estimation, and Maximum Likelihood estimatio
-n.
+ Q-frame family, error minimization estimation, and Maximum Likelihood (ML)
+ estimation.
 \end_layout
 
 \begin_layout Subsection
@@ -172,7 +172,7 @@ key "standard"
 
  proposes an alternative frame length adaptation mechanism without any prior
  tag estimation.
- In this mechanism, the initial frame length is fixed 
+ Using this mechanism, the initial frame length is fixed 
 \begin_inset Formula $Q_{ini}=4$
 \end_inset
 
@@ -199,8 +199,8 @@ g the value of
 \end_inset
 
 .
- Cf.
- figure 
+ c.f.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Conventional-variable-frame"
@@ -226,18 +226,18 @@ key "2007_Q+-"
 \end_inset
 
 .
- In this algorithm, the query command is transmitted only if the reader
+ Using this algorithm, the query command is transmitted only if the reader
  has to calculate a new value of 
 \begin_inset Formula $Q$
 \end_inset
 
 .
- Otherwise, the reader transmits QueryRep command, because the Query command
- length is 
+ Otherwise, the reader transmits the QueryRep command, because the Query
+ command length is 
 \begin_inset Formula $22$
 \end_inset
 
- bits and QueryRep command length is only 
+ bits and the QueryRep command length is only 
 \begin_inset Formula $4$
 \end_inset
 
@@ -300,20 +300,20 @@ key "Optimum-C"
 \end_inset
 
 .
- This is done by simulating a passive RFID system for all range of 
+ This is done by simulating a passive RFID system for the complete range
+ of 
 \begin_inset Formula $Q\in\left[0,....,15\right]$
 \end_inset
 
-.
- For each 
+ for each 
 \begin_inset Formula $Q$
 \end_inset
 
-, 
+ and 
 \begin_inset Formula $C\in\left[0.1,...,0.5\right]$
 \end_inset
 
- with step 
+ with step size 
 \begin_inset Formula $0.1$
 \end_inset
 
@@ -355,7 +355,7 @@ key "2007_SCS_Q"
 \begin_inset Formula $C_{2}$
 \end_inset
 
- like 
+ like using the 
 \begin_inset Formula $Q^{+-}$
 \end_inset
 
@@ -375,7 +375,8 @@ key "2007_Q+-"
 \begin_inset Formula $C_{2}$
 \end_inset
 
- in SCS algorithm are calculated slot by slot as a function of other parameters.
+ for the SCS algorithm are calculated slot by slot as a function of other
+ parameters.
  These parameters depend primarily on the Reader-to-Tags (R-T) and Tags-to-Reade
 r (T-R) data rates.
  According to 
@@ -422,13 +423,13 @@ key "Aloha2_Floerkemeier"
 
 \end_inset
 
-, the heuristics Q-slot family is an optimum anti-collision algorithm for
- the small RFID networks, which have number of tags less than 
+, the heuristics Q-slot family is an, almost optimum anti-collision algorithm
+ for small RFID networks, which have number of tags less than 
 \begin_inset Formula $50$
 \end_inset
 
  tags.
- However, in dense network, the performance of such algorithm is degraded.
+ However, in dense network, the performance of such algorithms is degraded.
 \end_layout
 
 \begin_layout Subsection
@@ -436,7 +437,7 @@ Indirect Heuristics Q-frame Family
 \end_layout
 
 \begin_layout Standard
-In dense RFID network, the indirect heuristics Q-frame family gives better
+In dense RFID networks, the indirect heuristics Q-frame family gives better
  performance 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -451,12 +452,12 @@ key "Aloha2_Floerkemeier"
 \end_inset
 
 .
- Then, they adjust the optimum frame length 
+ Then, it adjusts the optimum frame length 
 \begin_inset Formula $L$
 \end_inset
 
  that maximizes the reading efficiency.
- The estimation process is based on information about the previous frame.
+ The estimation process is based on information from the previous frame.
 \end_layout
 
 \begin_layout Paragraph*
@@ -464,7 +465,7 @@ Lower Bound:
 \end_layout
 
 \begin_layout Standard
-This method is proposed by 
+This method was proposed by 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Vogt_1"
@@ -526,7 +527,7 @@ key "DFSA_shoute_Random"
 \end_inset
 
  since this is a direct way to optimize the system throughput.
- Schoute method also supposes that the number of unidentified tags 
+ Schoute's method also supposes that the number of unidentified tags 
 \begin_inset Formula $\hat{n}$
 \end_inset
 
@@ -552,7 +553,7 @@ C_{rate}=\frac{P_{c}}{1-Ps}\label{eq:Schout_1}
 
 \end_inset
 
-For dense RFID network, 
+For dense RFID networks, 
 \begin_inset Formula $\hat{n}$
 \end_inset
 
@@ -560,13 +561,13 @@ For dense RFID network,
 \begin_inset Formula $C_{rate}$
 \end_inset
 
- can be calculated as follows:
+ can be thus calculated as follows:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-C_{rate}=\underset{n\rightarrow\infty}{lim}\frac{P_{c}}{1-Ps}\cong0.418
+C_{rate}=\underset{n\rightarrow\infty}{\mbox{lim}}\frac{P_{c}}{1-Ps}\cong0.418
 \end{equation}
 
 \end_inset
@@ -586,7 +587,7 @@ Thus, the average number of tags involved in a collision slot
 \begin_inset Formula $C_{tag}$
 \end_inset
 
- is then easily computed as follows:
+ is then computed as follows:
 \begin_inset Formula 
 \begin{equation}
 C_{tag}=\frac{1}{C_{rate}}\cong2.39
@@ -594,7 +595,7 @@ C_{tag}=\frac{1}{C_{rate}}\cong2.39
 
 \end_inset
 
-Therefore, Schoute method estimates the number of estimated tags 
+Therefore, Schoute's method estimates the number of estimated tags 
 \begin_inset Formula $\hat{n}$
 \end_inset
 
@@ -616,15 +617,15 @@ C-Ratio:
 \end_layout
 
 \begin_layout Standard
-The authors of C-Ratio estimation method 
+The authors of the C-Ratio estimation method 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2006_C_ratio"
 
 \end_inset
 
- proposed a binomial distribution for the number of tags which select a
- slot with probability of success 
+ proposed a binomial distribution for the number of tags.
+ They assume the tags select a slot with probability of success 
 \begin_inset Formula $P=\frac{1}{L}$
 \end_inset
 
@@ -647,7 +648,7 @@ key "2006_C_ratio"
 \end_inset
 
  is the frame index.
- Therefore, the C-Ratio could be expressed as:
+ Therefore, the C-Ratio can be expressed as:
 \begin_inset Formula 
 \begin{equation}
 C_{ratio}\triangleq\frac{C_{i}}{L_{i}}=1-\left(1-\frac{1}{L_{i}}\right)^{n_{i}}-\left(1+\frac{n_{i}}{L_{i}-1}\right)\label{eq:C-Ratio}
@@ -656,10 +657,10 @@ C_{ratio}\triangleq\frac{C_{i}}{L_{i}}=1-\left(1-\frac{1}{L_{i}}\right)^{n_{i}}-
 \end_inset
 
 The optimum value of 
-\begin_inset Formula $\hat{n_{i}}$
+\begin_inset Formula $\hat{n}_{i}$
 \end_inset
 
- is obtained by searching for the all possible values of 
+ is obtained by searching for all possible values of 
 \begin_inset Formula $n$
 \end_inset
 
@@ -675,21 +676,6 @@ reference "eq:C-Ratio"
 \end_inset
 
 .
- However, (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:C-Ratio"
-
-\end_inset
-
-) is undefined when the number of collided slots is equal to the frame length
- (
-\begin_inset Formula $C_{i}=L_{i}$
-\end_inset
-
-).
- This could occur when the frame length is short compared to the number
- of tags in the reading area.
 \end_layout
 
 \begin_layout Standard
@@ -700,10 +686,10 @@ key "C_ratio_Modified"
 
 \end_inset
 
-, the authors used the same concept of the C-Ratio.
+, the authors used the same concept as the C-Ratio.
  However, they presume independent binomial distributions of the tags in
  each slot.
- Thus, the modified C-Ratio could be expressed as:
+ Thus, the modified C-Ratio cav be expressed as:
 \begin_inset Formula 
 \begin{equation}
 \frac{C_{i}}{L_{i}}=\sum_{j=2}^{n_{i}}\binom{n_{i}}{j}\left(\frac{1}{L_{i}}\right)^{j}\left(1-\frac{1}{L_{i}}\right)^{n_{i}-1}\label{eq:Modified_C-ratio}
@@ -711,8 +697,8 @@ key "C_ratio_Modified"
 
 \end_inset
 
-This estimator suggests applying an upper bound to estimate the number of
- tags.
+To simplify the searching process, this estimator suggests applying an upper
+ bound to estimate the number of tags.
 \end_layout
 
 \begin_layout Subsection
@@ -720,8 +706,8 @@ Error Minimization Estimation
 \end_layout
 
 \begin_layout Standard
-Vogt proposes an estimation algorithm based on minimum squared error (MSE)
- estimation 
+Vogt proposes an estimation algorithm based on the minimum squared error
+ (MSE) estimation 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Aloha4_Vogt"
@@ -784,56 +770,6 @@ However, this method requires numerical searching to find the optimum value
  slots, which is generally not an precise assumption.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Estimation Error No CR_Trial.emf
-	lyxscale 15
-	width 65page%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Relative estimation error 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- vs normalized number of tags 
-\begin_inset Formula $\nicefrac{n}{L}$
-\end_inset
-
- for the common state-of the-art estimation algorithms
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Relative-estimation-error_no_CR"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Maximum Likelihood (ML) Tag Estimation
 \end_layout
@@ -887,7 +823,7 @@ key "Chen"
 \end_inset
 
  slots.
- In addition, he assumed a multinomial distribution with 
+ In addition, he assumed a multi-nomial distribution with 
 \begin_inset Formula $L$
 \end_inset
 
@@ -904,8 +840,7 @@ key "Chen"
 \begin_inset Formula $P_{c}$
 \end_inset
 
- collision.
- where 
+ collision, where 
 \begin_inset Formula $P_{e}$
 \end_inset
 
@@ -924,7 +859,7 @@ key "Vogt_1"
 
 \end_inset
 
- and could be presented as: 
+ and can be presented as: 
 \begin_inset Formula 
 \begin{equation}
 P_{e}=\left(1+\frac{1}{L}\right)^{n},\,P_{s}=\frac{n}{L}\left(1+\frac{1}{L}\right)^{n-1},\,P_{c}=1-P_{e}-P_{s}\label{eq:binomial_prob}
@@ -932,19 +867,15 @@ P_{e}=\left(1+\frac{1}{L}\right)^{n},\,P_{s}=\frac{n}{L}\left(1+\frac{1}{L}\righ
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 The probability that in 
 \begin_inset Formula $L$
 \end_inset
 
- trails, 
+ trails given 
 \begin_inset Formula $E$
 \end_inset
 
- empty slots, 
+ empty slots 
 \begin_inset Formula $S$
 \end_inset
 
@@ -985,7 +916,7 @@ This probability is the general term of the multi-nomial expansion of
 \begin_inset Formula $C$
 \end_inset
 
- collided slots are observed, as shown in (
+ collided slots are observed, is calculated as shown in (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:chen-1"
@@ -994,46 +925,6 @@ reference "eq:chen-1"
 
 ).
  
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Estimation_comparisions.emf
-	lyxscale 12
-	width 65page%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Mean identification time versus the number of tags in the reading area for
- the common state-of the-art estimation algorithms
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Mean-identification-time"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -1081,7 +972,7 @@ reference "fig:Relative-estimation-error_no_CR"
 
 \end_inset
 
- shows the relative estimation error 
+ shows the simulated relative estimation error 
 \begin_inset Formula $\epsilon$
 \end_inset
 
@@ -1098,7 +989,7 @@ reference "fig:Relative-estimation-error_no_CR"
 
 \end_inset
 
-, the simplest estimation algorithm is presented in the lower bound Schoute
+, the simplest estimation algorithm presented is the lower bound Schoute
  algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1106,8 +997,9 @@ key "DFSA_shoute_Random"
 
 \end_inset
 
- where it gives accurate result only when FSA frame length is equal to the
- number of tags 
+.
+ It gives accurate result only when FSA frame length is equal to the number
+ of tags 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -1139,13 +1031,61 @@ key "2012_estimation_interpolation"
 \end_inset
 
 , the complexity of the ML algorithm is much higher than the other estimation
- algorithm, because it searches for all possible values of 
+ algorithm, because it searches for the value 
 \begin_inset Formula $n$
 \end_inset
 
  that maximizes the estimation probability.
- This disadvantage makes ML estimation not a practical solution for the
- dense RFID networks.
+ This disadvantage makes ML estimation not a practical solution for  dense
+ RFID networks.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Estimation Error No CR_Trial.emf
+	lyxscale 15
+	width 65page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relative estimation error 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ vs.
+ normalized number of tags 
+\begin_inset Formula $\nicefrac{n}{L}$
+\end_inset
+
+ for the common state-of the-art estimation algorithms
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Relative-estimation-error_no_CR"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1180,7 +1120,7 @@ key "Chen"
 
 \end_inset
 
- achieves the closest approach to the optimal algorithm.
+ achieves the closest approach to the perfect estimation algorithm.
  However, the numerical searching complexity of the ML estimator 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1202,6 +1142,46 @@ key "Letter_2012"
  networks.
  Moreover, all these methods do not take into consideration the collision
  recovery capabilities effect of the modern RFID physical layer.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Estimation_comparisions.emf
+	lyxscale 12
+	width 65page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mean identification time using FSA for simulated common state-of the-art
+ estimation algorithms versus the number of tags in the reading area.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Mean-identification-time"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
  
 \end_layout
 
@@ -1210,7 +1190,7 @@ Novel Collision Recovery Aware Tag Estimation
 \end_layout
 
 \begin_layout Standard
-The above literature proposed various number of tags methods.
+The previously mentioned literature proposed various estimation methods.
  Accordingly, the ML estimation method is the most precise.
  However, it possesses two main disadvantages: 1) It is implemented using
  numerical methods, which need many calculations and iterations to find
@@ -1232,7 +1212,7 @@ key "PHY111,PHY112"
  at the reading area.
  Therefore, it is important to take into consideration the collision recovery
  capability.
- Bo Li 
+ Li 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Capture_2011"
@@ -1384,8 +1364,8 @@ where
 \begin_inset Formula $E_{b}$
 \end_inset
 
- are successively the number of collided, successful, and empty slots before
- the collision recovery of the system, and 
+ are successively the expected number of collided, successful, and empty
+ slots before the collision recovery of the system, and 
 \begin_inset Formula $C$
 \end_inset
 
@@ -1397,14 +1377,13 @@ where
 \begin_inset Formula $E$
 \end_inset
 
- are respectively the number of collided, successful, and empty slots after
- collision recovery of the system.
- 
+ are respectively the expected number of collided, successful, and empty
+ slots after collision recovery of the system, where 
 \begin_inset Formula $\alpha$
 \end_inset
 
-, a variable indicating the collision recovery capability of the physical
- layer, is the collision recovery probability.
+ is a variable indicates the collision recovery capability of the physical
+ layer.
  The calculation of the collision recovery probability will be discussed
  in details in the following sections.
  Figure 
@@ -1420,7 +1399,7 @@ reference "fig:Physical-layer-collision"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1472,7 +1451,7 @@ In the MAC layer, only the values of
 \end_inset
 
  are known after the PHY-layer collision recovery.
- In this sstage, there is no information about these values before the collision
+ In this stage, there is no information about these values before the collision
  recovery.
  Thus, the conventional estimation systems, including the classical ML number
  of tags estimation in (
@@ -1482,7 +1461,7 @@ reference "eq:chen"
 
 \end_inset
 
-), used the values of 
+) use the values of 
 \begin_inset Formula $C$
 \end_inset
 
@@ -1498,7 +1477,7 @@ reference "eq:chen"
  However, these values are not accurate indicators for the actual number
  of tags in the reading area.
  In the proposed solution, the value of the current average collision recovery
- probability
+ probability 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -1708,8 +1687,8 @@ The term of
 \begin_inset Formula $\frac{L!}{E_{b}!S_{b}!C_{b}!}$
 \end_inset
 
- is not function of the number of tags, yet, it is only an offset and can
- be normalized.
+ is not function of the number of tags.
+ It is only an offset and can be normalized.
  Thus, the proposed normalized conditional probability is:
 \begin_inset Formula 
 \begin{equation}
@@ -1718,14 +1697,14 @@ P(\hat{n}|L,S,C,E,\alpha)=\gamma^{S_{b}}\cdot e^{-\gamma\cdot L}\cdot\left(e^{-\
 
 \end_inset
 
-Equation 
+Equation (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:final probability"
 
 \end_inset
 
- gives a conditional probability for the estimated number of tags for a
+) gives a conditional probability for the estimated number of tags for a
  given number of successful, collided, empty slots and collision recovery
  probability.
  The computation of (
@@ -2058,8 +2037,7 @@ key "Descartes_rule"
 \end_layout
 
 \begin_layout Standard
-According to the above Descartes’ rules of sign, there is only one valid
- real positive solution for the equation.
+Hence, there is only one valid real positive solution for the equation.
  Hereby, the valid solution will be identified.
  There are two possibilities for the solutions: 
 \end_layout
@@ -2240,15 +2218,7 @@ and the current frame length
 \begin_inset Formula $L$
 \end_inset
 
-.
- Equation (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:closed form-4"
-
-\end_inset
-
-) gives an alternative solution to the numerical searching with (
+, and gives an alternative solution to the numerical searching with (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:final probability"
@@ -2271,7 +2241,7 @@ reference "eq:closed form-4"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2369,8 +2339,8 @@ description "Zero Forcing"
 
 \end_inset
 
- (ZF) receiver with two receiver antennas, and 3) the ZF receiver with a
- single receiver antenna.
+ Zero Forcing(ZF) receiver with two receiver antennas, and 3) the ZF receiver
+ with a single receiver antenna.
  The authors of 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2422,7 +2392,7 @@ reference "fig:Capture-probability-versus-1"
 
 \end_inset
 
-, the higher SNR at the receiver, the higher collision recovery capability
+, the higher SNR at the receiver, the higher the collision recovery capability
  of the reader.
  Figure 
 \begin_inset CommandInset ref
@@ -2432,8 +2402,8 @@ reference "fig:Capture-probability-versus-1"
 \end_inset
 
  shows two different receivers ZF and MMSE.
- MMSE receiver gives better performance than ZF receiver, and the performance
- increases when we increase the number of received antennas.
+ The MMSE receiver gives better performance than the ZF receiver, and the
+ performance increases when we increase the number of received antennas.
  According to the practical measurements, the practical SNR range for the
  successful slots is between 
 \begin_inset Formula $4$
@@ -2443,7 +2413,14 @@ reference "fig:Capture-probability-versus-1"
 \begin_inset Formula $12$
 \end_inset
 
- dB.
+ dB 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Comm_Letter_ours_2015"
+
+\end_inset
+
+.
  
 \begin_inset Float figure
 wide false
@@ -2549,7 +2526,8 @@ Relative estimation error
 \begin_inset Formula $\epsilon$
 \end_inset
 
- vs normalized number of tags 
+ vs.
+ normalized number of tags 
 \begin_inset Formula $\nicefrac{n}{L}$
 \end_inset
 
@@ -2581,7 +2559,7 @@ Performance Analysis
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2629,8 +2607,8 @@ name "fig:Relative-estimation-error alpha"
 In this section, the performance comparison between the proposed collision
  recovery aware number of tags estimation and the most common estimation
  algorithms in the state-of-the-art will be presented.
- According to the literature, the relative estimation error is the most
- common comparison metric for estimation algorithms.
+ We will again use the relative estimation error, as it is the most common
+ comparison metric for estimation algorithms.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2715,7 +2693,7 @@ reference "fig:System-has-collision"
 \end_inset
 
  demonstrates the influence of the collision recovery capability on the
- proposed estimation protocol compared to other estimation protocols..
+ proposed estimation protocol compared to other estimation protocols.
  In this simulations, the MMSE proposal in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2723,7 +2701,7 @@ key "MMSE_CR"
 
 \end_inset
 
- is used with average SNR=
+ is used with an average SNR=
 \begin_inset Formula $\unit[6]{dB}$
 \end_inset
 
@@ -2747,7 +2725,7 @@ reference "fig:System-has-collision"
 
 \end_inset
 
-, The proposed solution has more accurate estimation performance compared
+, the proposed solution has more accurate estimation performance compared
  to all the literature.
  The proposed estimation algorithm has minor effects in dense network compared
  to other estimation algorithms.
@@ -2758,7 +2736,7 @@ reference "fig:System-has-collision"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Float figure
@@ -2894,7 +2872,7 @@ reference "fig:Relative-estimation-error alpha"
 \begin_inset Formula $n=L$
 \end_inset
 
-, which is the conventional case in FSA.
+, which is the optimum case for the conventional FSA.
  Based on figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2903,9 +2881,9 @@ reference "fig:Relative-estimation-error alpha"
 \end_inset
 
 , when the value of the collision recovery probability increases, the relative
- estimation error of all estimation algorithms increases, except if the
- proposed estimation protocol has almost constant performance independent
- on the value of the collision recovery probability.
+ estimation error of all estimation algorithms increases, except for the
+ proposed estimation protocol that has almost constant performance, independent
+ of the value of the collision recovery probability.
  The proposed method takes into account the collision recovery probability,
  which is produced by the PHY-layer.
  According to figure 
@@ -2955,7 +2933,7 @@ reference "fig:Average-identification-delay"
 \end_inset
 
  displays the average identification delay for a bunch of tags.
- In these simulations, I used initial frame length 
+ In these simulations, I used an initial frame length of 
 \begin_inset Formula $L_{ini}=16$
 \end_inset
 
@@ -2994,8 +2972,8 @@ reference "fig:System-has-no-time"
 \end_inset
 
 ).
- According to EPCglobal C1 G2, frame length can only have quantized values
- with 
+ According to EPCglobal C1 G2, the frame length can only have quantized
+ values with 
 \begin_inset Formula $2^{Q}$
 \end_inset
 
@@ -3079,8 +3057,8 @@ reference "fig:Average-identification-delay"
 
 , there is a major reduction in the average reading identification delay
  compared to the systems which does not use estimation algorithm.
- According to EPCglobal C1 G2, we can not identify more than single tag
- per slot.
+ According to EPCglobal C1 G2, we cannot identify more than single tag per
+ slot.
  Therefore, the theoretical lower limit to identify 
 \begin_inset Formula $n$
 \end_inset

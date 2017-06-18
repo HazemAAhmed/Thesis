@@ -70,7 +70,7 @@
 \begin_body
 
 \begin_layout Chapter
-Conclusion And Future Work
+Conclusions and Future Work
 \end_layout
 
 \begin_layout Standard
@@ -78,7 +78,7 @@ Nowadays, there has been a great interest in RFID due to the vast array
  of applications used in this field.
  RFID systems provide low cost and low power object identification and tracking
  mechanisms, being the key requirement for anticipated ultra dense applications,
- e.g., Logistics.
+ e.g., logistics.
  In such applications, dense number of tags are expected and fast identification
  is required.
  In this thesis, different proposals aimed to minimize the total identification
@@ -87,12 +87,12 @@ Nowadays, there has been a great interest in RFID due to the vast array
 \end_layout
 
 \begin_layout Standard
-This chapter will summarize the main outcomes of this thesis , as well as
- the possible issues that may be addressed in future works
+This chapter will summarize the main outcomes of this thesis, as well as
+ the possible issues that may be addressed in future work.
 \end_layout
 
 \begin_layout Section
-Conclusion
+Conclusions
 \end_layout
 
 \begin_layout Standard
@@ -136,8 +136,8 @@ Despite the effort invested in this dissertation, there are still some remining
  be better to leave this slot to a normal collided slot.
  On the other hand, when the current value of the SNR is above this threshold,
  it would be better to resolve this collided slot to a successful slot.
- Last but not least, practical assessment of the proposed work through measureme
-nts would be beneficial for a more comprehensive evaluation.
+ Finally, practical assessment of the proposed work through measurements
+ would be beneficial for a more comprehensive evaluation.
 \end_layout
 
 \end_body

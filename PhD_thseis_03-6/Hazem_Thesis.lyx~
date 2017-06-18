@@ -290,7 +290,7 @@ nts system.
 \begin_layout Standard
 This thesis focuses on the EPCglobal C1 G2 standard.
  Therefore, the tags cannot be modified, and all the improvements are done
- only in the reader side.
+ only on the reader side.
  However, due to the limitation of the EPCglobal C1 G2, there is still a
  room of improvement between the proposed solutions and the theoretical
  lower bound of the identification time.
@@ -456,28 +456,40 @@ printnomenclature[5em]
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage cleardoublepage
+\begin_inset Newpage newpage
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pagenumbering{gobble}
-\end_layout
-
+\begin_inset Newpage newpage
 \end_inset
 
 
-\lang american
+\end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
 \begin_inset CommandInset include
 LatexCommand include
 filename "List_of_publications.lyx"

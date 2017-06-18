@@ -74,6 +74,19 @@ Conclusion And Future Work
 \end_layout
 
 \begin_layout Standard
+Nowadays, there has been a great interest in RFID due to the vast array
+ of applications used in this field.
+ RFID systems provide low cost and low power object identification and tracking
+ mechanisms, being the key requirement for anticipated ultra dense applications,
+ e.g., Logistics.
+ In such applications, dense number of tags are expected and fast identification
+ is required.
+ In this thesis, different proposals aimed to minimize the total identification
+ time by optimizing the FSA anti-collision algorithm.
+ 
+\end_layout
+
+\begin_layout Standard
 This chapter will summarize the main outcomes of this thesis , as well as
  the possible issues that may be addressed in future works
 \end_layout
@@ -83,9 +96,8 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-This thesis proposes different advanced RFID readers.
- Each proposal aims to improve the system performance by shorten the read
- out time.
+The advanced RFID readers proposed in this thesis improve performances and
+ shorten the read out time.
  They incorporate different PHY layer parameters in order to efficiently
  optimize the MAC anti-collision protocols.
  They merged the collision recovery coefficients and the differences in

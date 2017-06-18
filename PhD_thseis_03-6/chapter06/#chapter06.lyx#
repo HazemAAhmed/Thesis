@@ -70,7 +70,7 @@
 \begin_body
 
 \begin_layout Chapter
-Compatible Improvements of UHF Standard
+Proposed Improvements of EPCglobal C1 G2
 \end_layout
 
 \begin_layout Abstract
@@ -96,8 +96,8 @@ key "2012_orthogonal_codes"
  with a Multi Input Multi Output (MIMO) receiver to resolve collisions.
  The authors assumed that all the recovered tags can be acknowledged in
  parallel.
- However, this technique is not compatible with the EPCglobal class 1 gen
- 2 standards 
+ However, this technique is not compatible with the EPCglobal C1 G2 standards
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -154,8 +154,15 @@ EPCglobal C1 G2 Reading Process
 \begin_layout Standard
 This section will describe, in brief, the conventional reading algorithm
  of the EPCglobal C1 G2 standards.
- The reader initially powers the tags in the reading area with a continuous
- wave (CW).
+ The reader initially powers the tags in the reading area with a 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CW"
+description "continuous wave"
+
+\end_inset
+
+ (CW).
  At this time, the powered tags are in the ready state waiting for the frame
  size information from the reader.
  Then, the reader broadcasts the frame size and notifies all tags of the
@@ -163,7 +170,7 @@ This section will describe, in brief, the conventional reading algorithm
  As soon as the tags receive this command, each tag selects a slot from
  the frame by setting its slot counter, and enters the Arbitrate state.
  When the tag slot counter is equal to zero, the tag enters the Reply state
- and backscatters its 
+ and Backscatter its 
 \begin_inset Formula $16$
 \end_inset
 
@@ -222,22 +229,20 @@ name "fig:Tag-response-of"
 \end_layout
 
 \begin_layout Standard
-According to Frame Slotted ALOHA, there are three probailities for each
- slot: 1.
- No tag reply: The reader considers this slot as an empty slot and transmits
- a Query-Rep command asking the tags to decrement their slot counters.
- 2.
- Only one tag responds (successful slot): The reader transmits an acknowledge
+According to Frame Slotted ALOHA, there are three probabilities for each
+ slot: 1) No tag reply: The reader considers this slot as an empty slot
+ and transmits a Query-Rep command asking the tags to decrements their slot
+ counters.
+ 2) Only one tag responds (successful slot): The reader transmits an acknowledge
  command including the received RN16.
  Here the acknowledged tag enters the acknowledged state and replies with
  its EPC code.
- 3.
- Multiple tags reply (collided Slot): this case has two possibilities: 
+ 3) Multiple tags reply (collided Slot): this case has two possibilities:
+ 
 \end_layout
 
-\begin_layout Standard
-1- Systems that have no collision recovery capability as shown in figure
- 
+\begin_layout Enumerate
+Systems that have no collision recovery capability as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Two-tags-collided"
@@ -271,7 +276,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Two tags collided slot according to EPCglobal class 1 gen 2 standards 
+Two tags collided slot according to EPCglobal C1 G2 standards 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Two-tags-collided"
@@ -291,8 +296,8 @@ name "fig:Two-tags-collided"
 
 \end_layout
 
-\begin_layout Standard
-2- Systems that have collision recovery capability as shown in figure 
+\begin_layout Enumerate
+Systems that have collision recovery capability as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Two-tags-collided"
@@ -310,8 +315,8 @@ reference "fig:Two-tags-collided"
  The main drawback of such systems is that the reader can only acknowledge
  one tag from the collided tags in a slot, even if it has the capability
  to identify all the responding RN16s.
- To overcome this drawback, a backwards compatible extension is proposed
- in section
+ To overcome this drawback, backwards compatible extension are proposed
+ in the following sections.
 \end_layout
 
 \begin_layout Section
@@ -333,7 +338,7 @@ Proposed Tag
 
 \begin_layout Standard
 The proposed tag has the ability to act like conventional UHF EPCglobal
- class 1 gen 2 tags, which is the default mode.
+ C1 G2 tags, which is the default mode.
  However, it loads extra properties when it is in the ready state and receives
  a new command called Switch command from the proposed reader.
  The following part presents the main modifications in the proposed tag:
@@ -379,7 +384,7 @@ name "fig:Tag-response-of-proposed"
 \end_layout
 
 \begin_layout Standard
-According to the EPCglobal class 1 gen 2 standards 
+According to the EPCglobal C1 G2 standards 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -1181,8 +1186,8 @@ Proposed Reader
 
 \begin_layout Standard
 The proposed reader applies the normal FSA based on the conventional UHF
- EPCglobal class 1 gen 2 standard, which means that it is able to operate
- normally with conventional tags.
+ EPCglobal C1 G2 standard, which means that it is able to operate normally
+ with conventional tags.
  It starts its reading process with a new command called Switch command
  to check whether there are new tags in the reading area.
  It checks the tags replies.
@@ -1313,8 +1318,8 @@ reference "tab:Set-of-8"
  In case of a collided slot, the reader executes the following steps:
 \end_layout
 
-\begin_layout Standard
-- Uses the orthogonal pilots to do channel estimation for the collided tags.
+\begin_layout Itemize
+Uses the orthogonal pilots to do channel estimation for the collided tags.
  Afterwards, it employs the channel information to recover the collided
  RN16s using a MIMO receiver, e.g.
  the receiver proposed in 
@@ -1327,8 +1332,8 @@ key "2013_orthogonal"
 .
 \end_layout
 
-\begin_layout Standard
-- Counts the number of recovered tags replies in the 
+\begin_layout Itemize
+Counts the number of recovered tags replies in the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1339,9 +1344,9 @@ Reply Counter
 .
 \end_layout
 
-\begin_layout Standard
-- Recognizes whether one of these replies is a conventional pilot or not
- by checking if one of the collided pilots is the conventional one, 
+\begin_layout Itemize
+Recognizes whether one of these replies is a conventional pilot or not by
+ checking if one of the collided pilots is the conventional one, 
 \begin_inset Formula $P_{1}$
 \end_inset
 
@@ -1390,7 +1395,7 @@ Based on the new system, we propose a new reading efficiency formula considering
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\eta_{new}=\sum_{R=1}^{M}P(R)\cdot\left(\sum_{l=1}^{R}P_{S_{l}}(R)\cdot R_{sol}\cdot\beta\right),\label{eq:new_eff}
+\eta_{new}=\sum_{R=1}^{M}P(R)\cdot\left(\sum_{l=1}^{R}P_{S_{l}}(R)\cdot R_{sol}\cdot\varphi\right),\label{eq:new_eff}
 \end{equation}
 
 \end_inset
@@ -1403,12 +1408,12 @@ where
 \begin_inset Formula $R$
 \end_inset
 
- tag are active in one slot.
+ tags are active in one slot.
  It can be presented as:
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1896,81 +1901,6 @@ P(R)=\binom{n}{i}\left(\frac{1}{L}\right)^{i}\left(1-\frac{1}{L}\right)^{n-i}
 \end_inset
 
  is the number of recovered tags.
-\end_layout
-
-\begin_layout Standard
-Since the colliding tags have randomly distributed pilots, several collision
- scenarios are possible as shown in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2013_orthogonal"
-
-\end_inset
-
-.
- 
-\begin_inset Formula $P_{S_{l}}(R)$
-\end_inset
-
- represents the probability that scenario 
-\begin_inset Formula $S_{l}$
-\end_inset
-
- happens.
- It can be calculated from the binomial distribution as explained in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2013_orthogonal"
-
-\end_inset
-
-.
- For the proposed case, we consider only the unique scenarios 
-\begin_inset Formula $(1+1+...+1)$
-\end_inset
-
-, i.e.
- if more than one tag has the same pilot, the reader will not be able to
- resolve this collision.
- Therefore, we have limited number of scenarios.
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Collision-scenarios-for"
-
-\end_inset
-
- shows all values of the unique scenarios 
-\begin_inset Formula $P_{S_{l}}(R)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-According to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Pesudo-parallel-successful"
-
-\end_inset
-
-, the conventional successful slot 
-\begin_inset Formula $t_{s}$
-\end_inset
-
- is divided in to two parts: The first part presents time of the Query-Rep
- command and the RN16 tag reply 
-\begin_inset Formula $t_{s(a)}$
-\end_inset
-
-, whereas the second part is the time of the Acknowledgment command and
- the EPC tag reply 
-\begin_inset Formula $t_{s(b)}$
-\end_inset
-
-.
- Thus, the successful slot time is:
 \begin_inset Float figure
 wide false
 sideways false
@@ -2084,77 +2014,16 @@ name "fig:RN16"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-t_{s}=t_{s(a)}+t_{s(b)},\label{eq:successful_slot_time}
-\end{equation}
-
-\end_inset
-
- where 
-\begin_inset Formula $t_{s(a)}$
-\end_inset
-
- and 
-\begin_inset Formula $t_{s(b)}$
-\end_inset
-
- can be expressed as:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-t_{s(a)} & = & T_{qRep}+T_{1}+T_{2}+T_{RN16}\label{eq:ts(a)}\\
-t_{s(b)} & = & T_{ACK}+T_{1}+T_{2}+T_{EPC}\nonumber 
-\end{eqnarray}
-
-\end_inset
-
-Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:System-Parameters-of"
-
-\end_inset
-
- shows numerical values from the EPCglobal class 1 gen 2 standards 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "standard"
-
-\end_inset
-
- as a function of the link pulse-repetition interval 
-\begin_inset Formula $T_{pri}$
-\end_inset
-
-.
- According to these values, the time of the Query-Rep command and receiving
- the RN16s presents 
-\begin_inset Formula $30\%$
-\end_inset
-
- of the conventional successful slot duration.
- The time of the acknowledgment command and the EPC tag reply represents
- 
-\begin_inset Formula $70\%$
-\end_inset
-
- of the conventional successful slot duration.
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-System Parameters of EPCglobal class 1 gen 2 standards 
+System Parameters of EPCglobal C1 G2 standards 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -2392,6 +2261,142 @@ Values
 \end_layout
 
 \begin_layout Standard
+Since the colliding tags have randomly distributed pilots, several collision
+ scenarios are possible as shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2013_orthogonal"
+
+\end_inset
+
+.
+ 
+\begin_inset Formula $P_{S_{l}}(R)$
+\end_inset
+
+ represents the probability that scenario 
+\begin_inset Formula $S_{l}$
+\end_inset
+
+ happens.
+ It can be calculated from the binomial distribution as explained in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2013_orthogonal"
+
+\end_inset
+
+.
+ For the proposed case, we consider only the unique scenarios 
+\begin_inset Formula $(1+1+...+1)$
+\end_inset
+
+, i.e.
+ if more than one tag has the same pilot, the reader will not be able to
+ resolve this collision.
+ Therefore, we have limited number of scenarios.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Collision-scenarios-for"
+
+\end_inset
+
+ shows all values of the unique scenarios 
+\begin_inset Formula $P_{S_{l}}(R)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pesudo-parallel-successful"
+
+\end_inset
+
+, the conventional successful slot 
+\begin_inset Formula $t_{s}$
+\end_inset
+
+ is divided in to two parts: The first part presents time of the Query-Rep
+ command and the RN16 tag reply 
+\begin_inset Formula $t_{s(a)}$
+\end_inset
+
+, whereas the second part is the time of the Acknowledgment command and
+ the EPC tag reply 
+\begin_inset Formula $t_{s(b)}$
+\end_inset
+
+.
+ Thus, the successful slot time is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+t_{s}=t_{s(a)}+t_{s(b)},\label{eq:successful_slot_time}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $t_{s(a)}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{s(b)}$
+\end_inset
+
+ can be expressed as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+t_{s(a)} & = & T_{qRep}+T_{1}+T_{2}+T_{RN16}\label{eq:ts(a)}\\
+t_{s(b)} & = & T_{ACK}+T_{1}+T_{2}+T_{EPC}\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:System-Parameters-of"
+
+\end_inset
+
+ shows numerical values from the EPCglobal C1 G2 standards 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ as a function of the link pulse-repetition interval 
+\begin_inset Formula $T_{pri}$
+\end_inset
+
+.
+ According to these values, the time of the Query-Rep command and receiving
+ the RN16s presents 
+\begin_inset Formula $30\%$
+\end_inset
+
+ of the conventional successful slot duration.
+ The time of the acknowledgment command and the EPC tag reply represents
+ 
+\begin_inset Formula $70\%$
+\end_inset
+
+ of the conventional successful slot duration.
+\end_layout
+
+\begin_layout Standard
 For comparability, the proposed reader does not acknowledge more than one
  tag in parallel.
  However, we propose a pseudo parallel successful slots.
@@ -2419,7 +2424,7 @@ where
  Therefore, the proposed efficiency should include a factor representing
  the effect of the pseudo parallel spreading in time.
  This factor is called the pseudo parallel factor 
-\begin_inset Formula $\beta$
+\begin_inset Formula $\varphi$
 \end_inset
 
 .
@@ -2436,7 +2441,7 @@ reference "tab:System-Parameters-of"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\beta=\left(\frac{1}{0.3+0.7\cdot R_{sol}}\right)\label{eq:pseud_parallel_factor}
+\varphi=\left(\frac{1}{0.3+0.7\cdot R_{sol}}\right)\label{eq:pseud_parallel_factor}
 \end{equation}
 
 \end_inset
@@ -2445,7 +2450,7 @@ reference "tab:System-Parameters-of"
 \end_layout
 
 \begin_layout Section
-Measurement And Simulation Results
+Measurement and Simulation Results
 \end_layout
 
 \begin_layout Standard
@@ -2515,15 +2520,8 @@ reference "fig:Proposed-reader-to"
 \end_inset
 
  provides a real measurement of the reader to tag communication link.
- According to the figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Proposed-reader-to"
-
-\end_inset
-
-, the link starts with a normal Select command to set some conventional
- tag parameters.
+ According to the figure, the link starts with a normal Select command to
+ set some conventional tag parameters.
  Then the reader broadcasts a Switch command asking the proposed tags to
  switch to the new mode.
  The conventional tags will not recognize this command, so will simply ignore
@@ -2645,8 +2643,8 @@ key "2013_orthogonal"
 
 .
  This system assumes fully parallel acknowledgment for all recovered tags.
- However,it is not compatible with the EPCglobal class 1 gen 2 standard
- and can not be applied in practice.
+ However,it is not compatible with the EPCglobal C1 G2 standard and can
+ not be applied in practice.
  The second scenario deduces that it can acknowledge a single tag and neglect
  the other replies.
  This system does not benefit from the strong collision recovery capability
@@ -2720,8 +2718,8 @@ key "2013_multiple_ACK"
 \end_inset
 
 , respectively, using single acknowledgment.
- Finally, The proposed system approaches the theoretical limit of the EPC
- global C1 G2 standards 
+ Finally, The proposed system approaches the theoretical limit of the EPCglobal
+ C1 G2 standards 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -2729,7 +2727,7 @@ key "standard"
 \end_inset
 
 .
- This gain is only reachable using the modified compatible tags.
+ This gain is only attainable using the modified compatible tags.
  However, the proposed maximum performance using the conventional tags was
  presented in the results of chapter 5.
  

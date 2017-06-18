@@ -1395,7 +1395,7 @@ description "Probability that exactly $R$ tags are active in one slot"
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$P_{S_{l}}(R)$"
-description "probability that scenario $S_{l}$ happens"
+description "Probability that scenario $S_{l}$ happens"
 
 \end_inset
 

@@ -70,7 +70,7 @@
 \begin_body
 
 \begin_layout Chapter
-Proposed Compatible Improvements of EPCglobal C1 G2
+Proposed Improvements of EPCglobal C1 G2
 \end_layout
 
 \begin_layout Abstract
@@ -96,8 +96,8 @@ key "2012_orthogonal_codes"
  with a Multi Input Multi Output (MIMO) receiver to resolve collisions.
  The authors assumed that all the recovered tags can be acknowledged in
  parallel.
- However, this technique is not compatible with the EPCglobal class 1 gen
- 2 standards 
+ However, this technique is not compatible with the EPCglobal C1 G2 standards
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -230,16 +230,15 @@ name "fig:Tag-response-of"
 
 \begin_layout Standard
 According to Frame Slotted ALOHA, there are three probabilities for each
- slot: 1.
- No tag reply: The reader considers this slot as an empty slot and transmits
- a Query-Rep command asking the tags to decrements their slot counters.
- 2.
- Only one tag responds (successful slot): The reader transmits an acknowledge
+ slot: 1) No tag reply: The reader considers this slot as an empty slot
+ and transmits a Query-Rep command asking the tags to decrements their slot
+ counters.
+ 2) Only one tag responds (successful slot): The reader transmits an acknowledge
  command including the received RN16.
  Here the acknowledged tag enters the acknowledged state and replies with
  its EPC code.
- 3.
- Multiple tags reply (collided Slot): this case has two possibilities: 
+ 3) Multiple tags reply (collided Slot): this case has two possibilities:
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -277,7 +276,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Two tags collided slot according to EPCglobal class 1 gen 2 standards 
+Two tags collided slot according to EPCglobal C1 G2 standards 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Two-tags-collided"
@@ -339,7 +338,7 @@ Proposed Tag
 
 \begin_layout Standard
 The proposed tag has the ability to act like conventional UHF EPCglobal
- class 1 gen 2 tags, which is the default mode.
+ C1 G2 tags, which is the default mode.
  However, it loads extra properties when it is in the ready state and receives
  a new command called Switch command from the proposed reader.
  The following part presents the main modifications in the proposed tag:
@@ -385,7 +384,7 @@ name "fig:Tag-response-of-proposed"
 \end_layout
 
 \begin_layout Standard
-According to the EPCglobal class 1 gen 2 standards 
+According to the EPCglobal C1 G2 standards 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -1187,8 +1186,8 @@ Proposed Reader
 
 \begin_layout Standard
 The proposed reader applies the normal FSA based on the conventional UHF
- EPCglobal class 1 gen 2 standard, which means that it is able to operate
- normally with conventional tags.
+ EPCglobal C1 G2 standard, which means that it is able to operate normally
+ with conventional tags.
  It starts its reading process with a new command called Switch command
  to check whether there are new tags in the reading area.
  It checks the tags replies.
@@ -1226,8 +1225,7 @@ reference "tab:Switch-command"
 \begin_inset Formula $16$
 \end_inset
 
- bits command from the future use part of EPCglobal class 1 gen 2 standards
- (
+ bits command from the future use part of EPCglobal C1 G2 standards (
 \shape slanted
 cf.
 
@@ -1243,7 +1241,7 @@ key "standard"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2024,7 +2022,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-System Parameters of EPCglobal class 1 gen 2 standards 
+System Parameters of EPCglobal C1 G2 standards 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -2371,7 +2369,7 @@ reference "tab:System-Parameters-of"
 
 \end_inset
 
- shows numerical values from the EPCglobal class 1 gen 2 standards 
+ shows numerical values from the EPCglobal C1 G2 standards 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -2525,8 +2523,8 @@ reference "fig:Proposed-reader-to"
  set some conventional tag parameters.
  Then the reader broadcasts a Switch command asking the proposed tags to
  switch to the new mode.
- The conventional tags will not recognize this command, so will simply ignore
- it.
+ The conventional tags will not recognize this command, so they will simply
+ ignore it.
  Afterwards, the reader sends a Query command asking the tags to reply with
  their RN16.
  Figure 
@@ -2644,8 +2642,8 @@ key "2013_orthogonal"
 
 .
  This system assumes fully parallel acknowledgment for all recovered tags.
- However,it is not compatible with the EPCglobal class 1 gen 2 standard
- and can not be applied in practice.
+ However,it is not compatible with the EPCglobal C1 G2 standard and can
+ not be applied in practice.
  The second scenario deduces that it can acknowledge a single tag and neglect
  the other replies.
  This system does not benefit from the strong collision recovery capability
@@ -2669,8 +2667,8 @@ reference "fig:Mean-reading-time"
 \end_inset
 
  shows the average reading time of the proposed system compared to the conventio
-nal FSA and other recent EPCglobal class 1 gen 2 compatible systems using
- collision recovery techniques.
+nal FSA and other recent EPCglobal C1 G2 compatible systems using collision
+ recovery techniques.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2719,7 +2717,7 @@ key "2013_multiple_ACK"
 \end_inset
 
 , respectively, using single acknowledgment.
- Finally, The proposed system approaches the theoretical limit of the EPCglobal
+ Finally, the proposed system approaches the theoretical limit of the EPCglobal
  C1 G2 standards 
 \begin_inset CommandInset citation
 LatexCommand cite
