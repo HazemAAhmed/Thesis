@@ -456,10 +456,14 @@ printnomenclature[5em]
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset Newpage cleardoublepage
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+aaa
 \end_layout
 
 \begin_layout Standard
@@ -470,6 +474,7 @@ printnomenclature[5em]
 \end_layout
 
 \begin_layout Standard
+aaa
 \begin_inset Newpage newpage
 \end_inset
 
@@ -477,6 +482,7 @@ printnomenclature[5em]
 \end_layout
 
 \begin_layout Standard
+aaa
 \begin_inset Newpage newpage
 \end_inset
 
@@ -484,6 +490,10 @@ printnomenclature[5em]
 \end_layout
 
 \begin_layout Standard
+aaa
+\begin_inset Newpage newpage
+\end_inset
+
 
 \end_layout
 
