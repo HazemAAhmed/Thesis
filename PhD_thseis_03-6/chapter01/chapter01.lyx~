@@ -400,9 +400,8 @@ Further, a new closed-form solution for the optimal Frame Slotted ALOHA
 
 \begin_layout Enumerate
 Finally, compatible improvements of the EPCglobal C1 G2 standard are proposed.
- In this system, there are some compatible modifications in the UHF RFID
- tags/readers, to be capable of acknowledging more than a single tag per
- slot.
+ They require some compatible modifications in the UHF RFID tags/readers,
+ to be capable of acknowledging more than a single tag per slot.
  
 \end_layout
 

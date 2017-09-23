@@ -250,7 +250,7 @@ description "Medium Access Control"
  anti-collision protocol for RFID systems due to its simplicity and robustness.
  In FSA, the communication timing between the reader and the tags is divided
  into TDMA frames, each frame includes a specific number of slots.
- The frame length is function of the existing number of tags in the reading
+ The frame length is a function of the existing number of tags in the reading
  area.
  During the reading process, each active tag randomly assigns itself to
  one of the available slots in a frame.
@@ -296,7 +296,7 @@ key "PHY1,PHY2"
 \end_inset
 
 .
- This decrease the losses which result from collisions.
+ This decreases the losses which result from collisions.
  Moreover, modern RFID readers have the ability to identify the type of
  the slot (successful, collided, or empty).
  Thus, the RFID readers are able to terminate the slot earlier as soon as
