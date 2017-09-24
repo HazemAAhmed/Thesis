@@ -106,7 +106,8 @@ key "RFID_History_2"
 
 .
  Next, in 1950, the British government developed the first prototype of
- the RFID system, which is known as Identify Friend (IFF) system 
+ the RFID system, which is known as Identification Friend or Foe (IFF) system
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RFID_history_3"
