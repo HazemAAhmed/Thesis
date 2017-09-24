@@ -138,24 +138,30 @@ State-of-the-Art Estimation Algorithms
 \end_layout
 
 \begin_layout Standard
-The performance of the FSA algorithm strongly depends on the precision of
+The performance of the FSA algorithm strongly depends on the accuracy of
  the number of tags estimation and the frame size.
- For fast identification of the ID of RFID tags, a precise estimation of
- the number of RFID tags is the key issue for Framed-Slotted ALOHA based
- protocol.
- The tag estimation function calculates the number of tags based on feedback
- from the previous frame, which includes the number of slots filled with
- empty, successful and collided slots.
+ For fast identification of RFID tags, an estimation of the number of RFID
+ tags with the highest possible accuracy is the key issue for Framed-Slotted
+ ALOHA based protocol.
+ The number of tags estimation function calculates the number of tags based
+ on feedback from the previous frame, which includes the number of slots
+ filled with empty, successful and collided slots.
  This information is then used by the function to obtain the number of tag
  estimate, and hence the optimal frame size 
 \begin_inset Formula $L$
 \end_inset
 
  for a given round.
- According to the literature, the most common estimation algorithms are
- classified into four groups: heuristic Q-slot family, indirect heuristics
- Q-frame family, error minimization estimation, and Maximum Likelihood (ML)
- estimation.
+ According to the literature 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Letter_2012"
+
+\end_inset
+
+, the most common estimation algorithms are classified into four groups:
+ heuristic Q-slot family, indirect heuristics Q-frame family, error minimization
+ estimation, and Maximum Likelihood (ML) estimation.
 \end_layout
 
 \begin_layout Subsection
@@ -472,7 +478,7 @@ key "Vogt_1"
 
 \end_inset
 
-, assuming a very trivial assumption for the lower bound of the number of
+, taking a very trivial assumption for the lower bound of the number of
  tags in the reading area 
 \begin_inset Formula $\hat{n}$
 \end_inset
@@ -664,14 +670,14 @@ The optimum value of
 \begin_inset Formula $n$
 \end_inset
 
- that make the right hand side of (
+ that makes the right hand side of (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:C-Ratio"
 
 \end_inset
 
-) that give the closest value of C-Ratio, under the condition that 
+) gives the closest value of C-Ratio, under the condition that 
 \begin_inset Formula $n_{i}\geq2\cdot C_{i}$
 \end_inset
 
@@ -689,7 +695,7 @@ key "C_ratio_Modified"
 , the authors used the same concept as the C-Ratio.
  However, they presume independent binomial distributions of the tags in
  each slot.
- Thus, the modified C-Ratio cav be expressed as:
+ Thus, the modified C-Ratio is expressed as:
 \begin_inset Formula 
 \begin{equation}
 \frac{C_{i}}{L_{i}}=\sum_{j=2}^{n_{i}}\binom{n_{i}}{j}\left(\frac{1}{L_{i}}\right)^{j}\left(1-\frac{1}{L_{i}}\right)^{n_{i}-1}\label{eq:Modified_C-ratio}
@@ -767,7 +773,7 @@ However, this method requires numerical searching to find the optimum value
 
 .
  Moreover, the author assumed that tags are identically distributed over
- slots, which is generally not an precise assumption.
+ slots, which is generally not a valid assumption.
 \end_layout
 
 \begin_layout Subsection
@@ -782,9 +788,9 @@ description "Maximum Likelihood"
 
 \end_inset
 
-The main concept of ML tag estimation is to compute the conditional probability
- of an observed event assuming that this conditional probability is function
- of the number of tags 
+The main concept of ML number of tags estimation is to compute the conditional
+ probability of an observed events assuming that this conditional probability
+ is function of the number of tags 
 \begin_inset Formula $n$
 \end_inset
 
@@ -793,16 +799,16 @@ The main concept of ML tag estimation is to compute the conditional probability
 \begin_inset Formula $\hat{n}$
 \end_inset
 
- maximizing this conditional probability is selected.
- The most common ML tag estimation in state-of-art is presented in 
+ is the estimated number of tags which maximizes this conditional probability.
+ In 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chen"
 
 \end_inset
 
-.
- The author solved the problem by finding the optimum 
+, the author proposes a ML number of tags estimation by finding the optimum
+ 
 \begin_inset Formula $\hat{n}$
 \end_inset
 
@@ -823,7 +829,7 @@ key "Chen"
 \end_inset
 
  slots.
- In addition, he assumed a multi-nomial distribution with 
+ In addition, he uses a multi-nomial distribution with 
 \begin_inset Formula $L$
 \end_inset
 
@@ -924,53 +930,6 @@ reference "eq:chen-1"
 \end_inset
 
 ).
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Estimation Error No CR_Trial.emf
-	lyxscale 15
-	width 65page%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Relative estimation error 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- vs.
- normalized number of tags 
-\begin_inset Formula $\nicefrac{n}{L}$
-\end_inset
-
- for the common state-of the-art estimation algorithms
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Relative-estimation-error_no_CR"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
  
 \end_layout
 
@@ -1019,16 +978,17 @@ reference "fig:Relative-estimation-error_no_CR"
 
 \end_inset
 
- shows the simulated relative estimation error 
+ shows the comparison of the most common number of tags estimation algorithms
+ used in the passive UHF RFID systems.
+ The comparison metric is the average relative estimation error 
 \begin_inset Formula $\epsilon$
 \end_inset
 
- comparison versus the normalized number of tags 
-\begin_inset Formula $\nicefrac{n}{L}$
+, which is calculated using Monte-Carlo simulations with 
+\begin_inset Formula $1000$
 \end_inset
 
- between the most common number of tags estimation algorithms in the passive
- UHF RFID systems.
+ iterations.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1085,6 +1045,54 @@ key "2012_estimation_interpolation"
  that maximizes the estimation probability.
  This disadvantage makes ML estimation not a practical solution for  dense
  RFID networks.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Estimation Error No CR_Trial.emf
+	lyxscale 15
+	width 65page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relative estimation error 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ vs.
+ normalized number of tags 
+\begin_inset Formula $\nicefrac{n}{L}$
+\end_inset
+
+ for the common state-of the-art estimation algorithms
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Relative-estimation-error_no_CR"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1103,8 +1111,6 @@ reference "fig:Mean-identification-time"
  number of tags.
  The comparison is between the average identification time using FSA algorithm
  with the most common existing number of tags estimation protocols.
- The optimum value presents the mean identification time using FSA with
- known number of tags in the reading area.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1192,10 +1198,9 @@ Novel Collision Recovery Aware Tag Estimation
 The previously mentioned literature proposed various estimation methods.
  Accordingly, the ML estimation method is the most precise.
  However, it possesses two main disadvantages: 1) It is implemented using
- numerical methods, which need many calculations and iterations to find
+ numerical methods, which needs many calculations and iterations to find
  the optimum estimated value.
- 2) It neglects the physical layer effect, which is an accurate assumption,
- due to the huge developments in this area.
+ 2) It neglects the physical layer effect, which is an inaccurate assumption.
  Modern systems are capable of converting part of collided slots into successful
  slots e.g.
  
@@ -1226,8 +1231,8 @@ key "Aloha4_Vogt"
 \end_inset
 
 , hence, considering the collision recovery probability.
- However, this method leads to multi-dimensional searching, which is time
- consuming and a high complexity.
+ However, this method leads to multi-dimensional searching, which needs
+ a lot of iterations and complex calculations.
 \end_layout
 
 \begin_layout Standard
@@ -1269,8 +1274,7 @@ System Model Under Collision Recovery Probability
 \end_layout
 
 \begin_layout Standard
-In this section, a novel collision recovery aware number of tags estimation
- method is described.
+In this section, a novel number of tags estimation method is given.
  The proposed method is based on the classical ML estimation presented in
  
 \begin_inset CommandInset citation
