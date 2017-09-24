@@ -143,7 +143,7 @@ key "FDMA"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -320,7 +320,7 @@ tion processes.
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -414,7 +414,7 @@ key "Binary_tree"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -576,7 +576,7 @@ reference "fig:Binary-tree-anti-collision"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -674,7 +674,7 @@ status open
 \begin_inset Graphics
 	filename ALOHA.emf
 	lyxscale 20
-	width 55page%
+	width 53page%
 
 \end_inset
 
@@ -926,7 +926,7 @@ reference "fig:Example-for-frame"
  Thus, it is a successful slot.
  In the second slot, no tag has replied.
  So, it is an empty slot.
- In the third slot, tags 3 and 4 have replied together, which results in
+ In the third slot, tags 2 and 3 have replied together, which results in
  a collided slot.
  According to the FSA rules, tags 3 and 4 are not allowed to resubmit their
  IDs again during the same frame.
@@ -944,14 +944,14 @@ reference "fig:Example-for-frame"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename Frame_slotted_ALOHA.emf
 	lyxscale 15
-	width 60page%
+	width 55page%
 
 \end_inset
 
@@ -1258,50 +1258,6 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Flow_chart_FSA.emf
-	lyxscale 12
-	width 40page%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Flow chart of Dynamic Framed Slotted ALOHA (DFSA)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Flow-chart-of"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- At the end of the frame, the reader checks if there are any successful
- or collided slots.
- If yes, the reader estimates the remaining number of tags in the reading
- area, and then optimizes the next frame length and starts again normal
- FSA.
- If not, the reading cycle will be terminated.
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
 	filename reading_efficiency.emf
 	lyxscale 20
 	width 55page%
@@ -1340,6 +1296,50 @@ name "fig:Framed-Slotted-ALOHA"
 
 \end_inset
 
+ At the end of the frame, the reader checks if there are any successful
+ or collided slots.
+ If yes, the reader estimates the remaining number of tags in the reading
+ area, and then optimizes the next frame length and starts again normal
+ FSA.
+ If not, the reading cycle will be terminated.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Flow_chart_FSA.emf
+	lyxscale 12
+	width 40page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Flow chart of Dynamic Framed Slotted ALOHA (DFSA)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Flow-chart-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1355,12 +1355,8 @@ key "standard"
 
 \end_inset
 
- will be described.
- The reading process number of tags 
-\begin_inset Formula $n$
-\end_inset
-
- consists of multiple inventory rounds.
+ will be given.
+ The reading process consists of multiple inventory rounds.
  Each inventory round has a different frame length.
  Figure 
 \begin_inset CommandInset ref
@@ -1395,12 +1391,12 @@ reference "fig:Conventional-variable-frame"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../chapter04/Q-slot_operation_Reader.emf
+	filename Q-slot_operation_Reader.emf
 	lyxscale 20
 	width 50page%
 
@@ -1663,11 +1659,13 @@ reference "fig:Multiple-tags-reply"
 
 , the reader starts broadcasting a query command for tags in the reading
  area.
- In the proposed example, three tags selected this slot.
- Therefore, the reader received simultaneously three different RN16s.
+ In the proposed example, three tags select this slot.
+ Therefore, the reader receives simultaneously three different RN16s.
  In this case, the conventional RFID reader will not be able to decode any
- of these RN16s, and terminates the slot with a new query repeat.
+ of these RN16s.
  The tags will wait for the next frame to be identified.
+ Afterwards, the reader broadcasts a query-rep command to inform all the
+ remaining tags that the next slot will start.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1675,9 +1673,9 @@ reference "fig:No-tag-reply"
 
 \end_inset
 
- shows the behavior of empty slot in EPCglobal C1 G2.
- The reader starts with a query command, and wait for a tag reply during
- certain time out.
+ shows the behavior of an empty slot in EPCglobal C1 G2.
+ The reader starts with a query command, and waits for a tag reply during
+ a certain time out period.
  If there is no tag reply during this time, it would terminate the the slot
  by sending a new query-rep command.
  
@@ -1688,7 +1686,7 @@ Cross Layer Anti-Collision Protocol
 \end_layout
 
 \begin_layout Standard
-Recently, RFID receivers have been developed to be able to convert part
+Recently, RFID receivers have been developed to be able to convert a part
  of collided slots into successful slots.
  Moreover, new RFID readers can even identify the type of the slots and
  terminate the empty and collided slots earlier.
@@ -1705,9 +1703,9 @@ Collision Recovery in UHF RFID
 
 \begin_layout Standard
 Collision recovery in RFID systems is the capability of the reader to convert
- part of the collided slots into successful slot.
- According to EPCglobal C1 G2, the reader can only acknowledge single tag
- per slot.
+ a part of the collided slots into successful slots.
+ According to EPCglobal C1 G2, the reader can only acknowledge one single
+ tag per slot.
  According to 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1716,7 +1714,7 @@ key "2013_capture"
 \end_inset
 
 , the collision recovery capability of the RFID system depends on different
- factors: The powerful of the receiver e.g.
+ factors: The capabilities of the receiver e.g.
  number of antennas, the distance between the collided tags, and the type
  of the channel.
  
@@ -1753,21 +1751,24 @@ where
 \end_inset
 
  is the average collision resolving probability coefficient.
- In this efficiency equation, the RFID reader can convert part of the collided
- slots into successful slots.
+ In this efficiency equation, the RFID reader can convert 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ part of the collided slots into successful slots.
  The authors have assumed unlimited and equal collision resolving probabilities
  coefficients.
  For example, the probability to resolve two collided tags is identical
  to the probability to resolve ten collided tags, which is a strong simplificati
 on.
- Another research group 
+ Another research groups 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2012_journal_CR,PHY111,PHY112,PHY113"
 
 \end_inset
 
- considered the limited RFID reader capability of collision resolving.
+ considered the limited capability of a RFID reader to resolve collisions.
  They have proposed a limited reading efficiency expressed as:
 \end_layout
 
@@ -1822,7 +1823,7 @@ reference "eq:rff_PHY"
 ), the reading efficiency strongly depends on the capability of the physical
  layer to resolve the collision.
  Thus, in this thesis, the effect of the collision recovery capability on
- the MAC layer optimization will be addressed in details.
+ the MAC layer optimization will be addressed in more details.
 \begin_inset Float figure
 wide false
 sideways false
@@ -2069,7 +2070,22 @@ key "USRP"
 \end_inset
 
 .
- 
+ For the given parameters and as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Measured-Slots-durations-1"
+
+\end_inset
+
+, the collided slot duration is 
+\begin_inset Formula $\simeq\unit[1200]{\mu sec}$
+\end_inset
+
+, and the empty slot duration is 
+\begin_inset Formula $\simeq\unit[200]{\mu sec}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2077,18 +2093,18 @@ According to the above discussion, the reading efficiency equation will
  be affected by the differences in slots duration, hence, the MAC layer
  optimization.
  In this thesis, the differences in slot duration length will be addressed
- in details in the MAC layer optimization.
+ in more details in the MAC layer optimization.
  
 \end_layout
 
 \begin_layout Standard
-Summarizing, the main lack in the previous RFID researches is that the MAC
+Summarizing, the main lack in the previous RFID research is that the MAC
  layer is optimized independently on the PHY layer layer.
  However, the PHY-layer properties affect the optimization parameters of
  the MAC layer, e.g.
  the number of tags estimation and the optimum frame length.
- In this thesis, I will concentrate on optimizing DFSA anti-collision protocol,
- either number of tags estimation or frame length optimization.
+ In this thesis, I will concentrate on optimizing the DFSA anti-collision
+ protocol.
  In the proposed algorithm, the physical layer parameters will be taken
  into consideration, which are presented on the physical collision recovery
  capability of the RFID reader and the differences in slot durations.
