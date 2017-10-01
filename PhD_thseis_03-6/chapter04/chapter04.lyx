@@ -1402,7 +1402,7 @@ reference "fig:Physical-layer-collision"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1736,7 +1736,7 @@ reference "eq:final probability"
 
 \end_inset
 
-) may lead to numerical instability problems using low-complexity devices,
+) leads to multi-dimensional lookup table, which leads to time consuming,
  especially in case of dense network containing large number of tags 
 \begin_inset Formula $n$
 \end_inset
@@ -1944,25 +1944,25 @@ reference "eq:condition"
 
 \end_inset
 
-), I can prove that the signs of the polynomial coefficients are constant
- and can be as follows: 
-\begin_inset Formula $a=+$
+), the signs of the polynomial coefficients are constant and have the following
+ signs: 
+\begin_inset Formula $a>0$
 \end_inset
 
 , 
-\begin_inset Formula $b=+$
+\begin_inset Formula $b>0$
 \end_inset
 
 , 
-\begin_inset Formula $c=+$
+\begin_inset Formula $c>0$
 \end_inset
 
 , 
-\begin_inset Formula $d=+$
+\begin_inset Formula $d>0$
 \end_inset
 
 , and 
-\begin_inset Formula $e=-$
+\begin_inset Formula $e<0$
 \end_inset
 
 .
@@ -2708,7 +2708,7 @@ key "MMSE_CR"
 \begin_inset Formula $\unit[6]{dB}$
 \end_inset
 
-, which is practically real assumption.
+, which is a realistic assumption.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2716,7 +2716,8 @@ reference "fig:Capture-probability-versus-1"
 
 \end_inset
 
-, the corresponding value of the collision recovery probability 
+, the corresponding value of the collision recovery probability can be set
+ as 
 \begin_inset Formula $\alpha=0.7$
 \end_inset
 
@@ -2728,11 +2729,8 @@ reference "fig:System-has-collision"
 
 \end_inset
 
-, the proposed solution has more accurate estimation performance compared
- to all the literature.
- The proposed estimation algorithm has minor effects in dense network compared
- to other estimation algorithms.
- 
+, the proposed solution has a more accurate estimation performance compared
+ to the existing methods in the state-of-the-art.
 \end_layout
 
 \begin_layout Standard
@@ -2927,7 +2925,7 @@ reference "fig:System-has-collision"
 
 \begin_layout Standard
 In dense RFID applications, the average identification delay (time) is the
- most important performance metric, which is used to evaluate any new system.
+ most important performance metric.
  Thus, figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2935,8 +2933,8 @@ reference "fig:Average-identification-delay"
 
 \end_inset
 
- displays the average identification delay for a bunch of tags.
- In these simulations, I used an initial frame length of 
+ displays the average identification delay for a number of tags.
+ In these simulations, an initial frame length of 
 \begin_inset Formula $L_{ini}=16$
 \end_inset
 
@@ -2948,20 +2946,7 @@ key "standard"
 
 \end_inset
 
-.
- According to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Average-identification-delay"
-
-\end_inset
-
-, the proposed system has around 
-\begin_inset Formula $\unit[40]{\%}$
-\end_inset
-
- saving in the total identification delay compared to systems that do not
- use estimation algorithms.
+ is used.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3051,17 +3036,8 @@ reference "fig:System-has-collision-time"
 \end_layout
 
 \begin_layout Standard
-According to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Average-identification-delay"
-
-\end_inset
-
-, there is a major reduction in the average reading identification delay
- compared to the systems which does not use estimation algorithm.
- According to EPCglobal C1 G2, we cannot identify more than single tag per
- slot.
+According to EPCglobal C1 G2, the RFID reader cannot acknowledge more than
+ single tag per slot.
  Therefore, the theoretical lower limit to identify 
 \begin_inset Formula $n$
 \end_inset
