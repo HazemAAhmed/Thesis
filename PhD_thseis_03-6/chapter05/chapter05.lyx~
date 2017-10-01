@@ -136,18 +136,13 @@ key "2009_capture"
  regardless the type of the slot.
  However, the duration of the slots in RFID systems depends on the slot
  type e.g.
- idle, successful, or collided.
- In these systems, it is to increase the number of empty slots compared
- to the collided slots by increasing the optimum frame length 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "standard"
-
-\end_inset
-
-.
- In this chapter, the optimum frame length for DFSA will be precisely calculated
- taking into consideration the collision recovery capability and the difference
+ empty, successful, or collided.
+ In these systems, the empty slots duration is smaller than than the collided
+ slots duration and smaller than the successful slots duration.
+ Therefore, it is better to increase the frame length, because the losses
+ from the empty slots is less than the losses in the collided slots.
+ In this chapter, the optimum frame length for DFSA will be calculated taking
+ into consideration the collision recovery capability and the difference
  effects in slots durations.
  These optimizations will be discussed in different scenarios depending
  on the RFID system.
@@ -171,8 +166,8 @@ This chapter is organized as follows: Section 1 discusses the effect of
  Then, a novel closed form solution for the optimum frame length is also
  derived for this system.
  Finally, section 4 shows a new closed form solution for the optimum frame
- length for a system, taking into consideration, the time difference in
- slot durations, in addition to the multiple collision recovery coefficients.
+ length for a system, taking into consideration the time difference in slot
+ durations, in addition to the multiple collision recovery coefficients.
 \end_layout
 
 \begin_layout Section
@@ -238,17 +233,17 @@ Closed Form Solution for Time Aware System
 \end_layout
 
 \begin_layout Standard
-For calculating the proposed optimal Time-Aware frame size 
+For calculating the proposed optimal time-aware frame size 
 \begin_inset Formula $L_{_{TA}}$
 \end_inset
 
 , which considers the different slot durations, it is important to define
- the Time-Aware reading efficiency 
+ the time-aware reading efficiency 
 \begin_inset Formula $\eta_{_{TA}}$
 \end_inset
 
 .
- Let the Time-Aware reading efficiency be the ratio between the total successful
+ Let the time-aware reading efficiency be the ratio between the total successful
  time and the total frame time:
 \end_layout
 
@@ -310,7 +305,7 @@ The next step is to derive the new optimum frame length
 \begin_inset Formula $L_{TA}$
 \end_inset
 
- under the Time-Aware environment.
+ under the time-aware environment.
  According to EPCglobal C1 G2, 
 \begin_inset Formula $L$
 \end_inset
@@ -324,7 +319,7 @@ The next step is to derive the new optimum frame length
 \begin_inset Formula $L$
 \end_inset
 
- which maximizes the Time-Aware reading efficiency.
+ which maximizes the time-aware reading efficiency.
  This is achieved by differentiating the reading efficiency in (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -466,7 +461,7 @@ reference "eq: number of slot definition"
 
 
 \size default
-By simplifying the result, the final exact equation for the proposed Time-Aware
+By simplifying the result, the final exact equation for the proposed time-aware
  frame length is given by the implicit equation:
 \begin_inset Float figure
 wide false
@@ -550,7 +545,7 @@ reference "eq:Lopt comlex expresion-1"
 
 \end_inset
 
-) shows the exact relation between the proposed Time-Aware frame length
+) shows the exact relation between the proposed time-aware frame length
  
 \begin_inset Formula $L_{TA}$
 \end_inset
@@ -747,7 +742,7 @@ In this section, the calculation method of the slot duration constant
 \begin_inset Formula $C_{t}$
 \end_inset
 
- from the physical layer parameters will be discussed in details.
+ from the physical layer parameters will be discussed.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -769,7 +764,7 @@ key "standard"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -821,7 +816,14 @@ C_{t}=\frac{t_{e}}{t_{c}},\label{eq:ct-1}
 
 
 \size default
-the empty slot duration 
+As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Slot-Durations-During-1"
+
+\end_inset
+
+, the empty slot duration 
 \begin_inset Formula $t_{e}$
 \end_inset
 
@@ -2277,7 +2279,7 @@ reference "fig:Saving-time-versus"
 \end_inset
 
  shows simulation results for the reading time reduction of the proposed
- optimal Time-Aware frame length 
+ optimal time-aware frame length 
 \begin_inset Formula $L_{TA}$
 \end_inset
 
@@ -2301,16 +2303,45 @@ reference "fig:Saving-time-versus"
 \end_inset
 
  means that the idle slot duration time 
-\begin_inset Formula $t_{e}$
-\end_inset
-
- is quite small wrt.
- the collided slot duration time 
-\begin_inset Formula $t_{c}$
+\begin_inset Formula $t_{e}=0$
 \end_inset
 
 .
- In this case, the proposed Time-Aware frame length can reduce the average
+ In this case, the optimum frame length 
+\begin_inset Formula $L$
+\end_inset
+
+ is theoretically infinite.
+ According to the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the frame length is allowed to take only quantized values (power of 
+\begin_inset Formula $2$
+\end_inset
+
+).
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Quantized-Frame-Length_time"
+
+\end_inset
+
+, the number of tags in the reading area 
+\begin_inset Formula $n=100$
+\end_inset
+
+ tags.
+ Thus, the quantized optimum frame length is 
+\begin_inset Formula $L=1024$
+\end_inset
+
+ slots.
+ In this case, the proposed time-aware frame length can reduce the average
  reading time up to 
 \begin_inset Formula $12\%$
 \end_inset
@@ -2399,7 +2430,7 @@ reference "fig:Percentage-of-Time"
 
 \end_inset
 
- illustrates the mean reduction of the reading time using the proposed Time-Awar
+ illustrates the mean reduction of the reading time using the proposed time-awar
 e frame length for the proposed ML number of tags estimation and some well-known
  tag estimation algorithms using the value of the slot duration constant
  
@@ -3519,7 +3550,7 @@ Multiple Collision Recovery System
 \end_layout
 
 \begin_layout Standard
-To simplify the analysis, previous section considered systems with equal
+To simplify the analysis, previous sections considered systems with equal
  collision recovery probability coefficients regardless the number of collided
  tags per slot.
  For example, the probability to resolve two collided tags is equal to the
@@ -3549,10 +3580,10 @@ In this section, a new reading efficiency metric called Multiple Collision
  The proposed efficiency includes a unique collision resolving coefficient
  for each number of collided tags.
  Hence, a novel closed form solution for the optimum FSA frame length is
- proposed which maximize the proposed efficiency metric.
+ proposed which maximizes the proposed efficiency metric.
  Then, calculations of these coefficients based on a simple RFID reader
- model are meant to show how the proposed system could be applied on real-life
- applications.
+ model to show how the proposed system could be applied on real-life application
+s.
 \end_layout
 
 \begin_layout Subsection
@@ -3574,8 +3605,8 @@ This section will introduce a new FSA efficiency metric called Multiple
 \end_layout
 
 \begin_layout Standard
-The main contribution of this efficiency is that it contains a unique collision
- recovery coefficient 
+The main contribution of this efficiency is that it contains a specific
+ collision recovery coefficient 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
@@ -3619,15 +3650,24 @@ reference "fig:Collision-distribution-in"
 \end_inset
 
  uniformly.
- According to 
+ The simulations results are done using monte-carlo simulations for the
+ FSA algorithm under condition of frame of length 
+\begin_inset Formula $0.5\cdot n\leq L\leq2\cdot n$
+\end_inset
+
+ uniformly, which is the the practical range of the frame length in RFID
+ systems according to 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ref_4_4_2013_Cap_time"
 
 \end_inset
 
-, this is the practical range of the frame length in RFID systems.
- As shown in figure 
+.
+\end_layout
+
+\begin_layout Standard
+As shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Collision-distribution-in"
@@ -4021,23 +4061,23 @@ Based on practical ranges for the collision recovery coefficients,
 \end_inset
 
  and can be presented as follows: 
-\begin_inset Formula $a=+$
+\begin_inset Formula $a>0$
 \end_inset
 
 , 
-\begin_inset Formula $b=-$
+\begin_inset Formula $b<0$
 \end_inset
 
 , 
-\begin_inset Formula $c=-$
+\begin_inset Formula $c<0$
 \end_inset
 
 , 
-\begin_inset Formula $d=-$
+\begin_inset Formula $d<0$
 \end_inset
 
 , and 
-\begin_inset Formula $e=-$
+\begin_inset Formula $e<0$
 \end_inset
 
 .
@@ -4173,8 +4213,9 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Collision recovery coefficients versus SNR using the strongest tag reply
- receiver.
+Simulation results for the average collision recovery coefficients versus
+ SNR using the strongest tag reply receiver.
+ 
 \begin_inset Formula $\alpha_{2}$
 \end_inset
 
@@ -4317,8 +4358,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Frame length comparison between the proposed formula and the numerical solution
- versus the SNR using the strongest tag reply receiver.
+Frame length comparison between the proposed formula in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form-2"
+
+\end_inset
+
+) and the numerical solution for different SNR values.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Frame-length-comparision"
@@ -4412,11 +4459,10 @@ reference "fig:Frame-length-comparision"
 
 \end_inset
 
- shows a comparison frame length comparison between the proposed formula
- (
+ shows a comparison between the proposed formula (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:closed form"
+reference "eq:closed form-2"
 
 \end_inset
 
@@ -4641,8 +4687,8 @@ Time and Multiple Collision Recovery System
 \end_layout
 
 \begin_layout Standard
-In this section we present a new FSA reading efficiency metric called Time
- Aware Multiple Collision Recovery Coefficients Reading Efficiency 
+In this section we present a new FSA reading efficiency metric called time
+ aware multiple collision recovery coefficients reading efficiency 
 \begin_inset Formula $\eta_{_{TAMCRC}}$
 \end_inset
 
@@ -5723,7 +5769,7 @@ reference "fig:Summary_no_estimation"
 \end_inset
 
 .
- In case of the Time and Multiple Collision Recovery frame length, we have
+ In case of the time and multiple collision recovery frame length, we have
  
 \begin_inset Formula $\unit[22]{\%}$
 \end_inset
@@ -5762,6 +5808,47 @@ name "fig:Summary_Without-no_Patent"
 \end_inset
 
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Summary_total_time_with_nopatent.emf
+	lyxscale 15
+	width 65page%
+	height 27pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average reading time of the proposed systems, conventional FSA and the theoretic
+al limit with the proposed collision recovery aware ML number of tags estimation
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Summary_with_no_patent"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5839,47 +5926,6 @@ key "Chen"
 \end_inset
 
 .
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Summary_total_time_with_nopatent.emf
-	lyxscale 15
-	width 65page%
-	height 27pheight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Average reading time of the proposed systems, conventional FSA and the theoretic
-al limit with the proposed collision recovery aware ML number of tags estimation
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Summary_with_no_patent"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
