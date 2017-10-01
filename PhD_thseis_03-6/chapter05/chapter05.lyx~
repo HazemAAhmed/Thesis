@@ -4894,7 +4894,7 @@ a\cdot\beta^{4}+b\cdot\beta^{3}+c\cdot\beta^{2}+d\cdot\beta+e=0,\label{eq:final_
 where: 
 \size small
 
-\begin_inset Formula $a=\underset{(-)}{\underbrace{-C_{t}}}$
+\begin_inset Formula $a=\underset{(<0)}{\underbrace{-C_{t}}}$
 \end_inset
 
 
@@ -4903,7 +4903,7 @@ where:
 \begin_layout Standard
 
 \size small
-\begin_inset Formula $b=\underset{(-)}{\underbrace{C_{t}\cdot(1-\alpha_{2})-1}}$
+\begin_inset Formula $b=\underset{(<0)}{\underbrace{C_{t}\cdot(1-\alpha_{2})-1}}$
 \end_inset
 
 
@@ -4912,7 +4912,7 @@ where:
 \begin_layout Standard
 
 \size small
-\begin_inset Formula $c=\underset{(+)}{\underbrace{\underset{(+)}{\underbrace{2-C_{t}-\alpha_{2}}}+\underset{(+)}{\underbrace{\frac{C_{t}}{2}(\alpha_{2}-\alpha_{3})}}}}$
+\begin_inset Formula $c=\underset{(>0)}{\underbrace{\underset{(>0)}{\underbrace{2-C_{t}-\alpha_{2}}}+\underset{(>0)}{\underbrace{\frac{C_{t}}{2}(\alpha_{2}-\alpha_{3})}}}}$
 \end_inset
 
 
@@ -4921,7 +4921,7 @@ where:
 \begin_layout Standard
 
 \size small
-\begin_inset Formula $d=\underset{(+)}{\underbrace{\frac{1}{2}(\alpha_{2}-\alpha_{3})+\frac{1}{2}\alpha_{2}\cdot(1-C_{t})+\frac{1}{6}C_{t}\cdot\alpha_{3}}}$
+\begin_inset Formula $d=\underset{(>0)}{\underbrace{\frac{1}{2}(\alpha_{2}-\alpha_{3})+\frac{1}{2}\alpha_{2}\cdot(1-C_{t})+\frac{1}{6}C_{t}\cdot\alpha_{3}}}$
 \end_inset
 
 
@@ -4930,7 +4930,7 @@ where:
 \begin_layout Standard
 
 \size small
-\begin_inset Formula $e=\underset{(+)}{\underbrace{\frac{1}{6}\alpha_{3}\cdot(2-C_{t})}}$
+\begin_inset Formula $e=\underset{(>0)}{\underbrace{\frac{1}{6}\alpha_{3}\cdot(2-C_{t})}}$
 \end_inset
 
 
@@ -5104,26 +5104,26 @@ According to the practical ranges of the collision recovery coefficients
 \end_inset
 
 
-\begin_inset Formula $a=(-)$
+\begin_inset Formula $a<0$
 \end_inset
 
 , 
-\begin_inset Formula $b=(-)$
+\begin_inset Formula $b<0$
 \end_inset
 
 , 
-\begin_inset Formula $c=(+)$
+\begin_inset Formula $c>0$
 \end_inset
 
 , 
-\begin_inset Formula $d=(+)$
+\begin_inset Formula $d>0$
 \end_inset
 
 , and 
-\begin_inset Formula $e=(+)$
+\begin_inset Formula $e>0$
 \end_inset
 
-.
+
 \begin_inset Newline newline
 \end_inset
 

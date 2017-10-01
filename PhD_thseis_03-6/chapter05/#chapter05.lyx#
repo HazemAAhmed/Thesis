@@ -5104,26 +5104,26 @@ According to the practical ranges of the collision recovery coefficients
 \end_inset
 
 
-\begin_inset Formula $a>$
+\begin_inset Formula $a<0$
 \end_inset
 
 , 
-\begin_inset Formula $b=(-)$
+\begin_inset Formula $b<0$
 \end_inset
 
 , 
-\begin_inset Formula $c=(+)$
+\begin_inset Formula $c>0$
 \end_inset
 
 , 
-\begin_inset Formula $d=(+)$
+\begin_inset Formula $d>0$
 \end_inset
 
 , and 
-\begin_inset Formula $e=(+)$
+\begin_inset Formula $e>0$
 \end_inset
 
-.
+
 \begin_inset Newline newline
 \end_inset
 
@@ -5531,7 +5531,7 @@ reference "fig:Percentages-of-saving-TMCRA-Estimation"
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 
- and 
+ and average 
 \begin_inset Formula $SNR=\unit{\unit[8]{dB}}$
 \end_inset
 
