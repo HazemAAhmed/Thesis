@@ -5450,6 +5450,43 @@ key "standard"
 \begin_inset Formula $SNR$
 \end_inset
 
+, as each SNR leads to corresponding values for the collision recovery coefficie
+nts 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\alpha_{4}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
 .
  According to figure 
 \begin_inset CommandInset ref
@@ -5531,11 +5568,70 @@ reference "fig:Percentages-of-saving-TMCRA-Estimation"
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 
- and average 
+ and strongest tag reply receiver with average 
 \begin_inset Formula $SNR=\unit{\unit[8]{dB}}$
 \end_inset
 
+ which is corresponding to 
+\begin_inset Formula $\alpha_{2}=0.52$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}=0.45$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\alpha_{4}=0.35$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
 .
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving-TMCRA-Estimation"
+
+\end_inset
+
+, the mean reading reduction in reading time for different estimation algorithms
+ is between 
+\begin_inset Formula $10\%$
+\end_inset
+
+ and 
+\begin_inset Formula $18\%$
+\end_inset
+
+.
+ FSA with perfect number of tags estimation algorithm leads to less number
+ of iterations in the reading process.
+ Thus it results the lower bound of the mean reduction in reading time.
+ On the other hand, FSA with simple estimation algorithm e.g.
+ Lower bound leads to more number of iteration and higher percentage of
+ saving time.
  
 \end_layout
 
@@ -5591,7 +5687,7 @@ name "fig:Percentages-of-saving-TMCRA-Estimation"
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Section
@@ -5600,7 +5696,7 @@ Comparison of the Proposed Algorithms
 
 \begin_layout Standard
 The most crucial performance metric in RFID systems is the average total
- reading time for a bunch of tags.
+ reading time for an existing number of tags in the reading area.
  This section will summarize the performance of the proposed systems.
  It compares between the total reading time of the proposed frame lengths
  and the conventional one which assumes that 
@@ -5617,6 +5713,18 @@ key "standard"
 \end_inset
 
 , which gives the minimum identification time for UHF RFID system.
+ The theoretical lower limit is achieved when the system identifies a single
+ tag per slot.
+ Therefore, the minimum number of slots to identify 
+\begin_inset Formula $n$
+\end_inset
+
+ tags is 
+\begin_inset Formula $n$
+\end_inset
+
+ successful slots.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -5675,7 +5783,7 @@ key "USRP"
 \end_layout
 
 \begin_layout Standard
-The following simulation results are divided into three case studies:
+The following simulation results are divided into the following case studies:
 \begin_inset Float figure
 wide false
 sideways false
@@ -5684,8 +5792,8 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Summary_total_time_NoEstimation_no_patent.emf
-	lyxscale 13
+	filename Summary_total_time_NoEstimation_no_patent_sec.emf
+	lyxscale 15
 	width 65page%
 
 \end_inset
@@ -5698,7 +5806,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Average reading time of the proposed systems, conventional FSA and the theoretic
-al limit without number of tags estimation
+al limit using lower bound number of tags estimation algorithm
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Summary_no_estimation"
@@ -5713,7 +5821,45 @@ name "fig:Summary_no_estimation"
 
 \end_layout
 
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Summary_total_time_with_nopatent_Sec.emf
+	lyxscale 15
+	width 65page%
+	height 27pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average reading time of the proposed systems, conventional FSA and the theoretic
+al limit using the proposed collision recovery aware ML number of tags estimatio
+n algorithm
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Summary_with_no_patent"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -5723,7 +5869,14 @@ name "fig:Summary_no_estimation"
 \end_layout
 
 \begin_layout Enumerate
-Average reading time without number of tags estimation: Figure 
+Average reading time for FSA using simple number of tags estimation algorithm:
+ The main target in this case study is to evaluate the performance of the
+ proposed frame lengths formulas with a simple number of tags estimation
+ method.
+ In this case, Lower bound number of tags estimation algorithm is used.
+ As discussed in the previous sections, the lower bound number of tags estimatio
+n gives the minimum number of remaining tag in the reading area.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Summary_no_estimation"
@@ -5736,8 +5889,8 @@ reference "fig:Summary_no_estimation"
 \end_inset
 
  and the theoretical limit.
- No number of tags estimation algorithm is used in simulation results of
- figure 
+ Lower bound number of tags estimation algorithm is used in simulation results
+ of figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Summary_no_estimation"
@@ -5777,124 +5930,14 @@ reference "fig:Summary_no_estimation"
  average saving in the reading time.
  This is due to considering the different values of the collision recovery
  coefficients.
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Summary_total_time_without_no_patent.emf
-	lyxscale 15
-	width 65page%
-	height 27pheight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Average reading time of the proposed systems, conventional FSA and the theoretic
-al limit using conventional ML number of tags estimation
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Summary_Without-no_Patent"
-
-\end_inset
-
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Summary_total_time_with_nopatent.emf
-	lyxscale 15
-	width 65page%
-	height 27pheight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Average reading time of the proposed systems, conventional FSA and the theoretic
-al limit with the proposed collision recovery aware ML number of tags estimation
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Summary_with_no_patent"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
-Average reading time with the conventional ML number of tags estimation:
+Average reading time with the proposed collision recovery aware ML number
+ of tags estimation: The main target in this case study is to evaluate the
+ performance of the proposed frame lengths formulas with the proposed collision
+ recovery aware ML number of tags estimation method.
  Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Summary_Without-no_Patent"
-
-\end_inset
-
- presents simulation results for the average reading time using conventional
- ML number of tags estimation 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chen"
-
-\end_inset
-
-, which neglect the collision recovery capability of the PHY layer.
- Due to the use of conventional ML number of tags estimation, the total
- average of reading time is decreased for all scenarios from 
-\begin_inset Formula $10\,\%$
-\end_inset
-
- to 
-\begin_inset Formula $15\,\%$
-\end_inset
-
- compared to the average reading time without number of tags estimation.
- 
-\end_layout
-
-\begin_layout Enumerate
-Average reading time with the collision recovery aware ML number of tags
- estimation: Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Summary_with_no_patent"
@@ -5933,8 +5976,8 @@ According to the above results, there is still
 \begin_inset Formula $\approx\unit[10]{\%}$
 \end_inset
 
- lag of performance between the the proposed systems and the theoretical
- limit of the EPCglobal C1 G2 standard 
+ can be improved between the the proposed systems and the theoretical limit
+ of the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -5942,8 +5985,8 @@ key "standard"
 \end_inset
 
 .
- The main reason of this lagging in performance is that all the allowed
- optimization was only in the reader side.
+ The main reason of this is that all the allowed optimization was only in
+ the reader side.
  To follow the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
