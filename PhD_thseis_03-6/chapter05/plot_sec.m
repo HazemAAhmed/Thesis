@@ -1,11 +1,12 @@
 figure
-
-plot(Z,y4(1,:))
+plot(z2,y6(1,:))
 hold on
-plot(Z,y4(2,:))
+plot(z2,y6(2,:))
 hold on
-plot(Z,y4(3,:))
+plot(z2,y6(3,:))
 hold on
-plot(Z,y4(4,:))
+plot(z2,y6(4,:))
 hold on
-plot(Z,y4(5,:))
+plot(z2,y6(5,:))
+hold on
+plot(z2,y6(6,:))

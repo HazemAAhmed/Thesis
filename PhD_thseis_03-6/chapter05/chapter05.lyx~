@@ -2518,7 +2518,7 @@ status open
 \begin_inset Graphics
 	filename saving_time_comparisions.emf
 	lyxscale 20
-	width 60page%
+	width 65page%
 
 \end_inset
 
@@ -3494,7 +3494,7 @@ reference "fig:Percentages-of-saving_ct_alpha_with"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3522,7 +3522,7 @@ Percentages of saving time using the proposed TCRA compared to the conventional
 \end_inset
 
  and 
-\begin_inset Formula $\alpha=0.1$
+\begin_inset Formula $\alpha=0.6$
 \end_inset
 
  
@@ -5667,7 +5667,7 @@ l frame length
 \end_inset
 
  and 
-\begin_inset Formula $SNR=\unit{\unit[8]{dB}}$
+\begin_inset Formula $SNR=\unit{\unit[10]{dB}}$
 \end_inset
 
  
@@ -5697,9 +5697,10 @@ Comparison of the Proposed Algorithms
 \begin_layout Standard
 The most crucial performance metric in RFID systems is the average total
  reading time for an existing number of tags in the reading area.
- This section will summarize the performance of the proposed systems.
- It compares between the total reading time of the proposed frame lengths
- and the conventional one which assumes that 
+ This section will summarize the performance of the DFSA with the proposed
+ frame lengths.
+ It compares between the average total reading time of the proposed frame
+ lengths and the conventional one which assumes that 
 \begin_inset Formula $L_{opt}=n$
 \end_inset
 
@@ -5728,8 +5729,8 @@ key "standard"
 \end_layout
 
 \begin_layout Standard
-The following simulation results assume the following parameters: Slots
- duration constant 
+Simulation results assume the following parameters: Slots duration constant
+ 
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 
@@ -5783,11 +5784,19 @@ key "USRP"
 \end_layout
 
 \begin_layout Standard
-The following simulation results are divided into the following case studies:
+To clarify the effect of the proposed ML number of tags estimation algorithm
+ (discussed in chapter 4) on the proposed frame lengths scenarios, simulation
+ results are divided into the following two comparison schemes:
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5805,8 +5814,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Average reading time of the proposed systems, conventional FSA and the theoretic
-al limit using lower bound number of tags estimation algorithm
+Using simple number of tags estimation algorithm (Lower bound)
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Summary_no_estimation"
@@ -5824,18 +5832,20 @@ name "fig:Summary_no_estimation"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Summary_total_time_with_nopatent.emf
+	filename Summary_total_time_with_nopatent_Sec.emf
 	lyxscale 15
 	width 65page%
-	height 27pheight%
 
 \end_inset
 
@@ -5846,9 +5856,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Average reading time of the proposed systems, conventional FSA and the theoretic
-al limit using the proposed collision recovery aware ML number of tags estimatio
-n algorithm
+Using the proposed collision recovery aware ML number of tags estimation
+ algorithm
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Summary_with_no_patent"
@@ -5868,13 +5877,44 @@ name "fig:Summary_with_no_patent"
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average reading time of the proposed systems, conventional FSA and the theoretic
+al limit 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Main_comp_no_patent"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Enumerate
 Average reading time for FSA using simple number of tags estimation algorithm:
- The main target in this case is to evaluate the performance of the proposed
- frame lengths with a simple number of tags estimation method.
- In this case, Lower bound number of tags estimation algorithm is used.
- As discussed in the previous sections, the lower bound number of tags estimatio
-n gives the minimum number of remaining tag in the reading area.
+ The main objective of theses simulations is to evaluate the performance
+ of the proposed frame lengths formulas using the lower bound number of
+ tags estimation method.
+ Thereby, neglecting the effect of the proposed ML number of tags estimation
+ algorithm.
+ As discussed in chapter 4, the lower bound number of tags estimation gives
+ the minimum number of remaining tag in the reading area.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5933,14 +5973,17 @@ reference "fig:Summary_no_estimation"
 
 \begin_layout Enumerate
 Average reading time with the proposed collision recovery aware ML number
- of tags estimation: Figure 
+ of tags estimation: The main target is to evaluate the performance of the
+ proposed frame lengths formulas using the proposed ML number of tags estimation
+ algorithm.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Summary_with_no_patent"
 
 \end_inset
 
- shows the average reading time using the proposed Collision Recovery Aware
+ shows the average reading time using the proposed collision recovery aware
  ML number of tags estimation, which considers the collision recovery capability
  of the PHY layer.
  According to figure 
@@ -5950,9 +5993,9 @@ reference "fig:Summary_with_no_patent"
 
 \end_inset
 
-, the average total reading time using the Collision Recovery Aware number
+, the average total reading time using the collision recovery aware number
  of tags estimation for the all proposed frame lengths and the conventional
- FSA are reduced with 
+ FSA are reduced by 
 \begin_inset Formula $\simeq\unit[5]{\%}$
 \end_inset
 
@@ -5965,6 +6008,391 @@ key "Chen"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Performance comparison between the proposed formulas 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Performance-comparison-between"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="5">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Time and no
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Time and constant
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Time and multiple
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+collision recovery
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+collision recovery
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+collision recovery
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Average reading time reduction
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Without ML estimation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+16%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+28%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+30%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+compared to the conventional system
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+With ML estimation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+18%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+20%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Room of improvement compared to
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Without ML estimation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+35%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+25%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+18%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+the lower bound theoretical limit
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+With ML estimation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+16%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
