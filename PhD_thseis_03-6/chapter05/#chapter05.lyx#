@@ -5729,8 +5729,15 @@ key "standard"
 \end_layout
 
 \begin_layout Standard
-Simulation results assume the following parameters: Slots duration constant
- 
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Main_comp_no_patent"
+
+\end_inset
+
+ shows the simulation results of the average reading time for DFSA using
+ the following parameters: Slots duration constant 
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 
@@ -5746,7 +5753,7 @@ Simulation results assume the following parameters: Slots duration constant
 \begin_inset Formula $ts=\unit[1060]{\mu s}$
 \end_inset
 
-, which are practical values from real measurements using a 
+, which are the practical values from real measurements using a 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "USRP"
@@ -5762,12 +5769,11 @@ key "USRP"
 \end_inset
 
 .
- We assume 
+ Strongest tag reply receiver is used with average 
 \begin_inset Formula $SNR=\unit[10]{dB}$
 \end_inset
 
-, with strongest tag reply receiver which leads to the following collision
- recovery coefficients, 
+, which leads to the following collision recovery coefficients, 
 \begin_inset Formula $\alpha_{2}=0.6$
 \end_inset
 
@@ -5781,12 +5787,6 @@ key "USRP"
 
 .
  
-\end_layout
-
-\begin_layout Standard
-To clarify the effect of the proposed ML number of tags estimation algorithm
- (discussed in chapter 4) on the proposed frame lengths scenarios, simulation
- results are divided into the following two comparison schemes:
 \begin_inset Float figure
 wide false
 sideways false
@@ -5906,37 +5906,22 @@ name "fig:Main_comp_no_patent"
 
 \end_layout
 
-\begin_layout Enumerate
-Average reading time for FSA using simple number of tags estimation algorithm:
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Summary_no_estimation"
+
+\end_inset
+
+ shows the average reading time for DFSA using lower bound number of tags
+ estimation algorithm.
  The main objective of theses simulations is to evaluate the performance
- of the proposed frame lengths formulas using the lower bound number of
- tags estimation method.
- Thereby, neglecting the effect of the proposed ML number of tags estimation
- algorithm.
- As discussed in chapter 4, the lower bound number of tags estimation gives
- the minimum number of remaining tag in the reading area.
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Summary_no_estimation"
-
-\end_inset
-
- shows the simulation results for the average reading time of the proposed
- frame lengths compared to the conventional frame length 
-\begin_inset Formula $L=n$
-\end_inset
-
- and the theoretical limit.
- Lower bound number of tags estimation algorithm is used in simulation results
- of figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Summary_no_estimation"
-
-\end_inset
-
-.
+ of the proposed frame lengths formulas without the effect of the proposed
+ ML number of tags estimation algorithm.
+ As discussed in chapter 4, the lower bound number of tags estimation neglects
+ the collision recovery capability of the physical layer and gives the minimum
+ number of remaining tag in the reading area.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5944,48 +5929,46 @@ reference "fig:Summary_no_estimation"
 
 \end_inset
 
-, the Time Aware frame length gives 
-\begin_inset Formula $\unit[15]{\%}$
+, the Time Aware frame length proposal gives 
+\begin_inset Formula $\unit[16]{\%}$
 \end_inset
 
  saving in the average total reading time compared to the conventional FSA.
- The Time and Constant Collision Recovery Aware frame length saves 
-\begin_inset Formula $\unit[5]{\%}$
+ The Time and Constant Collision Recovery Aware frame length proposal saves
+ 
+\begin_inset Formula $\unit[10]{\%}$
 \end_inset
 
  more than the Time Aware frame length, because of the new information about
  the collision recovery coefficient.
- In the Time and Constant Collision Recovery Aware the average collision
- recovery probability was assumed as 
-\begin_inset Formula $\alpha=\alpha_{2}$
+ In the time and constant collision recovery aware, the average collision
+ recovery probability is 
+\begin_inset Formula $\alpha=\alpha_{2}=0.6$
 \end_inset
 
 .
- In case of the time and multiple collision recovery frame length, we have
- 
-\begin_inset Formula $\unit[22]{\%}$
+ In case of the time and multiple collision recovery frame length, the algorithm
+ results 
+\begin_inset Formula $\unit[30]{\%}$
 \end_inset
 
- average saving in the reading time.
+ average saving in the reading time compared to the conventional DFSA.
  This is due to considering the different values of the collision recovery
  coefficients.
 \end_layout
 
-\begin_layout Enumerate
-Average reading time with the proposed collision recovery aware ML number
- of tags estimation: The main target is to evaluate the performance of the
- proposed frame lengths formulas using the proposed ML number of tags estimation
- algorithm.
- Figure 
+\begin_layout Standard
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Summary_with_no_patent"
 
 \end_inset
 
- shows the average reading time using the proposed collision recovery aware
- ML number of tags estimation, which considers the collision recovery capability
- of the PHY layer.
+ shows the average reading time with the proposed collision recovery aware
+ ML number of tags estimation.
+ The main target is to evaluate the performance of the proposed frame lengths
+ formulas using the proposed ML number of tags estimation algorithm.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5993,21 +5976,48 @@ reference "fig:Summary_with_no_patent"
 
 \end_inset
 
-, the average total reading time using the collision recovery aware number
- of tags estimation for the all proposed frame lengths and the conventional
- FSA are reduced by 
-\begin_inset Formula $\simeq\unit[5]{\%}$
+, the Time Aware frame length proposal gives 
+\begin_inset Formula $\unit[10]{\%}$
 \end_inset
 
- compared to the case of using the conventional ML number of tags estimation
+ saving in the average total reading time compared to the conventional FSA.
+ The Time and Constant Collision Recovery Aware frame length proposal results
  
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chen"
+\begin_inset Formula $\unit[18]{\%}$
+\end_inset
 
+ average saving in the reading time compared to the conventional DFSA.
+ The used average collision recovery probability 
+\begin_inset Formula $\alpha=\alpha_{2}=0.6$
 \end_inset
 
 .
+ In case of the time and multiple collision recovery frame length, the proposed
+ solution results 
+\begin_inset Formula $\unit[22]{\%}$
+\end_inset
+
+ average saving in the reading time compared to the conventional DFSA.
+\end_layout
+
+\begin_layout Standard
+XXXXXAccording to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Main_comp_no_patent"
+
+\end_inset
+
+, the percentages of saving in reading time with simple number of tags estimatio
+n algorithm is more than the percentages of saving time using the proposed
+ ML number of tags estimation.
+ This is because the total identification time with simple number of tags
+ estimation is more than with the proposed ML number of tags estimation.
+ Thus the number of reading cycles and frame length adaptation with simple
+ number of tags estimation is more than the number of reading cycles with
+ the proposed number of tags estimation.
+ However, the average reading time for DFSA using the proposed frame length
+ formulas with the proposed ML estimation is less than the the average rea
 \end_layout
 
 \begin_layout Standard
@@ -6022,16 +6032,12 @@ status open
 \begin_layout Plain Layout
 
 \size small
-Average reading time reduction 
+Performance analysis for the 
 \size default
-using the proposed frame length formulas
+proposed frame length formulas
 \size small
- compared to the conventional DFSA
-\size default
  
-\begin_inset Formula $L=n$
-\end_inset
-
+\size default
 
 \begin_inset CommandInset label
 LatexCommand label
@@ -6073,15 +6079,13 @@ using the proposed frame length formulas
 \begin_inset Formula $L=n$
 \end_inset
 
-
-\end_layout
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Average-reading-time_table_1"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -6092,6 +6096,8 @@ using the proposed frame length formulas
 
 \begin_layout Plain Layout
 \align center
+
+\size footnotesize
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="3">
 <features rotate="0" tabularvalignment="middle">
@@ -6112,7 +6118,9 @@ using the proposed frame length formulas
 \begin_inset Text
 
 \begin_layout Plain Layout
-with a simple estimation algorithm (LB)
+
+\size footnotesize
+Simple estimation algorithm (LB)
 \end_layout
 
 \end_inset
@@ -6121,7 +6129,9 @@ with a simple estimation algorithm (LB)
 \begin_inset Text
 
 \begin_layout Plain Layout
-with the proposed ML estimation
+
+\size footnotesize
+Proposed ML estimation
 \end_layout
 
 \end_inset
@@ -6132,6 +6142,8 @@ with the proposed ML estimation
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Time and no CR 
 \end_layout
 
@@ -6141,6 +6153,8 @@ Time and no CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[16]{\%}$
 \end_inset
 
@@ -6153,6 +6167,8 @@ Time and no CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[10]{\%}$
 \end_inset
 
@@ -6167,6 +6183,8 @@ Time and no CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Time and constant CR
 \end_layout
 
@@ -6176,6 +6194,8 @@ Time and constant CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[25]{\%}$
 \end_inset
 
@@ -6188,6 +6208,8 @@ Time and constant CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[18]{\%}$
 \end_inset
 
@@ -6202,6 +6224,8 @@ Time and constant CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Time and multiple CR
 \end_layout
 
@@ -6211,6 +6235,8 @@ Time and multiple CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[30]{\%}$
 \end_inset
 
@@ -6223,6 +6249,8 @@ Time and multiple CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[22]{\%}$
 \end_inset
 
@@ -6240,7 +6268,49 @@ Time and multiple CR
 \end_layout
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average remaining room of improvement for the proposed frame length formulas
+ to reach the theoretical lower limit of EPCglobal C1 G2 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Average-remaining-room_table2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="3">
 <features rotate="0" tabularvalignment="middle">
@@ -6261,7 +6331,9 @@ Time and multiple CR
 \begin_inset Text
 
 \begin_layout Plain Layout
-with a simple estimation algorithm (LB)
+
+\size footnotesize
+Simple estimation algorithm (LB)
 \end_layout
 
 \end_inset
@@ -6270,7 +6342,9 @@ with a simple estimation algorithm (LB)
 \begin_inset Text
 
 \begin_layout Plain Layout
-with the proposed ML estimation
+
+\size footnotesize
+Proposed ML estimation
 \end_layout
 
 \end_inset
@@ -6281,6 +6355,8 @@ with the proposed ML estimation
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Time and no CR 
 \end_layout
 
@@ -6290,6 +6366,8 @@ Time and no CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[35]{\%}$
 \end_inset
 
@@ -6302,6 +6380,8 @@ Time and no CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[20]{\%}$
 \end_inset
 
@@ -6316,6 +6396,8 @@ Time and no CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Time and constant CR
 \end_layout
 
@@ -6325,6 +6407,8 @@ Time and constant CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[25]{\%}$
 \end_inset
 
@@ -6337,6 +6421,8 @@ Time and constant CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[15]{\%}$
 \end_inset
 
@@ -6351,6 +6437,8 @@ Time and constant CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Time and multiple CR
 \end_layout
 
@@ -6360,6 +6448,8 @@ Time and multiple CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[15]{\%}$
 \end_inset
 
@@ -6372,6 +6462,8 @@ Time and multiple CR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\unit[10]{\%}$
 \end_inset
 
@@ -6382,6 +6474,15 @@ Time and multiple CR
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 

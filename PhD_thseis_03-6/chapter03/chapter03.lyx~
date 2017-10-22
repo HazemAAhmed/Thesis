@@ -2070,7 +2070,7 @@ key "USRP"
 \end_inset
 
 .
- According to these parameters and figure 
+ For the given parameters and as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Measured-Slots-durations-1"

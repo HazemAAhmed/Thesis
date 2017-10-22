@@ -1676,7 +1676,7 @@ reference "fig:No-tag-reply"
  shows the behavior of an empty slot in EPCglobal C1 G2.
  The reader starts with a query command, and waits for a tag reply during
  a certain time out period.
- If there is no tag reply during this time, it would terminate the the slot
+ If there is no tag reply during this time, it would terminate the slot
  by sending a new query-rep command.
  
 \end_layout

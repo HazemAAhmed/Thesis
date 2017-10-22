@@ -2676,7 +2676,7 @@ key "Chen"
 \end_inset
 
  is based on numerical searching.
- This advantage decreases the the complexity of the estimation algorithm.
+ This advantage decreases the complexity of the estimation algorithm.
  
 \begin_inset CommandInset citation
 LatexCommand cite

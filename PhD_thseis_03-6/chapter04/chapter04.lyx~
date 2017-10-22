@@ -3036,17 +3036,8 @@ reference "fig:System-has-collision-time"
 \end_layout
 
 \begin_layout Standard
-According to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Average-identification-delay"
-
-\end_inset
-
-, there is a major reduction in the average reading identification delay
- compared to the systems which does not use estimation algorithm.
- According to EPCglobal C1 G2, we cannot identify more than single tag per
- slot.
+According to EPCglobal C1 G2, the RFID reader cannot acknowledge more than
+ single tag per slot.
  Therefore, the theoretical lower limit to identify 
 \begin_inset Formula $n$
 \end_inset
