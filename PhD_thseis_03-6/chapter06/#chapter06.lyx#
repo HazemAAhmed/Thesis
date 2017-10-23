@@ -70,7 +70,7 @@
 \begin_body
 
 \begin_layout Chapter
-Proposed Improvements of EPCglobal C1 G2
+Improvements of EPCglobal C1 G2
 \end_layout
 
 \begin_layout Abstract
@@ -128,7 +128,7 @@ tag collision
 To overcome these pitfalls, this chapter proposes a system that is capable
  to acknowledge multiple tags within a single slot, resulting in a significant
  increase in performance.
- The main advantage of this proposal is that, it is compatible with existing
+ The main advantage of this proposal is that it is compatible with existing
  EPCglobal C1 G2 tags and readers.
  Hence, our improved tags can be read by conventional readers without affecting
  the performance.
@@ -162,15 +162,38 @@ description "continuous wave"
 
 \end_inset
 
- (CW).
+ Continuous Wave (CW).
  At this time, the powered tags are in the ready state waiting for the frame
- size information from the reader.
- Then, the reader broadcasts the frame size and notifies all tags of the
- beginning of a new frame with a Query command.
+ length information from the reader.
+ Then, the reader broadcasts the frame length and notifies all tags of the
+ beginning of a new frame with a 
+\begin_inset Quotes eld
+\end_inset
+
+Query
+\begin_inset Quotes erd
+\end_inset
+
+ command.
  As soon as the tags receive this command, each tag selects a slot from
- the frame by setting its slot counter, and enters the Arbitrate state.
- When the tag slot counter is equal to zero, the tag enters the Reply state
- and Backscatter its 
+ the frame by setting its slot counter, and enters the 
+\begin_inset Quotes eld
+\end_inset
+
+Arbitrate
+\begin_inset Quotes erd
+\end_inset
+
+ state.
+ When the tag's slot counter is equal to zero, the tag enters the 
+\begin_inset Quotes eld
+\end_inset
+
+Reply
+\begin_inset Quotes erd
+\end_inset
+
+ state and tarts back-scattering its 
 \begin_inset Formula $16$
 \end_inset
 
@@ -190,7 +213,7 @@ reference "fig:Tag-response-of"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1225,8 +1248,7 @@ reference "tab:Switch-command"
 \begin_inset Formula $16$
 \end_inset
 
- bits command from the future use part of EPCglobal class 1 gen 2 standards
- (
+ bits command from the future use part of EPCglobal C1 G2 standards (
 \shape slanted
 cf.
 
@@ -1242,7 +1264,7 @@ key "standard"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2524,8 +2546,8 @@ reference "fig:Proposed-reader-to"
  set some conventional tag parameters.
  Then the reader broadcasts a Switch command asking the proposed tags to
  switch to the new mode.
- The conventional tags will not recognize this command, so will simply ignore
- it.
+ The conventional tags will not recognize this command, so they will simply
+ ignore it.
  Afterwards, the reader sends a Query command asking the tags to reply with
  their RN16.
  Figure 
@@ -2668,8 +2690,8 @@ reference "fig:Mean-reading-time"
 \end_inset
 
  shows the average reading time of the proposed system compared to the conventio
-nal FSA and other recent EPCglobal class 1 gen 2 compatible systems using
- collision recovery techniques.
+nal FSA and other recent EPCglobal C1 G2 compatible systems using collision
+ recovery techniques.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2718,7 +2740,7 @@ key "2013_multiple_ACK"
 \end_inset
 
 , respectively, using single acknowledgment.
- Finally, The proposed system approaches the theoretical limit of the EPCglobal
+ Finally, the proposed system approaches the theoretical limit of the EPCglobal
  C1 G2 standards 
 \begin_inset CommandInset citation
 LatexCommand cite

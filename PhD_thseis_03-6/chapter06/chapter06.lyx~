@@ -70,7 +70,7 @@
 \begin_body
 
 \begin_layout Chapter
-Proposed Improvements of EPCglobal C1 G2
+Improvements of EPCglobal C1 G2
 \end_layout
 
 \begin_layout Abstract
@@ -2523,8 +2523,8 @@ reference "fig:Proposed-reader-to"
  set some conventional tag parameters.
  Then the reader broadcasts a Switch command asking the proposed tags to
  switch to the new mode.
- The conventional tags will not recognize this command, so will simply ignore
- it.
+ The conventional tags will not recognize this command, so they will simply
+ ignore it.
  Afterwards, the reader sends a Query command asking the tags to reply with
  their RN16.
  Figure 
@@ -2717,7 +2717,7 @@ key "2013_multiple_ACK"
 \end_inset
 
 , respectively, using single acknowledgment.
- Finally, The proposed system approaches the theoretical limit of the EPCglobal
+ Finally, the proposed system approaches the theoretical limit of the EPCglobal
  C1 G2 standards 
 \begin_inset CommandInset citation
 LatexCommand cite
