@@ -128,7 +128,7 @@ tag collision
 To overcome these pitfalls, this chapter proposes a system that is capable
  to acknowledge multiple tags within a single slot, resulting in a significant
  increase in performance.
- The main advantage of this proposal is that, it is compatible with existing
+ The main advantage of this proposal is that it is compatible with existing
  EPCglobal C1 G2 tags and readers.
  Hence, our improved tags can be read by conventional readers without affecting
  the performance.
@@ -162,15 +162,38 @@ description "continuous wave"
 
 \end_inset
 
- (CW).
+ Continuous Wave (CW).
  At this time, the powered tags are in the ready state waiting for the frame
- size information from the reader.
- Then, the reader broadcasts the frame size and notifies all tags of the
- beginning of a new frame with a Query command.
+ length information from the reader.
+ Then, the reader broadcasts the frame length and notifies all tags of the
+ beginning of a new frame with a 
+\begin_inset Quotes eld
+\end_inset
+
+Query
+\begin_inset Quotes erd
+\end_inset
+
+ command.
  As soon as the tags receive this command, each tag selects a slot from
- the frame by setting its slot counter, and enters the Arbitrate state.
- When the tag slot counter is equal to zero, the tag enters the Reply state
- and Backscatter its 
+ the frame by setting its slot counter, and enters the 
+\begin_inset Quotes eld
+\end_inset
+
+Arbitrate
+\begin_inset Quotes erd
+\end_inset
+
+ state.
+ When the tag's slot counter is equal to zero, the tag enters the 
+\begin_inset Quotes eld
+\end_inset
+
+Reply
+\begin_inset Quotes erd
+\end_inset
+
+ state and tarts back-scattering its 
 \begin_inset Formula $16$
 \end_inset
 
@@ -230,29 +253,68 @@ name "fig:Tag-response-of"
 
 \begin_layout Standard
 According to Frame Slotted ALOHA, there are three probabilities for each
- slot: 1) No tag reply: The reader considers this slot as an empty slot
- and transmits a Query-Rep command asking the tags to decrements their slot
- counters.
- 2) Only one tag responds (successful slot): The reader transmits an acknowledge
+ slot: 1) Empty slot: In such a slot, no tag has selected this slot to transmit
+ its information in it.
+ The reader transmits a 
+\begin_inset Quotes eld
+\end_inset
+
+Query-Rep
+\begin_inset Quotes erd
+\end_inset
+
+ command asking the tags to decrements their slot counters.
+ 2) Successful slot: In this slot, only one one tag selects this slot to
+ transmit its information in it.
+ The reader transmits an 
+\begin_inset Quotes eld
+\end_inset
+
+Acknowledge
+\begin_inset Quotes erd
+\end_inset
+
  command including the received RN16.
- Here the acknowledged tag enters the acknowledged state and replies with
+ Then, the acknowledged tag enters the acknowledged state and replies with
  its EPC code.
- 3) Multiple tags reply (collided Slot): this case has two possibilities:
- 
+ 3) Collided slot: In this case, there are two possibilities: 
 \end_layout
 
 \begin_layout Enumerate
-Systems that have no collision recovery capability as shown in figure 
+Systems that have no collision recovery capability: As shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Two-tags-collided"
 
 \end_inset
 
- (a): In such systems, the reader fails to identify any RN16, so it queries
- the next slot by sending another Query-Rep command.
- As soon as the collided tags receive the Query-Rep command, they enter
- the Arbitrate state waiting for the next frame.
+, the reader fails to identify any RN16, so it queries the next slot by
+ sending another 
+\begin_inset Quotes eld
+\end_inset
+
+Query-Rep
+\begin_inset Quotes erd
+\end_inset
+
+ command.
+ As soon as the collided tags receive the 
+\begin_inset Quotes eld
+\end_inset
+
+Query-Rep
+\begin_inset Quotes erd
+\end_inset
+
+ command, they enter the 
+\begin_inset Quotes eld
+\end_inset
+
+Arbitrate
+\begin_inset Quotes erd
+\end_inset
+
+ state waiting for the next frame.
  The maximum reading efficiency in such systems is 
 \begin_inset Formula $36\%$
 \end_inset
@@ -261,14 +323,14 @@ reference "fig:Two-tags-collided"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename timing.emf
 	lyxscale 40
-	width 70page%
+	width 65page%
 
 \end_inset
 
@@ -297,15 +359,15 @@ name "fig:Two-tags-collided"
 \end_layout
 
 \begin_layout Enumerate
-Systems that have collision recovery capability as shown in figure 
+Systems that have collision recovery capability: as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Two-tags-collided"
 
 \end_inset
 
- (b): These systems have the ability to identify at least one RN16 from
- the responding tags.
+, such systems have the ability to identify at least one RN16 from the respondin
+g tags.
  Then, the reader broadcasts an Acknowledge command including one of the
  identified RN16s.
  The tag which has the same RN16 replies its EPC code and mutes itself until
@@ -342,45 +404,6 @@ The proposed tag has the ability to act like conventional UHF EPCglobal
  However, it loads extra properties when it is in the ready state and receives
  a new command called Switch command from the proposed reader.
  The following part presents the main modifications in the proposed tag:
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Proposed_preamble.emf
-	lyxscale 50
-	width 50page%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Tag response of the proposed tags including the new pilot sequences 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Tag-response-of-proposed"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -480,6 +503,45 @@ key "2012_orthogonal_codes"
 \end_inset
 
 , where the conventional tags are not compatible with their system.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Proposed_preamble.emf
+	lyxscale 20
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tag response of the proposed tags including the new pilot sequences 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tag-response-of-proposed"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Float table
 wide false
 sideways false

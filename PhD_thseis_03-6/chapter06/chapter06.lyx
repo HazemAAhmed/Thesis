@@ -213,7 +213,7 @@ reference "fig:Tag-response-of"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -253,29 +253,62 @@ name "fig:Tag-response-of"
 
 \begin_layout Standard
 According to Frame Slotted ALOHA, there are three probabilities for each
- slot: 1) No tag reply: The reader considers this slot as an empty slot
- and transmits a Query-Rep command asking the tags to decrements their slot
- counters.
- 2) Only one tag responds (successful slot): The reader transmits an acknowledge
+ slot: 1) Empty slot: In such a slot, no tag has selected this slot to transmit
+ its information in it.
+ The reader transmits a 
+\begin_inset Quotes eld
+\end_inset
+
+Query-Rep
+\begin_inset Quotes erd
+\end_inset
+
+ command asking the tags to decrements their slot counters.
+ 2) Successful slot: In this slot, only one one tag selects this slot to
+ transmit its information in it.
+ The reader transmits an 
+\begin_inset Quotes eld
+\end_inset
+
+Acknowledge
+\begin_inset Quotes erd
+\end_inset
+
  command including the received RN16.
- Here the acknowledged tag enters the acknowledged state and replies with
+ Then, the acknowledged tag enters the acknowledged state and replies with
  its EPC code.
- 3) Multiple tags reply (collided Slot): this case has two possibilities:
- 
+ 3) Collided slot: In this case, there are two possibilities: 
 \end_layout
 
 \begin_layout Enumerate
-Systems that have no collision recovery capability as shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Two-tags-collided"
-
+Systems that have no collision recovery capability: In such systems, the
+ reader fails to identify any RN16, so it queries the next slot by sending
+ another 
+\begin_inset Quotes eld
 \end_inset
 
- (a): In such systems, the reader fails to identify any RN16, so it queries
- the next slot by sending another Query-Rep command.
- As soon as the collided tags receive the Query-Rep command, they enter
- the Arbitrate state waiting for the next frame.
+Query-Rep
+\begin_inset Quotes erd
+\end_inset
+
+ command.
+ As soon as the collided tags receive the 
+\begin_inset Quotes eld
+\end_inset
+
+Query-Rep
+\begin_inset Quotes erd
+\end_inset
+
+ command, they enter the 
+\begin_inset Quotes eld
+\end_inset
+
+Arbitrate
+\begin_inset Quotes erd
+\end_inset
+
+ state waiting for the next frame.
  The maximum reading efficiency in such systems is 
 \begin_inset Formula $36\%$
 \end_inset
@@ -284,14 +317,14 @@ reference "fig:Two-tags-collided"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename timing.emf
 	lyxscale 40
-	width 70page%
+	width 65page%
 
 \end_inset
 
@@ -320,26 +353,46 @@ name "fig:Two-tags-collided"
 \end_layout
 
 \begin_layout Enumerate
-Systems that have collision recovery capability as shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Two-tags-collided"
-
+Systems that have collision recovery capability: Such systems have the ability
+ to identify at least one RN16 from the responding tags.
+ Then, the reader broadcasts an 
+\begin_inset Quotes eld
 \end_inset
 
- (b): These systems have the ability to identify at least one RN16 from
- the responding tags.
- Then, the reader broadcasts an Acknowledge command including one of the
- identified RN16s.
+Acknowledge
+\begin_inset Quotes erd
+\end_inset
+
+ command including one of the identified RN16s.
  The tag which has the same RN16 replies its EPC code and mutes itself until
  the end of the reading process.
- However, the remaining tags forget their RN16s and enter the Arbitrate
+ However, the remaining tags forget their RN16s and enter the 
+\begin_inset Quotes eld
+\end_inset
+
+Arbitrate
+\begin_inset Quotes erd
+\end_inset
+
  state waiting for the next frame.
  The main drawback of such systems is that the reader can only acknowledge
  one tag from the collided tags in a slot, even if it has the capability
  to identify all the responding RN16s.
  To overcome this drawback, backwards compatible extension are proposed
  in the following sections.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Two-tags-collided"
+
+\end_inset
+
+ presents an example for a collided slot with two collided tags.
+ It shows the differences between the conventional systems with collision
+ recovery and the conventional system without collision recovery 
 \end_layout
 
 \begin_layout Section
@@ -365,45 +418,6 @@ The proposed tag has the ability to act like conventional UHF EPCglobal
  However, it loads extra properties when it is in the ready state and receives
  a new command called Switch command from the proposed reader.
  The following part presents the main modifications in the proposed tag:
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Proposed_preamble.emf
-	lyxscale 50
-	width 50page%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Tag response of the proposed tags including the new pilot sequences 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Tag-response-of-proposed"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -503,6 +517,45 @@ key "2012_orthogonal_codes"
 \end_inset
 
 , where the conventional tags are not compatible with their system.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Proposed_preamble.emf
+	lyxscale 20
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tag response of the proposed tags including the new pilot sequences 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tag-response-of-proposed"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Float table
 wide false
 sideways false
