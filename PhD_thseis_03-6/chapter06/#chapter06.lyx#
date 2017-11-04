@@ -1619,6 +1619,46 @@ name "fig:Pesudo-parallel-successful"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename psudo_parallel_timing_diagram.emf
+	lyxscale 20
+	width 70page%
+	height 70pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example of an inventory round using the proposed reader and 3 collided tags
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Example-of-an-new-rader_3tags"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 Afterwards, the reader starts acknowledging the collided tags successively
  ordering them from the weakest to the strongest reply.
  The 
@@ -1629,8 +1669,16 @@ Reply Counter
 \begin_inset Quotes erd
 \end_inset
 
- counts down with each received EPC from a tag and then sends the successive
- acknowledgment command until the 
+ counts down with each received EPC from a tag.
+ Then, it sends successive 
+\begin_inset Quotes eld
+\end_inset
+
+Acknowledgment
+\begin_inset Quotes erd
+\end_inset
+
+ commands until the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1677,59 +1725,25 @@ Query
 \begin_inset Quotes erd
 \end_inset
 
- command o the tags asking them fthe 
+ command o the tags asking them for their 
+\begin_inset Formula $RN16s$
+\end_inset
+
+.
+ The 
 \begin_inset Formula $3$
 \end_inset
 
- tags reply at the first slot.
- The reader 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename psudo_parallel_timing_diagram.emf
-	lyxscale 20
-	height 100pheight%
-
+ tags replied with their 
+\begin_inset Formula $RN16s$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Example of an inventory round using the proposed reader and 3 collided tags
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Example-of-an-new-rader_3tags"
-
+ at the first slot and produced collided slot.
+ The reader applied have identified the 
+\begin_inset Formula $3$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+tags in a pseudo parallel slot.
 \end_layout
 
 \begin_layout Section
@@ -1739,19 +1753,13 @@ Performance Analysis
 \end_layout
 
 \begin_layout Standard
-Based on the new system, we propose a new reading efficiency formula considering
- the advantages of the new system:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\eta_{new}=\sum_{R=1}^{M}P(R)\cdot\left(\sum_{l=1}^{R}P_{S_{l}}(R)\cdot R_{sol}\cdot\varphi\right),\label{eq:new_eff}
-\end{equation}
-
+In the conventional DFSA, the reading efficiency is the probability of single
+ tag replay 
+\begin_inset Formula $P(R=1)$
 \end_inset
 
-where 
+.
+ where 
 \begin_inset Formula $P(R)$
 \end_inset
 
@@ -1761,6 +1769,58 @@ where
 
  tags are active in one slot.
  It can be presented as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P(R)=\binom{n}{R}\left(\frac{1}{L}\right)^{R}\left(1-\frac{1}{L}\right)^{n-R}\label{eq:multinomial_with_single acc}
+\end{equation}
+
+\end_inset
+
+Thus, the reading efficiency of the conventional system is presented as:
+\begin_inset Formula 
+\begin{equation}
+\eta_{conv}=\left(\frac{n}{L}\right)\left(1-\frac{1}{L}\right)^{n-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the proposed system, the reader has the capability to resolve up to 
+\begin_inset Formula $M$
+\end_inset
+
+ collided tags.
+ Therefore, the proposed reading efficiency can be presented as:
+\begin_inset Formula 
+\begin{equation}
+\eta_{proposed}=\sum_{R=1}^{M}P(R)\cdot R_{sol}\label{eq:parallel_eff}
+\end{equation}
+
+\end_inset
+
+For the proposed case, 
+\begin_inset Formula $M=8$
+\end_inset
+
+ is the number of orthogonal codes which are presented in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Set-of-8"
+
+\end_inset
+
+.
+ 
+\begin_inset Formula $R_{sol}$
+\end_inset
+
+ is the number of recovered tags.
 \begin_inset Float table
 wide false
 sideways false
@@ -2226,32 +2286,237 @@ Probability of unique scenario
 \end_inset
 
  
+\end_layout
+
+\begin_layout Standard
+Since the collision recovery capability of the proposed system depends on
+ the pilot of the replied tags.
+ For the proposed case, the unique scenarios 
+\begin_inset Formula $(1+1+...+1)$
+\end_inset
+
+ are only considered, i.e.
+ if more than one tag has the same pilot, the reader will not be able to
+ resolve this collision.
+ Therefore, we have limited number of scenarios.
+ Thus, equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:parallel_eff_ot_all"
+
+\end_inset
+
+ considers the effect of the unique scenarios 
 \begin_inset Formula 
 \begin{equation}
-P(R)=\binom{n}{i}\left(\frac{1}{L}\right)^{i}\left(1-\frac{1}{L}\right)^{n-i}
+\eta_{proposed}=\sum_{R=1}^{M}P(R)\cdot R_{sol}\cdot\sum_{l=1}^{R}P_{S_{l}}(R)\label{eq:parallel_eff_ot_all}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $P_{S_{l}}(R)$
+\end_inset
+
+ represents the probability that scenario 
+\begin_inset Formula $S_{l}$
+\end_inset
+
+ happens.
+ It can be calculated from the binomial distribution as explained in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2013_orthogonal"
+
+\end_inset
+
+.Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Collision-scenarios-for"
+
+\end_inset
+
+ shows all values of the unique scenarios 
+\begin_inset Formula $P_{S_{l}}(R)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For the proposed case, the system can't acknowledge the recovered tags in
+ parallel.
+ It uses the discussed pseudo parallel method.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pesudo-parallel-successful"
+
+\end_inset
+
+, the conventional successful slot 
+\begin_inset Formula $t_{s}$
+\end_inset
+
+ is divided in to two parts: The first part presents the 
+\begin_inset Quotes eld
+\end_inset
+
+Query-Rep
+\begin_inset Quotes erd
+\end_inset
+
+ command and the 
+\begin_inset Formula $RN16$
+\end_inset
+
+ tag reply 
+\begin_inset Formula $t_{s(a)}$
+\end_inset
+
+.
+ The second part is the 
+\begin_inset Quotes eld
+\end_inset
+
+ACK
+\begin_inset Quotes erd
+\end_inset
+
+ command and the EPC tag reply 
+\begin_inset Formula $t_{s(b)}$
+\end_inset
+
+.
+ Thus, the successful slot time is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+t_{s}=t_{s(a)}+t_{s(b)},\label{eq:successful_slot_time}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $t_{s(a)}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{s(b)}$
+\end_inset
+
+ can be expressed as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+t_{s(a)} & = & T_{qRep}+T_{1}+T_{2}+T_{RN16}\label{eq:ts(a)}\\
+t_{s(b)} & = & T_{ACK}+T_{1}+T_{2}+T_{EPC}\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:System-Parameters-of"
+
+\end_inset
+
+ shows numerical values from the EPCglobal C1 G2 standards 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ as a function of the link pulse-repetition interval 
+\begin_inset Formula $T_{pri}$
+\end_inset
+
+.
+ According to these values, the time of the Query-Rep command and receiving
+ the RN16s presents 
+\begin_inset Formula $30\%$
+\end_inset
+
+ of the conventional successful slot duration.
+ The time of the acknowledgment command and the EPC tag reply represents
+ 
+\begin_inset Formula $70\%$
+\end_inset
+
+ of the conventional successful slot duration.
+\end_layout
+
+\begin_layout Standard
+In the proposed system, the reader sends a Query command in parallel to
+ all the tags and receives the 
+\begin_inset Formula $RN16s$
+\end_inset
+
+ in parallel.
+ Then, the reader sends successive 
+\begin_inset Quotes eld
+\end_inset
+
+ACK
+\begin_inset Quotes erd
+\end_inset
+
+ commands to the resolved tags.
+ Therefore, the duration of the proposed pseudo parallel slot is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+t_{pseudo}=t_{s(a)}+R_{sol}\cdot t_{s(b)},\label{eq:Pseudo_parallel_slot_duration}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $R_{sol}$
+\end_inset
+
+ is the number of recovered tags.
+ These tags are acknowledged successively.
+ Therefore, the proposed efficiency should include a factor representing
+ the effect of the pseudo parallel spreading in time.
+ This factor is called the pseudo parallel factor 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+ According to the numerical values in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:System-Parameters-of"
+
+\end_inset
+
+, it can be expressed as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\varphi=\left(\frac{1}{0.3+0.7\cdot R_{sol}}\right)\label{eq:pseud_parallel_factor}
 \end{equation}
 
 \end_inset
 
 
-\begin_inset Formula $M$
-\end_inset
+\end_layout
 
- presents the maximum number of tags that can be resolved.
- For the proposed case, 
-\begin_inset Formula $M$
-\end_inset
-
- is the number of orthogonal codes, i.e.
- 
-\begin_inset Formula $M=8$
-\end_inset
-
-, and 
-\begin_inset Formula $R_{sol}$
-\end_inset
-
- is the number of recovered tags.
+\begin_layout Standard
+Based on the above discussion, the proposed reading efficiency formula consideri
+ng the advantages of the new system is formulated as:
 \begin_inset Float figure
 wide false
 sideways false
@@ -2612,187 +2877,9 @@ Values
 \end_layout
 
 \begin_layout Standard
-Since the colliding tags have randomly distributed pilots, several collision
- scenarios are possible as shown in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2013_orthogonal"
-
-\end_inset
-
-.
- 
-\begin_inset Formula $P_{S_{l}}(R)$
-\end_inset
-
- represents the probability that scenario 
-\begin_inset Formula $S_{l}$
-\end_inset
-
- happens.
- It can be calculated from the binomial distribution as explained in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2013_orthogonal"
-
-\end_inset
-
-.
- For the proposed case, we consider only the unique scenarios 
-\begin_inset Formula $(1+1+...+1)$
-\end_inset
-
-, i.e.
- if more than one tag has the same pilot, the reader will not be able to
- resolve this collision.
- Therefore, we have limited number of scenarios.
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Collision-scenarios-for"
-
-\end_inset
-
- shows all values of the unique scenarios 
-\begin_inset Formula $P_{S_{l}}(R)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-According to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Pesudo-parallel-successful"
-
-\end_inset
-
-, the conventional successful slot 
-\begin_inset Formula $t_{s}$
-\end_inset
-
- is divided in to two parts: The first part presents time of the Query-Rep
- command and the RN16 tag reply 
-\begin_inset Formula $t_{s(a)}$
-\end_inset
-
-, whereas the second part is the time of the Acknowledgment command and
- the EPC tag reply 
-\begin_inset Formula $t_{s(b)}$
-\end_inset
-
-.
- Thus, the successful slot time is:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-t_{s}=t_{s(a)}+t_{s(b)},\label{eq:successful_slot_time}
-\end{equation}
-
-\end_inset
-
- where 
-\begin_inset Formula $t_{s(a)}$
-\end_inset
-
- and 
-\begin_inset Formula $t_{s(b)}$
-\end_inset
-
- can be expressed as:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-t_{s(a)} & = & T_{qRep}+T_{1}+T_{2}+T_{RN16}\label{eq:ts(a)}\\
-t_{s(b)} & = & T_{ACK}+T_{1}+T_{2}+T_{EPC}\nonumber 
-\end{eqnarray}
-
-\end_inset
-
-Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:System-Parameters-of"
-
-\end_inset
-
- shows numerical values from the EPCglobal C1 G2 standards 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "standard"
-
-\end_inset
-
- as a function of the link pulse-repetition interval 
-\begin_inset Formula $T_{pri}$
-\end_inset
-
-.
- According to these values, the time of the Query-Rep command and receiving
- the RN16s presents 
-\begin_inset Formula $30\%$
-\end_inset
-
- of the conventional successful slot duration.
- The time of the acknowledgment command and the EPC tag reply represents
- 
-\begin_inset Formula $70\%$
-\end_inset
-
- of the conventional successful slot duration.
-\end_layout
-
-\begin_layout Standard
-For comparability, the proposed reader does not acknowledge more than one
- tag in parallel.
- However, we propose a pseudo parallel successful slots.
- The reader sends a Query command in parallel to all the tags, then receives
- the RN16s in parallel.
- Next, the reader sends Acknowledgment commands successively to the resolved
- tags.
- Therefore, the duration of the proposed pseudo parallel slot is:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-t_{pseudo}=t_{s(a)}+R_{sol}\cdot t_{s(b)},\label{eq:Pseudo_parallel_slot_duration}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $R_{sol}$
-\end_inset
-
- is the number of recovered tags.
- These tags are acknowledged successively.
- Therefore, the proposed efficiency should include a factor representing
- the effect of the pseudo parallel spreading in time.
- This factor is called the pseudo parallel factor 
-\begin_inset Formula $\varphi$
-\end_inset
-
-.
- According to the numerical values in table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:System-Parameters-of"
-
-\end_inset
-
-, it can be expressed as:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\varphi=\left(\frac{1}{0.3+0.7\cdot R_{sol}}\right)\label{eq:pseud_parallel_factor}
+\eta_{proposed}=\sum_{R=1}^{M}P(R)\cdot\left(\sum_{l=1}^{R}P_{S_{l}}(R)\cdot R_{sol}\cdot\varphi\right),\label{eq:new_eff}
 \end{equation}
 
 \end_inset
@@ -2808,7 +2895,7 @@ Measurement and Simulation Results
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2844,37 +2931,64 @@ name "fig:Reading-efficiency-for"
 
 \end_inset
 
-We have implemented our proposed tag modifications on the Wireless Identificatio
-n Sensing Platform (WISP 5.0) 
+ The proposed tag's signal modifications are implemented on the Wireless
+ Identification Sensing Platform (WISP 5.0) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "WISP"
 
 \end_inset
 
-, and the proposed reader on the Universal Software Radio Peripheral (USRP
- B210) 
+, and the proposed reader modifications are implemented on the Universal
+ Software Radio Peripheral (USRP B210) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "USRP"
 
 \end_inset
 
-.
- A real example of the communication link between the proposed reader and
- the proposed tags is monitored using the USRP.
- Figure 
+
+\end_layout
+
+\begin_layout Standard
+-----
+\end_layout
+
+\begin_layout Standard
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Proposed-reader-to"
 
 \end_inset
 
- provides a real measurement of the reader to tag communication link.
- According to the figure, the link starts with a normal Select command to
- set some conventional tag parameters.
- Then the reader broadcasts a Switch command asking the proposed tags to
- switch to the new mode.
+ provides a real measurement of the envelop signal for reader to tag (down)
+ communication link.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-reader-to"
+
+\end_inset
+
+, the reader starts with a normal 
+\begin_inset Quotes eld
+\end_inset
+
+Select
+\begin_inset Quotes erd
+\end_inset
+
+ command to set some conventional tag parameters.
+ Then, the reader broadcasts the 
+\begin_inset Quotes eld
+\end_inset
+
+Switch
+\begin_inset Quotes erd
+\end_inset
+
+ command asking the existing tags to switch to the new mode.
  The conventional tags will not recognize this command, so they will simply
  ignore it.
  Afterwards, the reader sends a Query command asking the tags to reply with
