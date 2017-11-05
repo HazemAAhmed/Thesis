@@ -70,51 +70,210 @@
 \begin_body
 
 \begin_layout Chapter
-Conclusion And Future Work
+Conclusions and Future Work
 \end_layout
 
 \begin_layout Standard
-Nowadays, there has been a great interest in RFID due to the vast array
- of applications used in this field.
+Nowadays, there is a great interest in RFID due to the number of applications
+ used in this field.
  RFID systems provide low cost and low power object identification and tracking
- mechanisms, being the key requirement for anticipated ultra dense applications,
- e.g., Logistics.
+ mechanisms.
+ It is the key requirement for different ultra dense applications, e.g., logistics
+, access management and timing sports events.
  In such applications, dense number of tags are expected and fast identification
  is required.
- In this thesis, different proposals aimed to minimize the total identification
- time by optimizing the FSA anti-collision algorithm.
  
 \end_layout
 
 \begin_layout Standard
-This chapter will summarize the main outcomes of this thesis , as well as
- the possible issues that may be addressed in future works
-\end_layout
-
-\begin_layout Section
-Conclusion
+The main goal of the thesis is to increase the system throughput and to
+ faster identify tags in the reader range.
+ The transmission of tags is scheduled on the MAC layer with a anti-collision
+ protocol called DFSA.
+ The identification time directly depends on reading efficiency of the DFSA
+ anti-collision protocol.
+ The DFSA reading efficiency is controlled by two main parameters: 1) The
+ accuracy of number of tags estimation algorithm.
+ 2) Frame length optimization.
+ Modern RFID receivers have been developed from the PHY layer.
+ They have a collision recovery capability, which means that some of collided
+ slots can be converted to a successful slots.
+ This capability reduces the losses from the collided slots.
+ Moreover, modern RFID receivers have the capability to identify the type
+ of slot and terminate it as soon as it recognizes that, it is not a successful
+ slot.
+ This capability reduces the losses from the empty slots.
 \end_layout
 
 \begin_layout Standard
-The advanced RFID readers proposed in this thesis improve performances and
- shorten the read out time.
+In this thesis, I focus on optimizing the DFSA anti-collision algorithm
+ taking into consideration the physical layer parameters e.g.
+ the collision recovery capability and the differences in slots durations.
+ Thus, the thesis aims to establish and propose of advanced algorithms to
+ increase the performance of the system.
+ Since my work is focused on passive UHF RFID systems that work with simple
+ tags which are only capable of in-complex operations, almost all proposed
+ changes and signal processing is performed on the reader side except in
+ chapter 6, a new compatible changes of EPCglobal C1 G2 standards are proposed.
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+The advanced RFID readers, which are proposed in this thesis shorten the
+ mean average reading time.
  They incorporate different PHY layer parameters in order to efficiently
  optimize the MAC anti-collision protocols.
- They merged the collision recovery coefficients and the differences in
- slot durations.
- Thus, in order to benefit from the collision recovery expertise, changes
- in the number of tags estimations should be applied.
- Besides, the higher collision recovery capability of the system, the shorter
- optimum frame length is recommended.
- According to the differences in slot duration results, the smaller the
- duration of the empty slot compared to that of the collided slot, the longer
- optimum FSA frame length is required.
- Additionally, the evaluation of the complete read out process is performed
- and the obtained results prove that the proposed advanced RFID readers
- significantly decrease the identification time.
- Due to the simple tags implementation in EPCglobal C1 G2, improvements
- in the standards would be recommended to approach the theoretical limit
- of the reading time.
+ First, in chapter 4 a novel closed form solution for a collision recovery
+ aware ML estimator that considers the effects of the collision recovery
+ probability of the RFID reader.
+ The theoretical derivations lead to a new analytical estimator that can
+ be easily implemented in RFID readers.
+ Using the proposed formula, we need neither look-up tables nor numerical
+ searching.
+ Furthermore, the estimator gives more precise relative number of tags estimatio
+n error compared to the other state-of-art proposals.
+ Moreover, the proposed estimation algorithm reduces the total identification
+ time by almost 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ compared to the best other state-of-art solution.
+\end_layout
+
+\begin_layout Standard
+In chapter 5, different proposals of frame length optimization is presented.
+ The first proposal is called 
+\begin_inset Quotes eld
+\end_inset
+
+Time aware frame length
+\begin_inset Quotes erd
+\end_inset
+
+ frame length.
+ In this proposal, the frame length considers only the differences in slots
+ durations is considered and no collision recovery effect is considered.
+ A closed form solution for the optimum frame length is analytically derived.
+ The proposed solution results 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ average saving in reading time compared to the conventional FSA with frame
+ length 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+ The second proposal is 
+\begin_inset Quotes eld
+\end_inset
+
+Multiple collision recovery aware
+\begin_inset Quotes erd
+\end_inset
+
+ frame length.
+ This proposal considers the differences between the collision recovery
+ coefficients.
+ Thus, it considers that, the collision recovery capability strongly depends
+ on the umber of the collided tags.
+ However, it assumes constant slots durations regardless the slot type.
+ A closed form solution for the optimum frame length is analytically derived.
+ The proposed solution results 
+\begin_inset Formula $\unit[12]{\%}$
+\end_inset
+
+ average saving in reading time compared to the conventional FSA with frame
+ length 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+ The third proposal is 
+\begin_inset Quotes eld
+\end_inset
+
+Time and constant collision recovery coefficients aware
+\begin_inset Quotes erd
+\end_inset
+
+ frame length.
+ In this proposal, the frame length considers the time differences in slots
+ durations and the collision recovery capability of the receiver.
+ However, it assumes that the receiver has a constant collision recovery
+ capability regardless the number of collided tags.
+ A closed form solution is analyzed for the frame length.
+ The proposed solution results 
+\begin_inset Formula $\unit[18]{\%}$
+\end_inset
+
+ average saving in reading time compared to the conventional FSA with frame
+ length 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+ Finally, the fourth proposal is 
+\begin_inset Quotes eld
+\end_inset
+
+Time and multiple collision recovery aware
+\begin_inset Quotes erd
+\end_inset
+
+ frame length.
+ This proposal considers the differences in slots durations and the variable
+ collision recovery coefficients.
+ A closed form solution is analyzed for the frame length.
+ The proposed solution results 
+\begin_inset Formula $\unit[22]{\%}$
+\end_inset
+
+ average saving in reading time compared to the conventional FSA with frame
+ length 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+ For the proposed systems, there is still 
+\begin_inset Formula $\simeq\unit[10]{\%}$
+\end_inset
+
+ room of improvement between the best proposed system and the theoretical
+ limit of the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+.
+ The main reason of this is, the allowed optimization was only in the reader
+ side.
+ To follow the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the tags could not be modified.
+\end_layout
+
+\begin_layout Standard
+In chapter 6, backwards compatible improvement of the EPCglobal Class 1
+ Gen 2 standard is proposed.
+ It proposes some modifications on the communication signal of Tag/reader.
+ Using these modifications, a new system is presented approaches the theoretical
+ lower reading time limit of the EPCglobal C1 G2 standard.
+ The proposed system is compatible with the EPCglobal C1 G2 standards, i.e.
+ the proposed tags could be jointly operated with conventional tags and
+ identified by conventional readers without affecting the performance.
+ Additionally, conventional tags can also be operated together with the
+ proposed tags and can be identified by the proposed reader.
 \end_layout
 
 \begin_layout Section
@@ -122,7 +281,7 @@ Open Issues and Future Work
 \end_layout
 
 \begin_layout Standard
-Despite the effort invested in this dissertation, there are still some remining
+Despite the effort invested in this dissertation, there are still some remaining
  issues left that require further investigations.
  To mention but some examples, the influence of the initial frame length
  of the proposed system is neglected.
@@ -136,8 +295,8 @@ Despite the effort invested in this dissertation, there are still some remining
  be better to leave this slot to a normal collided slot.
  On the other hand, when the current value of the SNR is above this threshold,
  it would be better to resolve this collided slot to a successful slot.
- Last but not least, practical assessment of the proposed work through measureme
-nts would be beneficial for a more comprehensive evaluation.
+ Finally, practical assessment of the proposed work through measurements
+ would be beneficial for a more comprehensive evaluation.xx
 \end_layout
 
 \end_body

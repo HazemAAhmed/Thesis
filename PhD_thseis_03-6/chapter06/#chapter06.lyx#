@@ -1229,6 +1229,22 @@ status open
 \end_inset
 
 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Graphics
 	filename state_diagram.emf
 	lyxscale 20
@@ -2895,13 +2911,13 @@ Measurement and Simulation Results
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename eff_comp_8_colours.emf
-	lyxscale 12
+	lyxscale 20
 	width 67page%
 
 \end_inset
@@ -2947,23 +2963,16 @@ key "USRP"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
------
-\end_layout
-
-\begin_layout Standard
-Figure 
+.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Proposed-reader-to"
 
 \end_inset
 
- provides a real measurement of the envelop signal for reader to tag (down)
- communication link.
+ provides a measurement of the envelop signal for reader to tag (down link)
+ communication.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2988,11 +2997,22 @@ Switch
 \begin_inset Quotes erd
 \end_inset
 
- command asking the existing tags to switch to the new mode.
+ command to make the existing tags switch to the new mode.
  The conventional tags will not recognize this command, so they will simply
  ignore it.
- Afterwards, the reader sends a Query command asking the tags to reply with
- their RN16.
+ Afterwards, the reader sends the 
+\begin_inset Quotes eld
+\end_inset
+
+Query
+\begin_inset Quotes erd
+\end_inset
+
+ command asking the tags to reply with their 
+\begin_inset Formula $RN16s$
+\end_inset
+
+.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3000,14 +3020,7 @@ reference "fig:Proposed-tag-reply"
 
 \end_inset
 
- presents a focused simulations of the tag reply of figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Proposed-reader-to"
-
-\end_inset
-
-.
+ presents the tag reply (up link) communication.
  As shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3031,24 +3044,32 @@ reference "tab:Set-of-8"
 \end_inset
 
 ).
- In this example the tag replied with 
+ In this example the tag replies with 
 \begin_inset Formula $P_{18}$
 \end_inset
 
 .
- It is followed by a 
+ It is followed by the 
 \begin_inset Formula $6$
 \end_inset
 
  bits preamble.
- Finally, the tag backscatters its RN16.
+ Finally, the tag backscatters its 
+\begin_inset Formula $RN16$
+\end_inset
+
+.
  The system is tested in a mixed network between the conventional and the
  proposed tags.
- The RN16 of the conventional and proposed tags were identified successfully.
+ The 
+\begin_inset Formula $RN16$
+\end_inset
+
+ of the conventional and proposed tags were identified successfully.
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3088,6 +3109,10 @@ name "fig:Mean-reading-time"
 \end_layout
 
 \begin_layout Standard
+------
+\end_layout
+
+\begin_layout Standard
 The performance analysis is achieved through Monte Carlo simulations\SpecialChar \@.
  Figure
  
@@ -3098,8 +3123,9 @@ reference "fig:Reading-efficiency-for"
 \end_inset
 
  shows a comparison between the reading efficiency of the conventional FSA
- and different acknowledgment scenarios use the 8 orthogonal pilot sequences.
- The first scenario is the system proposed by 
+ and the different acknowledgment scenarios use the 8 orthogonal pilot sequences.
+ The first scenario is the fully parallel acknowledgment scenario, which
+ is proposed by 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2013_orthogonal"
@@ -3108,6 +3134,11 @@ key "2013_orthogonal"
 
 .
  This system assumes fully parallel acknowledgment for all recovered tags.
+ It gives 
+\begin_inset Formula $\unit[200]{\%}$
+\end_inset
+
+ average reading efficiency.
  However,it is not compatible with the EPCglobal C1 G2 standard and can
  not be applied in practice.
  The second scenario deduces that it can acknowledge a single tag and neglect
