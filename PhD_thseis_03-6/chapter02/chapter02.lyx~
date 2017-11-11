@@ -77,17 +77,17 @@ Introduction to RFID
 This chapter provides an overview of the historical development of RFID.
  In addition, it describes the basic principles and the major technical
  aspects related to the RFID technology and its standardization.
- At the end, it will present the major issues in dense networks.
+ By the end of this chapter, the major issues in dense networks will be
+ presented.
 \end_layout
 
 \begin_layout Standard
-This chapter is organized as follows: Section 1 gives an overview about
- the historical development of the RFID.
- Section 2 presents the main components of the system.
- In section 3, I show the operating frequency bands in the RFID.
- Afterwards, I will present the classification of the RFID standards in
- section 4.
- Finally, the RFID collision problem will be described in section 5.
+In section 1 an overview is given about the historical development of RFID.
+ Secondly, section 2 will present the main components of the system followed
+ by section 3 in which the operating frequency bands in RFID will be shown.
+ Afterwards, the classification of the RFID standards will be presented
+ in section 4.
+ Finally, section 5 describes the RFID collision problem.
  
 \end_layout
 
@@ -106,7 +106,8 @@ key "RFID_History_2"
 
 .
  Next, in 1950, the British government developed the first prototype of
- the RFID system, which is known as Identify Friend (IFF) system 
+ the RFID system, which is known as Identification Friend or Foe (IFF) system
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RFID_history_3"
@@ -186,17 +187,16 @@ reference "fig:RFID-System-components"
 
 \end_inset
 
-, conventional RFID systems consist of three main components: 1) RFID tags
+, conventional RFID systems consist of three main components: RFID tags
  or transponders which are attached to the object requested to be identified
  or tracked.
- 2) RFID reader and antennas which control data transmission and the whole
+ RFID reader and antennas which control data transmission and the whole
  identification process.
- 3) Processing device commonly called Middle-ware.
+ Processing device commonly called Middle-ware.
  It is always a software processing device.
  All the external processing depending on the application is done on this
  device using the EPC code which is identified by the reader from the tag.
- In the following sections, each component will be described in further
- details.
+ In the following sections, each component will be described in detail.
  
 \end_layout
 
@@ -213,7 +213,7 @@ ion code.
  from the reader asking them about their EPC.
  They reply with their identification data to the reader, which processes
  the information according to the current application.
- Generally, RFID tags are categorized into the following categories: 
+ Generally, RFID tags are divided into the following categories: 
 \end_layout
 
 \begin_layout Paragraph*
@@ -239,7 +239,7 @@ key "Passive_tags_1,Passive_tags_2"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -297,15 +297,13 @@ key "Active_Tags_1,Active_tags_2"
  read, write, rewrite or erase data from an external device.
  However, there are several advantages of active tags compared to the passive
  ones.
- Among them are the following: 1) Active tags support long reading distance,
- i.e.
+ Among them, active tags support long reading distance, i.e.
  more than 100 meters.
- 2) In addition, they also support immunity to the interference especially
+ In addition, they also support immunity to the interference especially
  in harsh environment e.g.
- environments with high amounts of metals, such as shipping containers.
- 3) Owing to their power supply property, they are easily connected with
- sensors, thus, monitoring the environment depending on the application
- e.g.
+ environments with excessive amounts of metals, such as shipping containers.
+ Owing to their power supply property, they are easily connected with sensors,
+ thus, monitoring the environment depending on the application e.g.
  food or drug shipments.
  
 \end_layout
@@ -387,8 +385,8 @@ Readers dealing with passive tags
 \end_layout
 
 \begin_layout Standard
-They have to meet the following key requirement: Their transmission power
- must be sufficient to feed the surrounding passive tags 
+They must meet the following key requirement: Their transmission power must
+ be sufficient to feed the surrounding passive tags 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "FSA4"

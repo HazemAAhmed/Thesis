@@ -76,8 +76,8 @@ RFID Anti-collision Protocols
 \begin_layout Standard
 This chapter presents the most common anti-collisions algorithms for passive
  RFID systems, either by using the physical layer or the MAC layer.
- More emphasis will be upon the anti-collision algorithms which are compatible
- with the EPCglobal C1 G2 standard, as this is the focus of this thesis.
+ It will emphasize the anti-collision algorithms which are compatible with
+ the EPCglobal C1 G2 standard, as t is the main focus of this thesis.
 \end_layout
 
 \begin_layout Standard
@@ -139,11 +139,11 @@ key "FDMA"
  Readers should be able to decode different frequencies at the same time.
  Moreover, tags should be able to select its desirable sub-channel, which
  is incompatible with EPCglobal C1 G2.
- Only active tags can do such functionality.
+ Only active tags can do such function.
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -206,7 +206,7 @@ key "SDMA"
  The main drawback is the cost of implementing the RFID reader with multiple
  antennas.
  Moreover, in dense applications, the distances between the tags is very
- small to be distributed on the reading area.
+ small in order to be distributed on the reading area.
 \end_layout
 
 \begin_layout Paragraph*
@@ -234,7 +234,7 @@ key "CDMA"
  CDMA is the ideal procedure for many applications, e.g.
  navigation systems.
  However in case of RFID systems, it is not compatible with EPCglobal C1
- G2, as the cost of the tags will be dramatically increased.
+ G2, as the cost of the tags will severely increase.
  Thereby, it is not a sufficient protocol within the scope of this thesis.
 \end_layout
 
@@ -378,8 +378,16 @@ key "Tree1"
 \end_inset
 
 .
- Each time slot contains a query command, transmitted from the reader, and
- the response of tags in the reading area.
+ Each time slot contains a 
+\begin_inset Quotes eld
+\end_inset
+
+Query
+\begin_inset Quotes erd
+\end_inset
+
+ command, transmitted from the reader, and the response of tags in the reading
+ area.
  If there is more than one tag reply in one slot, a collision occurs and
  the reader tries to split the tags into two subgroups.
  The reader repeats the splitting procedure until it receives a single tag
@@ -403,7 +411,7 @@ key "Binary_tree"
  Using this algorithm, if a collision occurs in a time slot, each collided
  tag selects randomly '0' or '1'.
  Thus, the colliding tags will be separated into two subgroups.
- Tags, which have selected '0' always transmit their IDs to the reader first.
+ Tags, that selected '0' always transmit their IDs to the reader first.
  If a collision re-occurs, collided tags are splitted again by selecting
  '0' or '1'.
  Tags, which have selected '1' have to wait until all other tags which have
@@ -734,7 +742,7 @@ Basic ALOHA
 \end_layout
 
 \begin_layout Standard
-The first one is the widely known basic ALOHA 
+The first group is widely known as basic ALOHA 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Pure_ALOHA"
@@ -807,7 +815,7 @@ reference "fig:Example-for-slotted"
  a coming slot.
  The main advantage of this technique compared to basic ALOHA is: In slotted
  ALOHA, tag replies are completely synchronized.
- Therefore, collided slots are completely timing overlapping tags.
+ Therefore, collided slots overlap the tags timing completely.
  However, in the basic ALOHA protocol, the partial timing overlapping exists.
  Thus, the maximum reading efficiency using slotted ALOHA is 
 \begin_inset Formula $\unit[36.8]{\%}$
@@ -1029,7 +1037,7 @@ key "Letter_2012"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1223,7 +1231,7 @@ L_{opt}=n\label{eq:L=n}
  Furthermore, the number of tags may even vary, e\SpecialChar \@.
 g\SpecialChar \@.
  when the tags are mounted
- on moving goods, and because successfully read tags get inactive in the
+ on moving goods, because the successfully read tags get inactive in the
  following frames.
  Therefore, such applications employ DFSA 
 \begin_inset CommandInset citation
@@ -1384,14 +1392,14 @@ reference "fig:Conventional-variable-frame"
 .
  Then each slot is checked.
  If there is no tag reply, the frame length should be decreased.
- If it is an collided slot, the frame length is increased.
+ If it is a collided slot, the frame length is increased.
  Finally, if the slot is a successful slot, the frame length will remain
  as it is.
  
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1446,7 +1454,15 @@ reference "fig:Complete-inventory-process"
 
  shows an example for timing diagram of different inventory rounds between
  a single RFID reader and different tag reply situations.
- The reader starts with a query command.
+ The reader starts with a 
+\begin_inset Quotes eld
+\end_inset
+
+Query
+\begin_inset Quotes erd
+\end_inset
+
+ command.
  In this command, the reader broadcast the current frame length for all
  the tags in the reading area.
  Each tag has to choose a random slot between 0 and 
@@ -1458,7 +1474,7 @@ reference "fig:Complete-inventory-process"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1523,7 +1539,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Multiple tags reply
+Multiple tags replies
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Multiple-tags-reply"
@@ -1583,7 +1599,7 @@ name "fig:No-tag-reply"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of an inventory between reader and different tag reply situations
+Example of an inventory between reader and different tags replies situations
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1630,7 +1646,15 @@ description "Random Number 16"
 
 , which is a 16 bits random number.
  When the reader receives this RN16 it will acknowledge this tag with an
- ACK command including this RN16.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+ACK
+\begin_inset Quotes erd
+\end_inset
+
+ command including this RN16.
  As soon as the tag receives a valid Acknowledgment (ACK)
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -1648,8 +1672,15 @@ description "Electronic Product Code"
 \end_inset
 
 .
- Finally, the reader will send a handle command to the tag to mute it until
- the end of the complete reading process.
+ Finally, the reader will send a 
+\begin_inset Quotes eld
+\end_inset
+
+Handle
+\begin_inset Quotes erd
+\end_inset
+
+ command to the tag to mute it until the end of the complete reading process.
  In figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1657,15 +1688,29 @@ reference "fig:Multiple-tags-reply"
 
 \end_inset
 
-, the reader starts broadcasting a query command for tags in the reading
- area.
+, the reader starts broadcasting a 
+\begin_inset Quotes eld
+\end_inset
+
+Query
+\begin_inset Quotes erd
+\end_inset
+
+ command for tags in the reading area.
  In the proposed example, three tags select this slot.
  Therefore, the reader receives simultaneously three different RN16s.
  In this case, the conventional RFID reader will not be able to decode any
  of these RN16s.
  The tags will wait for the next frame to be identified.
- Afterwards, the reader broadcasts a query-rep command to inform all the
- remaining tags that the next slot will start.
+ Afterwards, the reader broadcasts a 
+\begin_inset Quotes eld
+\end_inset
+
+Query-rep
+\begin_inset Quotes erd
+\end_inset
+
+ command to inform all the remaining tags that the next slot will start.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1674,10 +1719,25 @@ reference "fig:No-tag-reply"
 \end_inset
 
  shows the behavior of an empty slot in EPCglobal C1 G2.
- The reader starts with a query command, and waits for a tag reply during
- a certain time out period.
- If there is no tag reply during this time, it would terminate the slot
- by sending a new query-rep command.
+ The reader starts with a 
+\begin_inset Quotes eld
+\end_inset
+
+Query
+\begin_inset Quotes erd
+\end_inset
+
+ command, and waits for a tag reply during a certain time out period.
+ If there is no tag reply during this time, the reader will terminate the
+ slot by sending a new 
+\begin_inset Quotes eld
+\end_inset
+
+Query-rep
+\begin_inset Quotes erd
+\end_inset
+
+ command.
  
 \end_layout
 
@@ -2048,7 +2108,7 @@ reference "fig:Measured-Slots-durations-1"
 
 \end_inset
 
- shows an example of a real measurements for slots durations using the Universal
+ shows an example of real measurements for slots durations using the Universal
  Software Radio Peripheral SDR receiver (USRP B210) 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2086,6 +2146,47 @@ reference "fig:Measured-Slots-durations-1"
 \end_inset
 
 .
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Collided-Slot-Duration-1"
+
+\end_inset
+
+ shows a real collided slot between two tags.
+ The number of Amplitude Shift Keying (ASK) levels in the RN16 is 
+\begin_inset Formula $A_{L}=2^{N_{c}}$
+\end_inset
+
+, where 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ is the number of collided tags.
+ As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Collided-Slot-Duration-1"
+
+\end_inset
+
+, the number of ASK levels 
+\begin_inset Formula $A_{L}=4$
+\end_inset
+
+.
+ In such a slot, the reader terminates the slot after recognizing that the
+ slot is collided slot.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Empty-Slot-Duration-1"
+
+\end_inset
+
+ shows that the reader terminates the slot directly when it recognizes that
+ there is no tag reply in this slot.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2099,15 +2200,15 @@ According to the above discussion, the reading efficiency equation will
 
 \begin_layout Standard
 Summarizing, the main lack in the previous RFID research is that the MAC
- layer is optimized independently on the PHY layer layer.
+ layer is optimized independently on the PHY layer.
  However, the PHY-layer properties affect the optimization parameters of
  the MAC layer, e.g.
  the number of tags estimation and the optimum frame length.
  In this thesis, I will concentrate on optimizing the DFSA anti-collision
  protocol.
- In the proposed algorithm, the physical layer parameters will be taken
- into consideration, which are presented on the physical collision recovery
- capability of the RFID reader and the differences in slot durations.
+ In the proposed algorithm, the physical layer parameters will be considered,
+ which are the physical collision recovery capability of the RFID reader
+ and the differences in slot durations.
 \end_layout
 
 \end_body

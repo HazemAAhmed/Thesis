@@ -100,8 +100,8 @@ description "Radio Frequency Identification"
  Radio Frequency Identification (RFID) is a technology that uses communication
  through radio waves to transfer data between a reader and electronic tags
  attached to an object, either to be identified or tracked.
- The RFID technology has benefits with respect to (wrt.) other identification
- technologies 
+ The RFID technology has benefits in reference to other identification technolog
+ies 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Intro_RFID"
@@ -111,10 +111,10 @@ key "Intro_RFID"
 , such as no line-of-sight connection, fully automotive identification process,
  robustness, identification speed, bidirectional communication, reliability
  in different environment conditions, bunch detection and secured communication.
- Thus, RFID became particularly the optimum solution for several applications
- where other identification technologies such as bar-codes are unsuitable,
- for example, inventory tracking, supply chain management, automated manufacturi
-ng, etc 
+ Thus, RFID became the optimum solution for several applications where other
+ identification technologies like bar-codes are unsuitable, for example,
+ inventory tracking, supply chain management, automated manufacturing, etc
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Barcodes_VS_RFID_1,Barcodes_Vs_RFID_2,Barcodes_vs_RFID_4"
@@ -125,7 +125,7 @@ key "Barcodes_VS_RFID_1,Barcodes_Vs_RFID_2,Barcodes_vs_RFID_4"
  Due to the crucial significance of the RFID system in different real-world
  applications, RFID systems have received large attention from both, research
  groups and industry.
- Recently, many work has been published on the area of RFID systems either
+ Recently, many work has been published on the area of RFID systems whether
  in hardware and software design, or in protocols and applications, etc
  
 \begin_inset CommandInset citation
@@ -135,8 +135,8 @@ key "2017_RFID_1,2017_RFID_2,2017_RFID_3"
 \end_inset
 
 .
- In this chapter, the research motivation will be presented.
- In addition, the thesis contributions and outline will be highlighted.
+ This chapter will present the research motivation along with the thesis
+ contributions and outline.
 \end_layout
 
 \begin_layout Section
@@ -148,8 +148,9 @@ During the past few years, the number of applications that use RFID has
  increased, and their number will potentially further grow in the near future.
  One of its main applications is logistics, where, for example, many tags
  (transponders) may be closely placed on pallets.
- Thus, in such systems, we have a single RFID reader responsible to identify
- a bunch of tags in the reading area as shown in figure 
+ Thus, in such systems, we have a single RFID reader that is responsible
+ for identifying an unknown number of tags in the reading area as shown
+ in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:RFID-System"
@@ -250,11 +251,11 @@ description "Medium Access Control"
  anti-collision protocol for RFID systems due to its simplicity and robustness.
  In FSA, the communication timing between the reader and the tags is divided
  into TDMA frames, each frame includes a specific number of slots.
- The frame length is function of the existing number of tags in the reading
+ The frame length is a function of the existing number of tags in the reading
  area.
  During the reading process, each active tag randomly assigns itself to
  one of the available slots in a frame.
- Therefore, each slot can take one of the three different states: 1) Successful
+ Therefore, each slot can take one of three different states: 1) Successful
  Slot: Only one tag chooses this slot, is fully identified, and then deactivated
  by the reader.
  2) Collided Slot: Multiple tags reply, resulting in a collision.
@@ -266,9 +267,9 @@ description "Medium Access Control"
 \end_layout
 
 \begin_layout Enumerate
-The accuracy of FSA frame length: If the frame length is higher than the
- optimum value, many empty slots in this frame will be present, which reduces
- the reading efficiency.
+The accuracy of the FSA frame length: If the frame length is higher than
+ the optimum value, many empty slots in this frame will be present, which
+ reduces the reading efficiency.
  If the frame length is lower than the optimum value, this will result many
  collided slots, which again reduces the reading efficiency.
  Thereby, choosing the optimum value in FSA frame length is the most crucial
@@ -280,8 +281,8 @@ The robustness of the number of tags estimation: The optimum FSA frame length
  strongly depends on the actual number of tags in the reading area.
  However, in real-world applications, the number of tags of the reading
  area is unknown.
- Therefore, the more precise the number of tags estimation, the better reading
- efficiency achieved.
+ Therefore, the more precise the number of tags estimation, the better the
+ reading efficiency.
  
 \end_layout
 
@@ -296,7 +297,7 @@ key "PHY1,PHY2"
 \end_inset
 
 .
- This decrease the losses which result from collisions.
+ This decreases the losses which result from collisions.
  Moreover, modern RFID readers have the ability to identify the type of
  the slot (successful, collided, or empty).
  Thus, the RFID readers are able to terminate the slot earlier as soon as
@@ -343,34 +344,34 @@ key "standard"
 \end_layout
 
 \begin_layout Enumerate
-A novel number of tags estimation method was developed, taking into consideratio
-n the collision recovery capability of the system.
- The main advantage of the proposed method is that it provides a novel closed-fo
-rm solution for the tag population estimator, which considers the collision
+A number of tags estimation method is developed, taking into consideration
+ the collision recovery capability of the physical layer.
+ The main advantage of the proposed method is that it provides a new closed-form
+ solution for the tag population estimator, which considers the collision
  recovery probability of the used system.
  Simulation results indicate that the proposed solution is more precise
- compared to the methods presented in the literature.
+ compared to the state-of the-art.
  Timing comparisons presented in the simulation results show the reduced
  identification delay of the proposed estimation method compared to other
  proposals.
 \end_layout
 
 \begin_layout Enumerate
-A closed-form solution for the optimum frame length for FSA was provided
+A closed-form solution for the optimum frame length for FSA is provided
  by optimizing the Time-Aware Framed Slotted ALOHA reading efficiency, which
  considers the differences in the slot durations.
- Simulations indicate that the proposed solution gives the most accurate
- results with respect to the exact solution.
+ The simulation results indicate that the proposed solution gives the most
+ accurate results with respect to the exact solution.
  
 \end_layout
 
 \begin_layout Enumerate
-Another closed-form solution for the optimum frame length for FSA was settled
+Another closed-form solution for the optimum frame length for FSA is settled
  by optimizing the Time and constant collision recovery coefficients aware
  reading efficiency.
- The proposed solution gives a novel closed form equation for the frame
- length considering the different slot durations and the collision recovery
- capability with equal coefficients.
+ The proposed solution gives a new closed form equation for the frame length
+ considering the different slot durations and the collision recovery capability
+ with equal coefficients.
  Moreover, a new method was introduced to calculate the capture probability
  per frame.
  Simulations indicate that the proposed solution gives accurate results
@@ -379,7 +380,7 @@ l look-up tables.
 \end_layout
 
 \begin_layout Enumerate
-A novel closed-form solution for the optimal FSA frame length was established,
+A new closed-form solution for the optimal FSA frame length is established,
  which considers the differences in the collision recovery probabilities.
  The values of the collision recovery coefficients are extracted from the
  physical layer parameters.
@@ -390,8 +391,8 @@ A novel closed-form solution for the optimal FSA frame length was established,
 
 \begin_layout Enumerate
 Further, a new closed-form solution for the optimal Frame Slotted ALOHA
- (FSA) frame length was created.
- The novel solution considers the multiple collision recovery probability
+ (FSA) frame length is created.
+ The new solution considers the multiple collision recovery probability
  coefficients, and the different slot durations.
  Timing comparisons are presented in the simulation results to show the
  reading time reduction using the proposed frame length compared to other
@@ -413,7 +414,7 @@ Document Outline
 A brief outline of this document is presented as follows.
  Chapter 2 introduces the historical background and literature survey of
  RFID systems.
- Chapter 3 presents collision problem in the RFID systems and the existing
+ Chapter 3 presents the collision problem in the RFID systems and the existing
  anti-collision algorithms.
  Moreover, the concept of proposed cross-layer anti-collision algorithm
  will be defined.
@@ -431,9 +432,9 @@ A brief outline of this document is presented as follows.
  and the PHY-layer parameters.
  Chapter 6 provides compatible improvements of the EPCglobal C1 G2 standard.
  In this system, such modifications to tags/readers, can acknowledge more
- than single tag per slot.
- Finally, chapter 7 concludes this document by highlighting the main issues
- addressed in this thesis and outlining some of the future research aspects.
+ than a single tag per slot.
+ To sum up, highlights the main issues addressed in this thesis and outlining
+ some of the future research aspects.
 \end_layout
 
 \end_body

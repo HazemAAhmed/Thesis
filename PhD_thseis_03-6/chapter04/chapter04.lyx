@@ -105,7 +105,7 @@ key "standard"
 \end_inset
 
  are presented.
- Afterwards, a novel number of tags estimation method called 
+ Afterwards, a new number of tags estimation method called 
 \begin_inset Quotes eld
 \end_inset
 
@@ -120,16 +120,16 @@ Collision Recovery Aware Tag Estimation
 \end_layout
 
 \begin_layout Standard
-This chapter is organized as follows: section 1 shows the conventional number
+This chapter is organized as follows: Section 1 shows the conventional number
  of tags estimation algorithms with performance analysis comparisons between
  them.
- Section 2 presents the novel collision recovery aware number of tags estimation
+ Section 2 presents the new collision recovery aware number of tags estimation
  method.
  Using this algorithm, a closed form solution for the estimated number of
  tags will be presented.
- The proposed solution gives a direct relation between the estimated number
- of tags and the frame length, successful and collided number of slots and
- the physical layer collision recovery probability.
+ The proposed solution presents a direct relation between the estimated
+ number of tags and the frame length, successful and collided number of
+ slots and the physical layer collision recovery probability.
  
 \end_layout
 
@@ -141,11 +141,11 @@ State-of-the-Art Estimation Algorithms
 The performance of the FSA algorithm strongly depends on the accuracy of
  the number of tags estimation and the frame size.
  For fast identification of RFID tags, an estimation of the number of RFID
- tags with the highest possible accuracy is the key issue for Framed-Slotted
- ALOHA based protocol.
+ tags with the highest possible accuracy is the key issue for FSA based
+ protocol.
  The number of tags estimation function calculates the number of tags based
  on feedback from the previous frame, which includes the number of slots
- filled with empty, successful and collided slots.
+ filled with empty, successful, and collided slots.
  This information is then used by the function to obtain the number of tag
  estimate, and hence the optimal frame size 
 \begin_inset Formula $L$
@@ -232,23 +232,54 @@ key "2007_Q+-"
 \end_inset
 
 .
- Using this algorithm, the query command is transmitted only if the reader
- has to calculate a new value of 
+ Using this algorithm, the 
+\begin_inset Quotes eld
+\end_inset
+
+Query
+\begin_inset Quotes erd
+\end_inset
+
+ command is transmitted only if the reader has to calculate a new value
+ of 
 \begin_inset Formula $Q$
 \end_inset
 
 .
- Otherwise, the reader transmits the QueryRep command, because the Query
+ Otherwise, the reader transmits the 
+\begin_inset Quotes eld
+\end_inset
+
+QueryRep
+\begin_inset Quotes erd
+\end_inset
+
+ command, because the 
+\begin_inset Quotes eld
+\end_inset
+
+Query
+\begin_inset Quotes erd
+\end_inset
+
  command length is 
 \begin_inset Formula $22$
 \end_inset
 
- bits and the QueryRep command length is only 
+ bits and the 
+\begin_inset Quotes eld
+\end_inset
+
+QueryRep
+\begin_inset Quotes erd
+\end_inset
+
+ command length is only 
 \begin_inset Formula $4$
 \end_inset
 
  bits.
- Moreover, The variable 
+ Moreover, the variable 
 \begin_inset Formula $C$
 \end_inset
 
@@ -281,7 +312,7 @@ and
 \begin_inset Formula $C_{c}$
 \end_inset
 
- are calculated numerically regardless the number of tags in the reading
+ are calculated numerically regardless of the number of tags in the reading
  area.
 \end_layout
 
@@ -435,7 +466,7 @@ key "Aloha2_Floerkemeier"
 \end_inset
 
  tags.
- However, in dense network, the performance of such algorithms is degraded.
+ However, in a dense network, the performance of such algorithms is lowered.
 \end_layout
 
 \begin_layout Subsection
@@ -506,8 +537,8 @@ where
 \begin_inset Formula $C_{i}$
 \end_inset
 
- are successively present the number of successful and collided slots in
- frame 
+ successively present the number of successful and collided slots in frame
+ 
 \begin_inset Formula $i$
 \end_inset
 
@@ -546,7 +577,7 @@ key "DFSA_shoute_Random"
 \begin_inset Formula $P_{s}$
 \end_inset
 
- be the probability that a slot is a success slot.
+ be the probability that a slot is a successful slot.
  Then, the estimated collision rate 
 \begin_inset Formula $C_{rate}$
 \end_inset
@@ -640,7 +671,7 @@ key "2006_C_ratio"
 \end_inset
 
  is the frame length.
- The collision ratio is defined as the ratio between number of collided
+ The collision ratio is defined as the ratio between the number of collided
  slots 
 \begin_inset Formula $C_{i}$
 \end_inset
@@ -670,7 +701,7 @@ The optimum value of
 \begin_inset Formula $n$
 \end_inset
 
- that makes the right hand side of (
+, that makes the right hand side of (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:C-Ratio"
@@ -789,7 +820,7 @@ description "Maximum Likelihood"
 \end_inset
 
 The main concept of ML number of tags estimation is to compute the conditional
- probability of an observed events assuming that this conditional probability
+ probability of observed events assuming that this conditional probability
  is function of the number of tags 
 \begin_inset Formula $n$
 \end_inset
@@ -945,7 +976,7 @@ key "Modified_chen,simple_estimation_chen,2012_estimation_interpolation"
 
 \end_inset
 
-, the most common comparison estimation performance metric is called relative
+, the most common comparison estimation performance metric is the relative
  estimation error 
 \begin_inset Formula $\epsilon$
 \end_inset
@@ -984,11 +1015,15 @@ reference "fig:Relative-estimation-error_no_CR"
 \begin_inset Formula $\epsilon$
 \end_inset
 
-, which is calculated using Monte-Carlo simulations with 
+, which is calculated using Monte-Carlo simulations for FSA with 
 \begin_inset Formula $1000$
 \end_inset
 
- iterations.
+ iterations for each 
+\begin_inset Formula $(n/L$
+\end_inset
+
+) value.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1005,21 +1040,21 @@ key "DFSA_shoute_Random"
 \end_inset
 
 .
- It gives accurate result only when FSA frame length is equal to the number
+ It gives accurate results only when FSA frame length is equal to the number
  of tags 
 \begin_inset Formula $L=n$
 \end_inset
 
 .
- ML 
+ The ML estimation method 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chen"
 
 \end_inset
 
- estimation method is the most accurate estimation algorithm along the different
- values of 
+ is the most accurate estimation algorithm along the different values of
+ 
 \begin_inset Formula $L$
 \end_inset
 
@@ -1053,7 +1088,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Estimation Error No CR_Trial.emf
+	filename Estimation Error No CR_Trial_new.emf
 	lyxscale 15
 	width 65page%
 
@@ -1118,14 +1153,14 @@ reference "fig:Mean-identification-time"
 
 \end_inset
 
-, the Maximum Likelihood (ML) estimator 
+, the ML estimation algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chen"
 
 \end_inset
 
- achieves the closest approach to the perfect estimation algorithm.
+ results better results compared to the other estimation algorithms.
  However, the numerical searching complexity of the ML estimator 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1155,8 +1190,8 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Estimation_comparisions.emf
-	lyxscale 12
+	filename Estimation_comparisions_new.emf
+	lyxscale 14
 	width 65page%
 
 \end_inset
@@ -1195,12 +1230,13 @@ Novel Collision Recovery Aware Tag Estimation
 \end_layout
 
 \begin_layout Standard
-The previously mentioned literature proposed various estimation methods.
- Accordingly, the ML estimation method is the most precise.
- However, it possesses two main disadvantages: 1) It is implemented using
- numerical methods, which needs many calculations and iterations to find
- the optimum estimated value.
- 2) It neglects the physical layer effect, which is an inaccurate assumption.
+The aforementioned literature proposed various estimation methods.
+ The ML estimation method is the most precise results compared to the other
+ methods, however, it possesses two main disadvantages: First, it uses numerical
+ searching, which needs many calculations and iterations to find the optimum
+ estimated value.
+ Second, it neglects the physical layer effect, which is an inaccurate assumptio
+n.
  Modern systems are capable of converting part of collided slots into successful
  slots e.g.
  
@@ -1212,8 +1248,8 @@ key "PHY111,PHY112"
 
 .
  In such systems, the number of collided and successful slots delivered
- to the MAC layer are inaccurate information about the real number of tags
- at the reading area.
+ to the MAC layer are inaccurate in regards to the real number of tags at
+ the reading area.
  Therefore, it is important to take into consideration the collision recovery
  capability.
  Li 
@@ -1236,15 +1272,15 @@ key "Aloha4_Vogt"
 \end_layout
 
 \begin_layout Standard
-In this section, a novel closed-form solution for the estimated number of
+In this section, a new closed-form solution for the estimated number of
  tags 
 \begin_inset Formula $\hat{n}$
 \end_inset
 
- is proposed taking into account the collision recovery probability of the
- system.
- Then, calculating the collision recovery probability from the physical
- layer parameters will be demonstrated.
+ is proposed.
+ It considers the collision recovery probability of the PHY layer.
+ Then, an example for calculating the collision recovery probability using
+ a simple RFID receiver will be presented.
  The proposed solution gives a direct and linear relation between the estimated
  number of tags 
 \begin_inset Formula $\hat{n}$
@@ -1254,23 +1290,11 @@ In this section, a novel closed-form solution for the estimated number of
 \begin_inset Formula $L$
 \end_inset
 
-, successful and collided number of slots 
-\begin_inset Formula $S$
-\end_inset
-
-, 
-\begin_inset Formula $C$
-\end_inset
-
-, and the collision recovery probability 
-\begin_inset Formula $\alpha$
-\end_inset
-
 .
 \end_layout
 
 \begin_layout Subsection
-System Model Under Collision Recovery Probability
+System Model under Collision Recovery Probability
 \end_layout
 
 \begin_layout Standard
@@ -2439,10 +2463,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Estimation Error No CR_Trial_paper.emf
+	filename Estimation Error No CR_Trial_paper_new.emf
 	lyxscale 20
 	width 65page%
-	height 27pheight%
 
 \end_inset
 
@@ -2487,7 +2510,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Estimation Error with CR 07_trial.emf
+	filename Estimation Error with CR 07_trial_new.emf
 	lyxscale 20
 	width 65page%
 
@@ -2562,15 +2585,14 @@ Performance Analysis
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Estimation Error alpha.emf
+	filename Estimation Error alpha_new.emf
 	lyxscale 20
 	width 65page%
-	height 27pheight%
 
 \end_inset
 
@@ -2737,7 +2759,7 @@ reference "fig:System-has-collision"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Float figure
@@ -2748,10 +2770,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Total_time_comp_no_CR_final.emf
+	filename Total_time_comp_no_CR_final_new.emf
 	lyxscale 14
 	width 65page%
-	height 27pheight%
 
 \end_inset
 
@@ -2795,10 +2816,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Total_time_comp_CR_0_7_final.emf
-	lyxscale 12
+	filename Total_time_comp_CR_0_7_final_new.emf
+	lyxscale 14
 	width 65page%
-	height 27pheight%
 
 \end_inset
 

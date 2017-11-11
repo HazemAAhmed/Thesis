@@ -252,13 +252,13 @@ Radio Frequency Identification (RFID) is a rapidly emerging technology that
  In addition, the readers are able to terminate a slot earlier upon recognizing
  that it is empty.
  The performance of such systems depends strongly on two main parameters:
- First, the precise estimation of the number of tags in the reading area.
- Second, the optimization of the FSA frame length.
+ The precise estimation of the number of tags in the reading area, and the
+ optimizations of the FSA frame length.
 \end_layout
 
 \begin_layout Standard
-In this thesis, a novel tag estimation method is introduced, taking into
- consideration the collision recovery capability of modern RFID systems.
+In this thesis, a new tag estimation method is introduced, taking into considera
+tion the collision recovery capability of modern RFID systems.
  The proposed method provides the advantage of giving a novel closed form
  solution for the tag population estimator, which considers the collision
  recovery probability of the used system.
@@ -274,7 +274,7 @@ Apart from that, closed form solutions for the optimum FSA frame length
  capability.
  The second scenario is the Time-Aware with constant collision recovery
  coefficients system.
- This proposal provides a novel closed form equation for the frame length
+ This proposal provides a new closed form equation for the frame length
  considering the different slot durations and the collision recovery capability
  with equal coefficients.
  Moreover, a new calculation method of the collision recovery probability
@@ -285,9 +285,9 @@ Apart from that, closed form solutions for the optimum FSA frame length
  are examined with equal slots durations.
  In this regard, the values of the collision recovery coefficients are extracted
  from the physical layer parameters.
- Finally, a Time-aware and Multiple collision recovery system is suggested,
- taking into account the multiple collision recovery probability coefficients
- in addition to the different slot durations.
+ Finally, a Time-aware and multiple collision recovery system is suggested,
+ considering the multiple collision recovery probability coefficients in
+ addition to the different slot durations.
  For each scenario, timing comparisons are presented in the latter simulation
  results show the reading time reduction using the proposed frame length
  compared to other the state-of-the-art algorithms.
@@ -300,7 +300,7 @@ This thesis focuses on the EPCglobal C1 G2 standard.
  However, due to the limitation of the EPCglobal C1 G2, there is still a
  room of improvement between the proposed solutions and the theoretical
  lower bound of the identification time.
- Therefore, compatible improvements of the EPCglobal C1 G2 standard are
+ Accordingly, compatible improvements of the EPCglobal C1 G2 standard are
  proposed.
  This proposal includes compatible modifications in the UHF RFID tags/readers,
  to be capable of acknowledging more than a sole tag per slot.

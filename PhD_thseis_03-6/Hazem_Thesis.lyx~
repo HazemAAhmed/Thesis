@@ -24,7 +24,6 @@
 \usepackage{amsmath,amssymb}
 \usepackage[gennarrow]{eurosym}
 
-\usepackage{acro}
 
 \usepackage[T1]{fontenc}
 
@@ -253,8 +252,8 @@ Radio Frequency Identification (RFID) is a rapidly emerging technology that
  In addition, the readers are able to terminate a slot earlier upon recognizing
  that it is empty.
  The performance of such systems depends strongly on two main parameters:
- First, the precise estimation of the number of tags in the reading area.
- Second, the optimization of the FSA frame length.
+ The precise estimation of the number of tags in the reading area, and the
+ optimizations of the FSA frame length.
 \end_layout
 
 \begin_layout Standard
@@ -286,7 +285,7 @@ Apart from that, closed form solutions for the optimum FSA frame length
  are examined with equal slots durations.
  In this regard, the values of the collision recovery coefficients are extracted
  from the physical layer parameters.
- Finally, a Time-aware and Multiple collision recovery system is suggested,
+ Finally, a Time-aware and multiple collision recovery system is suggested,
  taking into account the multiple collision recovery probability coefficients
  in addition to the different slot durations.
  For each scenario, timing comparisons are presented in the latter simulation
