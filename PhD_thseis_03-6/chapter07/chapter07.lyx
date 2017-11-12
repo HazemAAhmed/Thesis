@@ -78,26 +78,25 @@ Nowadays, there is a great interest in RFID due to the number of applications
  used in this field.
  RFID systems provide low cost and low power object identification and tracking
  mechanisms.
- It is the key requirement for different ultra dense applications, e.g., logistics
+ It is the key requirement for different ultra-dense applications, e.g., logistics
 , access management and timing sports events.
- In such applications, dense number of tags are expected and fast identification
- is required.
+ In such applications, dense number of tags is expected, which requires
+ fast identification.
  
 \end_layout
 
 \begin_layout Standard
 The main goal of the thesis is to increase the system throughput and to
- faster identify tags in the reader range.
- The transmission of tags is scheduled on the MAC layer with a anti-collision
+ identify tags faster in the reader range.
+ The transmission of tags is scheduled on the MAC layer with an anti-collision
  protocol called DFSA.
  The identification time directly depends on reading efficiency of the DFSA
  anti-collision protocol.
- The DFSA reading efficiency is controlled by two main parameters: 1) The
- accuracy of number of tags estimation algorithm.
- 2) Frame length optimization.
+ The DFSA reading efficiency is controlled by two main parameters: the accuracy
+ of number of tags estimation algorithm and the frame length optimization.
  Modern RFID receivers have been developed from the PHY layer.
  They have a collision recovery capability, which means that some of collided
- slots can be converted to a successful slots.
+ slots can be converted to successful slots.
  This capability reduces the losses from the collided slots.
  Moreover, modern RFID receivers have the capability to identify the type
  of slot and terminate it as soon as it recognizes that, it is not a successful
@@ -106,11 +105,11 @@ The main goal of the thesis is to increase the system throughput and to
 \end_layout
 
 \begin_layout Standard
-In this thesis, I focus on optimizing the DFSA anti-collision algorithm
+The main focus of the thesis is to optimize the DFSA anti-collision algorithm
  taking into consideration the physical layer parameters e.g.
  the collision recovery capability and the differences in slots durations.
- Thus, the thesis aims to establish and propose of advanced algorithms to
- increase the performance of the system.
+ Thus, the thesis aims to establish and propose advanced algorithms to increase
+ the performance of the system.
  Since my work is focused on passive UHF RFID systems that work with simple
  tags which are only capable of in-complex operations, almost all proposed
  changes and signal processing is performed on the reader side except in
@@ -122,13 +121,15 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-The advanced RFID readers, which are proposed in this thesis shorten the
- mean average reading time.
+The advanced RFID readers, which are proposed in this thesis decrease the
+ mean average of the FSA reading time.
  They incorporate different PHY layer parameters in order to efficiently
  optimize the MAC anti-collision protocols.
- First, in chapter 4 a novel closed form solution for a collision recovery
- aware ML estimator that considers the effects of the collision recovery
- probability of the RFID reader.
+ The first three chapters gives an introduction to the UHF RFID systems,
+ where the motivation of the work is discussed.
+ In chapter 4 a novel closed form solution for a collision recovery aware
+ ML estimator that considers the effects of the collision recovery probability
+ of the RFID reader.
  The theoretical derivations lead to a new analytical estimator that can
  be easily implemented in RFID readers.
  Using the proposed formula, we need neither look-up tables nor numerical
@@ -144,7 +145,15 @@ n error compared to the other state-of-art proposals.
 \end_layout
 
 \begin_layout Standard
-In chapter 5, different proposals of frame length optimization is presented.
+With the sole optimization of number of tags estimation, there is still
+ a room of improvement between the proposed algorithm and the theoretical
+ lower identification time limit for the FSA by 
+\begin_inset Formula $\simeq\unit[30]{\%}$
+\end_inset
+
+.
+ In this regards, chapter 5 presents different proposals of FSA frame length
+ optimization.
  The first proposal is called 
 \begin_inset Quotes eld
 \end_inset
@@ -154,7 +163,7 @@ Time aware frame length
 \end_inset
 
  frame length.
- In this proposal, the frame length considers only the differences in slots
+ In this proposal, the frame length considers only the difference in slots
  durations is considered and no collision recovery effect is considered.
  A closed form solution for the optimum frame length is analytically derived.
  The proposed solution results 
@@ -179,8 +188,9 @@ Multiple collision recovery aware
  This proposal considers the differences between the collision recovery
  coefficients.
  Thus, it considers that, the collision recovery capability strongly depends
- on the umber of the collided tags.
- However, it assumes constant slots durations regardless the slot type.
+ on the number of the collided tags.
+ However, this proposal assumes constant slots durations regardless the
+ slot type.
  A closed form solution for the optimum frame length is analytically derived.
  The proposed solution results 
 \begin_inset Formula $\unit[12]{\%}$
@@ -266,9 +276,9 @@ key "standard"
 \begin_layout Standard
 In chapter 6, backwards compatible improvement of the EPCglobal Class 1
  Gen 2 standard is proposed.
- It proposes some modifications on the communication signal of Tag/reader.
- Using these modifications, a new system is presented approaches the theoretical
- lower reading time limit of the EPCglobal C1 G2 standard.
+ It presents some modifications on the communication signal of Tag/reader.
+ Using these modifications, the new system approaches the theoretical lower
+ reading time limit of the EPCglobal C1 G2 standard.
  The proposed system is compatible with the EPCglobal C1 G2 standards, i.e.
  the proposed tags could be jointly operated with conventional tags and
  identified by conventional readers without affecting the performance.
@@ -283,9 +293,9 @@ Open Issues and Future Work
 \begin_layout Standard
 Despite the effort invested in this dissertation, there are still some remaining
  issues left that require further investigations.
- To mention but some examples, the influence of the initial frame length
- of the proposed system is neglected.
- The influence of the initial frame length should be analyzed.
+ For instance, the influence of the initial frame length of the proposed
+ system is neglected, and the influence of the initial frame length should
+ be analyzed.
  In addition, the MAC layer knowledge of the current SNR should send a feedback
  signal to the PHY layer.
  In this signal, the MAC layer decide to start resolving the current collided
@@ -295,7 +305,7 @@ Despite the effort invested in this dissertation, there are still some remaining
  be better to leave this slot to a normal collided slot.
  On the other hand, when the current value of the SNR is above this threshold,
  it would be better to resolve this collided slot to a successful slot.
- Finally, practical assessment of the proposed work through measurements
+ Finally, a practical assessment of the proposed work through measurements
  would be beneficial for a more comprehensive evaluation.
 \end_layout
 

@@ -2957,7 +2957,7 @@ reference "fig:System-has-collision-time"
 
 \end_inset
 
-, there is still room of improvement between the proposed algorithm and
+, there is still a room of improvement between the proposed algorithm and
  the theoretical lower limit with 
 \begin_inset Formula $\simeq\unit[30]{\%}$
 \end_inset
