@@ -137,7 +137,7 @@ commands at the tag side.
 
 \begin_layout Abstract
 To overcome these pitfalls, this chapter proposes a system that is capable
- to acknowledge multiple tags within a single slot, resulting in a significant
+ of acknowledging multiple tags within a single slot, resulting in a significant
  increase in performance.
  The main advantage of this proposal is that it is compatible with existing
  EPCglobal C1 G2 tags and readers.
@@ -268,8 +268,9 @@ name "fig:Tag-response-of"
 
 \begin_layout Standard
 According to Frame Slotted ALOHA, there are three probabilities for each
- slot: 1) Empty slot: In such a slot, no tag has selected this slot to transmit
- its information in it.
+ slot: Empty slot, Successful slot, and Collided slot.
+ Empty slot: In such a slot, no tag has selected this slot to transmit its
+ information in it.
  The reader transmits a 
 \begin_inset Quotes eld
 \end_inset
@@ -279,8 +280,8 @@ Query-Rep
 \end_inset
 
  command asking the tags to decrements their slot counters.
- 2) Successful slot: In this slot, only one one tag selects this slot to
- transmit its information in it.
+ Successful slot: In this slot, only one one tag selects this slot to transmit
+ its information in it.
  The reader transmits an 
 \begin_inset Quotes eld
 \end_inset
@@ -311,7 +312,7 @@ EPC
 \end_inset
 
  code.
- 3) Collided slot: In such slots, the reader receives simultaneously multiple
+ Collided slot: In such slots, the reader receives simultaneously multiple
  replies from different tags.
  In this case, there are two possibilities: 
 \end_layout
@@ -357,7 +358,7 @@ Arbitrate
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -532,12 +533,11 @@ key "standard"
 \begin_inset Formula $RN16$
 \end_inset
 
- packet: 1) The short version with 
+ packet: The short version with 
 \begin_inset Formula $6$
 \end_inset
 
- bits preamble.
- 2) The long version 
+ bits preamble and the long version 
 \begin_inset Formula $18$
 \end_inset
 
@@ -550,7 +550,8 @@ key "standard"
 \end_inset
 
  bits of the short version).
- The proposed tags have only the long version, but with a new structure.
+ The proposed tag's signal format has only the long version, but with a
+ new structure.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -579,8 +580,8 @@ reference "fig:Tag-response-of-proposed"
 \begin_inset Formula $12$
 \end_inset
 
- bits zeros of the conventional long pilot is divided to two parts.
- The fist part with 
+ bits zeros of the conventional long pilot are divided to two parts.
+ The first part with 
 \begin_inset Formula $4$
 \end_inset
 
@@ -632,7 +633,7 @@ key "2012_orthogonal_codes"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1322,7 +1323,15 @@ reference "tab:Switch-command"
 
 \end_inset
 
- provides an example for the Switch command code, which is a
+ provides an example for the 
+\begin_inset Quotes eld
+\end_inset
+
+Switch
+\begin_inset Quotes erd
+\end_inset
+
+ command code, which is a
 \begin_inset Formula $16$
 \end_inset
 
@@ -1359,15 +1368,23 @@ reference "fig:Pesudo-parallel-successful"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Switch command to switch the proposed tags from the conventional mode to
- the new mode 
+Proposed format of 
+\begin_inset Quotes eld
+\end_inset
+
+Switch
+\begin_inset Quotes erd
+\end_inset
+
+ command,which is used for switching the proposed tags from the conventional
+ mode to the new mode 
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Switch-command"
@@ -1613,8 +1630,23 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of the proposed pseudo parallel successful slot with parallel Query
- command and RN16 followed by successive Acknowledgment commands and EPCs
+Example of the proposed pseudo parallel successful slot with parallel 
+\begin_inset Quotes eld
+\end_inset
+
+Query
+\begin_inset Quotes erd
+\end_inset
+
+ command and RN16 followed by successive 
+\begin_inset Quotes eld
+\end_inset
+
+ACK
+\begin_inset Quotes erd
+\end_inset
+
+ commands and EPCs
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Pesudo-parallel-successful"
@@ -1690,7 +1722,7 @@ Reply Counter
 \begin_inset Quotes eld
 \end_inset
 
-Acknowledgment
+ACK
 \begin_inset Quotes erd
 \end_inset
 
@@ -1803,10 +1835,6 @@ Thus, the reading efficiency of the conventional system is presented as:
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 In the proposed system, the reader has the capability to resolve up to 
 \begin_inset Formula $M$
 \end_inset
@@ -2461,8 +2489,15 @@ key "standard"
 \end_inset
 
  of the conventional successful slot duration.
- The time of the acknowledgment command and the EPC tag reply represents
- 
+ The time of the 
+\begin_inset Quotes eld
+\end_inset
+
+ACK
+\begin_inset Quotes erd
+\end_inset
+
+ command and the EPC tag reply represents 
 \begin_inset Formula $70\%$
 \end_inset
 
@@ -2470,8 +2505,15 @@ key "standard"
 \end_layout
 
 \begin_layout Standard
-In the proposed system, the reader sends a Query command in parallel to
- all the tags and receives the 
+In the proposed system, the reader sends a 
+\begin_inset Quotes eld
+\end_inset
+
+Query
+\begin_inset Quotes erd
+\end_inset
+
+ command in parallel to all the tags and receives the 
 \begin_inset Formula $RN16s$
 \end_inset
 
@@ -3069,7 +3111,7 @@ reference "tab:Set-of-8"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3109,10 +3151,6 @@ name "fig:Mean-reading-time"
 \end_layout
 
 \begin_layout Standard
-------
-\end_layout
-
-\begin_layout Standard
 The performance analysis is achieved through Monte Carlo simulations\SpecialChar \@.
  Figure
  
@@ -3134,24 +3172,41 @@ key "2013_orthogonal"
 
 .
  This system assumes fully parallel acknowledgment for all recovered tags.
- It gives 
+ It results 
 \begin_inset Formula $\unit[200]{\%}$
 \end_inset
 
- average reading efficiency.
- However,it is not compatible with the EPCglobal C1 G2 standard and can
- not be applied in practice.
- The second scenario deduces that it can acknowledge a single tag and neglect
- the other replies.
+ maximum reading efficiency.
+ Which means that, 2 tags on average are identified per slot.
+ However, this method is not compatible with the EPCglobal C1 G2 standard
+ and can not be applied in practice, because it it will produce collision
+ in the tag side.
+ The second scenario uses only single acknowldgment system.
+ It acknowledges only a single tag and neglect the other tags replies.
+ It results 
+\begin_inset Formula $\unit[67]{\%}$
+\end_inset
+
+ maximum reading efficiency.
  This system does not benefit from the strong collision recovery capability
  of the reader.
- The third one is the proposed pseudo successful slot.
+ The third one is the proposed pseudo parallel successful slot.
  This system compromises between the single tag acknowledgment and the fully
- parallel acknowledgment with almost 
+ parallel acknowledgment.
+ It results 
 \begin_inset Formula $100\%$
 \end_inset
 
- maximum efficiency .
+ maximum reading efficiency.
+ This means that it approaches the theoretical lower reading time limit
+ of the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -3173,7 +3228,7 @@ reference "fig:Mean-reading-time"
 
 \end_inset
 
-, the average reading time of our proposed system is decreased compared
+, the average reading time of the proposed system is decreased compared
  to the conventional FSA by 
 \begin_inset Formula $60\%$
 \end_inset
@@ -3188,10 +3243,8 @@ key "2010_Trans_CR"
 
  the authors proposed a collision recovery system that is able to recover
  up to two collided tags.
- However, in our simulations it is assumed that the authors are able to
- recover all collided tags.
- Accordingly, the average reading time of our proposal is lower than the
- reading time of 
+ Accordingly, the average reading time of the proposed system is lower than
+ the reading time of 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2010_Trans_CR"
@@ -3213,7 +3266,7 @@ key "2013_multiple_ACK"
 \begin_inset Formula $35\%$
 \end_inset
 
-, respectively, using single acknowledgment.
+, respectively.
  Finally, the proposed system approaches the theoretical limit of the EPCglobal
  C1 G2 standards 
 \begin_inset CommandInset citation
@@ -3224,7 +3277,7 @@ key "standard"
 
 .
  This gain is only attainable using the modified compatible tags.
- However, the proposed maximum performance using the conventional tags was
+ However, the proposed maximum performance using the conventional tags is
  presented in the results of chapter 5.
  
 \end_layout
