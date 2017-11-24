@@ -1089,8 +1089,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename Estimation Error No CR_Trial_new.emf
-	lyxscale 15
+	lyxscale 50
 	width 65page%
+	height 25pheight%
 
 \end_inset
 
@@ -1110,7 +1111,7 @@ Relative estimation error
 \begin_inset Formula $\nicefrac{n}{L}$
 \end_inset
 
- for the common state-of the-art estimation algorithms
+ for the common state-of-the-art estimation algorithms
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Relative-estimation-error_no_CR"
@@ -1191,8 +1192,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename Estimation_comparisions_new.emf
-	lyxscale 14
+	lyxscale 50
 	width 65page%
+	height 25pheight%
 
 \end_inset
 
@@ -1432,7 +1434,7 @@ status open
 \begin_inset Graphics
 	filename PHY_MAC_trial.emf
 	lyxscale 15
-	width 35page%
+	width 30page%
 
 \end_inset
 
@@ -1573,8 +1575,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename Ps_Bi_Po_diff_L.emf
-	lyxscale 20
+	lyxscale 50
 	width 65page%
+	height 25pheight%
 
 \end_inset
 
@@ -2273,8 +2276,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename capture_probability_vs_SNR_new.emf
-	lyxscale 14
+	lyxscale 50
 	width 65page%
+	height 25pheight%
 
 \end_inset
 
@@ -2340,8 +2344,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename Estimation Error No CR_Trial_paper_new.emf
-	lyxscale 20
+	lyxscale 50
 	width 65page%
+	height 25pheight%
 
 \end_inset
 
@@ -2501,8 +2506,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename Estimation Error with CR 07_trial_new.emf
-	lyxscale 20
+	lyxscale 50
 	width 65page%
+	height 25pheight%
 
 \end_inset
 
@@ -2616,7 +2622,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Estimation Error alpha_new.emf
-	lyxscale 20
+	lyxscale 50
 	width 62page%
 
 \end_inset
@@ -2780,7 +2786,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Total_time_comp_no_CR_final_new.emf
-	lyxscale 20
+	lyxscale 50
 	width 62page%
 
 \end_inset
@@ -2824,7 +2830,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Total_time_comp_CR_0_7_final_new.emf
-	lyxscale 20
+	lyxscale 50
 	width 62page%
 
 \end_inset
@@ -2957,7 +2963,7 @@ reference "fig:System-has-collision-time"
 
 \end_inset
 
-, there is still room of improvement between the proposed algorithm and
+, there is still a room of improvement between the proposed algorithm and
  the theoretical lower limit with 
 \begin_inset Formula $\simeq\unit[30]{\%}$
 \end_inset

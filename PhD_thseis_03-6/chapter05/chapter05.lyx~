@@ -89,10 +89,9 @@ Frame Length Optimization
 \begin_layout Standard
 In FSA, there are two main factors controlling the reading efficiency, and
  hence the reading time in RFID systems.
- These two factors are: 1) The number of tags estimation which was discussed
- in chapter 4.
- 2) The optimal FSA frame length calculation which will be discussed in
- details in this chapter.
+ These two factors are: The number of tags estimation which was discussed
+ in chapter 4 and the optimal FSA frame length calculation which will be
+ discussed in this chapter.
  Previous studies have focused on the frame length calculations using the
  conventional Dynamic Framed Slotted ALOHA algorithms 
 \begin_inset CommandInset citation
@@ -118,8 +117,8 @@ key "2010_Vogt_problem"
 \end_inset
 
 .
- However, as mentioned before, modern systems are capable of recovering
- this collision and converting the collided slot into a successful one 
+ However, as mentioned before, modern system can recover this collision
+ and converting the collided slot into a successful one 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2009_capture"
@@ -129,15 +128,14 @@ key "2009_capture"
 .
  In such a system, it is better to increase the number of collided slots
  compared to the number of empty slots by decreasing the optimum frame length.
- This is because these systems are able to gain more from the collided slots
- compared to the empty slots by converting the collided slots to successful
- slots.
+ This is because these systems gain more from the collided slots compared
+ to the empty slots by converting the collided slots to successful slots.
  In addition, most of the previous studies assumed constant slot durations
  regardless the type of the slot.
  However, the duration of the slots in RFID systems depends on the slot
  type e.g.
  empty, successful, or collided.
- In these systems, the empty slots duration is smaller than than the collided
+ In these systems, the empty slots duration is smaller than the collided
  slots duration and smaller than the successful slots duration.
  Therefore, it is better to increase the frame length, because the losses
  from the empty slots is less than the losses in the collided slots.
@@ -150,24 +148,25 @@ key "2009_capture"
 
 \begin_layout Standard
 This chapter is organized as follows: Section 1 discusses the effect of
- the different slot durations.
- For this, we will introduce the reading efficiency to have a new performance
- metric called time aware reading efficiency.
- Afterwards, a new closed form solution for the optimum frame length, which
- maximizes the reading efficiency, is proposed.
- In section 2, the effect of the collision recovery probability with constant
+ the different slot durations, where we will introduce the reading efficiency
+ to have a new performance metric called 'time aware reading efficiency'.
+ Next, a new closed form solution for the optimum frame length, which maximizes
+ the reading efficiency, is proposed.
+ In Section 2, the effect of the collision recovery probability with constant
  coefficients in addition to the time differences in slot duration will
  be considered.
- Then, a novel closed form solution for the optimum frame length, which
- maximizes the system performance, will be presented.
+ Then, a new closed form solution for the optimum frame length, which maximizes
+ the system performance, will be presented.
  Section 3 illustrates the influence of using multiple collision recovery
- coefficients assuming constant slots duration, thus, eliciting a new reading
+ coefficients assuming constant slots duration, thus eliciting a new reading
  efficiency called multiple collision recovery coefficients reading efficiency.
  Then, a novel closed form solution for the optimum frame length is also
  derived for this system.
- Finally, section 4 shows a new closed form solution for the optimum frame
- length for a system, taking into consideration the time difference in slot
- durations, in addition to the multiple collision recovery coefficients.
+ Section 4 shows a new closed form solution for the optimum frame length
+ for a system; taking into consideration the time difference in slot durations,
+ in addition to the multiple collision recovery coefficients.
+ Finally, section 5 presents performance comparisons between the proposed
+ frame lengths and the conventional FSA.
 \end_layout
 
 \begin_layout Section
@@ -175,8 +174,8 @@ Time Aware System
 \end_layout
 
 \begin_layout Standard
-In the recent years, some research groups have focused on optimizing the
- frame length in case of non-equal slot durations: In 
+Recently, some research groups have focused on optimizing the frame length
+ in case of non-equal slot durations: In 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "4_2_numerical_time_Lopt,Ref_4_4_2013_Cap_time"
@@ -335,7 +334,7 @@ reference "eq:eff-semi_simple"
 \begin_inset Formula $L$
 \end_inset
 
- can only has integer values:
+ can only have integer values:
 \size small
 
 \begin_inset Formula 
@@ -720,8 +719,8 @@ L_{_{TA}}=\frac{n}{2}\left(1+\sqrt{\frac{2}{C_{_{t}}}-1}\right)\label{eq:closed 
 
 
 \size default
-The proposed equation gives a linear relation wrt.
- the number of tags 
+The proposed equation gives a linear relation in reference to the number
+ of tags 
 \begin_inset Formula $n$
 \end_inset
 
@@ -2078,7 +2077,7 @@ key "standard"
 
 \end_inset
 
- the frame length is allowed to take only quantized values (power of 
+ the frame length can take only quantized values (power of 
 \begin_inset Formula $2$
 \end_inset
 
@@ -2099,8 +2098,8 @@ reference "fig:Quantized-Frame-Length_time"
 
 \end_inset
 
-, the proposed frame length fully match the numerical solution in the full
- range of 
+, the proposed frame length fully matches the numerical solution in the
+ full range of 
 \begin_inset Formula $C_{t}$
 \end_inset
 
@@ -2283,8 +2282,7 @@ reference "fig:Saving-time-versus"
 \begin_inset Formula $L_{TA}$
 \end_inset
 
- wrt\SpecialChar \@.
- the classical optimal frame length 
+ with reference to the classical optimal frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -2319,7 +2317,7 @@ key "standard"
 
 \end_inset
 
-, the frame length is allowed to take only quantized values (power of 
+, the frame length takes only quantized values (power of 
 \begin_inset Formula $2$
 \end_inset
 
@@ -2561,16 +2559,15 @@ Time and Collision Recovery System
 \end_layout
 
 \begin_layout Standard
-As mentioned in chapter 4, modern RFID readers are able to decode one of
- multiple collided tags, which is called the collision recovery capability
- 
+As mentioned in chapter 4, modern RFID readers can decode one of multiple
+ collided tags, which is called the collision recovery capability 
 \begin_inset Formula $\alpha$
 \end_inset
 
 .
  According to the literature we can divide the previous research, which
  considered the collision recovery capability in the frame length optimization,
- into three different groups: The first group considered only the average
+ into three diverse groups: The first group considered only the average
  collision recovery probability for the frame length optimizations, such
  as 
 \begin_inset CommandInset citation
@@ -2612,8 +2609,8 @@ key "Capture_time_2015,Ref_4_4_2013_Cap_time"
  recovery probability and the number of tags.
  The main problems of their numerical solutions are the multiple degrees
  of freedom.
- The solutions require a complex multidimensional look-up table that has
- to consider all possible degrees of freedom.
+ The solutions require a complex multidimensional look-up table that must
+ consider all possible degrees of freedom.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2623,8 +2620,8 @@ key "2012_curve_fitting"
 
  uses curve fitting to find a closed form solution for the optimum frame
  length at a specific collision recovery probability and timing.
- However, this solution can not be generalized for all values of slot's
- timing and collision recovery probabilities.
+ However, this solution cannot be generalized for all values of slot's timing
+ and collision recovery probabilities.
 \end_layout
 
 \begin_layout Standard
@@ -4146,8 +4143,8 @@ reference "eq:closed form-2"
 
 \end_inset
 
-), the proposed equation gives a linear relation wrt.
- the number of tags 
+), the proposed equation gives a linear relation in reference to the number
+ of tags 
 \begin_inset Formula $n$
 \end_inset
 
@@ -5315,8 +5312,8 @@ L_{TAMCRC}=\left(-\frac{b}{4a}-S+0.5\sqrt{-4S^{2}-2P+\frac{q}{S}}\right)\cdot n\
 
 
 \size default
-The proposed equation gives a linear relation wrt.
- the number of tags 
+The proposed equation gives a linear relation in reference to the number
+ of tags 
 \begin_inset Formula $n$
 \end_inset
 
@@ -6210,7 +6207,7 @@ Time and no CR
 \begin_layout Plain Layout
 
 \size footnotesize
-\begin_inset Formula $\unit[10]{\%}$
+\begin_inset Formula $\unit[8]{\%}$
 \end_inset
 
 
@@ -6237,7 +6234,7 @@ Time and constant CR
 \begin_layout Plain Layout
 
 \size footnotesize
-\begin_inset Formula $\unit[25]{\%}$
+\begin_inset Formula $\unit[26]{\%}$
 \end_inset
 
 

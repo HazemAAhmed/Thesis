@@ -143,7 +143,7 @@ key "FDMA"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -428,7 +428,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Binary_tree.emf
-	lyxscale 12
+	lyxscale 20
 	width 51page%
 
 \end_inset
@@ -591,7 +591,7 @@ status open
 \begin_inset Graphics
 	filename Query_tree.emf
 	lyxscale 13
-	width 51page%
+	width 45page%
 
 \end_inset
 
@@ -959,7 +959,7 @@ status open
 \begin_inset Graphics
 	filename Frame_slotted_ALOHA.emf
 	lyxscale 15
-	width 55page%
+	width 60page%
 
 \end_inset
 
@@ -1037,7 +1037,7 @@ key "Letter_2012"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1261,14 +1261,14 @@ reference "fig:Flow-chart-of"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename reading_efficiency.emf
 	lyxscale 20
-	width 55page%
+	width 60page%
 
 \end_inset
 
@@ -1313,7 +1313,7 @@ name "fig:Framed-Slotted-ALOHA"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1399,7 +1399,7 @@ reference "fig:Conventional-variable-frame"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2184,7 +2184,9 @@ reference "fig:Empty-Slot-Duration-1"
 
 \end_inset
 
- shows that the reader 
+ shows that the reader terminates the slot directly when it recognizes that
+ there is no tag reply in this slot.
+ 
 \end_layout
 
 \begin_layout Standard
