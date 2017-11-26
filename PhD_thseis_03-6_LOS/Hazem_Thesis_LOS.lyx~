@@ -431,15 +431,6 @@ filename "chapter07/chapter07.lyx"
 \end_layout
 
 \begin_layout Standard
-
-\lang ngerman
-\begin_inset Newpage cleardoublepage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \align center
 \begin_inset ERT
 status open
@@ -453,6 +444,39 @@ markboth{}{}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+
+\lang ngerman
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang ngerman
+aaaaa
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang ngerman
+aaaaaaaaa
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 

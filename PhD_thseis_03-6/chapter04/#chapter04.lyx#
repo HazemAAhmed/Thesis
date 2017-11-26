@@ -1106,8 +1106,7 @@ Relative estimation error
 \begin_inset Formula $\epsilon$
 \end_inset
 
- vs.
- normalized number of tags 
+ s a function of the normalized number of tags 
 \begin_inset Formula $\nicefrac{n}{L}$
 \end_inset
 
@@ -1205,8 +1204,16 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean identification time using FSA for simulated common state-of the-art
- estimation algorithms versus the number of tags in the reading area.
+Mean identification time 
+\begin_inset Formula $\tau$
+\end_inset
+
+ in slots using FSA for simulated common state-of the-art estimation algorithms
+ as a function of the number of tags in the reading area 
+\begin_inset Formula $n$
+\end_inset
+
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1588,8 +1595,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Binomial distribution and its Poisson approximation for probability of success
- using different frame lengths
+Probability Density Function PDF as afunction of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ for Binomial distribution and its Poisson approximation for the probability
+ of success using different frame lengths
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Approximation"
@@ -2289,7 +2300,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Collision recovery probability versus the signal to noise ratio 
+Collision recovery probability 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ as a function of the signal to noise ratio SNR 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Capture-probability-versus-1"
@@ -2357,8 +2372,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Relative estimation error with system has no collision recovery capability
- 
+Relative estimation error 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ s a function of the normalized number of tags 
+\begin_inset Formula $\nicefrac{n}{L}$
+\end_inset
+
+ with system has no collision recovery capability 
 \begin_inset Formula $(\alpha=0)$
 \end_inset
 
@@ -2834,6 +2856,7 @@ status open
 	filename Total_time_comp_CR_0_7_final_new.emf
 	lyxscale 50
 	width 62page%
+	height 25pheight%
 
 \end_inset
 
@@ -2966,7 +2989,7 @@ reference "fig:System-has-collision-time"
 \end_inset
 
 , there is still a room of improvement between the proposed algorithm and
- the theoretical lower limit with 
+ the FSA theoretical lower limit with 
 \begin_inset Formula $\simeq\unit[30]{\%}$
 \end_inset
 

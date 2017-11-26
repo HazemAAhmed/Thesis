@@ -89,17 +89,17 @@ Introduction
 \end_layout
 
 \begin_layout Standard
+Radio Frequency Identification (RFID) 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-prefix "List of Abbreviations"
 symbol "RFID"
 description "Radio Frequency Identification"
 
 \end_inset
 
- Radio Frequency Identification (RFID) is a technology that uses communication
- through radio waves to transfer data between a reader and electronic tags
- attached to an object, either to be identified or tracked.
+is a technology that uses communication through radio waves to transfer
+ data between a reader and electronic tags attached to an object, either
+ to be identified or tracked.
  The RFID technology has benefits in reference to other identification technolog
 ies 
 \begin_inset CommandInset citation

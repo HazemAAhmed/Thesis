@@ -148,10 +148,8 @@ key "2009_capture"
 
 \begin_layout Standard
 This chapter is organized as follows: Section 1 discusses the effect of
- the different slot durations, where we will introduce the reading efficiency
- to have a new performance metric called 'time aware reading efficiency'.
- Next, a new closed form solution for the optimum frame length, which maximizes
- the reading efficiency, is proposed.
+ the different slot durations, where a new closed form solution for the
+ optimum frame length is proposed.
  In Section 2, the effect of the collision recovery probability with constant
  coefficients in addition to the time differences in slot duration will
  be considered.
@@ -185,8 +183,8 @@ key "4_2_numerical_time_Lopt,Ref_4_4_2013_Cap_time"
 , the authors proposed a numerical solution for the optimal frame length.
  These methods depend on searching for the optimal frame length which maximizes
  the reading efficiency.
- Moreover, they also depend on the tag-to-reader data rate, which make the
- searching process more complicated.
+ Moreover, they also depend on the tag-to-reader data rate, which makes
+ the searching process more complicated.
  In 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -471,8 +469,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename Exponential.emf
-	lyxscale 15
+	lyxscale 50
 	width 65page%
+	height 25pheight%
 
 \end_inset
 
@@ -483,15 +482,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Second order Taylor series approximation for 
-\begin_inset Formula $e^{-\frac{1}{\beta}}$
+The exponential function 
+\begin_inset Formula $e^{-\frac{n}{L}}$
 \end_inset
 
-, where 
-\begin_inset Formula $\beta=\frac{L}{n}$
-\end_inset
-
-
+ compared to the second order Taylor series approximation 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Second-order-Taylor"
@@ -2122,7 +2117,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Lopt_vs_ct_acurate_proposed.emf
-	lyxscale 20
+	lyxscale 50
 	width 65page%
 	height 25pheight%
 
@@ -2165,7 +2160,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Lopt_vs_ct_acurate_proposed_quantized_new.emf
-	lyxscale 20
+	lyxscale 50
 	width 65page%
 	height 25pheight%
 
@@ -2202,7 +2197,7 @@ name "fig:Quantized-Frame-Length_time"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Optimum frame length 
+Time aware optimum frame length 
 \begin_inset Formula $L_{TA}$
 \end_inset
 
@@ -2361,14 +2356,14 @@ e\SpecialChar \@.
 placement t
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \noindent
 \align center
 \begin_inset Graphics
 	filename savin_time_with_ct.emf
-	lyxscale 20
+	lyxscale 50
 	width 65page%
 
 \end_inset
@@ -2380,12 +2375,16 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Percentages of saving time using the proposed TAFSA for an ideally known
- number of tags, 
-\begin_inset Formula $C_{t}=1$
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TA}$
 \end_inset
 
- is the conventional FSA 
+ using the proposed TAFSA for an ideally known number of tags as afunction
+ of the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Saving-time-versus"
@@ -2525,12 +2524,19 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Percentages of saving time using the proposed TAFSA compared to the conventional
- frame length 
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TA}$
+\end_inset
+
+ as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ using the proposed TAFSA compared to the conventional frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
- for different anti-collision algorithms using 
+ for different estimation algorithms, 
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 
@@ -2676,7 +2682,7 @@ reference "eq:eff-semi_simple"
 \end_inset
 
 ).
- Therefore the time and collision recovery probability aware efficiency
+ Therefore, the time and collision recovery probability aware efficiency
  can then be written as:
 \end_layout
 
@@ -2926,7 +2932,7 @@ where
 \end_inset
 
 .
- As focusing on systems with a large number of tags 
+ As focusing on systems with many tags 
 \begin_inset Formula $n$
 \end_inset
 
@@ -3344,7 +3350,7 @@ reference "fig:Quantized-Frame-Length"
 
 \end_inset
 
- shows that the proposed frame length fully match the numerical solution
+ shows that the proposed frame length fully matches the numerical solution
  in the full range of 
 \begin_inset Formula $C_{t}$
 \end_inset
@@ -3372,12 +3378,11 @@ reference "fig:Percentages-of-saving_ct_alpha_perfect"
 \end_inset
 
  illustrates simulation results for the reading time reduction of the proposed
- optimal TCRA frame length 
+ optimal TCA frame length 
 \begin_inset Formula $L_{TCA}$
 \end_inset
 
- wrt\SpecialChar \@.
- the classical optimal frame length 
+ with reference to the classical optimal frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -3433,8 +3438,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Reading time reduction using the proposed TCRA compared to the conventional
- frame length 
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TCA}$
+\end_inset
+
+ using the proposed TCA as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -3470,7 +3482,7 @@ reference "fig:Percentages-of-saving_ct_alpha_with"
 
 \end_inset
 
- shows the mean reduction of the reading time using the proposed TCRA frame
+ shows the mean reduction of the reading time using the proposed TCA frame
  length compared to the conventional frame length 
 \begin_inset Formula $L=n$
 \end_inset
@@ -3526,8 +3538,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Percentages of saving time using the proposed TCRA compared to the conventional
- frame length 
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TCA}$
+\end_inset
+
+ using the proposed TCA as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -3595,13 +3614,12 @@ In this section, a new reading efficiency metric called Multiple Collision
  for each number of collided tags.
  Hence, a novel closed form solution for the optimum FSA frame length is
  proposed which maximizes the proposed efficiency metric.
- Then, calculations of these coefficients based on a simple RFID reader
- model to show how the proposed system could be applied on real-life application
-s.
+ Then, calculating these coefficients based on a simple RFID reader model
+ to show how the proposed system could be applied on real-life applications.
 \end_layout
 
 \begin_layout Subsection
-Closed Form Solution For Multiple Collision Recovery Aware System
+Closed Form Solution for Multiple Collision Recovery Aware System
 \end_layout
 
 \begin_layout Standard
@@ -4143,7 +4161,7 @@ reference "eq:closed form-2"
 
 \end_inset
 
-), the proposed equation gives a linear relation in reference to the number
+), the proposed equation gives a linear relation with reference to the number
  of tags 
 \begin_inset Formula $n$
 \end_inset
@@ -4215,7 +4233,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename collision_recovery_coefficients.emf
-	lyxscale 18
+	lyxscale 50
 	width 65page%
 	height 25pheight%
 
@@ -4228,8 +4246,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulation results for the average collision recovery coefficients versus
- SNR using the strongest tag reply receiver.
+Simulation results for the average collision recovery coefficients 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ as a function of the SNR using the strongest tag reply receiver.
  
 \begin_inset Formula $\alpha_{2}$
 \end_inset
@@ -4282,8 +4303,8 @@ key "standard"
 \end_inset
 
 .
- If any single bit error occurs in this packet, the total packet has to
- be considered lost.
+ If any single bit error occurs in this packet, the total packet must be
+ considered lost.
  Therefore, the meaning of the collision recovery probability coefficients
  
 \begin_inset Formula $\alpha_{i}$
@@ -4338,7 +4359,7 @@ key "2010_Trans_CR"
 \begin_inset Formula $h$
 \end_inset
 
- follow Rayleigh fading.
+ follows Rayleigh fading.
  The channel coefficients are independent zero mean circularly symmetric
  complex Gaussian random variables with normalized energy 
 \begin_inset Formula $E\left\{ \left|h\right|^{2}\right\} =1$
@@ -4373,7 +4394,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Frame length comparison between the proposed formula in (
+Normalized frame length 
+\begin_inset Formula $(L/n)$
+\end_inset
+
+ comparison between the proposed formula in (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:closed form-2"
@@ -4415,7 +4440,7 @@ reference "fig:Collision-recovery-coefficients"
 \end_inset
 
  is used, and the tags used FM0 as an encoding scheme.
- Finally, to clarify the worst case effect of the collision recovery coefficient
+ Finally, to clarify the worst-case effect of the collision recovery coefficient
 s, we used the highest symbol rate 
 \begin_inset Formula $\unit[\mbox{BLF}=640]{kHz}$
 \end_inset
@@ -4522,8 +4547,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean reading time reduction using the proposed MCR compared to the conventional
- frame length 
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{MCRC}$
+\end_inset
+
+ using the proposed MCRC as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -4666,8 +4698,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean reading time reduction using the proposed MCRA compared to the conventional
- frame length 
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{MCRC}$
+\end_inset
+
+ using the proposed MCRC as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -5116,7 +5155,7 @@ According to the practical ranges of the collision recovery coefficients
 \begin_inset Formula $C_{t}.$
 \end_inset
 
- Thus their signs will be: 
+ Thus, their signs will be: 
 \begin_inset Newline newline
 \end_inset
 
@@ -5242,7 +5281,7 @@ name "fig:Quantized-Frame-Length-cr-t"
 
 \begin_layout Plain Layout
 Normalized optimum frame length 
-\begin_inset Formula $L_{_{TAMCRC}}$
+\begin_inset Formula $L_{_{TAMCRA}}$
 \end_inset
 
  as a function of the slot duration constant 
@@ -5312,7 +5351,7 @@ L_{TAMCRC}=\left(-\frac{b}{4a}-S+0.5\sqrt{-4S^{2}-2P+\frac{q}{S}}\right)\cdot n\
 
 
 \size default
-The proposed equation gives a linear relation in reference to the number
+The proposed equation gives a linear relation with reference to the number
  of tags 
 \begin_inset Formula $n$
 \end_inset
@@ -5436,7 +5475,7 @@ reference "fig:Quantized-Frame-Length-cr-t"
 
 \end_inset
 
- shows that the proposed frame length fully match the numerical solution
+ shows that the proposed frame length fully matches the numerical solution
  in the full range of 
 \begin_inset Formula $C_{t}$
 \end_inset
@@ -5551,8 +5590,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean reading time reduction using the proposed TMCRA compared to the conventiona
-l frame length 
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TMCRA}$
+\end_inset
+
+ using the proposed TMCRA as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -5657,7 +5703,7 @@ reference "fig:Percentages-of-saving-TMCRA-Estimation"
 .
  FSA with perfect number of tags estimation algorithm leads to less number
  of iterations in the reading process.
- Thus it results the lower bound of the mean reduction in reading time.
+ Thus, it results the lower bound of the mean reduction in reading time.
  On the other hand, FSA with simple estimation algorithm e.g.
  Lower bound leads to more number of iteration and higher percentage of
  saving time.
@@ -5687,8 +5733,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean reading time reduction using the proposed TMCRA compared to the conventiona
-l frame length 
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TMCRC}$
+\end_inset
+
+ using the proposed TMCRA as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -5913,8 +5966,16 @@ name "fig:Summary_with_no_patent"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Average reading time of the proposed systems, conventional FSA and the theoretic
-al limit 
+Average reading time 
+\begin_inset Formula $\tau$
+\end_inset
+
+ of the proposed systems, conventional FSA and the theoretical limitas a
+ function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Main_comp_no_patent"
@@ -6045,7 +6106,7 @@ n algorithm is more than the percentages of saving time using the proposed
  ML number of tags estimation.
  This is because the total identification time with simple number of tags
  estimation is more than with the proposed ML number of tags estimation.
- Thus the number of reading cycles and frame length adaptation with simple
+ Thus, the number of reading cycles and frame length adaptation with simple
  number of tags estimation is more than the number of reading cycles with
  the proposed number of tags estimation.
  However, the average reading time for DFSA using the proposed frame length
@@ -6076,7 +6137,19 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Performance analysis for the proposed frame length formulas
+Performance analysis for the proposed frame length formulas, where 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{2}=0.7$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}=0.6$
+\end_inset
+
+
 \size small
  
 \size default
@@ -6560,10 +6633,9 @@ key "standard"
 \end_inset
 
 , the tags could not be modified.
- Thus in the next chapter, backwards compatible improvement of the EPCglobal
- Class 1 Gen 2 standard will be proposed.
- This proposed system is compatible with the EPCglobal C1 G2 standards,
- i.e.
+ Consequently, in the next chapter, backwards compatible improvement of
+ the EPCglobal Class 1 Gen 2 standard will be proposed.
+ The proposed system is compatible with the EPCglobal C1 G2 standards, i.e.
  the proposed tags could be jointly operated with conventional tags and
  identified by conventional readers without affecting the performance.
  Additionally, conventional tags can also be operated together with the

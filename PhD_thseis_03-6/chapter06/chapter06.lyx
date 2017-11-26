@@ -228,13 +228,13 @@ reference "fig:Tag-response-of"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename psr_preamble_new.emf
-	lyxscale 20
+	lyxscale 40
 	width 50page%
 
 \end_inset
@@ -358,14 +358,14 @@ Arbitrate
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename timing.emf
 	lyxscale 40
-	width 65page%
+	width 68page%
 
 \end_inset
 
@@ -2959,8 +2959,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename eff_comp_8_colours.emf
-	lyxscale 20
+	lyxscale 50
 	width 65page%
+	height 25pheight%
 
 \end_inset
 
@@ -2971,8 +2972,16 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Reading efficiency for the conventional FSA and different acknowledgment
- scenarios using 8-orthogonal pilots 
+Average FSA reading efficiency 
+\begin_inset Formula $\eta$
+\end_inset
+
+ for the conventional FSA and different acknowledgment scenarios using 8-orthogo
+nal pilots as a fubction of the normalized frame length 
+\begin_inset Formula $L/n$
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Reading-efficiency-for"
@@ -3117,8 +3126,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename mean_reading_time_comp_new.emf
-	lyxscale 17
+	lyxscale 50
 	width 65page%
+	height 25pheight%
 
 \end_inset
 
@@ -3129,7 +3139,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison between the average reading time for different systems 
+Comparison between the average reading time 
+\begin_inset Formula $\tau$
+\end_inset
+
+ as a function of the number of tags in the reading area 
+\begin_inset Formula $n$
+\end_inset
+
+ for different systems 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Mean-reading-time"

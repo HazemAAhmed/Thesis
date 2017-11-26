@@ -228,13 +228,13 @@ reference "fig:Tag-response-of"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename psr_preamble_new.emf
-	lyxscale 20
+	lyxscale 40
 	width 50page%
 
 \end_inset
@@ -358,14 +358,14 @@ Arbitrate
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename timing.emf
 	lyxscale 40
-	width 65page%
+	width 68page%
 
 \end_inset
 
@@ -1608,7 +1608,7 @@ reference "tab:Set-of-8"
 \end_inset
 
 .
- If yes, the reader considers it as conventional tag.
+ If yes, the reader considers it as a conventional tag.
 \begin_inset Float figure
 wide false
 sideways false
@@ -1773,7 +1773,7 @@ Query
 \begin_inset Quotes erd
 \end_inset
 
- command o the tags asking them for their 
+ command to the tags asking them for their 
 \begin_inset Formula $RN16s$
 \end_inset
 
@@ -2959,8 +2959,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename eff_comp_8_colours.emf
-	lyxscale 20
-	width 67page%
+	lyxscale 50
+	width 65page%
+	height 25pheight%
 
 \end_inset
 
@@ -3119,7 +3120,7 @@ status open
 	filename mean_reading_time_comp_new.emf
 	lyxscale 17
 	width 65page%
-	height 27pheight%
+	height 25pheight%
 
 \end_inset
 
@@ -3179,9 +3180,9 @@ key "2013_orthogonal"
  maximum reading efficiency.
  Which means that, 2 tags on average are identified per slot.
  However, this method is not compatible with the EPCglobal C1 G2 standard
- and can not be applied in practice, because it it will produce collision
+ and can not be applied in practice, because it will produce a collision
  in the tag side.
- The second scenario uses only single acknowldgment system.
+ The second scenario uses only single acknowledgment system.
  It acknowledges only a single tag and neglect the other tags replies.
  It results 
 \begin_inset Formula $\unit[67]{\%}$
@@ -3276,10 +3277,6 @@ key "standard"
 \end_inset
 
 .
- This gain is only attainable using the modified compatible tags.
- However, the proposed maximum performance using the conventional tags is
- presented in the results of chapter 5.
- 
 \end_layout
 
 \end_body

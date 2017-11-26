@@ -138,7 +138,7 @@ The advanced RFID readers, which are proposed in this thesis decrease the
 n error compared to the other state-of-art proposals.
  Moreover, the proposed estimation algorithm reduces the total identification
  time by almost 
-\begin_inset Formula $\unit[10]{\%}$
+\begin_inset Formula $\unit[8]{\%}$
 \end_inset
 
  compared to the best other state-of-art solution.
@@ -163,7 +163,7 @@ Time aware frame length
 \end_inset
 
  frame length.
- In this proposal, the frame length considers only the differences in slots
+ In this proposal, the frame length considers only the difference in slots
  durations is considered and no collision recovery effect is considered.
  A closed form solution for the optimum frame length is analytically derived.
  The proposed solution results 
@@ -188,8 +188,9 @@ Multiple collision recovery aware
  This proposal considers the differences between the collision recovery
  coefficients.
  Thus, it considers that, the collision recovery capability strongly depends
- on the umber of the collided tags.
- However, it assumes constant slots durations regardless the slot type.
+ on the number of the collided tags.
+ However, this proposal assumes constant slots durations regardless the
+ slot type.
  A closed form solution for the optimum frame length is analytically derived.
  The proposed solution results 
 \begin_inset Formula $\unit[12]{\%}$
@@ -275,9 +276,9 @@ key "standard"
 \begin_layout Standard
 In chapter 6, backwards compatible improvement of the EPCglobal Class 1
  Gen 2 standard is proposed.
- It proposes some modifications on the communication signal of Tag/reader.
- Using these modifications, a new system is presented approaches the theoretical
- lower reading time limit of the EPCglobal C1 G2 standard.
+ It presents some modifications on the communication signal of Tag/reader.
+ Using these modifications, the new system approaches the theoretical lower
+ reading time limit of the EPCglobal C1 G2 standard.
  The proposed system is compatible with the EPCglobal C1 G2 standards, i.e.
  the proposed tags could be jointly operated with conventional tags and
  identified by conventional readers without affecting the performance.
@@ -292,9 +293,9 @@ Open Issues and Future Work
 \begin_layout Standard
 Despite the effort invested in this dissertation, there are still some remaining
  issues left that require further investigations.
- To mention but some examples, the influence of the initial frame length
- of the proposed system is neglected.
- The influence of the initial frame length should be analyzed.
+ For instance, the influence of the initial frame length of the proposed
+ system is neglected, and the influence of the initial frame length should
+ be analyzed.
  In addition, the MAC layer knowledge of the current SNR should send a feedback
  signal to the PHY layer.
  In this signal, the MAC layer decide to start resolving the current collided
@@ -304,7 +305,7 @@ Despite the effort invested in this dissertation, there are still some remaining
  be better to leave this slot to a normal collided slot.
  On the other hand, when the current value of the SNR is above this threshold,
  it would be better to resolve this collided slot to a successful slot.
- Finally, practical assessment of the proposed work through measurements
+ Finally, a practical assessment of the proposed work through measurements
  would be beneficial for a more comprehensive evaluation.
 \end_layout
 

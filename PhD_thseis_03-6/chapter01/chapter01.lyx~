@@ -89,17 +89,18 @@ Introduction
 \end_layout
 
 \begin_layout Standard
+Radio Frequency Identification (RFID) 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-prefix "List of Abbreviations"
+prefix "List of Symbols"
 symbol "RFID"
 description "Radio Frequency Identification"
 
 \end_inset
 
- Radio Frequency Identification (RFID) is a technology that uses communication
- through radio waves to transfer data between a reader and electronic tags
- attached to an object, either to be identified or tracked.
+is a technology that uses communication through radio waves to transfer
+ data between a reader and electronic tags attached to an object, either
+ to be identified or tracked.
  The RFID technology has benefits in reference to other identification technolog
 ies 
 \begin_inset CommandInset citation
@@ -433,8 +434,8 @@ A brief outline of this document is presented as follows.
  Chapter 6 provides compatible improvements of the EPCglobal C1 G2 standard.
  In this system, such modifications to tags/readers, can acknowledge more
  than a single tag per slot.
- To sum up, highlights the main issues addressed in this thesis and outlining
- some of the future research aspects.
+ Finally, chapter 7 sums up the thesis by highlighting the main issues addressed
+ in this thesis and outlining some of the future research aspects.
 \end_layout
 
 \end_body

@@ -167,7 +167,7 @@ Time aware frame length
  durations is considered and no collision recovery effect is considered.
  A closed form solution for the optimum frame length is analytically derived.
  The proposed solution results 
-\begin_inset Formula $\unit[10]{\%}$
+\begin_inset Formula $\unit[8]{\%}$
 \end_inset
 
  average saving in reading time compared to the conventional FSA with frame

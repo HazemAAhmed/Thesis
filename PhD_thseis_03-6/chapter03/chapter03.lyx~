@@ -150,7 +150,7 @@ status open
 \begin_inset Graphics
 	filename PHY_anti_collision.emf
 	lyxscale 15
-	width 60page%
+	width 55page%
 
 \end_inset
 
@@ -959,7 +959,7 @@ status open
 \begin_inset Graphics
 	filename Frame_slotted_ALOHA.emf
 	lyxscale 15
-	width 60page%
+	width 65page%
 
 \end_inset
 
@@ -1267,8 +1267,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename reading_efficiency.emf
-	lyxscale 20
+	lyxscale 50
 	width 60page%
+	height 25pheight%
 
 \end_inset
 
@@ -1279,7 +1280,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Frame Slotted ALOHA Reading efficiency, maximum reached for 
+Conventional FSA reading efficiency 
+\begin_inset Formula $\eta_{conv}$
+\end_inset
+
+ as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+, maximum reached for 
 \begin_inset Formula $L=n=64$
 \end_inset
 
