@@ -2933,8 +2933,8 @@ reference "fig:System-has-no-time"
 \begin_inset Formula $L_{ini}=16$
 \end_inset
 
-, which is the conventional initial frame length used in EPCglobal standard
- 
+, which is the conventional initial frame length used in EPCglobal C1 G2
+ standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"

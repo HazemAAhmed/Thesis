@@ -150,7 +150,7 @@ To overcome these pitfalls, this chapter proposes a system that is capable
 
 \begin_layout Standard
 This chapter is organized as follows: Section 1 presents a brief discussion
- about the conventional reading process using the EPCglobal C1 G2 standards.
+ about the conventional reading process using the EPCglobal C1 G2 standard.
  In section 2, we describe the proposed new system including the modifications
  of the tags and the reader.
  The performance of the proposed system will be analyzed in section 3.
@@ -164,7 +164,7 @@ EPCglobal C1 G2 Reading Process
 
 \begin_layout Standard
 This section will describe, the conventional reading algorithm of the EPCglobal
- C1 G2 standards.
+ C1 G2 standard.
  The reader initially powers the tags in the reading area with a 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -522,7 +522,7 @@ Switch
 \end_layout
 
 \begin_layout Standard
-According to the EPCglobal C1 G2 standards 
+According to the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -1335,7 +1335,7 @@ Switch
 \begin_inset Formula $16$
 \end_inset
 
- bits command from the future use part of EPCglobal C1 G2 standards (
+ bits command from the future use part of EPCglobal C1 G2 standard (
 \shape slanted
 cf.
 
@@ -3139,7 +3139,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison between the average reading time for different systems 
+Comparison between the average reading time 
+\begin_inset Formula $\tau$
+\end_inset
+
+ as a function of the number of tags in the reading area 
+\begin_inset Formula $n$
+\end_inset
+
+ for different systems 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Mean-reading-time"

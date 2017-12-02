@@ -113,7 +113,7 @@ The main focus of the thesis is to optimize the DFSA anti-collision algorithm
  Since my work is focused on passive UHF RFID systems that work with simple
  tags which are only capable of in-complex operations, almost all proposed
  changes and signal processing is performed on the reader side except in
- chapter 6, a new compatible changes of EPCglobal C1 G2 standards are proposed.
+ chapter 6, a new compatible changes of EPCglobal C1 G2 standard are proposed.
 \end_layout
 
 \begin_layout Section
@@ -138,7 +138,7 @@ The advanced RFID readers, which are proposed in this thesis decrease the
 n error compared to the other state-of-art proposals.
  Moreover, the proposed estimation algorithm reduces the total identification
  time by almost 
-\begin_inset Formula $\unit[8]{\%}$
+\begin_inset Formula $\unit[10]{\%}$
 \end_inset
 
  compared to the best other state-of-art solution.
@@ -167,7 +167,7 @@ Time aware frame length
  durations is considered and no collision recovery effect is considered.
  A closed form solution for the optimum frame length is analytically derived.
  The proposed solution results 
-\begin_inset Formula $\unit[10]{\%}$
+\begin_inset Formula $\unit[8]{\%}$
 \end_inset
 
  average saving in reading time compared to the conventional FSA with frame
@@ -274,8 +274,8 @@ key "standard"
 \end_layout
 
 \begin_layout Standard
-In chapter 6, backwards compatible improvement of the EPCglobal Class 1
- Gen 2 standard is proposed.
+In chapter 6, backwards compatible improvement of the EPCglobal C1 G2 standard
+ is proposed.
  It presents some modifications on the communication signal of Tag/reader.
  Using these modifications, the new system approaches the theoretical lower
  reading time limit of the EPCglobal C1 G2 standard.

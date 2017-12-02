@@ -150,7 +150,7 @@ To overcome these pitfalls, this chapter proposes a system that is capable
 
 \begin_layout Standard
 This chapter is organized as follows: Section 1 presents a brief discussion
- about the conventional reading process using the EPCglobal C1 G2 standards.
+ about the conventional reading process using the EPCglobal C1 G2 standard.
  In section 2, we describe the proposed new system including the modifications
  of the tags and the reader.
  The performance of the proposed system will be analyzed in section 3.
@@ -164,7 +164,7 @@ EPCglobal C1 G2 Reading Process
 
 \begin_layout Standard
 This section will describe, the conventional reading algorithm of the EPCglobal
- C1 G2 standards.
+ C1 G2 standard.
  The reader initially powers the tags in the reading area with a 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -522,7 +522,7 @@ Switch
 \end_layout
 
 \begin_layout Standard
-According to the EPCglobal C1 G2 standards 
+According to the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -1335,7 +1335,7 @@ Switch
 \begin_inset Formula $16$
 \end_inset
 
- bits command from the future use part of EPCglobal C1 G2 standards (
+ bits command from the future use part of EPCglobal C1 G2 standard (
 \shape slanted
 cf.
 
@@ -1351,7 +1351,7 @@ key "standard"
 \end_layout
 
 \begin_layout Standard
-As discussed before, EPCglobal C1G2 standards can't acknowledge more than
+As discussed before, EPCglobal C1G2 standard can't acknowledge more than
  one tag per slot.
  On the other hand, the proposed system should benefit from the collision
  resolving capabilities of the modern readers.
@@ -2471,7 +2471,7 @@ reference "tab:System-Parameters-of"
 
 \end_inset
 
- shows numerical values from the EPCglobal C1 G2 standards 
+ shows numerical values from the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -2697,7 +2697,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-System Parameters of EPCglobal C1 G2 standards 
+System Parameters of EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -3285,7 +3285,7 @@ key "2013_multiple_ACK"
 
 , respectively.
  Finally, the proposed system approaches the theoretical limit of the EPCglobal
- C1 G2 standards 
+ C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"

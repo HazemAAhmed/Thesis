@@ -246,7 +246,7 @@ Radio Frequency Identification (RFID) is a rapidly emerging technology that
  slots.
  Modern physical layer systems have the capability of converting part of
  the collided slots into successful slots.
- This is called 
+ This capability is called 
 \begin_inset Quotes eld
 \end_inset
 
@@ -259,9 +259,18 @@ Collision Recovery
  collided, or empty.
  In addition, the readers are able to terminate a slot earlier upon recognizing
  that it is empty.
- The performance of such systems depends strongly on two main parameters:
- The precise estimation of the number of tags in the reading area, and the
- optimizations of the FSA frame length.
+ This capability is called 
+\begin_inset Quotes eld
+\end_inset
+
+Time-Aware
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The performance of the FSA depends strongly on two main parameters: The
+ precise estimation of the number of tags in the reading area, and the optimizat
+ions of the FSA frame length.
 \end_layout
 
 \begin_layout Standard

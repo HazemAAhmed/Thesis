@@ -92,7 +92,6 @@ Introduction
 Radio Frequency Identification (RFID) 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-prefix "List of Symbols"
 symbol "RFID"
 description "Radio Frequency Identification"
 
@@ -175,7 +174,7 @@ key "standard"
 
 \end_inset
 
- is the most commonly used RFID standards in logistics.
+ is the most commonly used RFID standard in logistics.
  It is based on Time Division Multiple Access (TDMA), which leads to a certain
  probability of tag-collisions on the communications channel.
  Owing to their low price and simple design, tags can neither sense the

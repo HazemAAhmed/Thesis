@@ -174,7 +174,7 @@ key "standard"
 
 \end_inset
 
- is the most commonly used RFID standards in logistics.
+ is the most commonly used RFID standard in logistics.
  It is based on Time Division Multiple Access (TDMA), which leads to a certain
  probability of tag-collisions on the communications channel.
  Owing to their low price and simple design, tags can neither sense the
@@ -267,16 +267,6 @@ description "Medium Access Control"
 \end_layout
 
 \begin_layout Enumerate
-The accuracy of the FSA frame length: If the frame length is higher than
- the optimum value, many empty slots in this frame will be present, which
- reduces the reading efficiency.
- If the frame length is lower than the optimum value, this will result many
- collided slots, which again reduces the reading efficiency.
- Thereby, choosing the optimum value in FSA frame length is the most crucial
- optimization parameter in such application.
-\end_layout
-
-\begin_layout Enumerate
 The robustness of the number of tags estimation: The optimum FSA frame length
  strongly depends on the actual number of tags in the reading area.
  However, in real-world applications, the number of tags of the reading
@@ -284,6 +274,16 @@ The robustness of the number of tags estimation: The optimum FSA frame length
  Therefore, the more precise the number of tags estimation, the better the
  reading efficiency.
  
+\end_layout
+
+\begin_layout Enumerate
+The accuracy of the FSA frame length: If the frame length is higher than
+ the optimum value, many empty slots in this frame will be present, which
+ reduces the reading efficiency.
+ If the frame length is lower than the optimum value, this will result many
+ collided slots, which again reduces the reading efficiency.
+ Thereby, choosing the optimum value in FSA frame length is the most crucial
+ optimization parameter in such application.
 \end_layout
 
 \begin_layout Standard
@@ -414,12 +414,12 @@ Document Outline
 A brief outline of this document is presented as follows.
  Chapter 2 introduces the historical background and literature survey of
  RFID systems.
- Chapter 3 presents the collision problem in the RFID systems and the existing
- anti-collision algorithms.
- Moreover, the concept of proposed cross-layer anti-collision algorithm
+ Chapter 3 presents the RFID collision problem and the existing anti-collision
+ algorithms.
+ Moreover, the concept of the proposed cross-layer anti-collision algorithm
  will be defined.
- Chapter 4 reports the most commonly used number of tags estimation algorithms
- in the RFID system.
+ Chapter 4 reports the most commonly used number of RFID tags estimation
+ algorithms.
  Afterwards, the proposed collision recovery aware maximum likelihood estimation
  algorithm is discussed.
  In this part, a closed-form solution for the estimated number of tags in

@@ -777,7 +777,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Slot durations during tag inventory rounds for the ISO 18000-6C standard
+Slot durations during tag inventory rounds for the EPCglobal C1 G2 standard
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -888,7 +888,7 @@ Available slots duration constants
 \begin_inset Formula $C_{t}$
 \end_inset
 
- of the EPCglobal C1 G2 standards 
+ of the EPCglobal C1 G2 standard 
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Slots-durations-constant-1"
@@ -1974,7 +1974,7 @@ reference "tab:Slots-durations-constant-1"
 
 \end_inset
 
- shows the values of the slot duration constant of the EPCglobal C1 G2 standards.
+ shows the values of the slot duration constant of the EPCglobal C1 G2 standard.
  According to table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4287,7 +4287,7 @@ name "fig:Collision-recovery-coefficients"
 \begin_layout Standard
 The main advantage of this reader is that it does not need any channel state
  information (CSI) to recover the strongest tag.
- According to EPCglobal C1G2 standard 
+ According to EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -5505,8 +5505,8 @@ reference "fig:Percentages-of-saving-TMCRA-perfect"
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 
-, as it is considered as a practical value used in the EPCglobal class 1
- gen 2 standards 
+, as it is considered as a practical value used in the EPCglobal C1 G2 standards
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -6634,8 +6634,8 @@ key "standard"
 
 , the tags could not be modified.
  Consequently, in the next chapter, backwards compatible improvement of
- the EPCglobal Class 1 Gen 2 standard will be proposed.
- The proposed system is compatible with the EPCglobal C1 G2 standards, i.e.
+ the EPCglobal C1 G2 standard will be proposed.
+ The proposed system is compatible with the EPCglobal C1 G2 standard, i.e.
  the proposed tags could be jointly operated with conventional tags and
  identified by conventional readers without affecting the performance.
  Additionally, conventional tags can also be operated together with the

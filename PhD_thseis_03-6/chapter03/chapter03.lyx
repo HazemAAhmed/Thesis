@@ -77,20 +77,22 @@ RFID Anti-collision Protocols
 This chapter presents the most common anti-collisions algorithms for passive
  RFID systems, either by using the physical layer or the MAC layer.
  It will emphasize the anti-collision algorithms which are compatible with
- the EPCglobal C1 G2 standard, as t is the main focus of this thesis.
+ the EPCglobal C1 G2 standard, as it is the main focus of this thesis, because
+ it is the most suitable standard for the dense passive RFID applications.
 \end_layout
 
 \begin_layout Standard
-This chapter is organized as follows: section 1 gives an overview about
+This chapter is organized as follows: Section 1 gives an overview about
  the physical layer anti-collision algorithms.
- In section 2, different MAC-layer anti-collision algorithms are presented,
- thus clarifying the main differences between them.
+ In section 2, different MAC-layer anti-collision algorithms are presented.
  Afterwards, a brief description for the EPCglobal C1 G2 reading process
  will be presented in section 3.
- Section 4 will give an introduction about the collision recovery and the
- slots duration in modern RFID readers and the effect of these parameters
- in MAC-layer anti-collision algorithm, which will be focused on, in the
- remaining part of this thesis.
+ Section 4 will give an introduction about the main PHY-layer parameters,
+ e.g.
+ the collision recovery and the slots duration in modern RFID readers.
+ Then, it will show the effect of these parameters on the MAC-layer anti-collisi
+on algorithm, which will be the main focus of the remaining part in this
+ thesis.
  
 \end_layout
 
@@ -100,7 +102,7 @@ PHY-Layer Anti-collision Protocols
 
 \begin_layout Standard
 Different physical layer anti-collision protocols have been developed to
- separate colliding signals on the physical layer.
+ separate colliding tag signals on the physical layer.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -127,7 +129,12 @@ description "Frequency Division Multiple Access"
 
 \begin_layout Standard
 In this protocol, the frequency band is divided into different sub-frequency
- bands and tags are distributed among them 
+ bands and tags are distributed among them .
+ However, this technique adds complexity to the system.
+ Readers should be able to decode different frequencies at the same time.
+ Moreover, tags should be able to select its desirable sub-channel, which
+ is incompatible with EPCglobal C1 G2.
+ Only active tags can do such function 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "FDMA"
@@ -135,15 +142,10 @@ key "FDMA"
 \end_inset
 
 .
- However, this technique adds complexity to the system.
- Readers should be able to decode different frequencies at the same time.
- Moreover, tags should be able to select its desirable sub-channel, which
- is incompatible with EPCglobal C1 G2.
- Only active tags can do such function.
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -233,9 +235,8 @@ key "CDMA"
 .
  CDMA is the ideal procedure for many applications, e.g.
  navigation systems.
- However in case of RFID systems, it is not compatible with EPCglobal C1
- G2, as the cost of the tags will severely increase.
- Thereby, it is not a sufficient protocol within the scope of this thesis.
+ However, the cost of the tags will severely increase.
+ Thereby, it is not an optimum protocol for dense RFID applications.
 \end_layout
 
 \begin_layout Paragraph*
@@ -251,11 +252,10 @@ description "Time Division Multiple Access"
 \end_layout
 
 \begin_layout Standard
-In this protocol, a single frequency band is divided to time slots and is
- assigned to tags.
- One of the most important features of this technique is that each tag must
- be synchronized to the time slots and send its information at the beginning
- of the selected slot 
+In this protocol, a single frequency band is divided into time slots and
+ assigned to the tags.
+ In this technique, each tag must be synchronized to the time slots and
+ send its information at the beginning of the selected slot 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "TDMA"
@@ -270,24 +270,15 @@ key "TDMA"
  or distributed to the tags.
 \end_layout
 
-\begin_layout Standard
-In UHF passive dense RFID system, both TDMA and SDMA are the most commonly
- used PHY-layer anti-collision protocols.
- In these systems, there is only a single reader versus a large number of
- tags.
- Thus, there is no problem to increase the complexity of the reader.
- However, the tags should be as cheap and simple as possible.
- 
-\end_layout
-
 \begin_layout Section
 MAC-Layer Anti-collision Protocols
 \end_layout
 
 \begin_layout Standard
-Unfortunately, the physical layer anti-collision proposals are not cost
- effective for the market challenges of the passive RFID technologies.
- Therefore, collision solutions are commonly implemented at the MAC-layer.
+Physical layer anti-collision proposals are not cost effective for the market
+ challenges of the passive RFID technologies, because they require additional
+ modifications in the tags.
+ Therefore, tags collisions solutions are commonly implemented at the MAC-layer.
  This section will discuss the most common MAC-layer anti-collision protocols.
 \end_layout
 
@@ -301,33 +292,40 @@ reference "fig:Common-existing-MAC-Layer"
 
  presents the main classification of the most common MAC-layer anti-collision
  protocols.
- According to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Common-existing-MAC-Layer"
-
+ MAC-layer anti-collision protocols is classified into two main categories:
+ Deterministic protocols and probabilistic protocols.
+ Deterministic or 
+\begin_inset Quotes eld
 \end_inset
 
-, MAC-layer anti-collision protocols is classified into two main categories:
- deterministic protocols and probabilistic protocols.
- Deterministic protocols are used in systems with known number of tags to
- be identified in the reading area.
- These types of protocols are mainly based on tree algorithms for the identifica
-tion processes.
- Probabilistic protocols are used in systems with an unknown number of tags.
- Probabilistic protocols are mainly based on ALOHA algorithm.
+Tree-based
+\begin_inset Quotes erd
+\end_inset
+
+ protocols are used in systems with known number of tags to be identified
+ in the reading area, because these protocols identify the depth of the
+ tree by knowing the number of tags.
+ Probabilistic or 
+\begin_inset Quotes eld
+\end_inset
+
+ALOHA-based
+\begin_inset Quotes erd
+\end_inset
+
+ protocols are used in systems with an unknown number of tags.
  
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename MAC_anti_collision.emf
 	lyxscale 15
-	width 55page%
+	width 50page%
 
 \end_inset
 
@@ -388,15 +386,15 @@ Query
 
  command, transmitted from the reader, and the response of tags in the reading
  area.
- If there is more than one tag reply in one slot, a collision occurs and
- the reader tries to split the tags into two subgroups.
+ If there is more than single tag reply in one slot, a collision occurs
+ and the reader tries to split the tags into two subgroups.
  The reader repeats the splitting procedure until it receives a single tag
  reply.
  Tree based anti-collision protocols can be classified into two groups:
 \end_layout
 
 \begin_layout Subsubsection*
-Binary tree
+Binary Tree
 \end_layout
 
 \begin_layout Standard
@@ -590,7 +588,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Query_tree.emf
-	lyxscale 13
+	lyxscale 20
 	width 45page%
 
 \end_inset
@@ -623,7 +621,7 @@ name "fig:Query-tree-anti-collision"
 \end_layout
 
 \begin_layout Subsubsection*
-Query tree
+Query Tree
 \end_layout
 
 \begin_layout Standard
@@ -839,7 +837,7 @@ status open
 \begin_inset Graphics
 	filename Slotted ALOHA.emf
 	lyxscale 13
-	width 55page%
+	width 45page%
 
 \end_inset
 
