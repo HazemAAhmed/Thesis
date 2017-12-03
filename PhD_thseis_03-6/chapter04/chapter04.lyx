@@ -115,7 +115,7 @@ Collision Recovery Aware Tag Estimation
 
  will be introduced.
  The proposed method takes into consideration the collision recovery probability
- from the physical layer.
+ of the physical layer.
  
 \end_layout
 
@@ -140,9 +140,6 @@ State-of-the-Art Estimation Algorithms
 \begin_layout Standard
 The performance of the FSA algorithm strongly depends on the accuracy of
  the number of tags estimation and the frame size.
- For fast identification of RFID tags, an estimation of the number of RFID
- tags with the highest possible accuracy is the key issue for FSA based
- protocol.
  The number of tags estimation function calculates the number of tags based
  on feedback from the previous frame, which includes the number of slots
  filled with empty, successful, and collided slots.
@@ -178,7 +175,7 @@ key "standard"
 
  proposes an alternative frame length adaptation mechanism without any prior
  tag estimation.
- Using this mechanism, the initial frame length is fixed 
+ Using this mechanism, the initial frame length is fixed with 
 \begin_inset Formula $Q_{ini}=4$
 \end_inset
 
@@ -205,15 +202,50 @@ g the value of
 \end_inset
 
 .
- c.f.
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Conventional-variable-frame"
+\end_layout
+
+\begin_layout Paragraph*
+Optimum-C Algorithm
+\end_layout
+
+\begin_layout Standard
+This algorithm is proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Optimum-C"
 
 \end_inset
 
- shows the flow diagram of the heuristics Q-slot family.
+, where the optimum value of 
+\begin_inset Formula $C$
+\end_inset
+
+ is calculated numerically versus the previous value of 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ This is done by simulating a passive RFID system for the complete range
+ of 
+\begin_inset Formula $Q\in\left[0,....,15\right]$
+\end_inset
+
+ for each 
+\begin_inset Formula $Q$
+\end_inset
+
+ and 
+\begin_inset Formula $C\in\left[0.1,...,0.5\right]$
+\end_inset
+
+ with step size 
+\begin_inset Formula $0.1$
+\end_inset
+
+.
+ At last, the best combination is the one which gives the minimum identification
+ delay.
+ 
 \end_layout
 
 \begin_layout Paragraph*
@@ -224,7 +256,7 @@ Algorithm
 \end_layout
 
 \begin_layout Standard
-This algorithm was proposed by 
+This algorithm is proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2007_Q+-"
@@ -304,64 +336,31 @@ QueryRep
 \end_inset
 
  is used when a collided slot is detected by the reader.
- The values of 
+ This algorithm gives more accurate results compared to the 
+\begin_inset Quotes eld
+\end_inset
+
+Optimum-C Algorithm
+\begin_inset Quotes erd
+\end_inset
+
+ as it optimizes two variables 
 \begin_inset Formula $C_{e}$
 \end_inset
 
-and 
+ and 
 \begin_inset Formula $C_{c}$
 \end_inset
 
- are calculated numerically regardless of the number of tags in the reading
- area.
-\end_layout
-
-\begin_layout Paragraph*
-Optimum-C Algorithm:
-\end_layout
-
-\begin_layout Standard
-This algorithm was proposed by 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Optimum-C"
-
-\end_inset
-
-, where the optimum value of 
+ instead of single variable 
 \begin_inset Formula $C$
 \end_inset
 
- is calculated numerically versus the previous value of 
-\begin_inset Formula $Q$
-\end_inset
-
 .
- This is done by simulating a passive RFID system for the complete range
- of 
-\begin_inset Formula $Q\in\left[0,....,15\right]$
-\end_inset
-
- for each 
-\begin_inset Formula $Q$
-\end_inset
-
- and 
-\begin_inset Formula $C\in\left[0.1,...,0.5\right]$
-\end_inset
-
- with step size 
-\begin_inset Formula $0.1$
-\end_inset
-
-.
- At last, the best combination is the one which gives the minimum identification
- delay.
- 
 \end_layout
 
 \begin_layout Paragraph*
-Slot Count Selection (SCS) Algorithm: 
+Slot Count Selection (SCS) Algorithm 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "SCS"
@@ -373,7 +372,7 @@ description "Slot Count Selection"
 \end_layout
 
 \begin_layout Standard
-This algorithm was proposed by 
+This algorithm is proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2007_SCS_Q"
@@ -392,7 +391,7 @@ key "2007_SCS_Q"
 \begin_inset Formula $C_{2}$
 \end_inset
 
- like using the 
+ similar to the 
 \begin_inset Formula $Q^{+-}$
 \end_inset
 
@@ -460,13 +459,20 @@ key "Aloha2_Floerkemeier"
 
 \end_inset
 
-, the heuristics Q-slot family is an, almost optimum anti-collision algorithm
- for small RFID networks, which have number of tags less than 
+, the heuristics Q-slot family is almost the mots optimum anti-collision
+ algorithm for small RFID networks, which have number of tags less than
+ 
 \begin_inset Formula $50$
 \end_inset
 
  tags.
- However, in a dense network, the performance of such algorithms is lowered.
+ However, in dense RFID networks, the performance of such algorithms is
+ decreased, because the more collided tags, the less accuracy of calculating
+ the constant 
+\begin_inset Formula $C$
+\end_inset
+
+, which increases the total reading time.
 \end_layout
 
 \begin_layout Subsection
@@ -498,19 +504,19 @@ key "Aloha2_Floerkemeier"
 \end_layout
 
 \begin_layout Paragraph*
-Lower Bound:
+Lower Bound
 \end_layout
 
 \begin_layout Standard
-This method was proposed by 
+This method is proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Vogt_1"
 
 \end_inset
 
-, taking a very trivial assumption for the lower bound of the number of
- tags in the reading area 
+, assuming a trivial assumption for the lower bound of the number of tags
+ in the reading area 
 \begin_inset Formula $\hat{n}$
 \end_inset
 
@@ -543,11 +549,13 @@ where
 \end_inset
 
 .
- 
+ The main advantage of this algorithm is the simplicity of its implementation.
+ However, it gives inaccurate results, when the number of tags in the reading
+ area is much higher than the frame length.
 \end_layout
 
 \begin_layout Paragraph*
-Schoute Algorithm:
+Schoute Algorithm
 \end_layout
 
 \begin_layout Standard
@@ -563,7 +571,7 @@ key "DFSA_shoute_Random"
 \begin_inset Formula $L=\hat{n}$
 \end_inset
 
- since this is a direct way to optimize the system throughput.
+ since this is a direct way to optimize the system's throughput.
  Schoute's method also supposes that the number of unidentified tags 
 \begin_inset Formula $\hat{n}$
 \end_inset
@@ -639,18 +647,36 @@ Therefore, Schoute's method estimates the number of estimated tags
  as follows:
 \begin_inset Formula 
 \begin{equation}
-\hat{n}_{i}=S+2.39\cdot C_{i}
+\hat{n}_{i}=S_{i}+2.39\cdot C_{i}
 \end{equation}
 
 \end_inset
 
-However, the supposed conditions in this method are too strict that some
+where 
+\begin_inset Formula $i$
+\end_inset
+
+ presents the frame index, 
+\begin_inset Formula $S_{i}$
+\end_inset
+
+, and 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ successively present the number of successful and collided slots in frame
+ 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ However, the supposed conditions in this method are too strict that some
  deviations would be generated if the real situation differs much from the
  strict conditions.
 \end_layout
 
 \begin_layout Paragraph*
-C-Ratio:
+C-Ratio
 \end_layout
 
 \begin_layout Standard
@@ -792,7 +818,7 @@ key "Aloha4_Vogt"
  where 
 \begin_inset Formula 
 \begin{equation}
-E_{exp}=L_{i}\left(1+\frac{1}{L_{i}}\right)^{n},S_{exp}=n\left(1+\frac{1}{L_{i}}\right)^{n-1},C_{exp}=L_{i}-E_{exp}-S_{exp}\label{eq:binomial}
+E_{exp}=L_{i}\left(1-\frac{1}{L_{i}}\right)^{n},S_{exp}=n\left(1-\frac{1}{L_{i}}\right)^{n-1},C_{exp}=L_{i}-E_{exp}-S_{exp}\label{eq:binomial}
 \end{equation}
 
 \end_inset
@@ -859,7 +885,7 @@ key "Chen"
 \begin_inset Formula $L$
 \end_inset
 
- slots.
+ total slots.
  In addition, he uses a multi-nomial distribution with 
 \begin_inset Formula $L$
 \end_inset
@@ -899,7 +925,7 @@ key "Vogt_1"
  and can be presented as: 
 \begin_inset Formula 
 \begin{equation}
-P_{e}=\left(1+\frac{1}{L}\right)^{n},\,P_{s}=\frac{n}{L}\left(1+\frac{1}{L}\right)^{n-1},\,P_{c}=1-P_{e}-P_{s}\label{eq:binomial_prob}
+P_{e}=\left(1-\frac{1}{L}\right)^{n},\,P_{s}=\frac{n}{L}\left(1-\frac{1}{L}\right)^{n-1},\,P_{c}=1-P_{e}-P_{s}\label{eq:binomial_prob}
 \end{equation}
 
 \end_inset
@@ -965,7 +991,7 @@ reference "eq:chen-1"
 \end_layout
 
 \begin_layout Subsection
-Performance Comparison for Existing Estimation Protocols
+Performance Comparison of Existing Estimation Protocols
 \end_layout
 
 \begin_layout Standard
@@ -999,9 +1025,7 @@ key "Modified_chen,simple_estimation_chen,2012_estimation_interpolation"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
+\size default
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1040,8 +1064,8 @@ key "DFSA_shoute_Random"
 \end_inset
 
 .
- It gives accurate results only when FSA frame length is equal to the number
- of tags 
+ It gives acceptable results only when FSA frame length is equal to the
+ number of tags 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -1053,8 +1077,8 @@ key "Chen"
 
 \end_inset
 
- is the most accurate estimation algorithm along the different values of
- 
+ is the most relative accurate estimation algorithm along the different
+ values of 
 \begin_inset Formula $L$
 \end_inset
 
@@ -1078,12 +1102,10 @@ key "2012_estimation_interpolation"
 \end_inset
 
  that maximizes the estimation probability.
- This disadvantage makes ML estimation not a practical solution for  dense
- RFID networks.
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1139,13 +1161,25 @@ reference "fig:Mean-identification-time"
 \end_inset
 
  displays another comparison metric, which is the mean identification time
- required to identify 
+ required to identify the number of 
 \begin_inset Formula $n$
 \end_inset
 
- number of tags.
+ tags.
  The comparison is between the average identification time using FSA algorithm
  with the most common existing number of tags estimation protocols.
+ Perfect estimation presents the mean identification time for FSA using
+ known number of tags.
+ The theoretical lower limit presents the theoretical minimum number of
+ slots using FSA to identify 
+\begin_inset Formula $n$
+\end_inset
+
+ number of tags, which is 
+\begin_inset Formula $n$
+\end_inset
+
+ slots.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1153,14 +1187,14 @@ reference "fig:Mean-identification-time"
 
 \end_inset
 
-, the ML estimation algorithm 
+, The ML estimation algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chen"
 
 \end_inset
 
- results better results compared to the other estimation algorithms.
+ gives better results compared to the other estimation algorithms.
  However, the numerical searching complexity of the ML estimator 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1168,8 +1202,7 @@ key "Chen"
 
 \end_inset
 
- might lead to numerical instability problems for simple low-end devices
- as described in 
+ limits the number of tags 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Letter_2012"
@@ -1177,9 +1210,8 @@ key "Letter_2012"
 \end_inset
 
 .
- This leads us to search for a method compromising between the accuracy
- of the protocol and the stability of its implementation for dense RFID
- networks.
+ This leads us to search for a method gives accepted accuracy and suitable
+ for dense RFID networks.
  Moreover, all these methods do not take into consideration the collision
  recovery capabilities effect of the modern RFID physical layer.
 \begin_inset Float figure
@@ -1276,7 +1308,7 @@ key "Aloha4_Vogt"
 
 , hence, considering the collision recovery probability.
  However, this method leads to multi-dimensional searching, which needs
- a lot of iterations and complex calculations.
+ many iterations and complex calculations.
 \end_layout
 
 \begin_layout Standard
@@ -1360,7 +1392,7 @@ where
 \begin_inset Formula $L$
 \end_inset
 
-, successively, and 
+, and 
 \begin_inset Formula $P_{e}$
 \end_inset
 
@@ -1372,11 +1404,11 @@ where
 \begin_inset Formula $P_{c}$
 \end_inset
 
- are the probabilities of empty, successful and collided transmissions per
- slot, respectively.
+ are respectively the probabilities of empty, successful and collided transmissi
+ons per slot.
  Owing to the fact that modern RFID readers have a collision recovery capability
-, thereby, the physical layer converts part of collided slots into successful
- slots based on the following relation:
+, thereby, the physical layer is able to convert part of collided slots
+ into successful slots based on the following relation:
 \end_layout
 
 \begin_layout Standard
@@ -1413,7 +1445,8 @@ where
 \end_inset
 
  are respectively the expected number of collided, successful, and empty
- slots after collision recovery of the system, where 
+ slots after collision recovery of the system.
+ 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -1434,7 +1467,7 @@ reference "fig:Physical-layer-collision"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1473,7 +1506,7 @@ name "fig:Physical-layer-collision"
 \end_layout
 
 \begin_layout Standard
-In the MAC layer, only the values of 
+On the MAC layer, only the values of 
 \begin_inset Formula $C$
 \end_inset
 
@@ -1559,24 +1592,10 @@ Thus,
 .
  Therefore, the proposed collision recovery aware ML conditional probability
  can be formalized as:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-P(\hat{n}|L,S,C,E,\alpha)=\frac{L!}{E_{b}!S_{b}!C_{b}!}P_{e}^{E_{b}}P_{s}^{S_{b}}P_{c}^{C_{b}}\label{eq:proposed probability}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1614,6 +1633,17 @@ name "fig:Approximation"
 
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P(\hat{n}|L,S,C,E,\alpha)=\frac{L!}{E_{b}!S_{b}!C_{b}!}P_{e}^{E_{b}}P_{s}^{S_{b}}P_{c}^{C_{b}}\label{eq:proposed probability}
+\end{equation}
 
 \end_inset
 
@@ -1679,21 +1709,22 @@ reference "fig:Approximation"
 \end_layout
 
 \begin_layout Standard
-This thesis focuses on dense RFID networks.
- So, the use of the suggested approximation in 
+In dense RFID networks, Poisson distribution with mean 
+\begin_inset Formula $\gamma=\frac{\hat{n}}{L}$
+\end_inset
+
+, is applicable 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Letter_2012"
 
 \end_inset
 
- for the tag probability of transmission per slot, which is considered as
- independent Poisson random variables with unknown mean 
-\begin_inset Formula $\gamma=\frac{\hat{n}}{L}$
-\end_inset
+.
+ Thus, the probability functions can be presented as follows: 
+\end_layout
 
-, is applicable.
- Thus, the probability functions can be presented as follows:
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 P_{e}=e^{-\gamma},\,P_{s}=\gamma\cdot e^{-\gamma},\,P_{c}=1-e^{-\gamma}-\gamma\cdot e^{-\gamma}\label{eq:probabilities}
@@ -1732,7 +1763,7 @@ The term of
  Thus, the proposed normalized conditional probability is:
 \begin_inset Formula 
 \begin{equation}
-P(\hat{n}|L,S,C,E,\alpha)=\gamma^{S_{b}}\cdot e^{-\gamma\cdot L}\cdot\left(e^{-\gamma}-1-\gamma\right)^{C_{b}}\label{eq:final probability}
+P(\hat{n}|L,S,C,E,\alpha)\simeq\gamma^{S_{b}}\cdot e^{-\gamma\cdot L}\cdot\left(e^{-\gamma}-1-\gamma\right)^{C_{b}}\label{eq:final probability}
 \end{equation}
 
 \end_inset
@@ -1971,9 +2002,7 @@ with,
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
+\size default
 According to equation (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2003,10 +2032,7 @@ reference "eq:condition"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Using Descartes’ rules of sign 
+ Using Descartes’ rules of sign 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Descartes_rule"
@@ -2273,15 +2299,15 @@ reference "eq:closed form-4"
 
 \end_inset
 
-), with neither look-up tables nor searching, reduces the complexity and
- the processing time of the estimation algorithm, is needed.
+), neither look-up tables nor searching is needed.
+ This reduces the complexity and the processing time of the estimation algorithm.
  
 \size default
 
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2304,7 +2330,7 @@ Collision recovery probability
 \begin_inset Formula $\alpha$
 \end_inset
 
- as a function of the signal to noise ratio SNR 
+ as a function of the SNR 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Capture-probability-versus-1"
@@ -2331,13 +2357,14 @@ Collision Recovery Probability Calculation
 \begin_layout Standard
 The collision recovery capability is the ability of the reader to actively
  convert collided slots into successful slots.
- This capability does not only exist in the modern RFID readers but also
- in the simple readers, when the tags are well separated.
- Thus, the received signal power of the near tag will be much stronger than
- the received signal power from the far tag.
+ This capability does not only exist in modern RFID readers, but also in
+ the simple readers, e.g.
+ when the tags are well separated.
+ Thus, the received signal power of the nearest tag will be much stronger
+ than the received signal power from the far tag.
  Therefore, this ability is a function of two main parameters: First, the
- characterization of the RFID reader e.g.
- (receiver type, number of antennas, etc.).
+ characterization of the RFID reader, (e.g.
+ receiver type, number of antennas, etc.).
  Second, the function of the current Signal-to-Noise Ratio (SNR).
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -2350,58 +2377,6 @@ description "Signal to Noise Ratio"
  of the channel, resulting in a significantly higher probability to recover
  collided slots.
  
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Estimation Error No CR_Trial_paper_new.emf
-	lyxscale 50
-	width 65page%
-	height 25pheight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Relative estimation error 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- s a function of the normalized number of tags 
-\begin_inset Formula $\nicefrac{n}{L}$
-\end_inset
-
- with system has no collision recovery capability 
-\begin_inset Formula $(\alpha=0)$
-\end_inset
-
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:System-has-no"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2412,7 +2387,7 @@ reference "fig:Capture-probability-versus-1"
 
 \end_inset
 
- shows three receivers proposed by 
+ shows three receivers proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2010_Trans_CR"
@@ -2445,8 +2420,8 @@ key "2010_Trans_CR"
 
 \end_inset
 
- presented Bit Error Rate (BER) curves for the different receiver types
- as a function of the SNR.
+ present Bit Error Rate (BER) curves for the different receiver types as
+ a function of the SNR.
  Thus, the BER can be mapped to a Packet Error Rate (PER)
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -2463,7 +2438,7 @@ key "Comm_Letter_ours_2015"
 \end_inset
 
 .
- Afterwards, the collision recovery probability is calculated as: 
+ Afterwards, the collision recovery probability is calculated as 
 \begin_inset Formula $\alpha=(1-PER)$
 \end_inset
 
@@ -2475,23 +2450,14 @@ reference "fig:Capture-probability-versus-1"
 
 \end_inset
 
- shows the values of the capture probabilities versus the average signal
- to noise ratio per frame.
+ shows the values of the capture probabilities versus the average SNR per
+ frame.
  In this thesis, the average capture probability is calculated from the
  corresponding average SNR at the current frame.
 \end_layout
 
 \begin_layout Standard
-According to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Capture-probability-versus-1"
-
-\end_inset
-
-, the higher SNR at the receiver, the higher the collision recovery capability
- of the reader.
- Figure 
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Capture-probability-versus-1"
@@ -2499,10 +2465,12 @@ reference "fig:Capture-probability-versus-1"
 \end_inset
 
  shows two different receivers ZF and MMSE.
+ The higher SNR at the receiver, the higher the collision recovery capability
+ of the reader.
  The MMSE receiver gives better performance than the ZF receiver, and the
  performance increases when we increase the number of received antennas.
- According to the practical measurements, the practical SNR range for the
- successful slots is between 
+ According to  measurements, the practical SNR range for the successful
+ slots is between 
 \begin_inset Formula $4$
 \end_inset
 
@@ -2526,6 +2494,61 @@ status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Estimation Error No CR_Trial_paper_new.emf
+	lyxscale 50
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+System has no collision recovery capability 
+\begin_inset Formula $(\alpha=0)$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:System-has-no"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Estimation Error with CR 07_trial_new.emf
 	lyxscale 50
@@ -2541,15 +2564,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Relative estimation error 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- s a function of the normalized number of tags 
-\begin_inset Formula $\nicefrac{n}{L}$
-\end_inset
-
- with system has collision recovery capability 
+System has collision recovery capability 
 \begin_inset Formula $(\alpha=0.7)$
 \end_inset
 
@@ -2561,6 +2576,32 @@ name "fig:Relative-estimation-error07"
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relative estimation error 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ s a function of the normalized number of tags 
+\begin_inset Formula $\nicefrac{n}{L}$
+\end_inset
+
+ 
 \end_layout
 
 \end_inset
@@ -2583,11 +2624,9 @@ Performance Analysis
 
 \begin_layout Standard
 In this section, the performance comparison between the proposed collision
- recovery aware number of tags estimation and the most common estimation
- algorithms in the state-of-the-art will be presented.
- The relative estimation error will be used as a comparison metric, as it
- is the most common comparison metric for estimation algorithms.
- 
+ recovery aware number of tags estimation and the most common state-of-the-art
+ estimation algorithms will be presented.
+ Again the relative estimation error will be used as a comparison metric.
 \end_layout
 
 \begin_layout Standard
@@ -2600,7 +2639,7 @@ reference "fig:System-has-no"
 
  shows the percentage of the relative estimation error for the proposed
  system compared to the literature.
- These simulations use system that has no collision recovery capability
+ These simulations assume a system that has no collision recovery capability
  (
 \begin_inset Formula $\alpha=0$
 \end_inset
@@ -2614,7 +2653,7 @@ reference "fig:System-has-no"
 \end_inset
 
 , when the number of tags compared to the frame length increases, the relative
- estimation error increases.
+ estimation error increases as well.
  This is due to the increase of the number of collided slots per frame.
  As shown in figure 
 \begin_inset CommandInset ref
@@ -2706,19 +2745,19 @@ reference "fig:Relative-estimation-error07"
 
  demonstrates the influence of the collision recovery capability on the
  proposed estimation protocol compared to other estimation protocols.
- In this simulations, the MMSE RFID reader which is proposed in 
+ In these simulations, the MMSE RFID reader, which is proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MMSE_CR"
 
 \end_inset
 
- is used.
+, is used.
  These simulations use an average SNR=
 \begin_inset Formula $\unit[6]{dB}$
 \end_inset
 
- .
+.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2726,12 +2765,12 @@ reference "fig:Capture-probability-versus-1"
 
 \end_inset
 
-, the corresponding collision recovery probability 
+, the corresponding collision recovery probability is 
 \begin_inset Formula $\alpha=0.7$
 \end_inset
 
 .
- According to figure 
+ As shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Relative-estimation-error07"
@@ -2757,7 +2796,7 @@ reference "fig:Relative-estimation-error alpha"
 
 .
  In this simulation, the number of tags in the reading area is equal to
- the frame length i.e.
+ the frame length, i.e.
  
 \begin_inset Formula $n=L$
 \end_inset
@@ -2771,9 +2810,9 @@ reference "fig:Relative-estimation-error alpha"
 \end_inset
 
 , when the value of the collision recovery probability increases, the relative
- estimation error of all estimation algorithms increases, except for the
- proposed estimation protocol that has almost constant performance, independent
- of the value of the collision recovery probability.
+ estimation error of all estimation algorithms increases.
+ An exception is, the proposed estimation protocol that has almost constant
+ performance, independent of the value of the collision recovery probability.
  The proposed method takes into account the collision recovery probability,
  which is produced by the PHY-layer.
  According to figure 
@@ -2817,6 +2856,13 @@ status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Total_time_comp_no_CR_final_new.emf
 	lyxscale 50
@@ -2832,19 +2878,10 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean identification time 
-\begin_inset Formula $\tau$
-\end_inset
-
- in slots using FSA for system has no collision recovery capability 
+System has no collision recovery capability 
 \begin_inset Formula $(\alpha=0)$
 \end_inset
 
- as a function of the number of tags in the reading area 
-\begin_inset Formula $n$
-\end_inset
-
-.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -2863,10 +2900,14 @@ name "fig:System-has-no-time"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2885,19 +2926,10 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean identification time 
-\begin_inset Formula $\tau$
-\end_inset
-
- in slots using FSA for system has collision recovery capability 
+System has collision recovery capability 
 \begin_inset Formula $(\alpha=0.7)$
 \end_inset
 
- as a function of the number of tags in the reading area 
-\begin_inset Formula $n$
-\end_inset
-
-.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -2910,6 +2942,36 @@ name "fig:System-has-collision-time"
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mean identification time 
+\begin_inset Formula $\tau$
+\end_inset
+
+ in slots using FSA as a function of the number of tags in the reading area
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -2933,15 +2995,15 @@ reference "fig:System-has-no-time"
 \begin_inset Formula $L_{ini}=16$
 \end_inset
 
-, which is the conventional initial frame length used in EPCglobal C1 G2
- standard 
+, which is the conventional initial frame length used in the EPCglobal C1
+ G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
 
 \end_inset
 
- is used.
+.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2955,7 +3017,7 @@ reference "fig:System-has-no-time"
 \end_inset
 
 ).
- According to 
+ According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:System-has-no-time"
@@ -2969,7 +3031,7 @@ key "Chen"
 
 \end_inset
 
- and better results than the other systems in the literature.
+ and better results than the other systems given in literature.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2990,8 +3052,8 @@ reference "fig:System-has-collision-time"
 
 \end_inset
 
-, the average identification delay has decreased for all the systems due
- to the collision recovery capability.
+, the average identification delay has decreased for all systems due to
+ the collision recovery capability.
  The proposed system gives better results compared to the state-of-art due
  to the performance of estimation only.
 \end_layout
@@ -3015,7 +3077,7 @@ reference "fig:System-has-collision-time"
 
 \end_inset
 
-, there is still a room of improvement between the proposed algorithm and
+, there is still room of improvement between the proposed algorithm and
  the FSA theoretical lower limit with 
 \begin_inset Formula $\simeq\unit[30]{\%}$
 \end_inset

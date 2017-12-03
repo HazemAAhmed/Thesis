@@ -280,10 +280,10 @@ key "Semi-passive_1,Semi_passive_2"
  Moreover, the circuitry activation of the semi-passive tags is faster than
  in passive tags.
  However, the approximate price for the semi-passive tags is 
-\begin_inset Formula $\unit[\simeq]{4\,€}$
+\begin_inset Formula $\unit[\simeq]{4}$
 \end_inset
 
-, which make such tags not suitable for dense RFID applications.
+ Euro, which make such tags not suitable for dense RFID applications.
 \end_layout
 
 \begin_layout Paragraph*
@@ -302,10 +302,10 @@ key "Passive_tags_1,Passive_tags_2"
 .
  They are extremely simple and inexpensive devices.
  The approximate price is less than 
-\begin_inset Formula $0.10\,€$
+\begin_inset Formula $0.10$
 \end_inset
 
-).
+ Euro).
  Passive tags do not contain any power source so they derive all of the
  required energy for their operation from the signals emitted by the reader.
  This energy activates the circuit of the tags.
