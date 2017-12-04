@@ -89,9 +89,9 @@ Frame Length Optimization
 \begin_layout Standard
 In FSA, there are two main factors controlling the reading efficiency, and
  hence the reading time in RFID systems.
- These two factors are: The number of tags estimation which was discussed
- in chapter 4 and the optimal FSA frame length calculation which will be
- discussed in this chapter.
+ These two factors are: The number of tags estimation, which was discussed
+ in chapter 4, and the optimal FSA frame length calculation, which will
+ be discussed in this chapter.
  Previous studies have focused on the frame length calculations using the
  conventional Dynamic Framed Slotted ALOHA algorithms 
 \begin_inset CommandInset citation
@@ -102,8 +102,8 @@ key "Aloha4_Vogt"
 
 .
  In such systems, only the answer of a single tag is considered as a successful
- slot, and if multiple tags respond simultaneously, a collision occurs.
- Then all the replied tags in collided slot are discarded.
+ slot, and if multiple tags respond simultaneously a collision occurs.
+ Then all tags replies in collided slots are discarded.
  In such systems the optimum frame length is equal to the number of tags
  in the reading area 
 \begin_inset Formula $L=n$
@@ -117,8 +117,8 @@ key "2010_Vogt_problem"
 \end_inset
 
 .
- However, as mentioned before, modern system can recover this collision
- and converting the collided slot into a successful one 
+ However, as mentioned before, modern system can recover collisions and
+ convert part of the collided slots into successful ones 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2009_capture"
@@ -126,22 +126,23 @@ key "2009_capture"
 \end_inset
 
 .
- In such a system, it is better to increase the number of collided slots
+ In such systems, it is better to increase the number of collided slots
  compared to the number of empty slots by decreasing the optimum frame length.
  This is because these systems gain more from the collided slots compared
  to the empty slots by converting the collided slots to successful slots.
  In addition, most of the previous studies assumed constant slot durations
  regardless the type of the slot.
  However, the duration of the slots in RFID systems depends on the slot
- type e.g.
+ type, i.e.
  empty, successful, or collided.
- In these systems, the empty slots duration is smaller than the collided
- slots duration and smaller than the successful slots duration.
- Therefore, it is better to increase the frame length, because the losses
- from the empty slots is less than the losses in the collided slots.
- In this chapter, the optimum frame length for DFSA will be calculated taking
- into consideration the collision recovery capability and the difference
- effects in slots durations.
+ In these systems, the empty slots duration is shorter than the collided
+ slots duration and shorter than the successful slot duration.
+ Therefore, in such systems, it is better to increase the frame length,
+ because the losses from the empty slots is less than the losses in the
+ collided slots.
+ To solve the above contradiction, this chapter will discuss the optimum
+ DFSA frame length taking into consideration the collision recovery capability
+ and the different slot durations.
  These optimizations will be discussed in different scenarios depending
  on the RFID system.
 \end_layout
@@ -150,7 +151,7 @@ key "2009_capture"
 This chapter is organized as follows: Section 1 discusses the effect of
  the different slot durations, where a new closed form solution for the
  optimum frame length is proposed.
- In Section 2, the effect of the collision recovery probability with constant
+ In section 2, the effect of the collision recovery probability with constant
  coefficients in addition to the time differences in slot duration will
  be considered.
  Then, a new closed form solution for the optimum frame length, which maximizes
@@ -532,7 +533,7 @@ where
 \end_inset
 
  in practical applications.
- (
+ Equation (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:Lopt comlex expresion-1"
@@ -548,7 +549,7 @@ reference "eq:Lopt comlex expresion-1"
 \begin_inset Formula $n$
 \end_inset
 
-, taking into consideration the time difference in the slot durations.
+.
  
 \end_layout
 
@@ -562,14 +563,7 @@ reference "eq:Lopt comlex expresion-1"
 
 ) is an implicit equation.
  We will now derive an approximate, but explicit equation.
-  (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Lopt comlex expresion-1"
-
-\end_inset
-
-) can be also expressed as:
+ The equation can be also expressed as:
 \size small
 
 \begin_inset Formula 
@@ -652,21 +646,11 @@ reference "fig:Second-order-Taylor"
 
 \end_inset
 
-, this approximation is acceptable in the range of 
+, this approximation is almost identical in the range of 
 \begin_inset Formula $\frac{n}{L}\leq1$
 \end_inset
 
- and has almost identical values when the number of tags is less than 
-\begin_inset Formula $0.7$
-\end_inset
-
- the working frame length i.e.
- 
-\begin_inset Formula $\frac{n}{L}\leq0.7$
-\end_inset
-
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -1964,9 +1948,7 @@ C_{t}=\frac{3.5\cdot DR+\textrm{max}\left\{ \mbox{\ensuremath{DR}},\,10\right\} 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
+\size default
 Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2072,7 +2054,7 @@ key "standard"
 
 \end_inset
 
- the frame length can take only quantized values (power of 
+, the frame length can take only quantized values (power of 
 \begin_inset Formula $2$
 \end_inset
 
@@ -2448,7 +2430,7 @@ e frame length for the proposed ML number of tags estimation and the most
 \end_layout
 
 \begin_layout Standard
-In case of Lower bound 
+In case of the Lower bound 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Aloha4_Vogt"
@@ -2493,8 +2475,8 @@ reference "fig:Percentage-of-Time"
 
 \end_inset
 
-, the better estimation algorithms, the less reading time reduction, because
- it decreases the number of iterations in FSA process.
+, the better the estimation algorithms, the less reading time reduction,
+ because it decreases the number of iterations in FSA process.
  However, using a non-accurate number of tags estimation algorithms, FSA
  needs more iterations, with more FSA frame length adaptations.
  That gives more importance for the proposed formula compared to the classical
@@ -2571,7 +2553,7 @@ As mentioned in chapter 4, modern RFID readers can decode one of multiple
 \end_inset
 
 .
- According to the literature we can divide the previous research, which
+ According to the literature, we can divide the previous research, which
  considered the collision recovery capability in the frame length optimization,
  into three diverse groups: The first group considered only the average
  collision recovery probability for the frame length optimizations, such
@@ -2592,7 +2574,7 @@ key "4_1_closed_form_Lopt_not_accurate,optimizin_total_latency"
 
 \end_inset
 
- and as shown in the first proposal in the previous section.
+ as shown in the first proposal in the previous section.
  However, no closed form solution for the optimum frame length was derived.
  They calculated the optimum frame length numerically.
  The third group contemplated the different slot durations and the collision
@@ -2732,15 +2714,15 @@ The target is to find the optimum frame length
 \begin_inset Formula $L_{TCA}$
 \end_inset
 
- which maximizes the proposed reading efficiency in 
+ which maximizes the proposed reading efficiency in (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:eff-TAC"
 
 \end_inset
 
-.
- This is achieved by differentiating the reading efficiency 
+).
+ This is again achieved by differentiating the reading efficiency 
 \begin_inset Formula $\eta_{_{_{TCA}}}$
 \end_inset
 
@@ -2932,11 +2914,11 @@ where
 \end_inset
 
 .
- As focusing on systems with many tags 
+ As we are focusing on systems with many tags 
 \begin_inset Formula $n$
 \end_inset
 
-, again the following approximation can be used
+, again the following approximation can be used:
 \end_layout
 
 \begin_layout Standard
@@ -2989,7 +2971,7 @@ reference "eq:Lopt comlex expresion"
 
 
 \size default
- are in the region close to one 
+ are again in the region close to one 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ref_4_4_2013_Cap_time"
@@ -3320,14 +3302,14 @@ reference "fig:Non-quantized"
 \end_inset
 
 .
- Due to the Taylor series approximations in 
+ Due to the Taylor series approximations in (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:taylor"
 
 \end_inset
 
-, there are slight differences between the proposed closed form and the
+), there are slight differences between the proposed closed form and the
  numerical solution, where the numerical is the exact solution.
  As previously mentioned, the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
@@ -3682,7 +3664,7 @@ reference "fig:Collision-distribution-in"
 \end_inset
 
  uniformly.
- The simulations results are done using monte-carlo simulations for the
+ The simulations results are done using Monte-Carlo simulations for the
  FSA algorithm under condition of frame of length 
 \begin_inset Formula $0.5\cdot n\leq L\leq2\cdot n$
 \end_inset
@@ -4167,7 +4149,7 @@ reference "eq:closed form-2"
 \end_inset
 
 , and includes the effect of different collision recovery coefficients.
- In case that the RFID reader has no collision resolving capability, i.e.
+ When the RFID reader has no collision resolving capability, i.e.
  
 \begin_inset Formula $\alpha_{2}=\alpha_{3}=\alpha_{4}=0$
 \end_inset
@@ -4348,18 +4330,20 @@ key "standard"
 \end_inset
 
 .
- Based on 
+ Moreover, we assumed that the equivalent channel coefficients 
+\begin_inset Formula $h$
+\end_inset
+
+ follow Rayleigh fading, as in dense RFID applications, usually there is
+ no dominant Line-of-Site communication link between the tags and the reader
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2010_Trans_CR"
 
 \end_inset
 
-, we assumed that the equivalent channel coefficients 
-\begin_inset Formula $h$
-\end_inset
-
- follows Rayleigh fading.
+.
  The channel coefficients are independent zero mean circularly symmetric
  complex Gaussian random variables with normalized energy 
 \begin_inset Formula $E\left\{ \left|h\right|^{2}\right\} =1$
@@ -4605,7 +4589,7 @@ key "2013_capture"
 \begin_inset Formula $L_{ini.}=16$
 \end_inset
 
- is used as an anti-collision algorithm.
+ is used as anti-collision algorithm.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4639,7 +4623,7 @@ reference "fig:Percentages-of-saving_MCR_perfect"
 \begin_inset Formula $SNR$
 \end_inset
 
- increases, the collision recovery probability increases.
+ increases, the collision recovery probability increases as well.
  Hence, the mean reading time reduction also increases.
 \end_layout
 
@@ -4670,8 +4654,8 @@ reference "fig:Percentages-of-saving_MCR_with"
 \begin_layout Standard
 In this section, the FSA reading efficiency is proposed for equal slot duration
  system with multiple collision recovery coefficients.
- However, practically, there are differences in the slot durations depending
- on the slot type.
+ However, there are differences in the slot durations depending on the slot
+ type.
  Therefore, in the following section, the FSA reading efficiency will consider
  the differences in slot durations as well as the differences in the collision
  recovery coefficients.
@@ -5351,8 +5335,8 @@ L_{TAMCRC}=\left(-\frac{b}{4a}-S+0.5\sqrt{-4S^{2}-2P+\frac{q}{S}}\right)\cdot n\
 
 
 \size default
-The proposed equation gives a linear relation with reference to the number
- of tags 
+The proposed equation gives again a linear relation with reference to the
+ number of tags 
 \begin_inset Formula $n$
 \end_inset
 
@@ -5500,7 +5484,7 @@ reference "fig:Percentages-of-saving-TMCRA-perfect"
 \begin_inset Formula $L=n$
 \end_inset
 
- for perfect number of tags estimation.
+ assuming perfect number of tags estimation.
  The simulation results are based on the slot duration constant 
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
@@ -5513,12 +5497,8 @@ key "standard"
 
 \end_inset
 
- and different values of 
-\begin_inset Formula $SNR$
-\end_inset
-
-, as each SNR leads to corresponding values for the collision recovery coefficie
-nts 
+ and different values of SNR, as each SNR leads to corresponding values
+ for the collision recovery coefficients 
 \begin_inset Formula $\alpha_{2}$
 \end_inset
 
@@ -5562,11 +5542,8 @@ reference "fig:Percentages-of-saving-TMCRA-perfect"
 
 \end_inset
 
-, when the value of the 
-\begin_inset Formula $SNR$
-\end_inset
-
- increases, the collision recovery probability increases.
+, when the value of the SNR increases, the collision recovery probability
+ increases.
  Hence, the mean reduction in reading time also increases.
 \begin_inset Float figure
 wide false
@@ -5647,7 +5624,7 @@ reference "fig:Percentages-of-saving-TMCRA-Estimation"
 \begin_inset Formula $SNR=\unit{\unit[8]{dB}}$
 \end_inset
 
- which is corresponding to 
+, which is corresponding to 
 \begin_inset Formula $\alpha_{2}=0.52$
 \end_inset
 
@@ -5691,7 +5668,7 @@ reference "fig:Percentages-of-saving-TMCRA-Estimation"
 
 \end_inset
 
-, the mean reading reduction in reading time for different estimation algorithms
+, the mean reduction in reading time for different estimation algorithms
  is between 
 \begin_inset Formula $10\%$
 \end_inset
@@ -5701,8 +5678,8 @@ reference "fig:Percentages-of-saving-TMCRA-Estimation"
 \end_inset
 
 .
- FSA with perfect number of tags estimation algorithm leads to less number
- of iterations in the reading process.
+ FSA assuming a perfect number of tags estimation algorithm leads to less
+ number of iterations in the reading process.
  Thus, it results the lower bound of the mean reduction in reading time.
  On the other hand, FSA with simple estimation algorithm e.g.
  Lower bound leads to more number of iteration and higher percentage of
@@ -5852,7 +5829,7 @@ key "USRP"
 \end_inset
 
 .
- Strongest tag reply receiver is used with average 
+ The strongest tag reply receiver is used with average 
 \begin_inset Formula $SNR=\unit[10]{dB}$
 \end_inset
 
@@ -6041,97 +6018,17 @@ reference "fig:Summary_no_estimation"
 
 .
  In case of the time and multiple collision recovery frame length, the algorithm
- results 
+ achieves 
 \begin_inset Formula $\unit[30]{\%}$
 \end_inset
 
  average saving in the reading time compared to the conventional DFSA.
  This is due to considering the different values of the collision recovery
  coefficients.
-\end_layout
-
-\begin_layout Standard
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Summary_with_no_patent"
-
-\end_inset
-
- shows the average reading time with the proposed collision recovery aware
- ML number of tags estimation.
- The main target is to evaluate the performance of the proposed frame lengths
- formulas using the proposed ML number of tags estimation algorithm.
- According to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Summary_with_no_patent"
-
-\end_inset
-
-, the Time Aware frame length proposal gives 
-\begin_inset Formula $\unit[10]{\%}$
-\end_inset
-
- saving in the average total reading time compared to the conventional FSA.
- The Time and Constant Collision Recovery Aware frame length proposal results
- 
-\begin_inset Formula $\unit[18]{\%}$
-\end_inset
-
- average saving in the reading time compared to the conventional DFSA.
- The used average collision recovery probability 
-\begin_inset Formula $\alpha=\alpha_{2}=0.6$
-\end_inset
-
-.
- In case of the time and multiple collision recovery frame length, the proposed
- solution results 
-\begin_inset Formula $\unit[22]{\%}$
-\end_inset
-
- average saving in the reading time compared to the conventional DFSA.
-\end_layout
-
-\begin_layout Standard
-According to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Main_comp_no_patent"
-
-\end_inset
-
-, the percentages of saving in reading time with simple number of tags estimatio
-n algorithm is more than the percentages of saving time using the proposed
- ML number of tags estimation.
- This is because the total identification time with simple number of tags
- estimation is more than with the proposed ML number of tags estimation.
- Thus, the number of reading cycles and frame length adaptation with simple
- number of tags estimation is more than the number of reading cycles with
- the proposed number of tags estimation.
- However, the average reading time for DFSA using the proposed frame length
- formulas with the proposed ML estimation is less than the average reading
- time with simple number of tags estimation.
-\end_layout
-
-\begin_layout Standard
-Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Performance-comparison-between"
-
-\end_inset
-
- shows a summary of the performance analysis for the proposed frame length
- formulas with simple number of tags estimation and with ML number of tags
- estimation.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6210,13 +6107,13 @@ name "tab:Average-reading-time_table_1"
 
 \size footnotesize
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="3">
+<lyxtabular version="3" rows="5" columns="3">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6225,24 +6122,59 @@ name "tab:Average-reading-time_table_1"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Simple estimation algorithm (LB)
+Simple estimation algorithm 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Proposed ML estimation
+Proposed estimation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Lower Bound 
+\size footnotesize
+(LB)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Maximum Likelihood (ML)
 \end_layout
 
 \end_inset
@@ -6378,10 +6310,6 @@ Time and multiple CR
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -6393,10 +6321,6 @@ Time and multiple CR
 wide false
 sideways false
 status open
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6423,13 +6347,13 @@ name "tab:Average-remaining-room_table2"
 
 \size footnotesize
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="3">
+<lyxtabular version="3" rows="5" columns="3">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6438,24 +6362,59 @@ name "tab:Average-remaining-room_table2"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Simple estimation algorithm (LB)
+Simple estimation algorithm
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Proposed ML estimation
+Proposed estimation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Lower Bound 
+\size footnotesize
+(LB)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Maximum Likelihood (ML)
 \end_layout
 
 \end_inset
@@ -6591,16 +6550,8 @@ Time and multiple CR
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -6610,12 +6561,89 @@ Time and multiple CR
 \end_layout
 
 \begin_layout Standard
-According to the above results, there is still 
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Summary_with_no_patent"
+
+\end_inset
+
+ shows the average reading time with the proposed collision recovery aware
+ ML number of tags estimation.
+ The main target is to evaluate the performance of the proposed frame lengths
+ formulas using the proposed ML number of tags estimation algorithm.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Summary_with_no_patent"
+
+\end_inset
+
+, the Time Aware frame length proposal gives 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ saving in the average total reading time compared to the conventional FSA.
+ The Time and Constant Collision Recovery Aware frame length proposal results
+ 
+\begin_inset Formula $\unit[18]{\%}$
+\end_inset
+
+ average saving in the reading time compared to the conventional DFSA.
+ The used average collision recovery probability 
+\begin_inset Formula $\alpha=\alpha_{2}=0.6$
+\end_inset
+
+.
+ In case of the time and multiple collision recovery frame length, the proposed
+ solution results 
+\begin_inset Formula $\unit[22]{\%}$
+\end_inset
+
+ average saving in the reading time compared to the conventional DFSA.
+\end_layout
+
+\begin_layout Standard
+According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Main_comp_no_patent"
+
+\end_inset
+
+, the percentages of saving in reading time with a simple number of tags
+ estimation algorithm is more than the percentages of saving time using
+ the proposed ML number of tags estimation.
+ This is because the total identification time with simple number of tags
+ estimation is more than with the proposed ML number of tags estimation.
+ Thus, the number of reading cycles and frame length adaptation with simple
+ number of tags estimation is more than the number of reading cycles with
+ the proposed number of tags estimation.
+ However, the average reading time for DFSA using the proposed frame length
+ formulas with the proposed ML estimation is less than the average reading
+ time with simple number of tags estimation.
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Performance-comparison-between"
+
+\end_inset
+
+ shows a summary of the performance analysis for the proposed frame length
+ formulas with simple number of tags estimation and with ML number of tags
+ estimation.
+\end_layout
+
+\begin_layout Standard
+According to the above results, there is still a gap of 
 \begin_inset Formula $\approx\unit[10]{\%}$
 \end_inset
 
- can be improved between the proposed systems and the theoretical limit
- of the EPCglobal C1 G2 standard 
+ between the proposed systems and the theoretical limit of the EPCglobal
+ C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
