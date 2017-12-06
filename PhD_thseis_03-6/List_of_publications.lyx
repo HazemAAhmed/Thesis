@@ -99,7 +99,9 @@ H.
 \end_layout
 
 \begin_layout Enumerate
-Hamed Salah, Hazem A.
+H.
+ Salah, H.
+ A.
  Ahmed, Joerg Ropert, and Albert Heuberger, "Performance Evaluation of Rate
  Estimation for UHF RFID Systems" International Journal of RF Technologies,
  vol.
@@ -220,6 +222,17 @@ H.
 
 \begin_layout Enumerate
 H.
+ Salah, H.
+ A.
+ Ahmed, J.
+ Robert and A.
+ Heuberger "Multiple Antennas Collision Recovery Receiver Based on Stimulating
+ The Rate Tolerance for UHF RFID Systems" IEEE Systems Journal.
+ (accepted)
+\end_layout
+
+\begin_layout Enumerate
+H.
  A.
  Ahmed, H.
  Salah, J.
@@ -227,17 +240,6 @@ H.
  Heuberger "A Closed Form Solution For Collision Recovery Aware Number of
  Tags Estimation", IEEE Sensor Letter.
  (Submitted).
-\end_layout
-
-\begin_layout Enumerate
-H.
- Salah, H.
- A.
- Ahmed, J.
- Robert and A.
- Heuberger "Multiple Antennas Collision Recovery Receiver Based on Stimulating
- The Rate Tolerance for UHF RFID Systems" IEEE Systems Journal.
- (Submitted)
 \end_layout
 
 \end_body

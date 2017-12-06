@@ -70,13 +70,13 @@
 \begin_body
 
 \begin_layout Chapter
-Improvements of EPCglobal C1 G2
+Improvements of the EPCglobal C1 G2
 \end_layout
 
 \begin_layout Abstract
-EPCglobal C1 G2 is the most renowned UHF RFID standard.
- It allows only for a single tag acknowledgment, even if the physical layer
- is able to identify multiple collided tags.
+The EPCglobal C1 G2 is the most used UHF RFID standard.
+ It allows only for a single tag acknowledgment per slot, even if the physical
+ layer is able to identify multiple collided tags.
  This results in an overall reduced performance.
  Recent studies have focused on this problem e.g.
  
@@ -104,7 +104,7 @@ key "standard"
 
 \end_inset
 
-, due to this post-preamble.
+, due to the post-preamble.
  Therefore, their proposal requires a new RFID standard.
  Furthermore, acknowledging more than one tag in parallel would cause a
  new problem called 
@@ -150,7 +150,7 @@ To overcome these pitfalls, this chapter proposes a system that is capable
 
 \begin_layout Standard
 This chapter is organized as follows: Section 1 presents a brief discussion
- about the conventional reading process using the EPCglobal C1 G2 standards.
+ about the conventional reading process using the EPCglobal C1 G2 standard.
  In section 2, we describe the proposed new system including the modifications
  of the tags and the reader.
  The performance of the proposed system will be analyzed in section 3.
@@ -164,7 +164,7 @@ EPCglobal C1 G2 Reading Process
 
 \begin_layout Standard
 This section will describe, the conventional reading algorithm of the EPCglobal
- C1 G2 standards.
+ C1 G2 standard.
  The reader initially powers the tags in the reading area with a 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -414,11 +414,11 @@ ACK
 \end_inset
 
 .
- The tag which has the same 
+ The tag, which has the same 
 \begin_inset Formula $RN16$
 \end_inset
 
- replies its 
+, replies its 
 \begin_inset Quotes eld
 \end_inset
 
@@ -426,7 +426,7 @@ EPC
 \begin_inset Quotes erd
 \end_inset
 
- code and mutes itself until the end of the reading process.
+ code, and mutes itself until the end of the reading process.
  However, the remaining tags forget their 
 \begin_inset Formula $RN16s$
 \end_inset
@@ -494,8 +494,8 @@ Proposed System Description
 In this section, the description of the proposed tags and readers will be
  presented.
  Afterwards, the performance of the proposed system will be compared to
- the conventional systems.
- The proposed system has the same hardware of the conventional system.
+ conventional systems.
+ The proposed system has the same hardware of conventional systems.
  The main difference between the proposed system and the conventional one
  is the signal format between the new reader and the new tags.
 \end_layout
@@ -507,8 +507,8 @@ Proposed Tag
 \begin_layout Standard
 The proposed tags have the ability to act like conventional UHF EPCglobal
  C1 G2 tags, which is the default mode.
- However, it loads extra properties when it is in the ready state and receives
- a new command called 
+ However, they load extra properties, when they are in the ready state and
+ receive a new command called 
 \begin_inset Quotes eld
 \end_inset
 
@@ -522,14 +522,14 @@ Switch
 \end_layout
 
 \begin_layout Standard
-According to the EPCglobal C1 G2 standards 
+According to the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
 
 \end_inset
 
-, conventional tags backscatter two possible preambles with the 
+, conventional tags reply with two possible preambles with the 
 \begin_inset Formula $RN16$
 \end_inset
 
@@ -1194,14 +1194,14 @@ reference "fig:Modified-part-of"
 \end_inset
 
  presents a state diagram with the required modifications of the tag state
- diagram given in 
+ diagram given in figure 6.19 of 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
 
 \end_inset
 
- on page 47 figure 6.19.
+.
  
 \begin_inset Float figure
 wide false
@@ -1335,7 +1335,7 @@ Switch
 \begin_inset Formula $16$
 \end_inset
 
- bits command from the future use part of EPCglobal C1 G2 standards (
+ bits command from the future use part of EPCglobal C1 G2 standard (
 \shape slanted
 cf.
 
@@ -1351,8 +1351,8 @@ key "standard"
 \end_layout
 
 \begin_layout Standard
-As discussed before, EPCglobal C1G2 standards can't acknowledge more than
- one tag per slot.
+As discussed before, EPCglobal C1G2 standard doesn't support multiple acknowledg
+ments per slot.
  On the other hand, the proposed system should benefit from the collision
  resolving capabilities of the modern readers.
  Therefore, the proposed reader has the capability of converting the collided
@@ -1742,8 +1742,8 @@ reference "fig:Example-of-an-new-rader_3tags"
 
 \end_inset
 
- illustrates an example for a complete inventory round between the proposed
- reader and 3 collided tags.
+ shows an example for a complete inventory round between the proposed reader
+ and three collided tags.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1751,7 +1751,7 @@ reference "fig:Example-of-an-new-rader_3tags"
 
 \end_inset
 
-, the reader stated the inventory round with a 
+, the reader started an inventory round with a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1760,11 +1760,7 @@ Switch
 \end_inset
 
  command.
- The 
-\begin_inset Formula $3$
-\end_inset
-
- tags switched to the new mode.
+ Thus, the three tags switched to the new mode.
  Then the reader sent a 
 \begin_inset Quotes eld
 \end_inset
@@ -1778,20 +1774,19 @@ Query
 \end_inset
 
 .
- The 
-\begin_inset Formula $3$
-\end_inset
-
- tags replied with their 
+ The three tags replied with their 
 \begin_inset Formula $RN16s$
 \end_inset
 
  at the first slot and produced collided slot.
- The reader applied have identified the 
-\begin_inset Formula $3$
+ In this case, the reader was able to resolve the three collided 
+\begin_inset Formula $RN16s$
 \end_inset
 
-tags in a pseudo parallel slot.
+.
+ Afterwards, the reader applied the pseudo parallel slot concept to acknowledge
+ the three tags during the same slot.
+ 
 \end_layout
 
 \begin_layout Section
@@ -1806,8 +1801,7 @@ In the conventional DFSA, the reading efficiency is the probability of single
 \begin_inset Formula $P(R=1)$
 \end_inset
 
-.
- where 
+, where 
 \begin_inset Formula $P(R)$
 \end_inset
 
@@ -1816,7 +1810,14 @@ In the conventional DFSA, the reading efficiency is the probability of single
 \end_inset
 
  tags are active in one slot.
- It can be presented as:
+ It can be presented as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DFSA_shoute_Random"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
@@ -2333,15 +2334,15 @@ Probability of unique scenario
 \end_layout
 
 \begin_layout Standard
-Since the collision recovery capability of the proposed system depends on
- the pilot of the replied tags.
+The collision recovery capability of the proposed system depends on the
+ pilots of the replied tags.
  For the proposed case, the unique scenarios 
 \begin_inset Formula $(1+1+...+1)$
 \end_inset
 
  are only considered, i.e.
- if more than one tag has the same pilot, the reader will not be able to
- resolve this collision.
+ if more than one tag uses the same pilot sequence, the reader will not
+ be able to resolve this collision.
  Therefore, we have limited number of scenarios.
  Thus, equation 
 \begin_inset CommandInset ref
@@ -2389,8 +2390,8 @@ reference "tab:Collision-scenarios-for"
 \end_layout
 
 \begin_layout Standard
-For the proposed case, the system can't acknowledge the recovered tags in
- parallel.
+For the proposed case, the system is not able to acknowledge the recovered
+ tags in parallel.
  It uses the discussed pseudo parallel method.
  According to figure 
 \begin_inset CommandInset ref
@@ -2471,7 +2472,7 @@ reference "tab:System-Parameters-of"
 
 \end_inset
 
- shows numerical values from the EPCglobal C1 G2 standards 
+ shows numerical values from the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -2697,7 +2698,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-System Parameters of EPCglobal C1 G2 standards 
+System Parameters of EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -2972,8 +2973,16 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Reading efficiency for the conventional FSA and different acknowledgment
- scenarios using 8-orthogonal pilots 
+Average FSA reading efficiency 
+\begin_inset Formula $\eta$
+\end_inset
+
+ for the conventional FSA and different acknowledgment scenarios using 8-orthogo
+nal pilots as a fubction of the normalized frame length 
+\begin_inset Formula $L/n$
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Reading-efficiency-for"
@@ -3118,7 +3127,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename mean_reading_time_comp_new.emf
-	lyxscale 17
+	lyxscale 50
 	width 65page%
 	height 25pheight%
 
@@ -3131,7 +3140,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison between the average reading time for different systems 
+Comparison between the average reading time 
+\begin_inset Formula $\tau$
+\end_inset
+
+ as a function of the number of tags in the reading area 
+\begin_inset Formula $n$
+\end_inset
+
+ for different systems 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Mean-reading-time"
@@ -3269,7 +3286,7 @@ key "2013_multiple_ACK"
 
 , respectively.
  Finally, the proposed system approaches the theoretical limit of the EPCglobal
- C1 G2 standards 
+ C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"

@@ -92,11 +92,11 @@ The main goal of the thesis is to increase the system throughput and to
  protocol called DFSA.
  The identification time directly depends on reading efficiency of the DFSA
  anti-collision protocol.
- The DFSA reading efficiency is controlled by two main parameters: the accuracy
+ The DFSA reading efficiency is controlled by two main parameters: The accuracy
  of number of tags estimation algorithm and the frame length optimization.
- Modern RFID receivers have been developed from the PHY layer.
- They have a collision recovery capability, which means that some of collided
- slots can be converted to successful slots.
+ The PHY layer of the Modern RFID receivers has been developed.
+ Modern RFID receivers have a collision recovery capability, which means
+ that some of collided slots can be converted to successful slots.
  This capability reduces the losses from the collided slots.
  Moreover, modern RFID receivers have the capability to identify the type
  of slot and terminate it as soon as it recognizes that, it is not a successful
@@ -166,7 +166,7 @@ Time aware frame length
  In this proposal, the frame length considers only the difference in slots
  durations is considered and no collision recovery effect is considered.
  A closed form solution for the optimum frame length is analytically derived.
- The proposed solution results 
+ The proposed solution achieves 
 \begin_inset Formula $\unit[8]{\%}$
 \end_inset
 
@@ -187,7 +187,7 @@ Multiple collision recovery aware
  frame length.
  This proposal considers the differences between the collision recovery
  coefficients.
- Thus, it considers that, the collision recovery capability strongly depends
+ Thus, it considers that the collision recovery capability strongly depends
  on the number of the collided tags.
  However, this proposal assumes constant slots durations regardless the
  slot type.

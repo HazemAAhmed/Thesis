@@ -92,11 +92,11 @@ The main goal of the thesis is to increase the system throughput and to
  protocol called DFSA.
  The identification time directly depends on reading efficiency of the DFSA
  anti-collision protocol.
- The DFSA reading efficiency is controlled by two main parameters: the accuracy
+ The DFSA reading efficiency is controlled by two main parameters: The accuracy
  of number of tags estimation algorithm and the frame length optimization.
- Modern RFID receivers have been developed from the PHY layer.
- They have a collision recovery capability, which means that some of collided
- slots can be converted to successful slots.
+ The PHY layer of the Modern RFID receivers has been developed.
+ Modern RFID receivers have a collision recovery capability, which means
+ that some of collided slots can be converted to successful slots.
  This capability reduces the losses from the collided slots.
  Moreover, modern RFID receivers have the capability to identify the type
  of slot and terminate it as soon as it recognizes that, it is not a successful
@@ -279,7 +279,7 @@ In chapter 6, backwards compatible improvement of the EPCglobal C1 G2 standard
  It presents some modifications on the communication signal of Tag/reader.
  Using these modifications, the new system approaches the theoretical lower
  reading time limit of the EPCglobal C1 G2 standard.
- The proposed system is compatible with the EPCglobal C1 G2 standards, i.e.
+ The proposed system is compatible with the EPCglobal C1 G2 standard, i.e.
  the proposed tags could be jointly operated with conventional tags and
  identified by conventional readers without affecting the performance.
  Additionally, conventional tags can also be operated together with the

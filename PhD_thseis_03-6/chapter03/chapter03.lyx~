@@ -1951,7 +1951,7 @@ name "fig:Differences-between-the-1"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -2142,16 +2142,16 @@ key "USRP"
 \end_inset
 
 .
- In these measurements, we used a sampling frequency of 
+ In these measurements, the used tags data rate is 
+\begin_inset Formula $\unit[160]{kbps}$
+\end_inset
+
+ and a sampling frequency of 
 \begin_inset Formula $f_{s}=\unit[8]{MHz}$
 \end_inset
 
-, because the total RFID bandwidth in the European system is 
+ is used, because the total RFID bandwidth in the European system is 
 \begin_inset Formula $\unit[4]{MHz}$
-\end_inset
-
-, the tags data rate is 
-\begin_inset Formula $\unit[160]{kbps}$
 \end_inset
 
 .
@@ -2216,10 +2216,10 @@ reference "fig:Empty-Slot-Duration-1"
 
 \begin_layout Standard
 According to the above discussion, the reading efficiency equation will
- be affected by the differences in slots duration, hence, the MAC layer
- optimization.
- In this thesis, the differences in slot duration length will be addressed
- in more details in the MAC layer optimization.
+ be affected by the different slots durations.
+ Hence, the MAC layer optimization.
+ In this thesis, the different slot duration lengths will be addressed in
+ more details in the MAC layer optimization.
  
 \end_layout
 
