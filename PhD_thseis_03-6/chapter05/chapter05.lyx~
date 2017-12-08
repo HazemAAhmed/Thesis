@@ -6611,9 +6611,9 @@ reference "fig:Main_comp_no_patent"
 
 \end_inset
 
-, the percentages of saving in reading time with simple number of tags estimatio
-n algorithm is more than the percentages of saving time using the proposed
- ML number of tags estimation.
+, the percentages of saving in reading time with a simple number of tags
+ estimation algorithm is more than the percentages of saving time using
+ the proposed ML number of tags estimation.
  This is because the total identification time with simple number of tags
  estimation is more than with the proposed ML number of tags estimation.
  Thus, the number of reading cycles and frame length adaptation with simple
@@ -6638,12 +6638,12 @@ reference "tab:Performance-comparison-between"
 \end_layout
 
 \begin_layout Standard
-According to the above results, there is still 
+According to the above results, there is still a gap of 
 \begin_inset Formula $\approx\unit[10]{\%}$
 \end_inset
 
- can be improved between the proposed systems and the theoretical limit
- of the EPCglobal C1 G2 standard 
+ between the proposed systems and the theoretical limit of the EPCglobal
+ C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"

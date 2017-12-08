@@ -126,8 +126,7 @@ key "Barcodes_VS_RFID_1,Barcodes_Vs_RFID_2,Barcodes_vs_RFID_4"
  applications, RFID systems have received large attention from both, research
  groups and industry.
  Recently, many work has been published on the area of RFID systems whether
- in hardware and software design, or in protocols and applications, etc
- 
+ in hardware and software design, or in protocols and applications 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2017_RFID_1,2017_RFID_2,2017_RFID_3"
@@ -178,7 +177,7 @@ key "standard"
  It is based on Time Division Multiple Access (TDMA), which leads to a certain
  probability of tag-collisions on the communications channel.
  Owing to their low price and simple design, tags can neither sense the
- channel nor communicate with the others.
+ channel nor communicate with the other tags.
  Hence, the readers are responsible for coordinating the network, and avoiding
  collisions using anti-collision algorithms.
  
@@ -280,16 +279,16 @@ The robustness of the number of tags estimation: The optimum FSA frame length
 The accuracy of the FSA frame length: If the frame length is higher than
  the optimum value, many empty slots in this frame will be present, which
  reduces the reading efficiency.
- If the frame length is lower than the optimum value, this will result many
- collided slots, which again reduces the reading efficiency.
+ If the frame length is lower than the optimum value, this will produce
+ many collided slots, which again reduces the reading efficiency.
  Thereby, choosing the optimum value in FSA frame length is the most crucial
- optimization parameter in such application.
+ optimization parameter in such applications.
 \end_layout
 
 \begin_layout Standard
-Recent research groups have focused upon using the PHY (Physical) Layer
- properties, in the so-called Collision Recovery phenomena, to convert part
- of the collided slots into successful slots 
+Recent research groups have focused upon using the PHY layer properties,
+ in the so-called Collision Recovery phenomena, to convert part of the collided
+ slots into successful slots 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PHY1,PHY2"
@@ -313,7 +312,7 @@ key "PHY3,PHY4"
 
 \begin_layout Standard
 According to the previous discussion, the number of tags estimation algorithm
- and the optimum FSA frame length strongly depend on the PHY-layer properties
+ and the optimum FSA frame length strongly depend on the PHY layer properties
  of the used system.
 \end_layout
 
@@ -345,7 +344,7 @@ key "standard"
 
 \begin_layout Enumerate
 A number of tags estimation method is developed, taking into consideration
- the collision recovery capability of the physical layer.
+ the collision recovery capability of the PHY layer.
  The main advantage of the proposed method is that it provides a new closed-form
  solution for the tag population estimator, which considers the collision
  recovery probability of the used system.
@@ -367,7 +366,7 @@ A closed-form solution for the optimum frame length for FSA is provided
 
 \begin_layout Enumerate
 Another closed-form solution for the optimum frame length for FSA is settled
- by optimizing the Time and constant collision recovery coefficients aware
+ by optimizing the time and constant collision recovery coefficients aware
  reading efficiency.
  The proposed solution gives a new closed form equation for the frame length
  considering the different slot durations and the collision recovery capability
@@ -383,7 +382,7 @@ l look-up tables.
 A new closed-form solution for the optimal FSA frame length is established,
  which considers the differences in the collision recovery probabilities.
  The values of the collision recovery coefficients are extracted from the
- physical layer parameters.
+ PHY layer parameters.
  Timing comparisons are presented in simulation results to show the mean
  reduction in reading time using the proposed frame length compared to other
  proposals.
@@ -395,8 +394,8 @@ Further, a new closed-form solution for the optimal Frame Slotted ALOHA
  The new solution considers the multiple collision recovery probability
  coefficients, and the different slot durations.
  Timing comparisons are presented in the simulation results to show the
- reading time reduction using the proposed frame length compared to other
- the state-of-the-art algorithms.
+ reading time reduction using the proposed frame length compared to the
+ state-of-the-art algorithms.
 \end_layout
 
 \begin_layout Enumerate

@@ -75,7 +75,7 @@ Improvements of the EPCglobal C1 G2
 
 \begin_layout Abstract
 The EPCglobal C1 G2 is the most used UHF RFID standard.
- It allows only for a single tag acknowledgment per slot, even if the physical
+ It allows only for a single tag acknowledgment per slot, even if the PHY
  layer is able to identify multiple collided tags.
  This results in an overall reduced performance.
  Recent studies have focused on this problem e.g.
@@ -169,7 +169,7 @@ This section will describe, the conventional reading algorithm of the EPCglobal
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "CW"
-description "continuous wave"
+description "Continuous Wave"
 
 \end_inset
 

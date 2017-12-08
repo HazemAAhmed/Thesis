@@ -169,7 +169,7 @@ This section will describe, the conventional reading algorithm of the EPCglobal
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "CW"
-description "continuous wave"
+description "Continuous Wave"
 
 \end_inset
 
@@ -3191,7 +3191,7 @@ key "2013_orthogonal"
 \end_inset
 
  maximum reading efficiency.
- Which means that, 2 tags on average are identified per slot.
+ Which means that, 2 tags on average are identified per classical slot.
  However, this method is not compatible with the EPCglobal C1 G2 standard
  and can not be applied in practice, because it will produce a collision
  in the tag side.

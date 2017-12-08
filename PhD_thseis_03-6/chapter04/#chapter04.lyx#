@@ -115,7 +115,7 @@ Collision Recovery Aware Tag Estimation
 
  will be introduced.
  The proposed method takes into consideration the collision recovery probability
- of the physical layer.
+ of the PHY layer.
  
 \end_layout
 
@@ -129,7 +129,7 @@ This chapter is organized as follows: Section 1 shows the conventional number
  tags will be presented.
  The proposed solution presents a direct relation between the estimated
  number of tags and the frame length, successful and collided number of
- slots and the physical layer collision recovery probability.
+ slots and the PHY layer collision recovery probability.
  
 \end_layout
 
@@ -144,7 +144,7 @@ The performance of the FSA algorithm strongly depends on the accuracy of
  on feedback from the previous frame, which includes the number of slots
  filled with empty, successful, and collided slots.
  This information is then used by the function to obtain the number of tag
- estimate, and hence the optimal frame size 
+ estimation, and hence the optimal frame size 
 \begin_inset Formula $L$
 \end_inset
 
@@ -352,7 +352,7 @@ Optimum-C Algorithm
 \begin_inset Formula $C_{c}$
 \end_inset
 
- instead of single variable 
+ instead of the single variable 
 \begin_inset Formula $C$
 \end_inset
 
@@ -459,13 +459,13 @@ key "Aloha2_Floerkemeier"
 
 \end_inset
 
-, the heuristics Q-slot family is almost the mots optimum anti-collision
+, the heuristics Q-slot family is almost the most optimum anti-collision
  algorithm for small RFID networks, which have number of tags less than
  
 \begin_inset Formula $50$
 \end_inset
 
- tags.
+.
  However, in dense RFID networks, the performance of such algorithms is
  decreased, because the more collided tags, the less accuracy of calculating
  the constant 
@@ -688,7 +688,7 @@ key "2006_C_ratio"
 \end_inset
 
  proposed a binomial distribution for the number of tags.
- They assume the tags select a slot with probability of success 
+ They assume that the tags select a slot with probability of success 
 \begin_inset Formula $P=\frac{1}{L}$
 \end_inset
 
@@ -750,7 +750,7 @@ key "C_ratio_Modified"
 \end_inset
 
 , the authors used the same concept as the C-Ratio.
- However, they presume independent binomial distributions of the tags in
+ However, they presumed independent binomial distributions of the tags in
  each slot.
  Thus, the modified C-Ratio is expressed as:
 \begin_inset Formula 
@@ -769,15 +769,15 @@ Error Minimization Estimation
 \end_layout
 
 \begin_layout Standard
-Vogt proposes an estimation algorithm based on the minimum squared error
- (MSE) estimation 
+Vogt 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Aloha4_Vogt"
 
 \end_inset
 
-.
+ proposes an estimation algorithm based on the minimum squared error (MSE)
+ estimation.
  It minimizes the distance between the observed empty 
 \begin_inset Formula $E$
 \end_inset
@@ -1187,7 +1187,7 @@ reference "fig:Mean-identification-time"
 
 \end_inset
 
-, The ML estimation algorithm 
+, the ML estimation algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chen"
@@ -1210,10 +1210,10 @@ key "Letter_2012"
 \end_inset
 
 .
- This leads us to search for a method gives accepted accuracy and suitable
- for dense RFID networks.
+ This leads us to search for a method, that gives accepted accuracy and
+ suitable for dense RFID networks.
  Moreover, all these methods do not take into consideration the collision
- recovery capabilities effect of the modern RFID physical layer.
+ recovery capabilities effect of the modern RFID PHY layer.
 \begin_inset Float figure
 wide false
 sideways false
@@ -1276,7 +1276,7 @@ The aforementioned literature proposed various estimation methods.
  methods, however, it possesses two main disadvantages: 1) It uses numerical
  searching, which needs many calculations and iterations to find the optimum
  estimated value.
- 2) It neglects the physical layer effect, which is an inaccurate assumption.
+ 2) It neglects the PHY layer effect, which is an inaccurate assumption.
  Modern systems are capable of converting part of collided slots into successful
  slots e.g.
  
@@ -1407,8 +1407,8 @@ where
  are respectively the probabilities of empty, successful and collided transmissi
 ons per slot.
  Owing to the fact that modern RFID readers have a collision recovery capability
-, thereby, the physical layer is able to convert part of collided slots
- into successful slots based on the following relation:
+, thereby, the PHY layer is able to convert part of collided slots into
+ successful slots based on the following relation:
 \end_layout
 
 \begin_layout Standard
@@ -1450,8 +1450,8 @@ where
 \begin_inset Formula $\alpha$
 \end_inset
 
- is a variable indicates the collision recovery capability of the physical
- layer.
+ is a variable, that indicates the collision recovery capability of the
+ PHY layer.
  The calculation of the collision recovery probability will be discussed
  in details in the following sections.
  Figure 
@@ -1462,8 +1462,8 @@ reference "fig:Physical-layer-collision"
 \end_inset
 
  clarifies the flow diagram of the proposed system.
- In this system, the physical layer gives the MAC layer information about
- its collision recovery capability.
+ In this system, the PHY layer gives the MAC layer information about its
+ collision recovery capability.
 \begin_inset Float figure
 wide false
 sideways false
@@ -1485,7 +1485,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Physical layer collision recovery capability 
+PHY layer collision recovery capability 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Physical-layer-collision"
@@ -1529,7 +1529,7 @@ reference "eq:chen"
 
 \end_inset
 
-) use the values of 
+), use the values of 
 \begin_inset Formula $C$
 \end_inset
 
@@ -1662,7 +1662,7 @@ key "Bi_Po_1,Bi_Po_2"
 \begin_inset Formula $\frac{1}{L}$
 \end_inset
 
- is very small, the Poisson distribution can be used to approximate the
+ is very small, the Poisson  distribution can be used to approximate the
  binomial distribution.
  Figure 
 \begin_inset CommandInset ref
@@ -2377,58 +2377,6 @@ description "Signal to Noise Ratio"
  of the channel, resulting in a significantly higher probability to recover
  collided slots.
  
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Estimation Error No CR_Trial_paper_new.emf
-	lyxscale 50
-	width 65page%
-	height 25pheight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Relative estimation error 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- s a function of the normalized number of tags 
-\begin_inset Formula $\nicefrac{n}{L}$
-\end_inset
-
- with system has no collision recovery capability 
-\begin_inset Formula $(\alpha=0)$
-\end_inset
-
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:System-has-no"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2546,6 +2494,61 @@ status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Estimation Error No CR_Trial_paper_new.emf
+	lyxscale 50
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+System has no collision recovery capability 
+\begin_inset Formula $(\alpha=0)$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:System-has-no"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Estimation Error with CR 07_trial_new.emf
 	lyxscale 50
@@ -2561,15 +2564,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Relative estimation error 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- s a function of the normalized number of tags 
-\begin_inset Formula $\nicefrac{n}{L}$
-\end_inset
-
- with system has collision recovery capability 
+System has collision recovery capability 
 \begin_inset Formula $(\alpha=0.7)$
 \end_inset
 
@@ -2581,6 +2576,32 @@ name "fig:Relative-estimation-error07"
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relative estimation error 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ s a function of the normalized number of tags 
+\begin_inset Formula $\nicefrac{n}{L}$
+\end_inset
+
+ 
 \end_layout
 
 \end_inset
@@ -2618,7 +2639,7 @@ reference "fig:System-has-no"
 
  shows the percentage of the relative estimation error for the proposed
  system compared to the literature.
- These simulations assume a  system that has no collision recovery capability
+ These simulations assume a system that has no collision recovery capability
  (
 \begin_inset Formula $\alpha=0$
 \end_inset
@@ -2632,7 +2653,7 @@ reference "fig:System-has-no"
 \end_inset
 
 , when the number of tags compared to the frame length increases, the relative
- estimation error increases.
+ estimation error increases as well.
  This is due to the increase of the number of collided slots per frame.
  As shown in figure 
 \begin_inset CommandInset ref
@@ -2663,7 +2684,7 @@ key "Chen"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2724,19 +2745,19 @@ reference "fig:Relative-estimation-error07"
 
  demonstrates the influence of the collision recovery capability on the
  proposed estimation protocol compared to other estimation protocols.
- In this simulations, the MMSE RFID reader which is proposed in 
+ In these simulations, the MMSE RFID reader, which is proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MMSE_CR"
 
 \end_inset
 
- is used.
+, is used.
  These simulations use an average SNR=
 \begin_inset Formula $\unit[6]{dB}$
 \end_inset
 
- .
+.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2744,12 +2765,12 @@ reference "fig:Capture-probability-versus-1"
 
 \end_inset
 
-, the corresponding collision recovery probability 
+, the corresponding collision recovery probability is 
 \begin_inset Formula $\alpha=0.7$
 \end_inset
 
 .
- According to figure 
+ As shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Relative-estimation-error07"
@@ -2775,7 +2796,7 @@ reference "fig:Relative-estimation-error alpha"
 
 .
  In this simulation, the number of tags in the reading area is equal to
- the frame length i.e.
+ the frame length, i.e.
  
 \begin_inset Formula $n=L$
 \end_inset
@@ -2789,9 +2810,9 @@ reference "fig:Relative-estimation-error alpha"
 \end_inset
 
 , when the value of the collision recovery probability increases, the relative
- estimation error of all estimation algorithms increases, except for the
- proposed estimation protocol that has almost constant performance, independent
- of the value of the collision recovery probability.
+ estimation error of all estimation algorithms increases.
+ An exception is, the proposed estimation protocol that has almost constant
+ performance, independent of the value of the collision recovery probability.
  The proposed method takes into account the collision recovery probability,
  which is produced by the PHY-layer.
  According to figure 
@@ -2831,6 +2852,13 @@ reference "fig:Relative-estimation-error07"
 \begin_inset Float figure
 wide false
 sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
 status collapsed
 
 \begin_layout Plain Layout
@@ -2850,19 +2878,10 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean identification time 
-\begin_inset Formula $\tau$
-\end_inset
-
- in slots using FSA for system has no collision recovery capability 
+System has no collision recovery capability 
 \begin_inset Formula $(\alpha=0)$
 \end_inset
 
- as a function of the number of tags in the reading area 
-\begin_inset Formula $n$
-\end_inset
-
-.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -2881,6 +2900,10 @@ name "fig:System-has-no-time"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -2903,19 +2926,10 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean identification time 
-\begin_inset Formula $\tau$
-\end_inset
-
- in slots using FSA for system has collision recovery capability 
+System has collision recovery capability 
 \begin_inset Formula $(\alpha=0.7)$
 \end_inset
 
- as a function of the number of tags in the reading area 
-\begin_inset Formula $n$
-\end_inset
-
-.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -2928,6 +2942,36 @@ name "fig:System-has-collision-time"
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mean identification time 
+\begin_inset Formula $\tau$
+\end_inset
+
+ in slots using FSA as a function of the number of tags in the reading area
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -2951,15 +2995,15 @@ reference "fig:System-has-no-time"
 \begin_inset Formula $L_{ini}=16$
 \end_inset
 
-, which is the conventional initial frame length used in EPCglobal C1 G2
- standard 
+, which is the conventional initial frame length used in the EPCglobal C1
+ G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
 
 \end_inset
 
- is used.
+.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2973,7 +3017,7 @@ reference "fig:System-has-no-time"
 \end_inset
 
 ).
- According to 
+ According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:System-has-no-time"
@@ -2987,7 +3031,7 @@ key "Chen"
 
 \end_inset
 
- and better results than the other systems in the literature.
+ and better results than the other systems given in literature.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3008,8 +3052,8 @@ reference "fig:System-has-collision-time"
 
 \end_inset
 
-, the average identification delay has decreased for all the systems due
- to the collision recovery capability.
+, the average identification delay has decreased for all systems due to
+ the collision recovery capability.
  The proposed system gives better results compared to the state-of-art due
  to the performance of estimation only.
 \end_layout
@@ -3033,7 +3077,7 @@ reference "fig:System-has-collision-time"
 
 \end_inset
 
-, there is still a room of improvement between the proposed algorithm and
+, there is still room of improvement between the proposed algorithm and
  the FSA theoretical lower limit with 
 \begin_inset Formula $\simeq\unit[30]{\%}$
 \end_inset

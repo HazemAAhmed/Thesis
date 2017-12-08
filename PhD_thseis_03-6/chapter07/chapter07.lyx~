@@ -166,7 +166,7 @@ Time aware frame length
  In this proposal, the frame length considers only the difference in slots
  durations is considered and no collision recovery effect is considered.
  A closed form solution for the optimum frame length is analytically derived.
- The proposed solution results 
+ The proposed solution achieves 
 \begin_inset Formula $\unit[8]{\%}$
 \end_inset
 
@@ -187,7 +187,7 @@ Multiple collision recovery aware
  frame length.
  This proposal considers the differences between the collision recovery
  coefficients.
- Thus, it considers that, the collision recovery capability strongly depends
+ Thus, it considers that the collision recovery capability strongly depends
  on the number of the collided tags.
  However, this proposal assumes constant slots durations regardless the
  slot type.

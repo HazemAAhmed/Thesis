@@ -305,9 +305,8 @@ Apart from that, closed form solutions for the optimum FSA frame length
  Finally, a Time-aware and multiple collision recovery system is suggested,
  considering the multiple collision recovery probability coefficients in
  addition to the different slot durations.
- For each scenario, timing comparisons are presented in the latter simulation
- results show the reading time reduction using the proposed frame length
- compared to other the state-of-the-art algorithms.
+ For each scenario, timing comparisons between the proposed formulas and
+ the state-of-the-art are presented.
 \end_layout
 
 \begin_layout Standard

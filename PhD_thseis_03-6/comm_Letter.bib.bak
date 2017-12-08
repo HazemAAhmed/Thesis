@@ -3,7 +3,7 @@
 
 
 @Article{Ref_4_4_2013_Cap_time,
-  Title                    = {A Stochastic Shortest Path Model to Minimize the Reading Time in DFSA-Based RFID Systems},
+  Title                    = {{A Stochastic Shortest Path Model to Minimize the Reading Time in DFSA-Based RFID Systems}},
   Author                   = {Alcaraz, J.J. and Vales-Alonso, J. and Egea-Lopez, E. and Garcia-Haro, J.},
   Journal                  = {IEEE Communications Letters},
   Year                     = {2013},
@@ -19,7 +19,7 @@
 }
 
 @Article{2010_Trans_CR,
-  Title                    = {RFID Reader Receivers for Physical Layer Collision Recovery},
+  Title                    = {{RFID Reader Receivers for Physical Layer Collision Recovery}},
   Author                   = {Angerer, C. and Langwieser, Robert and Rupp, M.},
   Journal                  = {Communications, IEEE Transactions on},
   Year                     = {2010},
@@ -118,7 +118,7 @@
 }
 
 @Article{Capture_2011,
-  Title                    = {Efficient Anti-Collision Algorithm Utilizing the Capture Effect for ISO 18000-6C RFID Protocol},
+  Title                    = {{Efficient Anti-Collision Algorithm Utilizing the Capture Effect for ISO 18000-6C RFID Protocol}},
   Author                   = {Bo Li and Junyu Wang},
   Journal                  = {IEEE Communications Letters},
   Year                     = {2011},
@@ -134,7 +134,7 @@
 }
 
 @InProceedings{4_1_closed_form_Lopt_not_accurate,
-  Title                    = {ALOHA algorithm considering the slot duration difference in RFID system},
+  Title                    = {{ALOHA algorithm considering the slot duration difference in RFID system}},
   Author                   = {Liu, D. and Zhongxiang Wang and Jie Tan and Hao Min and Junyu Wang},
   Booktitle                = {IEEE International Conference on RFID, 2009 },
   Year                     = {2009},
@@ -162,7 +162,7 @@
 }
 
 @Article{2012_curve_fitting,
-  Title                    = {Using Capture Effect in DFSA Anti-collision Protocol in RFID Systems According to ISO18000-6C Standard},
+  Title                    = {{Using Capture Effect in DFSA Anti-collision Protocol in RFID Systems According to ISO18000-6C Standard}},
   Author                   = {Asghar Mokhtari and mehregan mahdavi and Reza Ebrahimi Atani and Mahrokh Maghsoodi},
   Journal                  = {Majlesi Journal of Mechatronic Systems},
   Year                     = {2012},
@@ -200,7 +200,7 @@
 }
 
 @Article{prodanoff2010optimal,
-  Title                    = {Optimal frame size analysis for framed slotted ALOHA based RFID networks},
+  Title                    = {{Optimal frame size analysis for framed slotted ALOHA based RFID networks}},
   Author                   = {Prodanoff, Zornitza Genova},
   Journal                  = {Computer Communications},
   Year                     = {2010},
@@ -226,7 +226,7 @@
 }
 
 @Article{2009_capture,
-  Title                    = {A capture-aware access control method for enhanced RFID anti-collision performance},
+  Title                    = {{A capture-aware access control method for enhanced RFID anti-collision performance}},
   Author                   = {Woo Jin Shin and Jeong Geun Kim},
   Journal                  = {IEEE Communications Letters},
   Year                     = {2009},
@@ -242,7 +242,7 @@
 }
 
 @InProceedings{2012_capture,
-  Title                    = {A capture-aware anti-collision algorithm for ISO 18000-6C RFID protocol},
+  Title                    = {{A capture-aware anti-collision algorithm for ISO 18000-6C RFID protocol}},
   Author                   = {Jian Su and Guang-Jun Wen},
   Booktitle                = {International Conference on Wavelet Active Media Technology and Information Processing (ICWAMTIP), 2012},
   Year                     = {2012},
@@ -335,7 +335,7 @@ of the IRE Professional Group on Antennas and Propagation},
 }
 
 @Article{4_2_numerical_time_Lopt,
-  Title                    = {Read More with Less: An Adaptive Approach to Energy-Efficient RFID Systems},
+  Title                    = {{Read More with Less: An Adaptive Approach to Energy-Efficient RFID Systems}},
   Author                   = {Xunteng Xu and Lin Gu and Jianping Wang and Guoliang Xing and Shing-Chi Cheung},
   Journal                  = {IEEE Journal on Selected Areas in Communications},
   Year                     = {2011},
@@ -351,7 +351,7 @@ of the IRE Professional Group on Antennas and Propagation},
 }
 
 @Article{2013_capture,
-  Title                    = {Capture-Aware Estimation for the Number of RFID Tags with Lower Complexity},
+  Title                    = {{Capture-Aware Estimation for the Number of RFID Tags with Lower Complexity}},
   Author                   = {Xi Yang and Haifeng Wu and Yu Zeng and Fei Gao},
   Journal                  = {IEEE Communications Letters},
   Year                     = {2013},
@@ -404,11 +404,10 @@ of the IRE Professional Group on Antennas and Propagation},
 }
 
 @Article{L_equal_n,
-  Title                    = {Optimal Framed Aloha Based Anti-Collision Algorithms for RFID Systems},
+  Title                    = {{Optimal Framed Aloha Based Anti-Collision Algorithms for RFID Systems}},
   Author                   = {Lei Zhu and Yum, T.P.},
   Journal                  = {IEEE Transactions on Communications},
   Year                     = {2010},
-  Number                   = {12},
   Pages                    = {3583-3592},
   Volume                   = {58},
 

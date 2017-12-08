@@ -720,7 +720,7 @@ In this section, the calculation method of the slot duration constant
 \begin_inset Formula $C_{t}$
 \end_inset
 
- from the physical layer parameters will be discussed.
+ from the PHY layer parameters will be discussed.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2626,7 +2626,7 @@ key "Capture_time_2015,Ref_4_4_2013_Cap_time"
  In addition, we take into consideration the average collision recovery
  probability and the different slot durations.
  Moreover, the calculation method of the collision recovery probability
- based on the physical layer will be clarified.
+ based on the PHY layer will be clarified.
 \end_layout
 
 \begin_layout Subsection
@@ -5990,7 +5990,7 @@ reference "fig:Summary_no_estimation"
  of the proposed frame lengths formulas without the effect of the proposed
  ML number of tags estimation algorithm.
  As discussed in chapter 4, the lower bound number of tags estimation neglects
- the collision recovery capability of the physical layer and gives the minimum
+ the collision recovery capability of the PHY layer and gives the minimum
  number of remaining tag in the reading area.
  According to figure 
 \begin_inset CommandInset ref

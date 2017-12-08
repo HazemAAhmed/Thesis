@@ -2776,7 +2776,7 @@ description "Time and collision recovery aware reading efficiency"
 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\L_{TCA}$"
+symbol "$L_{TCA}$"
 description "Time and collision recovery aware frame length"
 
 \end_inset
@@ -3735,7 +3735,7 @@ description "Multiple collision recovery aware reading efficiency"
 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\L_{MCRC}$"
+symbol "$L_{MCRC}$"
 description "Multiple collision recovery aware frame length"
 
 \end_inset

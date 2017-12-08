@@ -106,7 +106,7 @@ The main goal of the thesis is to increase the system throughput and to
 
 \begin_layout Standard
 The main focus of the thesis is to optimize the DFSA anti-collision algorithm
- taking into consideration the physical layer parameters e.g.
+ taking into consideration the PHY layer parameters e.g.
  the collision recovery capability and the differences in slots durations.
  Thus, the thesis aims to establish and propose advanced algorithms to increase
  the performance of the system.

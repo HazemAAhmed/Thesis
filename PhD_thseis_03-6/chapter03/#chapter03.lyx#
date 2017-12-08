@@ -75,7 +75,7 @@ RFID Anti-collision Protocols
 
 \begin_layout Standard
 This chapter presents the most common anti-collisions algorithms for passive
- RFID systems, either by using the physical layer or the MAC layer.
+ RFID systems, either by using the PHY layer or the MAC layer.
  It will emphasize the anti-collision algorithms which are compatible with
  the EPCglobal C1 G2 standard, as it is the main focus of this thesis, because
  it is the most suitable standard for the dense passive RFID applications.
@@ -83,7 +83,7 @@ This chapter presents the most common anti-collisions algorithms for passive
 
 \begin_layout Standard
 This chapter is organized as follows: Section 1 gives an overview about
- the physical layer anti-collision algorithms.
+ the PHY layer anti-collision algorithms.
  In section 2, different MAC-layer anti-collision algorithms are presented.
  Afterwards, a brief description for the EPCglobal C1 G2 reading process
  will be presented in section 3.
@@ -101,8 +101,8 @@ PHY-Layer Anti-collision Protocols
 \end_layout
 
 \begin_layout Standard
-Different physical layer anti-collision protocols have been developed to
- separate colliding tag signals on the physical layer.
+Different PHY layer anti-collision protocols have been developed to separate
+ colliding tag signals on the PHY layer.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -110,8 +110,8 @@ reference "fig:Existing-PHY-Layer-anti-collisio"
 
 \end_inset
 
- shows the most common physical layer anti-collision protocols, which are:
- FDMA, SDMA, CDMA and TDMA.
+ shows the most common PHY layer anti-collision protocols, which are: FDMA,
+ SDMA, CDMA and TDMA.
  These algorithms will be briefly discussed in the following paragraphs:
 \end_layout
 
@@ -207,7 +207,7 @@ key "SDMA"
 .
  The main drawback is the cost of implementing the RFID reader with multiple
  antennas.
- Moreover, in dense applications, the distances between the tags is very
+ Moreover, in dense applications, the distances between the tags are very
  small in order to be distributed on the reading area.
 \end_layout
 
@@ -255,7 +255,7 @@ description "Time Division Multiple Access"
 In this protocol, a single frequency band is divided into time slots and
  assigned to the tags.
  In this technique, each tag must be synchronized to the time slots and
- send its information at the beginning of the selected slot 
+ sends its information at the beginning of the selected slot 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "TDMA"
@@ -386,11 +386,11 @@ Query
 
  command, transmitted from the reader, and the response of tags in the reading
  area.
- If there is more than single tag reply in one slot, a collision occurs
+ If there is more than a single tag reply in one slot, a collision occurs
  and the reader tries to split the tags into two subgroups.
  The reader repeats the splitting procedure until it receives a single tag
  reply.
- Tree based anti-collision protocols can be classified into two groups:
+ Tree-based anti-collision protocols can be classified into two groups:
 \end_layout
 
 \begin_layout Subsubsection*
@@ -401,7 +401,7 @@ Binary Tree
 The binary tree algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Binary_tree"
+key "Binary_tree_new"
 
 \end_inset
 
@@ -409,11 +409,11 @@ key "Binary_tree"
  Using this algorithm, if a collision occurs in a time slot, each collided
  tag selects randomly '0' or '1'.
  Thus, the colliding tags will be separated into two subgroups.
- Tags, that selected '0' always transmit their IDs to the reader first.
+ Tags, that selected '0', always transmit their IDs to the reader first.
  If a collision occurs again, collided tags are splitted again by selecting
  '0' or '1'.
- Tags, which have selected '1' have to wait until all other tags which have
- selected '0' are successfully identified by the reader.
+ Tags, which have selected '1', have to wait until all other tags which
+ have selected '0' are successfully identified by the reader.
  This procedure continues recursively until the subset is reduced to one
  tag, that is identified without collisions.
  
@@ -468,13 +468,13 @@ reference "fig:Binary-tree-anti-collision"
 
  shows an example of the binary tree algorithm resolving the collision of
  four tags in a reading area.
- Thus, we have a collided time slot at the beginning.
+ Thus, there is a collided time slot at the beginning.
  At time slot 
 \begin_inset Formula $2$
 \end_inset
 
 , each collided tag has to choose '0' or '1' randomly.
- In our example, tags 
+ In the shown example, tags 
 \begin_inset Formula $1$
 \end_inset
 
@@ -522,7 +522,7 @@ reference "fig:Binary-tree-anti-collision"
 \end_inset
 
 .
- Due to the collision, both tags 
+ Due to this collision, both tags 
 \begin_inset Formula $1$
 \end_inset
 
@@ -540,11 +540,11 @@ reference "fig:Binary-tree-anti-collision"
 \end_inset
 
  have selected '1'.
- This resulted and empty slot in time slot 
+ This resulted in an empty slot in time slot 
 \begin_inset Formula $3$
 \end_inset
 
- and collided slot in time slot 
+ and a collided slot in time slot 
 \begin_inset Formula $4$
 \end_inset
 
@@ -558,8 +558,8 @@ reference "fig:Binary-tree-anti-collision"
 \end_inset
 
  has selected '1'.
- This random selection made them separated and results in two successive
- successful slots in time slots 
+ This random selection made them separated into two successive successful
+ slots (
 \begin_inset Formula $5$
 \end_inset
 
@@ -567,7 +567,7 @@ reference "fig:Binary-tree-anti-collision"
 \begin_inset Formula $6$
 \end_inset
 
-.
+).
  At this moment, tags 
 \begin_inset Formula $3$
 \end_inset
@@ -641,7 +641,7 @@ key "Query_tree"
  Tags in the reading area receive this signal and match this bit with their
  ID.
  If this bit matches their ID, they transmit their ID.
- If a collision happened again, the reader adds another random bit 0 or
+ If a collision took place again, the reader adds another random bit 0 or
  1 to its next query signal.
  This process is repeated until the reader receives a successful single
  tag reply.
@@ -659,7 +659,7 @@ reference "fig:Query-tree-anti-collision"
  of 4 tags in a reading area.
  At time slot 1, the reader broadcasts a query signal asking them for a
  reply.
- A collision between the four tags is happening.
+ A collision between the four tags is taking place.
  The reader sends a '0' in a new query signal at time slot 2.
  However, there are three tags sharing this bit, so a new collision between
  the three tags is happening.
@@ -763,8 +763,8 @@ y RFID tags.
  to handle the collision.
  When every tag replies to the reader without checking whether the channel
  is free or not there is always the possibility of the collision.
- In case of collision, the collided tags wait for a random amount of time
- and re-transmit again till it transmits successfully.
+ In case of collision, the collided tags wait for a random duration of time
+ and transmit again till it transmits successfully.
  According to 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -823,7 +823,7 @@ reference "fig:Example-for-slotted"
  a coming slot.
  Each tag is allowed only to start transmission at the beginning of each
  time slot.
- Therefore, the maximum possible collided time is single complete slot.
+ Therefore, the maximum possible collided time is a single complete slot.
  However, in the basic ALOHA protocol, the possible collided time is two
  slots.
  Thus, the maximum available reading efficiency using slotted ALOHA is 
@@ -1899,7 +1899,7 @@ reference "eq:rff_PHY"
 
 \end_inset
 
-), the reading efficiency strongly depends on the capability of the physical
+), the reading efficiency strongly depends on the capability of the PHY
  layer to resolve the collision.
  Thus, in this thesis, the effect of the collision recovery capability on
  the MAC layer optimization will be addressed in more details.
@@ -2231,9 +2231,9 @@ Summarizing, the main lack in the previous RFID research is that the MAC
  the number of tags estimation and the optimum frame length.
  In this thesis, I will concentrate on optimizing the DFSA anti-collision
  protocol.
- In the proposed algorithm, the physical layer parameters will be considered,
- which are the physical collision recovery capability of the RFID reader
- and the differences in slot durations.
+ In the proposed algorithm, the PHY layer parameters will be considered,
+ which are the collision recovery capability of the RFID reader and the
+ differences in slot durations.
 \end_layout
 
 \end_body
