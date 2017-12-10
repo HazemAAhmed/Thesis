@@ -3059,7 +3059,7 @@ reference "fig:System-has-collision-time"
 
 \begin_layout Standard
 According to EPCglobal C1 G2, the RFID reader cannot acknowledge more than
- single tag per slot.
+ a single tag per slot.
  Therefore, the theoretical lower limit to identify 
 \begin_inset Formula $n$
 \end_inset

@@ -101,9 +101,9 @@ key "Aloha4_Vogt"
 \end_inset
 
 .
- In such systems, only the answer of a single tag is considered as a successful
- slot, and if multiple tags respond simultaneously a collision occurs.
- Then all tags replies in collided slots are discarded.
+ In such systems, only the single tag reply is considered as a successful
+ slot, and if multiple tags respond simultaneously, a collision occurs.
+ Then all tags' replies in collided slots are discarded.
  In such systems the optimum frame length is equal to the number of tags
  in the reading area 
 \begin_inset Formula $L=n$
@@ -138,7 +138,7 @@ key "2009_capture"
  In these systems, the empty slots duration is shorter than the collided
  slots duration and shorter than the successful slot duration.
  Therefore, in such systems, it is better to increase the frame length,
- because the losses from the empty slots is less than the losses in the
+ because the losses from the empty slots is less than the losses from the
  collided slots.
  To solve the above contradiction, this chapter will discuss the optimum
  DFSA frame length taking into consideration the collision recovery capability
@@ -364,7 +364,7 @@ reference "eq: number of slot definition"
 \begin_inset Formula $C$
 \end_inset
 
- are a function of 
+ are function of 
 \begin_inset Formula $L$
 \end_inset
 
@@ -381,7 +381,7 @@ reference "eq: number of slot definition"
 \begin_inset Formula $t_{c}$
 \end_inset
 
- are constants for a given system specification, we get:
+ are constants for a given system specification, the equation will be:
 \size small
 
 \begin_inset Formula 
@@ -464,7 +464,7 @@ By simplifying the result, the final exact equation for the proposed time-aware
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -729,7 +729,7 @@ reference "fig:Slot-Durations-During-1"
 \end_inset
 
  shows the timings of collided and empty slots.
- Each slot contains different sequences of reader to tag commands and tag
+ Each slot contains different sequences of reader-to-tag commands and tag
  replies.
  Based on the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
@@ -2361,7 +2361,7 @@ Percentages of the mean reading time reduction
 \begin_inset Formula $\zeta_{TA}$
 \end_inset
 
- using the proposed TAFSA for an ideally known number of tags as afunction
+ using the proposed TAFSA for an ideally known number of tags as a function
  of the slot duration constant 
 \begin_inset Formula $C_{t}$
 \end_inset
@@ -2389,7 +2389,7 @@ name "fig:Saving-time-versus"
 \begin_layout Standard
 In practice, the number of tags in the interrogation region is unknown.
  Hence, the anti-collision algorithms in real RFID systems consist of two
- stages: one estimates the number of tags in the interrogation area 
+ stages: One estimates the number of tags in the interrogation area 
 \begin_inset Formula $\hat{n}$
 \end_inset
 
@@ -2553,11 +2553,16 @@ As mentioned in chapter 4, modern RFID readers can decode one of multiple
 \end_inset
 
 .
- According to the literature, we can divide the previous research, which
- considered the collision recovery capability in the frame length optimization,
- into three diverse groups: The first group considered only the average
- collision recovery probability for the frame length optimizations, such
- as 
+ According to the literature 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "4_1_closed_form_Lopt_not_accurate,optimizin_total_latency,Capture_2011"
+
+\end_inset
+
+, the previous research is divided into three diverse groups: The first
+ group considered only the average collision recovery probability for the
+ frame length optimizations, such as 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Capture_2011"
@@ -2767,7 +2772,7 @@ reference "eq:Succ and Coll with cap"
 \begin_inset Formula $C_{c}$
 \end_inset
 
- are a function of 
+ are functions of 
 \begin_inset Formula $L$
 \end_inset
 
@@ -2873,8 +2878,8 @@ reference "eq:Lopt comlex expresion"
 
 \end_inset
 
-) shows the exact relation between the proposed collision recovery and time-awar
-e optimum frame length 
+) shows the exact relation between the proposed collision recovery, the
+ time-aware optimum frame length 
 \begin_inset Formula $L_{_{CTA}}$
 \end_inset
 
@@ -3082,7 +3087,7 @@ reference "eq:closed form"
 \end_inset
 
 ) leads to the global optimum.
- According to the literature, 
+ According to literature, 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Capture_time_2015"
@@ -3310,8 +3315,8 @@ reference "eq:taylor"
 \end_inset
 
 ), there are slight differences between the proposed closed form and the
- numerical solution, where the numerical is the exact solution.
- As previously mentioned, the EPCglobal C1 G2 standard 
+ numerical solution.
+ However, as previously mentioned, the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -3471,7 +3476,7 @@ reference "fig:Percentages-of-saving_ct_alpha_with"
 
  taking into consideration the effect of the number of tags estimation algorithm
 s.
- The Simulations used 
+ The simulations use 
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 
@@ -3487,7 +3492,7 @@ reference "fig:Percentages-of-saving_ct_alpha_with"
 
 \end_inset
 
-, the proposed solution results 
+, the proposed solution results in 
 \begin_inset Formula $\unit[18]{\%}$
 \end_inset
 
@@ -3570,8 +3575,8 @@ To simplify the analysis, previous sections considered systems with equal
  tags per slot.
  For example, the probability to resolve two collided tags is equal to the
  probability to resolve three or four collided tags per slot.
- However, in practice the probability to recover one tag from two collided
- tags is more than the probability to identify single tag from three collided
+ However, in practice, the probability of recovering one tag from two collided
+ tags is more than the probability to identify a single tag from three collided
  tags.
  Therefore, in this section, the collision recovery probability will be
  considered as a variable coefficient 
@@ -4245,7 +4250,7 @@ Simulation results for the average collision recovery coefficients
 \begin_inset Formula $\alpha_{4}$
 \end_inset
 
- are respectively the collision recovery probability or two, three, and
+ are respectively the collision recovery probability for two, three, and
  four collided tags per slot.
 \begin_inset CommandInset label
 LatexCommand label
@@ -4334,9 +4339,16 @@ key "standard"
 \begin_inset Formula $h$
 \end_inset
 
- follow Rayleigh fading, as in dense RFID applications, usually there is
- no dominant Line-of-Site communication link between the tags and the reader
- 
+ follow Rayleigh fading, which is a common assumption for dense RFID application
+s 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2010_Trans_CR"
+
+\end_inset
+
+, because there is no dominant Line-of-Site communication link between the
+ tags and the reader 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2010_Trans_CR"
@@ -4344,7 +4356,7 @@ key "2010_Trans_CR"
 \end_inset
 
 .
- The channel coefficients are independent zero mean circularly symmetric
+ The channel coefficients are independent on zero mean circularly symmetric
  complex Gaussian random variables with normalized energy 
 \begin_inset Formula $E\left\{ \left|h\right|^{2}\right\} =1$
 \end_inset
@@ -4686,7 +4698,8 @@ Percentages of the mean reading time reduction
 \begin_inset Formula $\zeta_{MCRC}$
 \end_inset
 
- using the proposed MCRC as a function of the number of tags 
+ using the proposed MCRC frame length as a function of the number of tags
+ 
 \begin_inset Formula $n$
 \end_inset
 
@@ -4702,7 +4715,19 @@ Percentages of the mean reading time reduction
 \begin_inset Formula $SNR=\unit{\unit[10]{dB}}$
 \end_inset
 
- which leads to 
+ with strongest tag reply receiver, which leads to (
+\begin_inset Formula $\alpha_{2}=0.6$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}=0.5$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{4}=0.4$
+\end_inset
+
+) 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Percentages-of-saving_MCR_with"
@@ -5680,9 +5705,10 @@ reference "fig:Percentages-of-saving-TMCRA-Estimation"
 .
  FSA assuming a perfect number of tags estimation algorithm leads to less
  number of iterations in the reading process.
- Thus, it results the lower bound of the mean reduction in reading time.
+ Thus, it results in the minimum value of the mean reduction in reading
+ time.
  On the other hand, FSA with simple estimation algorithm e.g.
- Lower bound leads to more number of iteration and higher percentage of
+ lower bound leads to more number of iteration and higher percentage of
  saving time.
  
 \end_layout
@@ -5776,7 +5802,7 @@ key "standard"
 , which gives the minimum identification time for UHF RFID system.
  The theoretical lower limit is achieved when the system identifies a single
  tag per slot.
- Therefore, the minimum number of slots to identify 
+ Therefore, the minimum number of slots required to identify 
 \begin_inset Formula $n$
 \end_inset
 
@@ -5875,7 +5901,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Using simple number of tags estimation algorithm (Lower bound)
+Using simple number of tags estimation algorithm (Lower Bound)
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Summary_no_estimation"
@@ -5947,8 +5973,8 @@ Average reading time
 \begin_inset Formula $\tau$
 \end_inset
 
- of the proposed systems, conventional FSA and the theoretical limitas a
- function of the number of tags 
+ of the proposed systems, conventional FSA and the theoretical limit as
+ a function of the number of tags 
 \begin_inset Formula $n$
 \end_inset
 
@@ -5986,12 +6012,12 @@ reference "fig:Summary_no_estimation"
 
  shows the average reading time for DFSA using lower bound number of tags
  estimation algorithm.
- The main objective of theses simulations is to evaluate the performance
+ The main objective of these simulations is to evaluate the performance
  of the proposed frame lengths formulas without the effect of the proposed
  ML number of tags estimation algorithm.
  As discussed in chapter 4, the lower bound number of tags estimation neglects
  the collision recovery capability of the PHY layer and gives the minimum
- number of remaining tag in the reading area.
+ number of the remaining tags in the reading area.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6028,7 +6054,7 @@ reference "fig:Summary_no_estimation"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6075,15 +6101,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\size small
-Average reading time reduction 
-\size default
-using the proposed frame length formulas
-\size small
- compared to the conventional DFSA
-\size default
- 
+Average reading time reduction using the proposed frame length formulas
+ compared to the conventional DFSA 
 \begin_inset Formula $L=n$
 \end_inset
 
@@ -6579,24 +6598,24 @@ reference "fig:Summary_with_no_patent"
 
 \end_inset
 
-, the Time Aware frame length proposal gives 
+, the time aware frame length proposal gives 
 \begin_inset Formula $\unit[10]{\%}$
 \end_inset
 
  saving in the average total reading time compared to the conventional FSA.
- The Time and Constant Collision Recovery Aware frame length proposal results
- 
+ The time and constant collision recovery aware frame length proposal results
+ in  
 \begin_inset Formula $\unit[18]{\%}$
 \end_inset
 
  average saving in the reading time compared to the conventional DFSA.
- The used average collision recovery probability 
+ The used average collision recovery probability is 
 \begin_inset Formula $\alpha=\alpha_{2}=0.6$
 \end_inset
 
 .
  In case of the time and multiple collision recovery frame length, the proposed
- solution results 
+ solution results in 
 \begin_inset Formula $\unit[22]{\%}$
 \end_inset
 
@@ -6612,10 +6631,10 @@ reference "fig:Main_comp_no_patent"
 \end_inset
 
 , the percentages of saving in reading time with a simple number of tags
- estimation algorithm is more than the percentages of saving time using
+ estimation algorithm are more than the percentages of saving time using
  the proposed ML number of tags estimation.
  This is because the total identification time with simple number of tags
- estimation is more than with the proposed ML number of tags estimation.
+ estimation is more than that with the proposed ML number of tags estimation.
  Thus, the number of reading cycles and frame length adaptation with simple
  number of tags estimation is more than the number of reading cycles with
  the proposed number of tags estimation.
@@ -6651,8 +6670,8 @@ key "standard"
 \end_inset
 
 .
- The main reason of this is, the allowed optimization was only in the reader
- side.
+ The main reason of this is, that the allowed optimization was only in the
+ reader side.
  To follow the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite

@@ -217,6 +217,44 @@ pagenumbering{roman}
 
 \end_layout
 
+\begin_layout Section*
+Acknowledgment
+\end_layout
+
+\begin_layout Standard
+The completion of this thesis would not have been possible without Prof.
+ Dr.-Ing Albert Heuberger’s support and patience, as he guided me throughout
+ my doctoral studies with his unwavering enthusiasm, for which I am extremely
+ grateful.
+\end_layout
+
+\begin_layout Standard
+Many thanks go to Dr.-Ing Joerg Robert for his support, guidance and for
+ answering my never ending questions with pleasure.
+ Moreover, I want to acknowledge the support of my colleagues in our research
+ group at the University of Erlangen.
+ It was a great pleasure working with you all.
+ Thank you for your support.
+ Special thanks go to my colleague Hamed Kenawy for the constructive cooperation
+ during the entire thesis work.
+\end_layout
+
+\begin_layout Standard
+Last but not least, I would like to thank my family especially my parents;
+ Sawasan Megahed and Abdelaal Ibrahim.
+ They have shown unequivocal support from the very beginning and throughout
+ the process of completing this thesis as well as my sweethearts; Shaimaa
+ and Salma.
+ No matter what I say would never suffice to express my gratitude towards
+ you.
+ Thank you for your understanding, caring and for your presence in my life.
+ 
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection*
 
 \size larger
@@ -321,7 +359,7 @@ This thesis focuses on the EPCglobal C1 G2 standard.
  This proposal includes compatible modifications in the UHF RFID tags/readers,
  to be capable of acknowledging more than a sole tag per slot.
  Finally, the obtained results demonstrate that the proposed system optimization
-s lead to identify tags in significantly shorter time, which is crucial
+s lead to tags identification in significantly shorter time, which is crucial
  for time-sensitive applications.
 \end_layout
 
@@ -335,8 +373,6 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
-
-\lang ngerman
 \begin_inset Newpage cleardoublepage
 \end_inset
 
@@ -359,11 +395,6 @@ pagenumbering{arabic}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-
-\lang ngerman
 \begin_inset CommandInset include
 LatexCommand include
 filename "chapter01/chapter01.lyx"

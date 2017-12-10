@@ -492,7 +492,7 @@
 }
 
 @Article{Slotted_ALOHA,
-  Title                    = {An exact analysis and performance evaluation of framed ALOHA with capture},
+  Title                    = {{An exact analysis and performance evaluation of framed ALOHA with capture}},
   Author                   = {J. E. Wieselthier and A. Ephremides and L. A. Michaels},
   Journal                  = {IEEE Transactions on Communications},
   Year                     = {1989},

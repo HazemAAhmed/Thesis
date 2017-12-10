@@ -78,8 +78,8 @@ Nowadays, there is a great interest in RFID due to the number of applications
  used in this field.
  RFID systems provide low cost and low power object identification and tracking
  mechanisms.
- It is the key requirement for different ultra-dense applications, e.g., logistics
-, access management and timing sports events.
+ It is the key requirement for different ultra-dense applications, e.g.
+ logistics, access management and timing sports events.
  In such applications, dense number of tags is expected, which requires
  fast identification.
  
@@ -90,23 +90,23 @@ The main goal of the thesis is to increase the system throughput and to
  identify tags faster in the reader range.
  The transmission of tags is scheduled on the MAC layer with an anti-collision
  protocol called DFSA.
- The identification time directly depends on reading efficiency of the DFSA
+ The identification time directly depends on the DFSA reading efficiency
  anti-collision protocol.
  The DFSA reading efficiency is controlled by two main parameters: The accuracy
  of number of tags estimation algorithm and the frame length optimization.
- The PHY layer of the Modern RFID receivers has been developed.
+ The PHY layer of the modern RFID receivers has been developed.
  Modern RFID receivers have a collision recovery capability, which means
  that some of collided slots can be converted to successful slots.
  This capability reduces the losses from the collided slots.
  Moreover, modern RFID receivers have the capability to identify the type
- of slot and terminate it as soon as it recognizes that, it is not a successful
+ of slot and terminate it as soon as it recognizes that it is not a successful
  slot.
  This capability reduces the losses from the empty slots.
 \end_layout
 
 \begin_layout Standard
 The main focus of the thesis is to optimize the DFSA anti-collision algorithm
- taking into consideration the physical layer parameters e.g.
+ taking into consideration the PHY layer parameters, e.g.
  the collision recovery capability and the differences in slots durations.
  Thus, the thesis aims to establish and propose advanced algorithms to increase
  the performance of the system.
@@ -127,9 +127,9 @@ The advanced RFID readers, which are proposed in this thesis decrease the
  optimize the MAC anti-collision protocols.
  The first three chapters gives an introduction to the UHF RFID systems,
  where the motivation of the work is discussed.
- In chapter 4 a novel closed form solution for a collision recovery aware
- ML estimator that considers the effects of the collision recovery probability
- of the RFID reader.
+ Chapter 4 presents a novel closed form solution for a collision recovery
+ aware ML estimator, which considers the effects of the collision recovery
+ probability of the RFID reader.
  The theoretical derivations lead to a new analytical estimator that can
  be easily implemented in RFID readers.
  Using the proposed formula, we need neither look-up tables nor numerical
@@ -141,7 +141,7 @@ n error compared to the other state-of-art proposals.
 \begin_inset Formula $\unit[10]{\%}$
 \end_inset
 
- compared to the best other state-of-art solution.
+ compared to the best other state-of-the-art solution.
 \end_layout
 
 \begin_layout Standard
@@ -164,7 +164,7 @@ Time aware frame length
 
  frame length.
  In this proposal, the frame length considers only the difference in slots
- durations is considered and no collision recovery effect is considered.
+ durations and no collision recovery effect is considered.
  A closed form solution for the optimum frame length is analytically derived.
  The proposed solution achieves 
 \begin_inset Formula $\unit[8]{\%}$
@@ -192,7 +192,7 @@ Multiple collision recovery aware
  However, this proposal assumes constant slots durations regardless the
  slot type.
  A closed form solution for the optimum frame length is analytically derived.
- The proposed solution results 
+ The proposed solution results in 
 \begin_inset Formula $\unit[12]{\%}$
 \end_inset
 
@@ -216,7 +216,7 @@ Time and constant collision recovery coefficients aware
  However, it assumes that the receiver has a constant collision recovery
  capability regardless the number of collided tags.
  A closed form solution is analyzed for the frame length.
- The proposed solution results 
+ The proposed solution results in 
 \begin_inset Formula $\unit[18]{\%}$
 \end_inset
 
@@ -238,7 +238,7 @@ Time and multiple collision recovery aware
  This proposal considers the differences in slots durations and the variable
  collision recovery coefficients.
  A closed form solution is analyzed for the frame length.
- The proposed solution results 
+ The proposed solution results in 
 \begin_inset Formula $\unit[22]{\%}$
 \end_inset
 

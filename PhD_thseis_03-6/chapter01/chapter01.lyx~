@@ -89,6 +89,22 @@ Introduction
 \end_layout
 
 \begin_layout Standard
+
+\lang ngerman
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\end_inset
+
+
+\lang english
 Radio Frequency Identification (RFID) 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -394,7 +410,7 @@ Further, a new closed-form solution for the optimal Frame Slotted ALOHA
  The new solution considers the multiple collision recovery probability
  coefficients, and the different slot durations.
  Timing comparisons are presented in the simulation results to show the
- reading time reduction using the proposed frame length compared to other
+ reading time reduction using the proposed frame length compared to the
  state-of-the-art algorithms.
 \end_layout
 

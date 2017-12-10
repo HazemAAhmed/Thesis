@@ -75,7 +75,7 @@ Improvements of the EPCglobal C1 G2
 
 \begin_layout Abstract
 The EPCglobal C1 G2 is the most used UHF RFID standard.
- It allows only for a single tag acknowledgment per slot, even if the physical
+ It allows only for a single tag acknowledgment per slot, even if the PHY
  layer is able to identify multiple collided tags.
  This results in an overall reduced performance.
  Recent studies have focused on this problem e.g.
@@ -139,7 +139,7 @@ commands at the tag side.
 To overcome these pitfalls, this chapter proposes a system that is capable
  of acknowledging multiple tags within a single slot, resulting in a significant
  increase in performance.
- The main advantage of this proposal is that it is compatible with existing
+ The main advantage of this proposal is that it is compatible with the existing
  EPCglobal C1 G2 tags and readers.
  Hence, our improved tags can be read by conventional readers without affecting
  the performance.
@@ -169,7 +169,7 @@ This section will describe, the conventional reading algorithm of the EPCglobal
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "CW"
-description "continuous wave"
+description "Continuous Wave"
 
 \end_inset
 
@@ -204,7 +204,7 @@ Reply
 \begin_inset Quotes erd
 \end_inset
 
- state and tarts back-scattering its 
+ state and starts back-scattering its 
 \begin_inset Formula $16$
 \end_inset
 
@@ -267,10 +267,15 @@ name "fig:Tag-response-of"
 \end_layout
 
 \begin_layout Standard
-According to Frame Slotted ALOHA, there are three probabilities for each
- slot: Empty slot, Successful slot, and Collided slot.
- Empty slot: In such a slot, no tag has selected this slot to transmit its
- information in it.
+As discussed before, in FSA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha1"
+
+\end_inset
+
+, there are three probabilities for each slot: First, empty slot, where,
+ no tag has selected this slot to transmit its information in it.
  The reader transmits a 
 \begin_inset Quotes eld
 \end_inset
@@ -279,8 +284,8 @@ Query-Rep
 \begin_inset Quotes erd
 \end_inset
 
- command asking the tags to decrements their slot counters.
- Successful slot: In this slot, only one one tag selects this slot to transmit
+ command asking the tags to decrement their slot counters.
+ Second, successful slot, where only one tag selects this slot to transmit
  its information in it.
  The reader transmits an 
 \begin_inset Quotes eld
@@ -312,14 +317,14 @@ EPC
 \end_inset
 
  code.
- Collided slot: In such slots, the reader receives simultaneously multiple
+ Third, collided slot, where the reader receives simultaneously multiple
  replies from different tags.
  In this case, there are two possibilities: 
 \end_layout
 
 \begin_layout Enumerate
-Systems have no collision recovery capability: In such systems, the reader
- fails to identify any 
+Systems have no collision recovery capability: The reader fails to identify
+ any 
 \begin_inset Formula $RN16$
 \end_inset
 
@@ -460,8 +465,8 @@ reference "fig:Two-tags-collided"
 \end_inset
 
  presents an example for a collided slot with two collided tags.
- It shows the differences between the conventional systems without collision
- recovery and with collision recovery capability.
+ It shows the differences between the conventional systems without and with
+ collision recovery capability.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -469,13 +474,13 @@ reference "fig:Two-tags-collided"
 
 \end_inset
 
-, the reader, which has no collision recovery capability couldn't identify
+, the reader, which has no collision recovery capability, couldn't identify
  any of the two collided 
 \begin_inset Formula $RN16s$
 \end_inset
 
 .
- However, the reader, which has collision recovery capability identified
+ However, the reader, which has collision recovery capability, identified
  
 \begin_inset Formula $RN16_{1}$
 \end_inset
@@ -537,7 +542,7 @@ key "standard"
 \begin_inset Formula $6$
 \end_inset
 
- bits preamble and the long version 
+ bits preamble and the long version with 
 \begin_inset Formula $18$
 \end_inset
 
@@ -1108,7 +1113,7 @@ In case of a resolved collision of multiple
 \begin_inset Formula $RN16s$
 \end_inset
 
-, the proposed pseudo parallel reading process is applied.
+, the proposed pesudo-parallel reading process is applied.
  A tag receiving its valid 
 \begin_inset Formula $RN16$
 \end_inset
@@ -1356,7 +1361,7 @@ ments per slot.
  On the other hand, the proposed system should benefit from the collision
  resolving capabilities of the modern readers.
  Therefore, the proposed reader has the capability of converting the collided
- slot into a pseudo parallel successful slot as shown in figure 
+ slot into a pesudo-parallel successful slot as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Pesudo-parallel-successful"
@@ -1630,7 +1635,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of the proposed pseudo parallel successful slot with parallel 
+Example of the proposed pesudo-parallel successful slot with parallel 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1784,7 +1789,7 @@ Query
 \end_inset
 
 .
- Afterwards, the reader applied the pseudo parallel slot concept to acknowledge
+ Afterwards, the reader applied the pesudo-parallel slot concept to acknowledge
  the three tags during the same slot.
  
 \end_layout
@@ -2392,7 +2397,7 @@ reference "tab:Collision-scenarios-for"
 \begin_layout Standard
 For the proposed case, the system is not able to acknowledge the recovered
  tags in parallel.
- It uses the discussed pseudo parallel method.
+ It uses the discussed pesudo-parallel method.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2528,7 +2533,7 @@ ACK
 \end_inset
 
  commands to the resolved tags.
- Therefore, the duration of the proposed pseudo parallel slot is:
+ Therefore, the duration of the proposed pesudo-parallel slot is:
 \end_layout
 
 \begin_layout Standard
@@ -2546,8 +2551,8 @@ where
  is the number of recovered tags.
  These tags are acknowledged successively.
  Therefore, the proposed efficiency should include a factor representing
- the effect of the pseudo parallel spreading in time.
- This factor is called the pseudo parallel factor 
+ the effect of the pesudo-parallel spreading in time.
+ This factor is called the pesudo-parallel factor 
 \begin_inset Formula $\varphi$
 \end_inset
 
@@ -2570,10 +2575,6 @@ reference "tab:System-Parameters-of"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Based on the above discussion, the proposed reading efficiency formula consideri
 ng the advantages of the new system is formulated as:
 \begin_inset Float figure
@@ -3195,7 +3196,7 @@ key "2013_orthogonal"
 \end_inset
 
  maximum reading efficiency.
- Which means that, 2 tags on average are identified per slot.
+ Which means that, 2 tags on average are identified per classical slot.
  However, this method is not compatible with the EPCglobal C1 G2 standard
  and can not be applied in practice, because it will produce a collision
  in the tag side.
@@ -3208,7 +3209,7 @@ key "2013_orthogonal"
  maximum reading efficiency.
  This system does not benefit from the strong collision recovery capability
  of the reader.
- The third one is the proposed pseudo parallel successful slot.
+ The third one is the proposed pesudo-parallel successful slot.
  This system compromises between the single tag acknowledgment and the fully
  parallel acknowledgment.
  It results 
