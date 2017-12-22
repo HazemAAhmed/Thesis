@@ -128,8 +128,8 @@ This chapter is organized as follows: Section 1 shows the conventional number
  Using this algorithm, a closed form solution for the estimated number of
  tags will be presented.
  The proposed solution presents a direct relation between the estimated
- number of tags and the frame length, successful and collided number of
- slots and the PHY layer collision recovery probability.
+ number of tags and the frame length, as well as the number of successful
+ and collided slots and the PHY layer collision recovery probability.
  
 \end_layout
 
@@ -687,16 +687,7 @@ key "2006_C_ratio"
 
 \end_inset
 
- proposed a binomial distribution for the number of tags.
- They assume that the tags select a slot with probability of success 
-\begin_inset Formula $P=\frac{1}{L}$
-\end_inset
-
-, where 
-\begin_inset Formula $L$
-\end_inset
-
- is the frame length.
+ use the binomial distribution for the number of tags.
  The collision ratio is defined as the ratio between the number of collided
  slots 
 \begin_inset Formula $C_{i}$
@@ -907,11 +898,11 @@ key "Chen"
 \begin_inset Formula $P_{e}$
 \end_inset
 
- , 
+, 
 \begin_inset Formula $P_{s}$
 \end_inset
 
- , and 
+, and 
 \begin_inset Formula $P_{c}$
 \end_inset
 
@@ -949,15 +940,19 @@ The probability that in
  collided slots occur is:
 \begin_inset Formula 
 \begin{equation}
-P(\hat{n}|L,S,C,E)=\frac{L!}{E!S!C!}P_{e}^{E}P_{s}^{S}P_{c}^{C},\label{eq:chen-1}
+P(\hat{n}|L,S,C,E)=\frac{L!}{E!S!C!}P_{e}^{E}P_{s}^{S}P_{c}^{C}\label{eq:chen-1}
 \end{equation}
 
 \end_inset
 
 This probability is the general term of the multi-nomial expansion of 
+\size small
+
 \begin_inset Formula $\left(P_{e}+P_{s}+P_{c}\right)^{L}$
 \end_inset
 
+
+\size default
 .
  Therefore, for a read cycle with frame length 
 \begin_inset Formula $L$
@@ -1034,7 +1029,7 @@ reference "fig:Relative-estimation-error_no_CR"
 \end_inset
 
  shows the comparison of the most common number of tags estimation algorithms
- used in the passive UHF RFID systems.
+ used in  passive UHF RFID systems.
  The comparison metric is the average relative estimation error 
 \begin_inset Formula $\epsilon$
 \end_inset
@@ -1450,8 +1445,8 @@ where
 \begin_inset Formula $\alpha$
 \end_inset
 
- is a variable, that indicates the collision recovery capability of the
- PHY layer.
+ is a variable that indicates the collision recovery capability of the PHY
+ layer.
  The calculation of the collision recovery probability will be discussed
  in details in the following sections.
  Figure 
@@ -1595,13 +1590,13 @@ Thus,
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename Ps_Bi_Po_diff_L.emf
-	lyxscale 50
+	lyxscale 40
 	width 65page%
 	height 25pheight%
 
@@ -1618,7 +1613,7 @@ Probability Density Function (PDF) as a function of the number of tags
 \begin_inset Formula $n$
 \end_inset
 
- for Binomial distribution and its Poisson approximation for the probability
+ for the Binomial distribution and its Poisson approximation for the probability
  of success using different frame lengths
 \begin_inset CommandInset label
 LatexCommand label
@@ -1650,7 +1645,7 @@ P(\hat{n}|L,S,C,E,\alpha)=\frac{L!}{E_{b}!S_{b}!C_{b}!}P_{e}^{E_{b}}P_{s}^{S_{b}
 According to 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Bi_Po_1,Bi_Po_2"
+key "Bi_Po_1"
 
 \end_inset
 
@@ -1662,8 +1657,14 @@ key "Bi_Po_1,Bi_Po_2"
 \begin_inset Formula $\frac{1}{L}$
 \end_inset
 
- is very small, the Poisson  distribution can be used to approximate the
- binomial distribution.
+ is very small, the Poisson distribution 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bi_Po_2"
+
+\end_inset
+
+ can be used to approximate the binomial distribution.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1704,16 +1705,16 @@ reference "fig:Approximation"
 \begin_inset Formula $L\geq16$
 \end_inset
 
-.
+ with high precision.
  
 \end_layout
 
 \begin_layout Standard
-In dense RFID networks, Poisson distribution with mean 
+In dense RFID networks, the Poisson distribution with mean 
 \begin_inset Formula $\gamma=\frac{\hat{n}}{L}$
 \end_inset
 
-, is applicable 
+ is applicable 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Letter_2012"
@@ -2069,14 +2070,7 @@ reference "eq:final_fourth-2"
 \end_inset
 
  be the number of real positive solutions.
- According to Descartes’ rules of sign 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Descartes_rule"
-
-\end_inset
-
-:
+ According to Descartes’ rules of sign:
 \end_layout
 
 \begin_layout Itemize
@@ -2105,7 +2099,7 @@ key "Descartes_rule"
 \begin_layout Standard
 Hence, there is only one valid real positive solution for the equation.
  Hereby, the valid solution will be identified.
- There are two possibilities for the solutions: 
+ There are two possible solutions: 
 \end_layout
 
 \begin_layout Standard
@@ -2307,7 +2301,7 @@ reference "eq:closed form-4"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2464,21 +2458,21 @@ reference "fig:Capture-probability-versus-1"
 
 \end_inset
 
- shows two different receivers ZF and MMSE.
+ shows two different receivers: ZF and MMSE.
  The higher SNR at the receiver, the higher the collision recovery capability
  of the reader.
  The MMSE receiver gives better performance than the ZF receiver, and the
- performance increases when we increase the number of received antennas.
+ performance increases when the number of received antennas is increased.
  According to  measurements, the practical SNR range for the successful
  slots is between 
-\begin_inset Formula $4$
+\begin_inset Formula $\unit[4]{dB}$
 \end_inset
 
- dB and 
-\begin_inset Formula $12$
+ and 
+\begin_inset Formula $\unit[12]{dB}$
 \end_inset
 
- dB 
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Comm_Letter_ours_2015"
@@ -2626,7 +2620,7 @@ Performance Analysis
 In this section, the performance comparison between the proposed collision
  recovery aware number of tags estimation and the most common state-of-the-art
  estimation algorithms will be presented.
- Again the relative estimation error will be used as a comparison metric.
+ Again, the relative estimation error will be used as a comparison metric.
 \end_layout
 
 \begin_layout Standard
@@ -2811,7 +2805,7 @@ reference "fig:Relative-estimation-error alpha"
 
 , when the value of the collision recovery probability increases, the relative
  estimation error of all estimation algorithms increases.
- An exception is, the proposed estimation protocol that has almost constant
+ An exception is the proposed estimation protocol that has almost constant
  performance, independent of the value of the collision recovery probability.
  The proposed method takes into account the collision recovery probability,
  which is produced by the PHY-layer.
@@ -2837,7 +2831,7 @@ reference "fig:System-has-no"
 \begin_inset Formula $\frac{n}{L}=1$
 \end_inset
 
- and verifies the simulation results of figure 
+ and the simulation results of figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Relative-estimation-error07"
@@ -3060,7 +3054,7 @@ reference "fig:System-has-collision-time"
 
 \begin_layout Standard
 According to EPCglobal C1 G2, the RFID reader cannot acknowledge more than
- single tag per slot.
+ a single tag per slot.
  Therefore, the theoretical lower limit to identify 
 \begin_inset Formula $n$
 \end_inset

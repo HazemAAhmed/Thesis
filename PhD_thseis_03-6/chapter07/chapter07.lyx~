@@ -261,8 +261,8 @@ key "standard"
 \end_inset
 
 .
- The main reason of this is, the allowed optimization was only in the reader
- side.
+ The main reason of this is that, the allowed optimization was only in the
+ reader side.
  To follow the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -274,8 +274,8 @@ key "standard"
 \end_layout
 
 \begin_layout Standard
-In chapter 6, backwards compatible improvement of the EPCglobal C1 G2 standard
- is proposed.
+In chapter 6, compatible improvements of the EPCglobal C1 G2 standard are
+ proposed.
  It presents some modifications on the communication signal of Tag/reader.
  Using these modifications, the new system approaches the theoretical lower
  reading time limit of the EPCglobal C1 G2 standard.
@@ -294,11 +294,11 @@ Open Issues and Future Work
 Despite the effort invested in this dissertation, there are still some remaining
  issues left that require further investigations.
  For instance, the influence of the initial frame length of the proposed
- system is neglected, and the influence of the initial frame length should
- be analyzed.
+ system is neglected.
+ However, it should be analyzed.
  In addition, the MAC layer knowledge of the current SNR should send a feedback
  signal to the PHY layer.
- In this signal, the MAC layer decide to start resolving the current collided
+ In this signal, the MAC layer decides to start resolving the current collided
  slot either to a successful or unsuccessful slot, depending on the current
  value of the SNR.
  Thereby, if the current SNR value is below a certain threshold, it might

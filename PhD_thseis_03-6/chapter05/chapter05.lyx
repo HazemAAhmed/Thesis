@@ -89,9 +89,9 @@ Frame Length Optimization
 \begin_layout Standard
 In FSA, there are two main factors controlling the reading efficiency, and
  hence the reading time in RFID systems.
- These two factors are: The number of tags estimation, which was discussed
- in chapter 4, and the optimal FSA frame length calculation, which will
- be discussed in this chapter.
+ These two factors are: The precision of the number of tags estimation,
+ which was discussed in chapter 4, and the optimal FSA frame length calculation,
+ which will be discussed in this chapter.
  Previous studies have focused on the frame length calculations using the
  conventional Dynamic Framed Slotted ALOHA algorithms 
 \begin_inset CommandInset citation
@@ -126,17 +126,18 @@ key "2009_capture"
 \end_inset
 
 .
- In such systems, it is better to increase the number of collided slots
- compared to the number of empty slots by decreasing the optimum frame length.
+ In such systems, it is more beneficial to increase the number of collided
+ slots compared to the number of empty slots by decreasing the optimum frame
+ length.
  This is because these systems gain more from the collided slots compared
  to the empty slots by converting the collided slots to successful slots.
  In addition, most of the previous studies assumed constant slot durations
  regardless the type of the slot.
- However, the duration of the slots in RFID systems depends on the slot
+ However, the durations of the slots in RFID systems depend on the slot
  type, i.e.
  empty, successful, or collided.
- In these systems, the empty slots duration is shorter than the collided
- slots duration and shorter than the successful slot duration.
+ In these systems, the empty slot duration is shorter than the collided
+ slot durations and shorter than the successful slot duration.
  Therefore, in such systems, it is better to increase the frame length,
  because the losses from the empty slots is less than the losses from the
  collided slots.
@@ -152,12 +153,12 @@ This chapter is organized as follows: Section 1 discusses the effect of
  the different slot durations, where a new closed form solution for the
  optimum frame length is proposed.
  In section 2, the effect of the collision recovery probability with constant
- coefficients in addition to the time differences in slot duration will
+ coefficients in addition to the time differences in slot durations will
  be considered.
  Then, a new closed form solution for the optimum frame length, which maximizes
  the system performance, will be presented.
  Section 3 illustrates the influence of using multiple collision recovery
- coefficients assuming constant slots duration, thus eliciting a new reading
+ coefficients assuming constant slot durations, thus eliciting a new reading
  efficiency called multiple collision recovery coefficients reading efficiency.
  Then, a novel closed form solution for the optimum frame length is also
  derived for this system.
@@ -520,7 +521,7 @@ where
 \begin_inset Formula $C_{t}$
 \end_inset
 
- is the slot duration constant defined as 
+ is the slot durations constant defined as 
 \begin_inset Formula $C_{t}=\frac{t_{e}}{t_{c}}$
 \end_inset
 
@@ -646,15 +647,12 @@ reference "fig:Second-order-Taylor"
 
 \end_inset
 
-, this approximation is almost identical in the range of 
+, this approximation is very accurate in the range of 
 \begin_inset Formula $\frac{n}{L}\leq1$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-After substituting (
+ After substituting (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:first_approx-1"
@@ -703,7 +701,7 @@ The proposed equation gives a linear relation in reference to the number
 \begin_inset Formula $n$
 \end_inset
 
-, and includes the slot duration constant 
+, and includes the slot durations constant 
 \begin_inset Formula $C_{t}$
 \end_inset
 
@@ -712,7 +710,7 @@ The proposed equation gives a linear relation in reference to the number
 \end_layout
 
 \begin_layout Subsection
-Slot Duration Constant Calculation For the EPCglobal C1 G2
+Slot Durations Constant Calculation for the EPCglobal C1 G2
 \end_layout
 
 \begin_layout Standard
@@ -738,7 +736,7 @@ key "standard"
 
 \end_inset
 
-, the slot duration constant is 
+, the slot durations constant is 
 \begin_inset Float figure
 wide false
 sideways false
@@ -787,7 +785,7 @@ name "fig:Slot-Durations-During-1"
 \size small
 \begin_inset Formula 
 \begin{equation}
-C_{t}=\frac{t_{e}}{t_{c}},\label{eq:ct-1}
+C_{t}=\frac{t_{e}}{t_{c}}\label{eq:ct-1}
 \end{equation}
 
 \end_inset
@@ -1956,7 +1954,8 @@ reference "tab:Slots-durations-constant-1"
 
 \end_inset
 
- shows the values of the slot duration constant of the EPCglobal C1 G2 standard.
+ shows the values of the slot durations constant of the EPCglobal C1 G2
+ standard.
  According to table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1964,7 +1963,7 @@ reference "tab:Slots-durations-constant-1"
 
 \end_inset
 
-, the slot duration constant 
+, the slot durations constant 
 \begin_inset Formula $C_{t}$
 \end_inset
 
@@ -2007,7 +2006,7 @@ key "optimizin_total_latency"
 
 \end_inset
 
- for the complete range of the slot duration constant 
+ for the complete range of the slot durations constant 
 \begin_inset Formula $C_{t}$
 \end_inset
 
@@ -2183,7 +2182,7 @@ Time aware optimum frame length
 \begin_inset Formula $L_{TA}$
 \end_inset
 
- as a function of the slot duration constant 
+ as a function of the slot durations constant 
 \begin_inset Formula $C_{t}$
 \end_inset
 
@@ -2221,7 +2220,7 @@ Mean Reading Time Reduction
 \end_layout
 
 \begin_layout Standard
-In conventional FSA systems, the slots durations are considered as constant
+In conventional FSA systems, the slot durations are considered as constant
  slots.
  Thus, the total identification time is calculated by counting the average
  total number of slots needed to identify the complete number of tags in
@@ -2235,7 +2234,7 @@ In conventional FSA systems, the slots durations are considered as constant
 
 \end_inset
 
-In time aware systems, the slots durations are variable.
+In time aware systems, the slot durations are variable.
  Therefore, the total identification time can only be calculated as time
  in seconds.
  Afterwards, the percentage of mean reading time reduction is calculated
@@ -2263,7 +2262,7 @@ reference "fig:Saving-time-versus"
 \begin_inset Formula $L=n$
 \end_inset
 
- as a function of the slot duration constant 
+ as a function of the slot durations constant 
 \begin_inset Formula $C_{t}$
 \end_inset
 
@@ -2277,7 +2276,7 @@ reference "fig:Saving-time-versus"
 \begin_inset Formula $C_{t}=0$
 \end_inset
 
- means that the idle slot duration time 
+ means that the idle slot durations time 
 \begin_inset Formula $t_{e}=0$
 \end_inset
 
@@ -2411,7 +2410,7 @@ reference "fig:Percentage-of-Time"
 
  illustrates the mean reduction of the reading time using the proposed time-awar
 e frame length for the proposed ML number of tags estimation and the most
- well-known tag estimation algorithms using the value of the slot duration
+ well-known tag estimation algorithms using the value of the slot durations
  constant 
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
@@ -2452,22 +2451,24 @@ key "DFSA_shoute_Random"
 \begin_inset Formula $12\,\%$
 \end_inset
 
-, thereby gaining around 
-\begin_inset Formula $9\,\%$
-\end_inset
-
- for better estimation algorithm like 
+.
+ In case of more accurate estimation algorithm like Vogt 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2010_Vogt_problem"
 
 \end_inset
 
-, and at last gaining 
-\begin_inset Formula $6\,\%$
+ and the proposed ML in chapter 4, the mean reduction of reading time is
+ between 
+\begin_inset Formula $9$
 \end_inset
 
- upon using the proposed ML estimation algorithm.
+ and 
+\begin_inset Formula $\unit[12]{\%}$
+\end_inset
+
+.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2602,8 +2603,8 @@ key "Capture_time_2015,Ref_4_4_2013_Cap_time"
  recovery probability and the number of tags.
  The main problems of their numerical solutions are the multiple degrees
  of freedom.
- The solutions require a complex multidimensional look-up table that must
- consider all possible degrees of freedom.
+ The solutions require a complex multidimensional look-up table that has
+ to consider all possible degrees of freedom.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2866,7 +2867,7 @@ where
 \begin_inset Formula $C_{t}$
 \end_inset
 
- is the slot duration constant defined as 
+ is the slot durations constant defined as 
 \begin_inset Formula $C_{t}=\frac{t_{e}}{t_{c}}$
 \end_inset
 
@@ -3220,7 +3221,7 @@ Optimum frame length
 \begin_inset Formula $L_{_{TCA}}$
 \end_inset
 
- as a function of the slot duration constant 
+ as a function of the slot durations constant 
 \begin_inset Formula $C_{t}$
 \end_inset
 
@@ -3280,7 +3281,7 @@ reference "fig:Non-quantized"
 
 \end_inset
 
- shows both algorithms for the full range of the slot duration constant
+ shows both algorithms for the full range of the slot durations constant
  
 \begin_inset Formula $C_{t}$
 \end_inset
@@ -4664,7 +4665,7 @@ reference "fig:Percentages-of-saving_MCR_with"
 \end_layout
 
 \begin_layout Standard
-In this section, the FSA reading efficiency is proposed for equal slot duration
+In this section, the FSA reading efficiency is proposed for equal slot durations
  system with multiple collision recovery coefficients.
  However, there are differences in the slot durations depending on the slot
  type.
@@ -4846,7 +4847,7 @@ where
 \begin_inset Formula $C_{t}=\frac{t_{0}}{t_{k}}$
 \end_inset
 
- represents the slots duration constant, and 
+ represents the slots durations constant, and 
 \begin_inset Formula $\alpha_{2}$
 \end_inset
 
@@ -5293,7 +5294,7 @@ Normalized optimum frame length
 \begin_inset Formula $L_{_{TAMCRC}}$
 \end_inset
 
- as a function of the slot duration constant 
+ as a function of the slot durations constant 
 \begin_inset Formula $C_{t}$
 \end_inset
 
@@ -5366,7 +5367,7 @@ The proposed equation gives again a linear relation with reference to the
 \end_inset
 
 , and includes the effect of different collision recovery coefficients and
- the slot duration constant.
+ the slot durations constant.
  The values of these coefficients are set based on the RFID reader type
  as shown in 
 \begin_inset CommandInset citation
@@ -5441,7 +5442,7 @@ reference "eq:TAMCR efficiency"
 
 \end_inset
 
-) versus full range of the slot duration constant 
+) versus full range of the slot durations constant 
 \begin_inset Formula $C_{t}$
 \end_inset
 
@@ -5510,7 +5511,7 @@ reference "fig:Percentages-of-saving-TMCRA-perfect"
 \end_inset
 
  assuming perfect number of tags estimation.
- The simulation results are based on the slot duration constant 
+ The simulation results are based on the slot durations constant 
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 
@@ -5823,7 +5824,7 @@ reference "fig:Main_comp_no_patent"
 \end_inset
 
  shows the simulation results of the average reading time for DFSA using
- the following parameters: Slots duration constant 
+ the following parameters: Slots durations constant 
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 

@@ -77,7 +77,7 @@ Background and Literature Survey
 This chapter provides an overview of the historical development of RFID.
  In addition, it describes the basic principles and the major technical
  aspects related to the RFID technology and its standardization.
- By the end of this chapter, the major issues in dense networks will be
+ At the end of this chapter, the major issues in dense networks will be
  presented.
 \end_layout
 
@@ -186,10 +186,10 @@ reference "fig:RFID-System-components"
 \end_inset
 
 , conventional RFID systems consist of three main components: First, RFID
- tags or transponders which are attached to the object requested to be identifie
-d or tracked.
- Second, the RFID reader and antennas which control data transmission and
- the whole identification process.
+ tag or transponder which is attached to the object requested to be identified
+ or tracked.
+ Second, the RFID reader or interrogator, which control data transmission
+ and the whole identification process.
  Finally, the processing device, which is commonly called 
 \begin_inset Quotes eld
 \end_inset
@@ -207,14 +207,14 @@ Middleware
 \end_layout
 
 \begin_layout Subsection
-Tags
+Tag
 \end_layout
 
 \begin_layout Standard
 The tag is the device, which is attached to the object.
  It stores information and might be incorporated to sensors.
- This information includes their unique EPC, which is a standardized identificat
-ion code.
+ This information includes its unique EPC, which is a standardized identificatio
+n code.
  When tags are within the reading range of the reader, they receive a command
  from the reader asking them about their EPC.
  They reply with their identification data to the reader, which processes
@@ -244,13 +244,14 @@ key "Active_Tags_1,Active_tags_2"
  There are several advantages of active tags.
  They support long reading distance, i.e.
  more than 100 meters.
- In addition, they also support immunity to the multi-path fading especially
- in harsh environment e.g.
- environments with excessive amounts of metals, such as shipping containers.
- Owing to their power supply property, they are easily connected with sensors,
- thus, monitoring the environment depending on the application e.g.
+ In addition, they also support immunity to multi-path fading, especially
+ in harsh environment with excessive amounts of metals, such as shipping
+ containers.
+ Owing to their power supply property, they can be easily connected with
+ sensors, thus, monitoring the environment depending on the application
+ e.g.
  food or drug shipments.
- However, such tags are not suitable for applications, which require dense
+ However, such tags are not suitable for applications which require dense
  RFID network, due to their cost.
 \end_layout
 
@@ -273,7 +274,7 @@ key "Semi-passive_1,Semi_passive_2"
  tags in coverage.
  Then, the tag's reply is generated using the energy emitted from the internal
  batteries.
- Semi-passive tags can communicate over longer distance than the normal
+ Semi-passive tags can communicate over longer distances than the normal
  passive tags.
  Moreover, the circuitry activation of the semi-passive tags is faster than
  in passive tags.
@@ -281,7 +282,8 @@ key "Semi-passive_1,Semi_passive_2"
 \begin_inset Formula $\unit[\simeq]{4}$
 \end_inset
 
- Euro, which make such tags not suitable for dense RFID applications.
+ Euro, which makes such tags also not suitable for dense RFID applications
+ with hundreds or thousands of tags .
 \end_layout
 
 \begin_layout Paragraph*
@@ -309,7 +311,7 @@ key "Passive_tags_1,Passive_tags_2"
  This energy activates the circuit of the tags.
  Then, they send a reply signal that includes their information.
  The maximum communication range is up to a few meters.
- The aim of this thesis is to improve the identification efficiency of the
+ The aim of this thesis is to improve the identification efficiency for
  dense RFID applications.
  Thus, this thesis will focus on passive tags.
  
@@ -356,7 +358,7 @@ name "fig:RFID-System-components"
 \end_layout
 
 \begin_layout Subsection
-Readers
+Reader
 \end_layout
 
 \begin_layout Standard
@@ -369,11 +371,10 @@ key "Active_Tags_1"
 
 , because it is responsible to access the tag information and coordinate
  the complete reading process.
- The reader decodes the received data from the tags then sends this information
- to the middle-ware.
- The reader performance depends strongly on two factors: First, the Decoder
- architecture.
- Second, the antenna design.
+ The reader decodes the received data from the tags and then sends this
+ information to the middle-ware.
+ The reader performance depends strongly on two factors: First, the decoder
+ architecture, and second, the antenna design.
 \end_layout
 
 \begin_layout Paragraph*
@@ -392,10 +393,10 @@ key "FSA4"
 \end_inset
 
 .
- These tags obtain energy from the transmitted signal using back-scattering
+ These tags obtain energy from the transmitted signal using the back-scattering
  technique.
- Back-scattering technique is the reflection of the reader’s carrier wave
- where it modulates the signal which includes the tag's data.
+ The back-scattering technique uses the reflection of the reader’s carrier
+ wave where the tag modulates the signal which includes the its data.
  Then, the reader detects the tag's response, processes the signal and reads
  the information sent by the tag.
 \end_layout
@@ -414,9 +415,10 @@ key "Antenna"
 \end_inset
 
 .
- In RFID systems, there are two types of antenna polarization: First, Linearly
- polarized antennas, in these antennas, the electrical field component of
- the transmitted signal is propagated in a plane (either vertical or horizontal).
+ In RFID systems, there are two types of antenna polarization: First, linearly
+ polarized antennas.
+ The electrical field component of the transmitted signal is propagated
+ in a plane (either vertical or horizontal).
  They must have a known RFID tag orientation and the RFID tag must be fixed
  upon the same plane as the antenna in order to get a consistent reading
  performance 
@@ -427,13 +429,16 @@ key "Antenna_LP1"
 \end_inset
 
 .
- Second, Circularly polarized antennas, they emit electromagnetic fields
- in a corkscrew-like fashion.
+ Second, circularly polarized antennas.
+ They emit electromagnetic fields in a corkscrew-like fashion.
  They broadcast electromagnetic waves on two planes making one complete
  revolution in a single wavelength.
  Compared to linear polarized antennas of the same gain, circular polarized
- antennas will have a shorter read range because they lose about 3 dB splitting
- their power across two separate planes.
+ antennas will have a shorter read range because they lose about 
+\begin_inset Formula $\unit[3]{dB}$
+\end_inset
+
+ splitting their power across two separate planes.
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Antenna_CP,AntennaCP"
@@ -441,12 +446,12 @@ key "Antenna_CP,AntennaCP"
 \end_inset
 
 .
- When deciding which type of antenna to choose for your RFID system, it
- depends on how the RFID tags should be oriented with respect to the antennas.
- If all the tags you need to read will be on the same plane and about the
- same height then you should consider a linear polarized antenna.
- If your tag orientation is not something that will be reliable or consistent,
- then you will likely need to use a circular polarized antenna.
+ When deciding which type of antenna to choose for a RFID system, it depends
+ on how the RFID tags should be oriented with respect to the antennas.
+ If all the tags, which are needed to be identified, are on the same plane
+ and about the same height, then a linear polarized antenna should be considered.
+ If the tag orientation is something that is not reliable or consistent,
+ then a circular polarized antenna is a better choice.
 \end_layout
 
 \begin_layout Subsection
@@ -499,15 +504,13 @@ key "LF_RFID"
  LF tags have a long wave-length and are better able to penetrate thin metallic
  substances.
  Additionally, LF RFID systems are ideal for reading objects with high-water
- content, such as fruit or beverages, but the reading range is limited to
- centimeters or inches.
- Typical LF RFID applications include access control and animal tagging.
+ content, such as fruit or beverages.
  However, LF RFID systems have a limited reading range with 
-\begin_inset Formula $0.5$
+\begin_inset Formula $\unit[0.5]{m}$
 \end_inset
 
- m.
- Second, the RFID systems have operated in High Frequency (HF) 
+.
+ Second, the High Frequency (HF) 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "HF"
@@ -523,16 +526,13 @@ key "HF_RFID"
 \end_inset
 
 .
- High-frequency tags work well on objects made of metal and can work around
- goods with medium to high water content.
- Typical HF RFID systems work in ranges of inches, but they can have a maximum
- reading range of about 
-\begin_inset Formula $1$
+ The HF tags work well on objects made of metal and can work around goods
+ with medium to high water content.
+ However, they have 
+\begin_inset Formula $\unit[1]{m}$
 \end_inset
 
- m.
- Typical HF RFID applications include tracking library books, patient flow
- tracking, and transit tickets.
+ as a maximum reading range.
  Third, the Ultra High Frequency (UHF) 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -549,22 +549,28 @@ key "UHF_RFID"
 \end_inset
 
 .
- UHF frequencies typically offer much better reading range (approximate
- 
-\begin_inset Formula $10$
+ UHF tags typically offer much better reading range (approximate 
+\begin_inset Formula $\unit[10]{m}$
 \end_inset
 
- m) and can transfer data faster (i.e.
+) and can transfer data faster (i.e.
  read many more tags per second) than low- and high-frequencies.
  However, because UHF radio waves have a shorter wavelength, their signal
  is more likely to be attenuated (or weakened) and they cannot pass through
  metal or water.
  Due to their high data transfer rate, UHF RFID tags are well suited for
  dense applications, such as boxes of goods as they pass through a gate.
- Microwave RFID tags are usually smaller than UHF tags and have the larger
- reading range.
+ Finally, microwave tags are usually smaller than UHF tags and have the
+ larger reading range.
  Microwave tags, due to low demand, are more expensive than UHF tags, but
- they share the same advantages and disadvantages.
+ they share the same advantages and disadvantages 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Passive_tags_1"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -972,11 +978,11 @@ name "fig:Multiple-readers-collisions"
 \end_layout
 
 \begin_layout Paragraph*
-Multiple Readers-to-Tag Collisions
+Multiple Readers-to-Tag Collision
 \end_layout
 
 \begin_layout Standard
-Multiple readers-to-tag collisions occur when one tag is simultaneously
+Multiple readers-to-tag collision occurs when one tag is simultaneously
  located in an overlapped area between two neighbor reading areas
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1041,11 +1047,11 @@ name "fig:Multiple-readers-interference"
 \end_layout
 
 \begin_layout Paragraph*
-Reader-to-Reader Collisions
+Reader-to-Reader Collision
 \end_layout
 
 \begin_layout Standard
-Reader-to-reader collisions, or interference, occur when the signal generated
+Reader-to-reader collision, or interference, occurs when the signal generated
  by a reader acts as a jamming signal for a neighbor reader as shown in
  figure 
 \begin_inset CommandInset ref
@@ -1064,8 +1070,6 @@ key "Reader_collision_3,Reader_collision_4"
 \end_inset
 
 .
- Such interference can occur even if there is no overlapping area between
- the reading areas.
  This interference affects the total identification time of the interfered
  system.
  

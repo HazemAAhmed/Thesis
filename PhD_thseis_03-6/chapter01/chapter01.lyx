@@ -307,7 +307,7 @@ key "PHY3,PHY4"
 
 \end_inset
 
-, which eliminates the effect of the empty slots.
+, which reduces the effects of empty slots.
 \end_layout
 
 \begin_layout Standard
@@ -365,9 +365,9 @@ A closed-form solution for the optimum frame length for FSA is provided
 \end_layout
 
 \begin_layout Enumerate
-Another closed-form solution for the optimum frame length for FSA is settled
- by optimizing the time and constant collision recovery coefficients aware
- reading efficiency.
+An additional closed-form solution for the optimum frame length for FSA
+ is settled by optimizing the time and constant collision recovery coefficients
+ aware reading efficiency.
  The proposed solution gives a new closed form equation for the frame length
  considering the different slot durations and the collision recovery capability
  with equal coefficients.

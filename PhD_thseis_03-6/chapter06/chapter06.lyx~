@@ -1356,8 +1356,8 @@ key "standard"
 \end_layout
 
 \begin_layout Standard
-As discussed before, EPCglobal C1G2 standard doesn't support multiple acknowledg
-ments per slot.
+As discussed before, the EPCglobal C1G2 standard does not support multiple
+ acknowledgments per slot.
  On the other hand, the proposed system should benefit from the collision
  resolving capabilities of the modern readers.
  Therefore, the proposed reader has the capability of converting the collided
@@ -1572,7 +1572,11 @@ reference "tab:Set-of-8"
 The reader uses the orthogonal pilots to do channel estimation for the collided
  tags.
  Afterwards, it employs the channel information to recover the collided
- RN16s using a MIMO receiver, e.g.
+ 
+\begin_inset Formula $RN16s$
+\end_inset
+
+ using a MIMO receiver, e.g.
  the receiver proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1643,7 +1647,11 @@ Query
 \begin_inset Quotes erd
 \end_inset
 
- command and RN16 followed by successive 
+ command and 
+\begin_inset Formula $RN16$
+\end_inset
+
+ followed by successive 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2349,17 +2357,17 @@ The collision recovery capability of the proposed system depends on the
  if more than one tag uses the same pilot sequence, the reader will not
  be able to resolve this collision.
  Therefore, we have limited number of scenarios.
- Thus, equation 
+ Thus, (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:parallel_eff_ot_all"
 
 \end_inset
 
- considers the effect of the unique scenarios 
+) considers the effect of the unique scenarios: 
 \begin_inset Formula 
 \begin{equation}
-\eta_{proposed}=\sum_{R=1}^{M}P(R)\cdot R_{sol}\cdot\sum_{l=1}^{R}P_{S_{l}}(R)\label{eq:parallel_eff_ot_all}
+\eta_{proposed}=\sum_{R=1}^{M}P(R)\cdot R_{sol}\cdot\sum_{l=1}^{R}P_{S_{l}}(R),\label{eq:parallel_eff_ot_all}
 \end{equation}
 
 \end_inset
@@ -2491,7 +2499,11 @@ key "standard"
 
 .
  According to these values, the time of the Query-Rep command and receiving
- the RN16s presents 
+ the 
+\begin_inset Formula $RN16s$
+\end_inset
+
+ presents 
 \begin_inset Formula $30\%$
 \end_inset
 
@@ -3193,18 +3205,18 @@ key "2013_orthogonal"
 
 .
  This system assumes fully parallel acknowledgment for all recovered tags.
- It results 
+ It results in 
 \begin_inset Formula $\unit[200]{\%}$
 \end_inset
 
  maximum reading efficiency.
- Which means that, 2 tags on average are identified per classical slot.
+ This means that, two tags, on average, are identified per classical slot.
  However, this method is not compatible with the EPCglobal C1 G2 standard
  and can not be applied in practice, because it will produce a collision
  in the tag side.
  The second scenario uses only single acknowledgment system.
  It acknowledges only a single tag and neglect the other tags replies.
- It results 
+ It results in 
 \begin_inset Formula $\unit[67]{\%}$
 \end_inset
 
@@ -3214,7 +3226,7 @@ key "2013_orthogonal"
  The third one is the proposed pesudo-parallel successful slot.
  This system compromises between the single tag acknowledgment and the fully
  parallel acknowledgment.
- It results 
+ It results in 
 \begin_inset Formula $100\%$
 \end_inset
 
@@ -3262,7 +3274,7 @@ key "2010_Trans_CR"
 
 \end_inset
 
- the authors proposed a collision recovery system that is able to recover
+, the authors proposed a collision recovery system that is able to recover
  up to two collided tags.
  Accordingly, the average reading time of the proposed system is lower than
  the reading time of 

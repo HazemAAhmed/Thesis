@@ -129,7 +129,7 @@ description "Frequency Division Multiple Access"
 
 \begin_layout Standard
 In this protocol, the frequency band is divided into different sub-frequency
- bands and tags are distributed among them .
+ bands and tags are distributed among them.
  However, this technique adds complexity to the system.
  Readers should be able to decode different frequencies at the same time.
  Moreover, tags should be able to select its desirable sub-channel, which
@@ -275,9 +275,9 @@ MAC-Layer Anti-collision Protocols
 \end_layout
 
 \begin_layout Standard
-Physical layer anti-collision proposals are not cost effective for the market
- challenges of the passive RFID technologies, because they require additional
- modifications in the tags.
+PHY anti-collision proposals are not cost effective for the market challenges
+ of the passive RFID technologies, because they require additional modifications
+ of the tags.
  Therefore, tags collisions solutions are commonly implemented at the MAC-layer.
  This section will discuss the most common MAC-layer anti-collision protocols.
 \end_layout
@@ -292,7 +292,7 @@ reference "fig:Common-existing-MAC-Layer"
 
  presents the main classification of the most common MAC-layer anti-collision
  protocols.
- MAC-layer anti-collision protocols is classified into two main categories:
+ MAC-layer anti-collision protocols are classified into two main categories:
  Deterministic protocols and probabilistic protocols.
  Deterministic or 
 \begin_inset Quotes eld
@@ -409,7 +409,7 @@ key "Binary_tree_new"
  Using this algorithm, if a collision occurs in a time slot, each collided
  tag selects randomly '0' or '1'.
  Thus, the colliding tags will be separated into two subgroups.
- Tags, that selected '0', always transmit their IDs to the reader first.
+ Tags, which selected '0', always transmit their IDs to the reader first.
  If a collision occurs again, collided tags are splitted again by selecting
  '0' or '1'.
  Tags, which have selected '1', have to wait until all other tags which
@@ -737,8 +737,8 @@ key "Aloha1"
 .
  ALOHA anti-collision protocols are therefore the most commonly used in
  UHF active and passive RFID.
- ALOHA anti-collision protocols are classified into the following four groups:
- 
+ ALOHA anti-collision protocols can be classified into the following four
+ groups: 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -919,7 +919,7 @@ key "Aloha1"
 \end_inset
 
  is the frame length.
- If a collision happened, the colliding tags have to retry in the next frame.
+ If a collision happens, the colliding tags have to retry in the next frame.
 \end_layout
 
 \begin_layout Standard
@@ -1468,7 +1468,7 @@ reference "fig:Complete-inventory-process"
 
 \end_inset
 
- shows an example for timing diagram of different inventory rounds between
+ shows an example for a timing diagram of different inventory rounds between
  a single RFID reader and different tag reply situations.
  The reader starts with a 
 \begin_inset Quotes eld
@@ -1713,7 +1713,7 @@ Query
 \end_inset
 
  command for tags in the reading area.
- In the proposed example, three tags select this slot.
+ In the presented example, three tags select this slot.
  Therefore, the reader receives simultaneously three different RN16s.
  In this case, the conventional RFID reader will not be able to decode any
  of these RN16s.
@@ -1762,7 +1762,7 @@ Cross Layer Anti-Collision Protocol
 \end_layout
 
 \begin_layout Standard
-Recently, RFID receivers have been developed to be able to convert part
+Recently, RFID receivers have been developed, that are able to convert part
  of the collided slots into successful slots.
  Moreover, new RFID readers can even identify the type of the slots and
  terminate the empty and collided slots earlier.
@@ -1790,8 +1790,8 @@ key "2013_capture"
 \end_inset
 
 , the collision recovery capability of the RFID system depends on different
- factors: First, the capabilities of the receiver, (e.g.
- number of antennas).
+ factors: First, the capabilities of the receiver, e.g.
+ number of antennas.
  Second, the distance between the collided tags.
  Finally, the type of the channel.
  
@@ -2096,7 +2096,7 @@ key "Vogt_1"
 .
  Therefore, such systems consider that the slot duration of FSA is constant,
  neglecting the type of the slot.
- However, modern RFID readers can quickly identify the type of a slot, (i\SpecialChar \@.
+ However, modern RFID readers can quickly identify the type of a slot (i\SpecialChar \@.
 e\SpecialChar \@.
 
  idle, successful, or collided).
@@ -2142,7 +2142,7 @@ key "USRP"
 \end_inset
 
 .
- In these measurements, the used tags data rate is 
+ In these measurements, the tag data rate is 
 \begin_inset Formula $\unit[160]{kbps}$
 \end_inset
 
@@ -2163,11 +2163,11 @@ reference "fig:Measured-Slots-durations-1"
 \end_inset
 
 , the collided slot duration is 
-\begin_inset Formula $\simeq\unit[1200]{\mu sec}$
+\begin_inset Formula $\simeq\unit[1200]{\mu s}$
 \end_inset
 
 , and the empty slot duration is 
-\begin_inset Formula $\simeq\unit[200]{\mu sec}$
+\begin_inset Formula $\simeq\unit[200]{\mu s}$
 \end_inset
 
 .

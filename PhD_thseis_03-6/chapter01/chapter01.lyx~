@@ -89,22 +89,6 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-
-\lang ngerman
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pagenumbering{arabic}
-\end_layout
-
-\end_inset
-
-
-\lang english
 Radio Frequency Identification (RFID) 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -323,7 +307,7 @@ key "PHY3,PHY4"
 
 \end_inset
 
-, which eliminates the effect of the empty slots.
+, which reduces the effects of empty slots.
 \end_layout
 
 \begin_layout Standard
