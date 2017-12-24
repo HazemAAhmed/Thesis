@@ -156,330 +156,491 @@ key "Letter_2012"
 
 \end_inset
 
-, the most common estimation algorithms are classified into four groups:
- heuristic Q-slot family, indirect heuristics Q-frame family, error minimization
- estimation, and Maximum Likelihood (ML) estimation.
+, the most common estimation algorithms are classified into two groups:
+ Direct Q-slot family and indirect Q-frame family.
 \end_layout
 
 \begin_layout Subsection
-Heuristics Q-slot Family
+Direct Q-Algorithm Family
 \end_layout
 
 \begin_layout Standard
-The EPCglobal C1 G2 standard 
+In Q-Algorithm 
+\color red
+
 \begin_inset CommandInset citation
 LatexCommand cite
-key "standard"
+key "Optimum-C,2007_Q+-,2007_SCS_Q"
 
 \end_inset
 
- proposes an alternative frame length adaptation mechanism without any prior
- tag estimation.
- Using this mechanism, the initial frame length is fixed with 
+
+\color inherit
+, a parameter 
+\begin_inset Formula $Q$
+\end_inset
+
+ denotes the exponent of frame size used in FSA.
+ A reader using FSA sends messages to tags in order to inform the next frame
+ size.
+ In general, reader sends the only exponent of frame size which is denoted
+ by 
+\begin_inset Formula $2^{Q}$
+\end_inset
+
+, since an integer value is not appropriate as a message format due to the
+ overheads.
+ Once a frame size is determined, tags choose their slot to send their ID
+ to a reader, using a random number generator.
+ Q-Algorithm is designed to evaluate tags’ replies and determine the next
+ frame size.
+ As shown in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Main-procedure-of"
+
+\end_inset
+
+, when the Q-Algorithm starts, it takes tags’ replies slot by slot.
+ Then, it classifies slots into three categories: success, collision and
+ idle slot.
+ The next frame size is updated using those three factors.
+ Specifically, when the result of tags’ replies in a slot is idle, it subtracts
+ a constant C from Qfp, because it is estimated that the used frame size
+ is larger than ideal one.
+ When a collision slot occurs, a constant C is added to Qfp, because it
+ means the used frame size is smaller than the number of tags.
+ According to the standard, the range of C is from 0.1 to 0.5.
+ Every start of each slot, it rounds Qfp value.
+ Then, new frame size Q is informed to tags.
+ For practical uses, since messaging a size Q to tags at every slot is a
+ redundant process, it can be omitted when Q value is not changed compared
+ with previous one.
+ Q-Algorithm has numerable advantages which are distinguished from another
+ collision arbitration scheme using tag number estimation algorithms as
+ follows.
+\end_layout
+
+\begin_layout Itemize
+Since Q-Algorithm does not depend on tag number estimation method, degradation
+ of throughput by the estimation error does not occur.
+\end_layout
+
+\begin_layout Itemize
+For the same reason, even if the number of tags increases, the computation
+ cost by tag number estimation does not increase.
+\end_layout
+
+\begin_layout Itemize
+Q-Algorithm finds the optimal frame very quickly and does not reduce the
+ throughput, because it evaluates the frame size in slot-by-slot manner
+ instead of frame-by-frame one as other schemes.
+\end_layout
+
+\begin_layout Standard
+In spite of these advantages, Q-Algorithm is not appropriate to be directly
+ applied to RFID, since the parameters proposed in Q-Algorithm are not optimized.
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Main procedure of direct Q-slot family 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Main-procedure-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Formula $Q_{ini}=4$
 \end_inset
 
-.
- Then, the frame length is adjusted slot by slot according to the slot type:
- empty, successful, or collided.
- The performance of this scheme strongly depends on the value of the variable
- 
-\begin_inset Formula $C$
-\end_inset
 
-, where 
-\begin_inset Formula $C\in(0.1,\,0.5)$
-\end_inset
-
-.
- Since the value of 
-\begin_inset Formula $C$
-\end_inset
-
- is not clearly defined in the standard, there are different proposals optimizin
-g the value of 
-\begin_inset Formula $C$
-\end_inset
-
-.
 \end_layout
 
-\begin_layout Paragraph*
-Optimum-C Algorithm
+\begin_layout Plain Layout
+\begin_inset Formula $slot\,number=0$
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-This algorithm is proposed in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Optimum-C"
+\begin_layout Plain Layout
+loop
+\end_layout
 
+\begin_layout Plain Layout
+\begin_inset space ~
 \end_inset
 
-, where the optimum value of 
-\begin_inset Formula $C$
+
+\begin_inset space ~
 \end_inset
 
- is calculated numerically versus the previous value of 
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $Q=round(Q_{fb}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+if 
+\begin_inset Formula $slot\,number$
+\end_inset
+
+ is equal to 
 \begin_inset Formula $Q$
 \end_inset
 
-.
- This is done by simulating a passive RFID system for the complete range
- of 
-\begin_inset Formula $Q\in\left[0,....,15\right]$
-\end_inset
-
- for each 
-\begin_inset Formula $Q$
-\end_inset
-
- and 
-\begin_inset Formula $C\in\left[0.1,...,0.5\right]$
-\end_inset
-
- with step size 
-\begin_inset Formula $0.1$
-\end_inset
-
-.
- At last, the best combination is the one which gives the minimum identification
- delay.
- 
+ then
 \end_layout
 
-\begin_layout Paragraph*
-\begin_inset Formula $Q^{+-}$
+\begin_layout Plain Layout
+\begin_inset space ~
 \end_inset
 
-Algorithm 
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+NewFrameSize(Q)
 \end_layout
 
-\begin_layout Standard
-This algorithm is proposed in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2007_Q+-"
-
+\begin_layout Plain Layout
+\begin_inset space ~
 \end_inset
 
-.
- Using this algorithm, the 
-\begin_inset Quotes eld
+
+\begin_inset space ~
 \end_inset
 
-Query
-\begin_inset Quotes erd
+
+\begin_inset space ~
 \end_inset
 
- command is transmitted only if the reader has to calculate a new value
- of 
-\begin_inset Formula $Q$
+
+\begin_inset space ~
 \end_inset
 
-.
- Otherwise, the reader transmits the 
-\begin_inset Quotes eld
+
+\begin_inset space ~
 \end_inset
 
-QueryRep
-\begin_inset Quotes erd
+
+\begin_inset space ~
 \end_inset
 
- command, because the 
-\begin_inset Quotes eld
-\end_inset
 
-Query
-\begin_inset Quotes erd
-\end_inset
-
- command length is 
-\begin_inset Formula $22$
-\end_inset
-
- bits and the 
-\begin_inset Quotes eld
-\end_inset
-
-QueryRep
-\begin_inset Quotes erd
-\end_inset
-
- command length is only 
-\begin_inset Formula $4$
-\end_inset
-
- bits.
- Moreover, the variable 
-\begin_inset Formula $C$
-\end_inset
-
- is replaced by two variables: 
-\begin_inset Formula $C_{e}$
-\end_inset
-
- and 
-\begin_inset Formula $C_{c}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $C_{e}$
-\end_inset
-
- is used when an empty slot is detected by the reader, whereas, 
-\begin_inset Formula $C_{c}$
-\end_inset
-
- is used when a collided slot is detected by the reader.
- This algorithm gives more accurate results compared to the 
-\begin_inset Quotes eld
-\end_inset
-
-Optimum-C Algorithm
-\begin_inset Quotes erd
-\end_inset
-
- as it optimizes two variables 
-\begin_inset Formula $C_{e}$
-\end_inset
-
- and 
-\begin_inset Formula $C_{c}$
-\end_inset
-
- instead of the single variable 
-\begin_inset Formula $C$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Paragraph*
-Slot Count Selection (SCS) Algorithm 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "SCS"
-description "Slot Count Selection"
-
+\begin_inset Formula $slot\,number=0$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-This algorithm is proposed in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2007_SCS_Q"
-
+\begin_layout Plain Layout
+\begin_inset space ~
 \end_inset
 
-, in which the variable 
-\begin_inset Formula $C$
+
+\begin_inset space ~
 \end_inset
 
- is replaced by two variables 
-\begin_inset Formula $C_{1}$
+
+\begin_inset space ~
 \end_inset
 
- and 
-\begin_inset Formula $C_{2}$
-\end_inset
-
- similar to the 
-\begin_inset Formula $Q^{+-}$
-\end_inset
-
- approach 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2007_Q+-"
-
-\end_inset
-
-.
- However, 
-\begin_inset Formula $C_{1}$
-\end_inset
-
- and 
-\begin_inset Formula $C_{2}$
-\end_inset
-
- for the SCS algorithm are calculated slot by slot as a function of other
- parameters.
- These parameters depend primarily on the Reader-to-Tags (R-T) and Tags-to-Reade
-r (T-R) data rates.
- According to 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2007_SCS_Q"
-
-\end_inset
-
-, the system performance will be improved if the values of 
-\begin_inset Formula $C_{2}$
-\end_inset
-
- and 
-\begin_inset Formula $C_{1}$
-\end_inset
-
- are set to be 
-\begin_inset Formula $C_{2}\in\left[0.1,1\right]$
-\end_inset
-
- and 
-\begin_inset Formula $C_{1}=0.1$
-\end_inset
-
-, respectively.
- The authors neglected the effect of the modulation and the encoding scheme.
- According to 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Q_new_1,Q_new_2"
-
-\end_inset
-
-, the correct value of (T-R) data rate strongly depends on the modulation
- and the encoding scheme.
+else
 \end_layout
 
-\begin_layout Standard
-According to
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Aloha2_Floerkemeier"
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $slot\,number=slot\,number+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+end if
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+if slot result == ’success’ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $Q\,=Q+0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+else if slot result == ’idle’ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $Q\,=Q\,−\,C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+else if slot result == ’collision’ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $Q=Q\,+\,C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+end if
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+end if
+\end_layout
+
+\begin_layout Plain Layout
+end loop
+\end_layout
 
 \end_inset
 
-, the heuristics Q-slot family is almost the most optimum anti-collision
- algorithm for small RFID networks, which have number of tags less than
- 
-\begin_inset Formula $50$
-\end_inset
 
-.
- However, in dense RFID networks, the performance of such algorithms is
- decreased, because the more collided tags, the less accuracy of calculating
- the constant 
-\begin_inset Formula $C$
-\end_inset
-
-, which increases the total reading time.
 \end_layout
 
 \begin_layout Subsection
-Indirect Heuristics Q-frame Family
+
+\color blue
+Indirect Q-frame Family
 \end_layout
 
 \begin_layout Standard
+
+\color blue
 In dense RFID networks, the indirect heuristics Q-frame family gives better
  performance 
 \begin_inset CommandInset citation
@@ -504,10 +665,14 @@ key "Aloha2_Floerkemeier"
 \end_layout
 
 \begin_layout Paragraph*
+
+\color blue
 Lower Bound
 \end_layout
 
 \begin_layout Standard
+
+\color blue
 This method is proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -555,10 +720,14 @@ where
 \end_layout
 
 \begin_layout Paragraph*
+
+\color blue
 Schoute Algorithm
 \end_layout
 
 \begin_layout Standard
+
+\color blue
 The Schoute algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -610,6 +779,8 @@ For dense RFID networks,
 \end_layout
 
 \begin_layout Standard
+
+\color blue
 \begin_inset Formula 
 \begin{equation}
 C_{rate}=\underset{n\rightarrow\infty}{\mbox{lim}}\frac{P_{c}}{1-Ps}\cong0.418
@@ -628,6 +799,8 @@ key "ref_schoute"
 \end_layout
 
 \begin_layout Standard
+
+\color blue
 Thus, the average number of tags involved in a collision slot 
 \begin_inset Formula $C_{tag}$
 \end_inset
@@ -676,10 +849,14 @@ where
 \end_layout
 
 \begin_layout Paragraph*
+
+\color blue
 C-Ratio
 \end_layout
 
 \begin_layout Standard
+
+\color blue
 The authors of the C-Ratio estimation method 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -733,6 +910,8 @@ reference "eq:C-Ratio"
 \end_layout
 
 \begin_layout Standard
+
+\color blue
 In 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -755,11 +934,15 @@ To simplify the searching process, this estimator suggests applying an upper
  bound to estimate the number of tags.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph*
+
+\color blue
 Error Minimization Estimation
 \end_layout
 
 \begin_layout Standard
+
+\color blue
 Vogt 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -819,16 +1002,18 @@ However, this method requires numerical searching to find the optimum value
 \begin_inset Formula $\hat{n}$
 \end_inset
 
-.
- Moreover, the author assumed that tags are identically distributed over
- slots, which is generally not a valid assumption.
+, which is not an optimum solution for dense RFID applications 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph*
+
+\color blue
 Maximum Likelihood (ML) Tag Estimation
 \end_layout
 
 \begin_layout Standard
+
+\color blue
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "ML"
@@ -1100,13 +1285,13 @@ key "2012_estimation_interpolation"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename Estimation Error No CR_Trial_new.emf
-	lyxscale 50
+	lyxscale 40
 	width 65page%
 	height 25pheight%
 
@@ -1218,7 +1403,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Estimation_comparisions_new.emf
-	lyxscale 50
+	lyxscale 40
 	width 65page%
 	height 25pheight%
 
@@ -2805,7 +2990,7 @@ reference "fig:Relative-estimation-error alpha"
 
 , when the value of the collision recovery probability increases, the relative
  estimation error of all estimation algorithms increases.
- An exception is, the proposed estimation protocol that has almost constant
+ An exception is the proposed estimation protocol that has almost constant
  performance, independent of the value of the collision recovery probability.
  The proposed method takes into account the collision recovery probability,
  which is produced by the PHY-layer.
