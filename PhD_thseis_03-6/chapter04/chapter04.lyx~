@@ -143,8 +143,9 @@ The performance of the FSA algorithm strongly depends on the accuracy of
  The number of tags estimation function calculates the number of tags based
  on feedback from the previous frame, which includes the number of slots
  filled with empty, successful, and collided slots.
- This information is then used by the function to obtain the number of tag
- estimation, and hence the optimal frame size 
+ This information is then used by the estimation function to calculate the
+ estimated remaining number of tags in the reading area, and hence the optimal
+ frame size 
 \begin_inset Formula $L$
 \end_inset
 
@@ -206,24 +207,63 @@ reference "alg:Main-procedure-of"
  idle slot.
  The next frame size is updated using those three factors.
  Specifically, when the result of tags’ replies in a slot is idle, it subtracts
- a constant C from Qfp, because it is estimated that the used frame size
- is larger than ideal one.
- When a collision slot occurs, a constant C is added to Qfp, because it
- means the used frame size is smaller than the number of tags.
- According to the standard, the range of C is from 0.1 to 0.5.
- Every start of each slot, it rounds Qfp value.
- Then, new frame size Q is informed to tags.
- For practical uses, since messaging a size Q to tags at every slot is a
- redundant process, it can be omitted when Q value is not changed compared
- with previous one.
- Q-Algorithm has numerable advantages which are distinguished from another
- collision arbitration scheme using tag number estimation algorithms as
- follows.
+ a constant 
+\begin_inset Formula $C$
+\end_inset
+
+ from 
+\begin_inset Formula $Q_{f}$
+\end_inset
+
+, because it is estimated that the used frame size is larger than ideal
+ one.
+ When a collision slot occurs, a constant 
+\begin_inset Formula $C$
+\end_inset
+
+ is added to 
+\begin_inset Formula $Q_{f}$
+\end_inset
+
+, because it means the used frame size is smaller than the number of tags.
+ According to the EPCglobal C1 G2 standards 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the range of 
+\begin_inset Formula $C$
+\end_inset
+
+ is from 
+\begin_inset Formula $0.1$
+\end_inset
+
+ to 
+\begin_inset Formula $0.5$
+\end_inset
+
+.
+ Every start of each slot, it rounds the 
+\begin_inset Formula $Q_{f}$
+\end_inset
+
+ value.
+ Then, new frame size 
+\begin_inset Formula $Q$
+\end_inset
+
+ is informed to tags.
+ Direct Q-Algorithm has numerable advantages which are distinguished from
+ another collision arbitration scheme using number of tags estimation algorithms
+ as follows.
 \end_layout
 
 \begin_layout Itemize
-Since Q-Algorithm does not depend on tag number estimation method, degradation
- of throughput by the estimation error does not occur.
+Since direct Q-Algorithm does not depend on tag number estimation method,
+ degradation of throughput by the estimation error does not occur.
 \end_layout
 
 \begin_layout Itemize
@@ -232,15 +272,31 @@ For the same reason, even if the number of tags increases, the computation
 \end_layout
 
 \begin_layout Itemize
-Q-Algorithm finds the optimal frame very quickly and does not reduce the
- throughput, because it evaluates the frame size in slot-by-slot manner
+Direct Q-Algorithm finds the optimal frame very quickly and does not reduce
+ the throughput, because it evaluates the frame size in slot-by-slot manner
  instead of frame-by-frame one as other schemes.
 \end_layout
 
 \begin_layout Standard
-In spite of these advantages, Q-Algorithm is not appropriate to be directly
- applied to RFID, since the parameters proposed in Q-Algorithm are not optimized.
+In spite of these advantages, direct Q-Algorithm is not appropriate to be
+ directly applied to dense RFID networks 
+\color blue
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha2_Floerkemeier"
+
+\end_inset
+
+
+\color inherit
+, since the 
+\begin_inset Formula $C$
+\end_inset
+
+ parameter proposed in Q-Algorithm is not well optimized.
 \begin_inset Float algorithm
+placement t
 wide false
 sideways false
 status collapsed
@@ -250,6 +306,13 @@ status collapsed
 
 \begin_layout Plain Layout
 Main procedure of direct Q-slot family 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2007_Q+-"
+
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:Main-procedure-of"
@@ -295,7 +358,7 @@ loop
 \end_inset
 
 
-\begin_inset Formula $Q=round(Q_{fb}$
+\begin_inset Formula $Q=\mbox{Round}(Q_{f})$
 \end_inset
 
 
@@ -318,7 +381,7 @@ if
 \end_inset
 
  is equal to 
-\begin_inset Formula $Q$
+\begin_inset Formula $2^{Q}-1$
 \end_inset
 
  then
@@ -348,7 +411,11 @@ if
 \begin_inset space ~
 \end_inset
 
-NewFrameSize(Q)
+NewFrameSize(
+\begin_inset Formula $Q$
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Plain Layout
@@ -440,7 +507,72 @@ else
 \begin_inset space ~
 \end_inset
 
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $C=\mbox{Random\,}[0.1,0.5]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
 end if
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+slot result = the result of recognition in this slot.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $Q_{f}=Q$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -483,7 +615,7 @@ if slot result == ’success’ then
 \end_inset
 
 
-\begin_inset Formula $Q\,=Q+0$
+\begin_inset Formula $Q_{f}=Q_{f}+0$
 \end_inset
 
 
@@ -529,7 +661,7 @@ else if slot result == ’idle’ then
 \end_inset
 
 
-\begin_inset Formula $Q\,=Q\,−\,C$
+\begin_inset Formula $Q_{f}=Q_{f}-C$
 \end_inset
 
 
@@ -575,7 +707,7 @@ else if slot result == ’collision’ then
 \end_inset
 
 
-\begin_inset Formula $Q=Q\,+\,C$
+\begin_inset Formula $Q_{f}=Q_{f}+C$
 \end_inset
 
 
@@ -633,24 +765,11 @@ end loop
 \end_layout
 
 \begin_layout Subsection
-
-\color blue
 Indirect Q-frame Family
 \end_layout
 
 \begin_layout Standard
-
-\color blue
-In dense RFID networks, the indirect heuristics Q-frame family gives better
- performance 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Aloha2_Floerkemeier"
-
-\end_inset
-
-.
- In this family, the proposed algorithms first calculate the estimated number
+In this family, the proposed algorithms first calculate the estimated number
  of tags in the reading area 
 \begin_inset Formula $\hat{n}$
 \end_inset
@@ -665,14 +784,10 @@ key "Aloha2_Floerkemeier"
 \end_layout
 
 \begin_layout Paragraph*
-
-\color blue
 Lower Bound
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 This method is proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -720,14 +835,10 @@ where
 \end_layout
 
 \begin_layout Paragraph*
-
-\color blue
 Schoute Algorithm
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 The Schoute algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -779,8 +890,6 @@ For dense RFID networks,
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 \begin_inset Formula 
 \begin{equation}
 C_{rate}=\underset{n\rightarrow\infty}{\mbox{lim}}\frac{P_{c}}{1-Ps}\cong0.418
@@ -799,8 +908,6 @@ key "ref_schoute"
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 Thus, the average number of tags involved in a collision slot 
 \begin_inset Formula $C_{tag}$
 \end_inset
@@ -849,14 +956,10 @@ where
 \end_layout
 
 \begin_layout Paragraph*
-
-\color blue
 C-Ratio
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 The authors of the C-Ratio estimation method 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -910,8 +1013,6 @@ reference "eq:C-Ratio"
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 In 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -935,14 +1036,10 @@ To simplify the searching process, this estimator suggests applying an upper
 \end_layout
 
 \begin_layout Paragraph*
-
-\color blue
 Error Minimization Estimation
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 Vogt 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1006,14 +1103,10 @@ However, this method requires numerical searching to find the optimum value
 \end_layout
 
 \begin_layout Paragraph*
-
-\color blue
 Maximum Likelihood (ML) Tag Estimation
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "ML"
