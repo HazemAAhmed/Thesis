@@ -74,25 +74,24 @@ RFID Anti-collision Protocols
 \end_layout
 
 \begin_layout Standard
-This chapter presents the most common anti-collisions algorithms for passive
- RFID systems, either by using the PHY layer or the MAC layer.
+This chapter presents the most common anti-collision protocols for passive
+ RFID systems, either using the PHY layer or the MAC layer.
  It will emphasize the anti-collision algorithms which are compatible with
  the EPCglobal C1 G2 standard, as it is the main focus of this thesis, because
  it is the most suitable standard for the dense passive RFID applications.
 \end_layout
 
 \begin_layout Standard
-This chapter is organized as follows: Section 1 gives an overview about
- the PHY layer anti-collision algorithms.
+This chapter is organized as follows.
+ Section 1 gives an overview about the PHY layer anti-collision algorithms.
  In section 2, different MAC-layer anti-collision algorithms are presented.
  Afterwards, a brief description for the EPCglobal C1 G2 reading process
  will be presented in section 3.
- Section 4 will give an introduction about the main PHY-layer parameters,
- e.g.
+ Section 4 gives an introduction about the main PHY-layer parameters, e.g.,
  the collision recovery and the slots duration in modern RFID readers.
- Then, it will show the effect of these parameters on the MAC-layer anti-collisi
-on algorithm, which will be the main focus of the remaining part in this
- thesis.
+ Then, the effect of these parameters on the MAC-layer anti-collision algorithm,
+ which will be the main focus of the remaining part of this thesis, will
+ be presented.
  
 \end_layout
 
@@ -110,13 +109,15 @@ reference "fig:Existing-PHY-Layer-anti-collisio"
 
 \end_inset
 
- shows the most common PHY layer anti-collision protocols, which are: FDMA,
- SDMA, CDMA and TDMA.
- These algorithms will be briefly discussed in the following paragraphs:
+ shows the most common PHY layer anti-collision protocols, which are: Frequency
+ Division Multiple Access (FDMA), Space Division Multiple Access (SDMA),
+ Code Division Multiple Access (CDMA) and Time Division Multiple Access
+ (TDMA).
+ These algorithms are discussed in the following paragraphs:
 \end_layout
 
 \begin_layout Paragraph
-Frequency Division Multiple Access (FDMA):
+FDMA:
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "FDMA"
@@ -130,11 +131,11 @@ description "Frequency Division Multiple Access"
 \begin_layout Standard
 In this protocol, the frequency band is divided into different sub-frequency
  bands and tags are distributed among them.
- However, this technique adds complexity to the system.
- Readers should be able to decode different frequencies at the same time.
+ However, this technique adds complexity to the system, because readers
+ should be able to decode different frequencies at the same time.
  Moreover, tags should be able to select its desirable sub-channel, which
  is incompatible with EPCglobal C1 G2.
- Only active tags can do such function 
+ Only active tags can do such a function 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "FDMA"
@@ -163,7 +164,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Common existing PHY-Layer anti-collision protocols 
+Common existing PHY-Layer anti-collision protocols.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Existing-PHY-Layer-anti-collisio"
@@ -184,7 +186,7 @@ name "fig:Existing-PHY-Layer-anti-collisio"
 \end_layout
 
 \begin_layout Paragraph*
-Space Division Multiple Access (SDMA):
+SDMA:
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "SDMA"
@@ -207,12 +209,12 @@ key "SDMA"
 .
  The main drawback is the cost of implementing the RFID reader with multiple
  antennas.
- Moreover, in dense applications, the distances between the tags are very
- small in order to be distributed on the reading area.
+ Moreover, in dense applications, the distances between tags are very small
+ in order to be distributed on the reading area.
 \end_layout
 
 \begin_layout Paragraph*
-Code Division Multiple Access (CDMA):
+CDMA:
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "CDMA"
@@ -233,14 +235,13 @@ key "CDMA"
 \end_inset
 
 .
- CDMA is the ideal procedure for many applications, e.g.
- navigation systems.
- However, the cost of the tags will severely increase.
+ CDMA is the ideal procedure for many applications, e.g., navigation systems.
+ However, the cost of the tags severely increases.
  Thereby, it is not an optimum protocol for dense RFID applications.
 \end_layout
 
 \begin_layout Paragraph*
-Time Division Multiple Access (TDMA):
+TDMA:
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "TDMA"
@@ -278,8 +279,9 @@ MAC-Layer Anti-collision Protocols
 PHY anti-collision proposals are not cost effective for the market challenges
  of the passive RFID technologies, because they require additional modifications
  of the tags.
- Therefore, tags collisions solutions are commonly implemented at the MAC-layer.
- This section will discuss the most common MAC-layer anti-collision protocols.
+ Therefore, solutions, that resolve tag collisions, are commonly implemented
+ at the MAC-layer.
+ This section discusses the most common MAC-layer anti-collision protocols.
 \end_layout
 
 \begin_layout Standard
@@ -313,8 +315,9 @@ ALOHA-based
 \begin_inset Quotes erd
 \end_inset
 
- protocols are used in systems with an unknown number of tags.
- 
+ protocols are used in systems with unknown number of tags.
+ The following sections discusses the most commonly used anti-collision
+ algorithms.
 \begin_inset Float figure
 wide false
 sideways false
@@ -336,7 +339,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Common existing MAC-Layer anti-collision protocols 
+Common existing MAC-Layer anti-collision protocols.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Common-existing-MAC-Layer"
@@ -354,11 +358,6 @@ name "fig:Common-existing-MAC-Layer"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-The following sections will discuss in details the most commonly used anti-colli
-sion algorithms either deterministic or probabilistic based algorithm.
 \end_layout
 
 \begin_layout Subsection
@@ -384,17 +383,18 @@ Query
 \begin_inset Quotes erd
 \end_inset
 
- command, transmitted from the reader, and the response of tags in the reading
+ command transmitted from the reader, and the response of tags in the reading
  area.
- If there is more than a single tag reply in one slot, a collision occurs
+ If there are more than a single tag reply in one slot, a collision occurs
  and the reader tries to split the tags into two subgroups.
  The reader repeats the splitting procedure until it receives a single tag
  reply.
- Tree-based anti-collision protocols can be classified into two groups:
+ Tree-based anti-collision protocols can be classified into two groups as
+ follows.
 \end_layout
 
-\begin_layout Subsubsection*
-Binary Tree
+\begin_layout Paragraph*
+Binary Tree:
 \end_layout
 
 \begin_layout Standard
@@ -438,7 +438,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Binary tree anti-collision algorithm example 
+Binary tree anti-collision algorithm example.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Binary-tree-anti-collision"
@@ -482,8 +483,7 @@ reference "fig:Binary-tree-anti-collision"
 \begin_inset Formula $2$
 \end_inset
 
- have selected '0'.
- However, tags 
+ have selected '0' and tags 
 \begin_inset Formula $3$
 \end_inset
 
@@ -600,7 +600,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Query tree anti-collision algorithm example 
+Query tree anti-collision algorithm example.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Query-tree-anti-collision"
@@ -620,8 +621,8 @@ name "fig:Query-tree-anti-collision"
 
 \end_layout
 
-\begin_layout Subsubsection*
-Query Tree
+\begin_layout Paragraph*
+Query Tree:
 \end_layout
 
 \begin_layout Standard
@@ -636,13 +637,14 @@ key "Query_tree"
  It is also commonly used in tree-based anti-collision algorithms.
  Using this algorithm, the broadcast is a query signal asking the tags for
  a reply.
- If there is a collision, it starts splitting the collided tags into two
- groups by sending a new query signal with a single bit 0 or 1 randomly.
+ If there is a collision, the reader starts splitting the collided tags
+ into two groups by sending a new query signal with a single bit '0' or
+ '1' randomly.
  Tags in the reading area receive this signal and match this bit with their
  ID.
  If this bit matches their ID, they transmit their ID.
- If a collision took place again, the reader adds another random bit 0 or
- 1 to its next query signal.
+ If a collision took place again, the reader adds another random bit '0'
+ or '1' to its next query signal.
  This process is repeated until the reader receives a successful single
  tag reply.
 \end_layout
@@ -691,7 +693,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of pure ALOHA protocol 
+Example of pure ALOHA protocol.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Example-for-pure"
@@ -717,8 +720,8 @@ Probabilistic Anti-collision Protocols
 
 \begin_layout Standard
 The main disadvantage of using tree-based protocols is that these protocols
- are not efficient in dense networks (large number of tags), due to the
- increase in identification time 
+ are not efficient in dense networks, due to the increase in identification
+ time 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Aloha1"
@@ -726,8 +729,8 @@ key "Aloha1"
 \end_inset
 
 .
- Therefore, in dense networks, ALOHA-based anti-collision protocols are
- more suitable 
+ Therefore, in such networks, ALOHA-based anti-collision protocols are more
+ suitable 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Aloha1"
@@ -741,8 +744,8 @@ key "Aloha1"
  groups: 
 \end_layout
 
-\begin_layout Subsubsection*
-Basic ALOHA
+\begin_layout Paragraph*
+Basic ALOHA:
 \end_layout
 
 \begin_layout Standard
@@ -787,8 +790,8 @@ reference "fig:Example-for-pure"
  shows an example of basic ALOHA for a single reader identifying four tags.
 \end_layout
 
-\begin_layout Subsubsection*
-Slotted ALOHA
+\begin_layout Paragraph*
+Slotted ALOHA:
 \end_layout
 
 \begin_layout Standard
@@ -859,7 +862,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of slotted ALOHA 
+Example of slotted ALOHA.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Example-for-slotted"
@@ -879,12 +883,12 @@ name "fig:Example-for-slotted"
 
 \end_layout
 
-\begin_layout Subsubsection*
-Framed Slotted ALOHA (FSA)
+\begin_layout Paragraph*
+Framed Slotted ALOHA (FSA):
 \end_layout
 
 \begin_layout Standard
-The third group is Framed Slotted ALOHA (FSA)
+The third group is Framed Slotted ALOHA (FSA) protocol
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "FSA"
@@ -900,7 +904,7 @@ key "Aloha1"
 \end_inset
 
 .
- The FSA anti-collision protocol uses a fixed frame length.
+ It uses a fixed frame length.
  Thus, the frame length is fixed during the complete tag identification
  process.
  At the beginning of each frame, the reader broadcasts a query signal to
@@ -961,7 +965,7 @@ reference "fig:Example-for-frame"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -979,7 +983,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example for Frame Slotted ALOHA 
+Example for Frame Slotted ALOHA.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Example-for-frame"
@@ -999,8 +1004,8 @@ name "fig:Example-for-frame"
 
 \end_layout
 
-\begin_layout Subsubsection*
-Dynamic Frame Slotted ALOHA (DFSA)
+\begin_layout Paragraph*
+Dynamic Frame Slotted ALOHA (DFSA):
 \end_layout
 
 \begin_layout Standard
@@ -1064,7 +1069,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Slots of Dynamic Frame Slotted ALOHA 
+Slots of Dynamic Frame Slotted ALOHA.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Slots-of-Dynamic"
@@ -1082,12 +1088,15 @@ name "fig:Slots-of-Dynamic"
 \end_inset
 
  Therefore, each slot can take one of the following three variable states:
- 1) Successful Slot: One tag only chooses this slot, is fully identified,
- and then is deactivated by the reader within the successive frames.
- 2) Collided Slot: Multiple tags reply, resulting in a collision.
+ 1) Successful Slot: The reader receives a single tag reply during this
+ slot, then the tag is identified and muted by the reader until the end
+ of the reading process.
+ 2) Collided Slot: The reader receives multiple tags replies, resulting
+ in a collision.
  The collided tags normally remain in their active state and retry their
  transmission in the next frame.
- 3) Empty Slot: No tag responds and the slot remains unused.
+ 3) Empty Slot: No tag responds are received by the reader and the slot
+ remains unused.
 \end_layout
 
 \begin_layout Standard
@@ -1121,7 +1130,7 @@ key "Aloha4_Vogt"
 \begin_inset Formula $L$
 \end_inset
 
- slots can be expressed by the following equations:
+ slots can be expressed by:
 \end_layout
 
 \begin_layout Standard
@@ -1202,7 +1211,7 @@ reference "fig:Framed-Slotted-ALOHA"
 \begin_inset Formula $L=64$
 \end_inset
 
- and different numbers of tags.
+ with different numbers of tags.
  The main goal of optimizing the DFSA algorithm is finding the optimal frame
  length 
 \begin_inset Formula $L$
@@ -1262,20 +1271,20 @@ reference "fig:Flow-chart-of"
 
 \end_inset
 
- presents a summary for DFSA.
+ presents a summary of DFSA.
  As shown in the chart, the reader starts with an initial frame length.
  Then, it broadcasts this frame length to the tags in the reading area.
- Afterwards, it performs a normal FSA.
+ Afterwards, the reader performs a normal FSA.
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename reading_efficiency.emf
-	lyxscale 50
+	lyxscale 30
 	width 60page%
 	height 25pheight%
 
@@ -1304,6 +1313,7 @@ Conventional FSA reading efficiency
 \begin_inset Formula $\eta_{max}=(1/e)\simeq0.36$
 \end_inset
 
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1347,7 +1357,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Flow chart of Dynamic Framed Slotted ALOHA (DFSA)
+Flow chart of Dynamic Framed Slotted ALOHA (DFSA).
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Flow-chart-of"
@@ -1379,7 +1389,7 @@ key "standard"
 
 \end_inset
 
- will be given.
+ is presented.
  The reading process consists of multiple inventory rounds.
  Each inventory round typically has a different frame length.
  Figure 
@@ -1433,7 +1443,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Conventional variable frame length procedure EPCglobal C1 G2
+Conventional variable frame length procedure EPCglobal C1 G2.
 \begin_inset CommandInset citation
 LatexCommand cite
 key "standard"
@@ -1512,7 +1522,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Single tag reply
+Single tag reply.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Single-tag-reply"
@@ -1555,7 +1565,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Multiple tags replies
+Multiple tags replies.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Multiple-tags-reply"
@@ -1615,14 +1625,7 @@ name "fig:No-tag-reply"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of an inventory between reader and different tags replies situations
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "standard"
-
-\end_inset
-
+Example of an inventory between reader and different tags replies situations.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1766,8 +1769,7 @@ Recently, RFID receivers have been developed, that are able to convert part
  of the collided slots into successful slots.
  Moreover, new RFID readers can even identify the type of the slots and
  terminate the empty and collided slots earlier.
- In this section, a brief discussion about these two parameters will be
- presented.
+ In this section, a brief discussion about these two parameters is presented.
  Afterwards, a motivation to reconfigure the MAC layer to make use of the
  PHY-layer parameters is presented.
  
@@ -1790,16 +1792,14 @@ key "2013_capture"
 \end_inset
 
 , the collision recovery capability of the RFID system depends on different
- factors: First, the capabilities of the receiver, e.g.
- number of antennas.
+ factors: First, the capabilities of the receiver, e.g., number of antennas.
  Second, the distance between the collided tags.
  Finally, the type of the channel.
  
 \end_layout
 
 \begin_layout Standard
-Recently, some research groups (e.g.
- 
+Recently, some research groups (e.g., 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Capture_2011"
@@ -1906,7 +1906,7 @@ reference "eq:rff_PHY"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \noindent
@@ -1951,7 +1951,7 @@ name "fig:Differences-between-the-1"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \noindent
@@ -1979,7 +1979,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Collided slot timing
+Collided slot timing.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Collided-Slot-Duration-1"
@@ -2025,7 +2025,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Empty slot timing 
+Empty slot timing.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Empty-Slot-Duration-1"
@@ -2061,6 +2062,7 @@ Slots durations measurements, where
 \begin_inset Formula $BLF=\unit[160]{kbps}$
 \end_inset
 
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -2114,13 +2116,27 @@ reference "fig:Differences-between-the-1"
 \end_inset
 
  slots.
- The first frame in (a) presents the conventional view of the frame with
- equal slots durations 
+ The first frame in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Differences-between-the-1"
+
+\end_inset
+
+ (a) presents the conventional view of the frame with equal slots durations
+ 
 \begin_inset Formula $t_{Slot}$
 \end_inset
 
  for all slot types.
- The second frame in (b) presents the behavior of the real RFID slots behavior.
+ The second frame in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Differences-between-the-1"
+
+\end_inset
+
+ (b) presents the behavior of the real RFID slots behavior.
  Here, the slot duration depends on the slot type.
  
 \end_layout
@@ -2163,11 +2179,11 @@ reference "fig:Measured-Slots-durations-1"
 \end_inset
 
 , the collided slot duration is 
-\begin_inset Formula $\simeq\unit[1200]{\mu sec}$
+\begin_inset Formula $\simeq\unit[1200]{\mu s}$
 \end_inset
 
 , and the empty slot duration is 
-\begin_inset Formula $\simeq\unit[200]{\mu sec}$
+\begin_inset Formula $\simeq\unit[200]{\mu s}$
 \end_inset
 
 .
@@ -2226,8 +2242,8 @@ According to the above discussion, the reading efficiency equation will
 Summarizing, the main lack in the previous RFID research is that the MAC
  layer is optimized independently on the PHY layer.
  However, the PHY-layer properties affect the optimization parameters of
- the MAC layer, e.g.
- the number of tags estimation and the optimum frame length.
+ the MAC layer, e.g., the number of tags estimation and the optimum frame
+ length.
  This thesis concentrates on optimizing the DFSA anti-collision protocol.
  In the proposed algorithm, the PHY layer parameters will be considered,
  which are the collision recovery capability of the RFID reader and the

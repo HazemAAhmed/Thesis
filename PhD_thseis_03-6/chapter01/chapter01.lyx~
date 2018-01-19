@@ -110,10 +110,10 @@ key "Intro_RFID"
 
 , such as no line-of-sight connection, fully automotive identification process,
  robustness, identification speed, bidirectional communication, reliability
- in different environment conditions, bunch detection and secured communication.
+ in different environment conditions, bunch detection, and secured communication.
  Thus, RFID became the optimum solution for several applications where other
- identification technologies like bar-codes are unsuitable, for example,
- inventory tracking, supply chain management, automated manufacturing, etc
+ identification technologies like bar-codes are unsuitable, e.g.
+ inventory tracking, supply chain management, automated manufacturing, etc.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -123,10 +123,11 @@ key "Barcodes_VS_RFID_1,Barcodes_Vs_RFID_2,Barcodes_vs_RFID_4"
 
 .
  Due to the crucial significance of the RFID system in different real-world
- applications, RFID systems have received large attention from both, research
+ applications, RFID systems have received large attention from both research
  groups and industry.
- Recently, many work has been published on the area of RFID systems whether
- in hardware and software design, or in protocols and applications 
+ Recently, a lot of work has been published on the area of RFID systems
+ whether in hardware and software design, or in protocols and applications
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2017_RFID_1,2017_RFID_2,2017_RFID_3"
@@ -134,8 +135,8 @@ key "2017_RFID_1,2017_RFID_2,2017_RFID_3"
 \end_inset
 
 .
- This chapter will present the research motivation along with the thesis
- contributions and outline.
+ This chapter presents the research motivation along with the contributions
+ and the outline of the thesis.
 \end_layout
 
 \begin_layout Section
@@ -157,7 +158,7 @@ reference "fig:RFID-System"
 \end_inset
 
 .
- This naturally requires fast RFID readers (interrogators), in order not
+ This naturally requires fast RFID readers (interrogators) in order not
  to slow down the delivery process of the actual goods.
  According to 
 \begin_inset CommandInset citation
@@ -175,7 +176,7 @@ key "standard"
 
  is the most commonly used RFID standard in logistics.
  It is based on Time Division Multiple Access (TDMA), which leads to a certain
- probability of tag-collisions on the communications channel.
+ probability of tag-collisions on the communication channel.
  Owing to their low price and simple design, tags can neither sense the
  channel nor communicate with the other tags.
  Hence, the readers are responsible for coordinating the network, and avoiding
@@ -255,8 +256,8 @@ description "Medium Access Control"
  During the reading process, each active tag randomly assigns itself to
  one of the available slots in a frame.
  Therefore, each slot can take one of three different states: 1) Successful
- Slot: Only one tag chooses this slot, is fully identified, and then deactivated
- by the reader.
+ Slot: Only single tag chooses this slot and identified.
+ It is then muted by the reader until the end of the reading process.
  2) Collided Slot: Multiple tags reply, resulting in a collision.
  The collided tags normally remain in their active state and retry their
  transmission in the next frame.
@@ -311,9 +312,9 @@ key "PHY3,PHY4"
 \end_layout
 
 \begin_layout Standard
-According to the previous discussion, the number of tags estimation algorithm
+Based on the previous discussion, the number of tags estimation algorithm
  and the optimum FSA frame length strongly depend on the PHY layer properties
- of the used system.
+ of the system being used.
 \end_layout
 
 \begin_layout Section
@@ -365,9 +366,9 @@ A closed-form solution for the optimum frame length for FSA is provided
 \end_layout
 
 \begin_layout Enumerate
-Another closed-form solution for the optimum frame length for FSA is settled
- by optimizing the time and constant collision recovery coefficients aware
- reading efficiency.
+An additional closed-form solution for the optimum frame length for FSA
+ is settled by optimizing the time and constant collision recovery coefficients
+ aware reading efficiency.
  The proposed solution gives a new closed form equation for the frame length
  considering the different slot durations and the collision recovery capability
  with equal coefficients.

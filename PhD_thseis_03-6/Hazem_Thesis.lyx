@@ -225,10 +225,10 @@ Abstract
 
 \begin_layout Standard
 Radio Frequency Identification (RFID) is a rapidly emerging technology that
- wirelessly transmits the identity of transponders (tags) attached to an
- object or a person.
- The RFID technology took more attention since the adoption of the EPCglobal
- Class 1 Gen 2 standard in 2005.
+ wirelessly transmits the identification of transponders (tags) attached
+ to an object or a person.
+ The RFID technology attracted more attention since the adoption of the
+ EPCglobal Class 1 Gen 2 standard in 2005.
  It has replaced other automatic identification systems like barcodes in
  some applications, e.g.
  logistics.
@@ -236,9 +236,9 @@ Radio Frequency Identification (RFID) is a rapidly emerging technology that
  parameter.
  Currently, developments are underway in various areas of RFID to decrease
  the total identification time for a massive number of tags.
- The present thesis focuses on passive Ultra High Frequency (UHF) RFID,
- whose transmission on the Medium Access Control (MAC) layer is scheduled
- by Framed Slotted Aloha (FSA).
+ This thesis focuses on passive Ultra High Frequency (UHF) RFID, whose transmiss
+ion on the Medium Access Control (MAC) layer is scheduled by Framed Slotted
+ Aloha (FSA).
  Conventional FSA regards only the reply of a single tag as a successful
  slot.
  Empty and collided slots are considered as losses.
@@ -291,7 +291,7 @@ Apart from that, closed form solutions for the optimum FSA frame length
  capability.
  The second scenario is the Time-Aware with constant collision recovery
  coefficients system.
- This proposal provides a new closed form equation for the frame length
+ The proposed method provides a new closed form equation for the frame length
  considering the different slot durations and the collision recovery capability
  with equal coefficients.
  Moreover, a new calculation method of the collision recovery probability
@@ -302,7 +302,7 @@ Apart from that, closed form solutions for the optimum FSA frame length
  are examined with equal slots durations.
  In this regard, the values of the collision recovery coefficients are extracted
  from the physical layer parameters.
- Finally, a Time-aware and multiple collision recovery system is suggested,
+ Finally, a Time-aware and multiple collision recovery system is proposed,
  considering the multiple collision recovery probability coefficients in
  addition to the different slot durations.
  For each scenario, timing comparisons between the proposed formulas and
@@ -321,8 +321,8 @@ This thesis focuses on the EPCglobal C1 G2 standard.
  This proposal includes compatible modifications in the UHF RFID tags/readers,
  to be capable of acknowledging more than a sole tag per slot.
  Finally, the obtained results demonstrate that the proposed system optimization
-s lead to tags identification in significantly shorter time, which is crucial
- for time-sensitive applications.
+s lead to tags identification in a significantly shorter time, which is
+ crucial for time-sensitive applications.
 \end_layout
 
 \begin_layout Standard
