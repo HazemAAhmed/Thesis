@@ -109,8 +109,7 @@ key "Intro_RFID"
 \end_inset
 
 , such as no line-of-sight connection, fully automotive identification process,
- robustness, identification speed, bidirectional communication, reliability
- in different environment conditions, bunch detection, and secured communication.
+ robustness, identification speed, and secured communication.
  Thus, RFID became the optimum solution for several applications where other
  identification technologies like bar-codes are unsuitable, e.g.
  inventory tracking, supply chain management, automated manufacturing, etc.
@@ -123,9 +122,9 @@ key "Barcodes_VS_RFID_1,Barcodes_Vs_RFID_2,Barcodes_vs_RFID_4"
 
 .
  Due to the crucial significance of the RFID system in different real-world
- applications, RFID systems have received large attention from both research
- groups and industry.
- Recently, a lot of work has been published on the area of RFID systems
+ applications, they have received large attention from both research groups
+ and industry.
+ Recently, a lot of work has been published in the area of RFID systems
  whether in hardware and software design, or in protocols and applications
  
 \begin_inset CommandInset citation
@@ -145,9 +144,9 @@ Motivation
 
 \begin_layout Standard
 During the past few years, the number of applications that use RFID has
- increased, and their number will potentially further grow in the near future.
- One of its main applications is logistics, where, for example, many tags
- (transponders) may be closely placed on pallets.
+ increased, and will potentially further grow in the near future.
+ One of these applications is logistics, where, for example, many tags (transpon
+ders) are closely placed on pallets.
  Thus, in such systems, we have a single RFID reader that is responsible
  for identifying an unknown number of tags in the reading area as shown
  in figure 
@@ -185,7 +184,7 @@ key "standard"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -203,7 +202,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dense RFID network with single RFID reader 
+Dense RFID network with single RFID reader.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:RFID-System"
@@ -289,7 +289,7 @@ The accuracy of the FSA frame length: If the frame length is higher than
 \begin_layout Standard
 Recent research groups have focused upon using the PHY layer properties,
  in the so-called Collision Recovery phenomena, to convert part of the collided
- slots into successful slots 
+ slots into successful ones 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PHY1,PHY2"
@@ -344,8 +344,8 @@ key "standard"
 \end_layout
 
 \begin_layout Enumerate
-A method for number of tags estimation is developed, taking into consideration
- the collision recovery capability of the PHY layer.
+A method for number of tags estimation is developed, considering the collision
+ recovery capability of the PHY layer.
  The main advantage of the proposed method is that it provides a new closed-form
  solution for the tag population estimator, which considers the collision
  recovery probability of the used system.
@@ -372,7 +372,7 @@ An additional closed-form solution for the optimum frame length for FSA
  The proposed solution gives a new closed form equation for the frame length
  considering the different slot durations and the collision recovery capability
  with equal coefficients.
- Moreover, a new method was introduced to calculate the capture probability
+ Moreover, a new method is introduced to calculate the capture probability
  per frame.
  Simulations indicate that the proposed solution gives accurate results
  for all relevant parameter configurations without the need for multi-dimensiona

@@ -113,7 +113,7 @@ Collision Recovery Aware Tag Estimation
 \begin_inset Quotes erd
 \end_inset
 
- will be introduced.
+ is introduced.
  The proposed method takes into consideration the collision recovery probability
  of the PHY layer.
  
@@ -202,6 +202,13 @@ reference "alg:Main-procedure-of"
 
 \end_inset
 
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2007_Q+-"
+
+\end_inset
+
 , when the Q-Algorithm starts, it takes tags’ replies slot by slot.
  Then, it classifies slots into three categories: success, collision and
  idle slot.
@@ -228,13 +235,6 @@ status collapsed
 
 \begin_layout Plain Layout
 Main procedure of direct Q-slot family 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2007_Q+-"
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:Main-procedure-of"
@@ -740,7 +740,7 @@ For the same reason, even if the number of tags increases, the computation
 \begin_layout Itemize
 Direct Q-Algorithm finds the optimal frame very quickly and does not reduce
  the throughput, because it evaluates the frame size in slot-by-slot manner
- instead of frame-by-frame one as other schemes.
+ instead of frame-by-frame as other schemes.
 \end_layout
 
 \begin_layout Standard
@@ -981,7 +981,7 @@ key "2006_C_ratio"
 \end_inset
 
  is the frame index.
- Therefore, the C-Ratio can be expressed as:
+ Therefore, the C-Ratio can be expressed by:
 \begin_inset Formula 
 \begin{equation}
 C_{ratio}\triangleq\frac{C_{i}}{L_{i}}=1-\left(1-\frac{1}{L_{i}}\right)^{n_{i}}-\left(1+\frac{n_{i}}{L_{i}-1}\right)\label{eq:C-Ratio}
@@ -1022,7 +1022,7 @@ key "C_ratio_Modified"
 , the authors used the same concept as the C-Ratio.
  However, they presumed independent binomial distributions of the tags in
  each slot.
- Thus, the modified C-Ratio is expressed as:
+ Thus, the modified C-Ratio is expressed by:
 \begin_inset Formula 
 \begin{equation}
 \frac{C_{i}}{L_{i}}=\sum_{j=2}^{n_{i}}\binom{n_{i}}{j}\left(\frac{1}{L_{i}}\right)^{j}\left(1-\frac{1}{L_{i}}\right)^{n_{i}-1}\label{eq:Modified_C-ratio}
@@ -1077,7 +1077,7 @@ key "Aloha4_Vogt"
 \end_inset
 
 .
- It is presented as:
+ It is presented by:
 \begin_inset Formula 
 \begin{equation}
 \varepsilon_{conv}(L,\,S,\,C,\,E)=\underset{n}{\mbox{min}}\left\{ \left|E_{exp}-E\right|+\left|S_{exp}-S\right|+\left|C_{exp}-C\right|\right\} \label{eq:MSE}
@@ -1132,8 +1132,7 @@ key "Chen"
 
 \end_inset
 
-, the author proposes a ML number of tags estimation by finding the optimum
- 
+, a ML number of tags estimation by finding the optimum 
 \begin_inset Formula $\hat{n}$
 \end_inset
 
@@ -1153,12 +1152,12 @@ key "Chen"
 \begin_inset Formula $L$
 \end_inset
 
- total slots.
- In addition, he uses a multi-nomial distribution with 
+ total slots is proposed.
+ In addition, a multi-nomial distribution with 
 \begin_inset Formula $L$
 \end_inset
 
- repeated independent trials.
+ repeated independent trials is used.
  Each trial has one of three possibilities: 
 \begin_inset Formula $P_{e}$
 \end_inset
@@ -1190,7 +1189,7 @@ key "Vogt_1"
 
 \end_inset
 
- and can be presented as: 
+ and can be presented by: 
 \begin_inset Formula 
 \begin{equation}
 P_{e}=\left(1-\frac{1}{L}\right)^{n},\,P_{s}=\frac{n}{L}\left(1-\frac{1}{L}\right)^{n-1},\,P_{c}=1-P_{e}-P_{s}\label{eq:binomial_prob}
@@ -1202,19 +1201,19 @@ The probability that in
 \begin_inset Formula $L$
 \end_inset
 
- trails given 
+ trails, empty outcome occurs 
 \begin_inset Formula $E$
 \end_inset
 
- empty slots 
+ times, successful outcome occurs 
 \begin_inset Formula $S$
 \end_inset
 
- successful slots, and 
+ times, and collision outcome occurs
 \begin_inset Formula $C$
 \end_inset
 
- collided slots occur is:
+ times is:
 \begin_inset Formula 
 \begin{equation}
 P(\hat{n}|L,S,C,E)=\frac{L!}{E!S!C!}P_{e}^{E}P_{s}^{S}P_{c}^{C}\label{eq:chen-1}
@@ -1591,8 +1590,8 @@ In this section, a new closed-form solution for the estimated number of
 
  is proposed.
  It considers the collision recovery probability of the PHY layer.
- Then, an example for calculating the collision recovery probability using
- a simple RFID receiver will be presented.
+ An example for calculating the collision recovery probability using a simple
+ RFID receiver is presented.
  This solution gives a direct and linear relation between the estimated
  number of tags 
 \begin_inset Formula $\hat{n}$
@@ -1891,7 +1890,7 @@ Probability Density Function (PDF) as a function of the number of tags
 \end_inset
 
  for the Binomial distribution and its Poisson approximation for the probability
- of success using different frame lengths
+ of success using different frame lengths.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Approximation"
@@ -2024,7 +2023,7 @@ reference "eq:proposed probability"
 
 \end_inset
 
-) the proposed conditional probability is:
+), the proposed conditional probability is:
 \begin_inset Formula 
 \begin{equation}
 P(\hat{n}|L,S,C,E,\alpha)=\left(\frac{L!}{E_{b}!S_{b}!C_{b}!}\right)\gamma^{S_{b}}\cdot e^{-\gamma\cdot L}\cdot\left(e^{-\gamma}-1-\gamma\right)^{C_{b}}\label{eq:non-normalized probability}
@@ -2095,7 +2094,7 @@ Derivation of the Proposed Closed Form Solution
 \end_layout
 
 \begin_layout Standard
-This section will propose a closed form solution for the collision recovery
+This section proposes a closed form solution for the collision recovery
  aware estimation.
  This is achieved by differentiating (
 \begin_inset CommandInset ref
@@ -2109,7 +2108,7 @@ reference "eq:final probability"
 \end_inset
 
  and equating the results to zero.
- After differentiating, the equation can be simplified as:
+ After differentiating, the equation can be simplified to:
 \end_layout
 
 \begin_layout Standard
@@ -2166,7 +2165,7 @@ e^{-\gamma}\simeq1-\gamma+\frac{1}{2}\gamma^{2}-\frac{1}{6}\gamma^{3}.\label{eq:
 
 
 \size default
-After substituting (
+After substituting in (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:after_diff"
@@ -2174,7 +2173,7 @@ reference "eq:after_diff"
 \end_inset
 
 ) and some additional simplifications, the final equation is a fourth order
- polynomial:
+ polynomial as follows:
 \end_layout
 
 \begin_layout Standard
@@ -2233,19 +2232,13 @@ where
 
 
 \size default
-
+,
 \begin_inset Newline newline
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-and,
-\size footnotesize
- 
 \size small
-
+with 
 \begin_inset Formula $S=0.5\sqrt{-\frac{2}{3}P+\frac{1}{3a}\left(Q+\frac{\triangle_{0}}{Q}\right)}$
 \end_inset
 
@@ -2255,17 +2248,13 @@ and,
 
 
 \size footnotesize
-.
-\begin_inset Newline newline
-\end_inset
-
-
+,
 \begin_inset Newline newline
 \end_inset
 
 
 \size default
-with, 
+and 
 \size small
 
 \begin_inset Formula $\triangle_{0}=c^{2}-3bd+12ae$
@@ -2284,7 +2273,7 @@ with,
 According to equation (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:condition"
+reference "eq:roots-2"
 
 \end_inset
 
@@ -2601,7 +2590,8 @@ Collision recovery probability
 \begin_inset Formula $\alpha$
 \end_inset
 
- as a function of the SNR 
+ as a function of the SNR.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Capture-probability-versus-1"
@@ -2636,7 +2626,7 @@ The collision recovery capability is the ability of the reader to actively
  Therefore, this ability is a function of two main parameters: First, the
  characterization of the RFID reader, (e.g.
  receiver type, number of antennas, etc.).
- Second, the function of the current Signal-to-Noise Ratio (SNR).
+ Second, the value of the current Signal-to-Noise Ratio (SNR).
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "SNR"
@@ -2644,10 +2634,8 @@ description "Signal to Noise Ratio"
 
 \end_inset
 
- Therefore, it extends the capture probability, which is mainly an effect
- of the channel, resulting in a significantly higher probability to recover
- collided slots.
- 
+ Therefore, the higher the collision recovery probability value, the more
+ collided slots can be recovered.
 \end_layout
 
 \begin_layout Standard
@@ -2682,7 +2670,7 @@ description "Zero Forcing"
 
 \end_inset
 
- Zero Forcing(ZF) receiver with two receiver antennas, and 3) the ZF receiver
+ Zero Forcing (ZF) receiver with two receiver antennas, and 3) the ZF receiver
  with a single receiver antenna.
  The authors of 
 \begin_inset CommandInset citation
@@ -2728,16 +2716,14 @@ reference "fig:Capture-probability-versus-1"
 \end_layout
 
 \begin_layout Standard
-Figure 
+According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Capture-probability-versus-1"
 
 \end_inset
 
- shows two different receivers: ZF and MMSE.
- The higher SNR at the receiver, the higher the collision recovery capability
- of the reader.
+, the higher the collision recovery capability of the reader.
  The MMSE receiver gives better performance than the ZF receiver, and the
  performance increases when the number of received antennas is increased.
  According to  measurements, the practical SNR range for the successful
@@ -2791,7 +2777,7 @@ System has no collision recovery capability
 \begin_inset Formula $(\alpha=0)$
 \end_inset
 
- 
+ .
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:System-has-no"
@@ -2839,7 +2825,7 @@ System has collision recovery capability
 \begin_inset Formula $(\alpha=0.7)$
 \end_inset
 
-
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Relative-estimation-error07"
@@ -2872,6 +2858,7 @@ Relative estimation error
 \begin_inset Formula $\nicefrac{n}{L}$
 \end_inset
 
+.
  
 \end_layout
 
@@ -2942,7 +2929,8 @@ key "Chen"
 \end_inset
 
 .
- Moreover, the proposed system gives a closed form solution of 
+ However, the proposed system gives a closed form solution of the estimated
+ number of tags instead of the numerical solution proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chen"
@@ -2950,12 +2938,20 @@ key "Chen"
 \end_inset
 
 .
- This advantage decreases the complexity of the estimation algorithm.
+ This advantage decreases the complexity of the estimation algorithm compared
+ to the conventional ML 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen"
+
+\end_inset
+
+.
  
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3048,8 +3044,15 @@ reference "fig:Relative-estimation-error07"
 
 \end_inset
 
-, the proposed solution has a more accurate estimation performance compared
- to the existing methods in the state-of-the-art.
+, the proposed solution has more accurate estimation performance compared
+ to the existing methods in the state-of-the-art 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ref_schoute,Chen,Vogt_1"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3130,7 +3133,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3153,6 +3156,7 @@ System has no collision recovery capability
 \begin_inset Formula $(\alpha=0)$
 \end_inset
 
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -3178,7 +3182,7 @@ name "fig:System-has-no-time"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3201,6 +3205,7 @@ System has collision recovery capability
 \begin_inset Formula $(\alpha=0.7)$
 \end_inset
 
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -3234,7 +3239,7 @@ Mean identification time
 \begin_inset Formula $n$
 \end_inset
 
- 
+ .
 \end_layout
 
 \end_inset
@@ -3354,8 +3359,8 @@ reference "fig:System-has-collision-time"
 \end_inset
 
 .
- Therefore, in the following chapter, new proposals regarding the FSA frame
- length taking into consideration the PHY-layer properties will be presented.
+ Therefore, in the next chapter, new proposals regarding the FSA frame length
+ taking into consideration the PHY-layer properties will be presented.
 \end_layout
 
 \end_body

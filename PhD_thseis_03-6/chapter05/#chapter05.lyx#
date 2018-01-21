@@ -132,7 +132,14 @@ key "2009_capture"
  This is because these systems gain more from the collided slots compared
  to the empty slots by converting the collided slots to successful slots.
  In addition, most of the previous studies assumed constant slot durations
- regardless the type of the slot.
+ regardless the type of the slot 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt,2010_Vogt_problem,Vogt_1,DFSA_shoute_Random"
+
+\end_inset
+
+.
  However, the durations of the slots in RFID systems depend on the slot
  type, i.e.
  empty, successful, or collided.
@@ -141,8 +148,8 @@ key "2009_capture"
  Therefore, in such systems, it is better to increase the frame length,
  because the losses from the empty slots is less than the losses from the
  collided slots.
- To solve the above contradiction, this chapter will discuss the optimum
- DFSA frame length taking into consideration the collision recovery capability
+ To solve the above contradiction, this chapter discusses the optimum DFSA
+ frame length taking into consideration the collision recovery capability
  and the different slot durations.
  These optimizations will be discussed in different scenarios depending
  on the RFID system.
@@ -330,7 +337,7 @@ reference "eq:eff-semi_simple"
 \begin_inset Formula $L$
 \end_inset
 
- and equate the result to zero, where 
+ and equating the result to zero, where 
 \begin_inset Formula $L$
 \end_inset
 
@@ -414,7 +421,7 @@ After subtracting the term which is multiplied by
 \begin_inset Formula $t_{s},$
 \end_inset
 
- the equation finally results in:
+ the equation finally becomes:
 \size small
 
 \begin_inset Formula 
@@ -426,7 +433,7 @@ After subtracting the term which is multiplied by
 
 
 \size default
-Then, substituting the values of 
+Then, substituting by the values of 
 \begin_inset Formula $E$
 \end_inset
 
@@ -450,9 +457,9 @@ reference "eq: number of slot definition"
 
 \begin_inset Formula 
 \begin{eqnarray}
-\left\{ t_{e}\underset{E}{\underbrace{L\left(1-\frac{1}{L}\right)^{n}}}+t_{c}\underset{C}{\underbrace{(L-\left(1-\frac{1}{L}\right)^{n-1}(L-n-1))}}\right\} \label{eq:complex differentiation-1}\\
+\left\{ t_{e}\underset{E}{\underbrace{L\left(1-\frac{1}{L}\right)^{n}}}+t_{c}\underset{C}{\underbrace{(L-\left(1-\frac{1}{L}\right)^{n-1}(L-n-1))}}\right\} \nonumber \\
 \times\frac{\partial}{\partial L}\underset{S}{\underbrace{n\left(1-\frac{1}{L}\right)^{n-1}}}\nonumber \\
-=\underset{S}{\underbrace{n\left(1-\frac{1}{L}\right)^{n-1}}}\nonumber \\
+=\underset{S}{\underbrace{n\left(1-\frac{1}{L}\right)^{n-1}}}\label{eq:complex differentiation-1}\\
 \times\frac{\partial}{\partial L}\left\{ t_{e}\underset{E}{\underbrace{L\left(1-\frac{1}{L}\right)^{n}}}+t_{c}\underset{C}{\underbrace{(L-\left(1-\frac{1}{L}\right)^{n-1}(L-n-1))}}\right\} \nonumber 
 \end{eqnarray}
 
@@ -461,7 +468,7 @@ reference "eq: number of slot definition"
 
 \size default
 By simplifying the result, the final exact equation for the proposed time-aware
- frame length is given by the implicit equation:
+ frame length is given by the following implicit equation:
 \begin_inset Float figure
 wide false
 sideways false
@@ -581,7 +588,8 @@ where
 \end_inset
 
 .
- As we are focusing on systems with many tags we can use the approximation
+ As we are focusing on systems with many tags, the following approximation
+ can be used:
 \size small
 
 \begin_inset Formula 
@@ -652,14 +660,14 @@ reference "fig:Second-order-Taylor"
 \end_inset
 
 .
- After substituting (
+ After substituting by (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:first_approx-1"
 
 \end_inset
 
-) and additional simplifications we get:
+) and with additional simplifications we get:
 \end_layout
 
 \begin_layout Standard
@@ -792,7 +800,7 @@ C_{t}=\frac{t_{e}}{t_{c}}\label{eq:ct-1}
 
 
 \size default
-As shown in figure 
+As shown from figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Slot-Durations-During-1"
@@ -1760,7 +1768,7 @@ where
 \begin_inset Formula $DR$
 \end_inset
 
- is the so-called divide ratio constant that can take the two values 
+ is the so-called divide ratio constant that can take two values 
 \begin_inset Formula $DR=8\,\mbox{or}\,\frac{64}{3}$
 \end_inset
 
@@ -1779,7 +1787,7 @@ where
 \end_inset
 
  is the time from the reader transmission to the tag response, which can
- be expressed as:
+ be expressed by:
 \end_layout
 
 \begin_layout Standard
@@ -1804,14 +1812,14 @@ Next,
 
  before issuing another command.
  As it has no constraints, it can be assumed to be zero.
- After substituting (
+ After substituting by (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:TQ2-1"
 
 \end_inset
 
-) and (
+ and 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:T1-1"
@@ -1829,7 +1837,7 @@ reference "eq:te_disc-1"
 \begin_inset Formula $t_{e}$
 \end_inset
 
- can be expressed as:
+ can be expressed by:
 \end_layout
 
 \begin_layout Standard
@@ -1899,7 +1907,7 @@ e\SpecialChar \@.
 \begin_inset Formula $t_{c}$
 \end_inset
 
- can be expressed as:
+ can be expressed by:
 \end_layout
 
 \begin_layout Standard
@@ -2444,15 +2452,15 @@ key "DFSA_shoute_Random"
 \end_inset
 
  number of tags estimation algorithms, the reading time is reduced by 
-\begin_inset Formula $10$
+\begin_inset Formula $13$
 \end_inset
 
  to 
-\begin_inset Formula $12\,\%$
+\begin_inset Formula $16\,\%$
 \end_inset
 
 .
- In case of more accurate estimation algorithm like Vogt 
+ In case of more accurate estimation algorithm such as Vogt 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2010_Vogt_problem"
@@ -2465,10 +2473,10 @@ key "2010_Vogt_problem"
 \end_inset
 
  and 
-\begin_inset Formula $\unit[]{}$
+\begin_inset Formula $\unit[12]{\%}$
 \end_inset
 
- .
+.
  According to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2523,6 +2531,7 @@ Percentages of the mean reading time reduction
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -2603,16 +2612,16 @@ key "Capture_time_2015,Ref_4_4_2013_Cap_time"
  recovery probability and the number of tags.
  The main problems of their numerical solutions are the multiple degrees
  of freedom.
- The solutions require a complex multidimensional look-up table that must
- consider all possible degrees of freedom.
- 
+ The solutions require a complex multidimensional look-up table that has
+ to consider all possible degrees of freedom.
+ The authors in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2012_curve_fitting"
 
 \end_inset
 
- uses curve fitting to find a closed form solution for the optimum frame
+ use curve fitting to find a closed form solution for the optimum frame
  length at a specific collision recovery probability and timing.
  However, this solution cannot be generalized for all values of slot's timing
  and collision recovery probabilities.
@@ -2640,7 +2649,8 @@ Closed Form Solution for Time and Collision Recovery System
 \end_layout
 
 \begin_layout Standard
-Now, the proposed optimal time and collision recovery aware frame size 
+In this subsection, the proposed optimal time and collision recovery aware
+ frame size 
 \begin_inset Formula $L_{_{TCA}}$
 \end_inset
 
@@ -2867,7 +2877,7 @@ where
 \begin_inset Formula $C_{t}$
 \end_inset
 
- is the slot durations constant defined as 
+ is the slot durations constant defined by 
 \begin_inset Formula $C_{t}=\frac{t_{e}}{t_{c}}$
 \end_inset
 
@@ -2899,7 +2909,7 @@ reference "eq:Lopt comlex expresion"
 
 \end_inset
 
-) can be expressed as:
+) can be expressed by:
 \end_layout
 
 \begin_layout Standard
@@ -3004,7 +3014,7 @@ e^{-\frac{1}{\beta}}\simeq1-\frac{1}{\beta}+\frac{1}{2\beta^{2}}.\label{eq:taylo
 
 
 \size default
-After substituting (
+After substituting in (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:first_approx"
@@ -3034,7 +3044,7 @@ reference "eq:quadratic equation"
 
 \end_inset
 
-) can be expressed as:
+) can be expressed by:
 \size small
 
 \begin_inset Formula 
@@ -3065,30 +3075,7 @@ L_{_{TCA}}=\frac{n}{2}\left(\left(1-\alpha\right)+\sqrt{\left(1-\alpha\right)^{2
 
 
 \size default
-As the optimization of (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:eff-semi_simple"
-
-\end_inset
-
-) is a convex optimization problem, and there exits only one non-negative
- solution of (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:final quadratic equation"
-
-\end_inset
-
-), (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:closed form"
-
-\end_inset
-
-) leads to the global optimum.
- According to literature, 
+According to state-of-the-art, 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Capture_time_2015"
@@ -3150,7 +3137,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Non-quantized Frame Length 
+Non-quantized Frame Length.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Non-quantized"
@@ -3193,7 +3181,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Quantized Frame Length 
+Quantized Frame Length.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Quantized-Frame-Length"
@@ -3266,7 +3255,7 @@ reference "eq:closed form"
 
 \end_inset
 
-) to the numerical results in 
+) with the numerical results in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Capture_time_2015"
@@ -3446,7 +3435,7 @@ Percentages of the mean reading time reduction
 \begin_inset Formula $\alpha$
 \end_inset
 
-
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Percentages-of-saving_ct_alpha_perfect"
@@ -3546,6 +3535,7 @@ Percentages of the mean reading time reduction
 \begin_inset Formula $\alpha=0.7$
 \end_inset
 
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -3598,8 +3588,8 @@ In this section, a new reading efficiency metric called Multiple Collision
 \end_inset
 
  is proposed.
- The proposed efficiency includes a unique collision resolving coefficient
- for each number of collided tags.
+ It includes a unique collision resolving coefficient for each number of
+ collided tags.
  Hence, a novel closed form solution for the optimum FSA frame length is
  proposed which maximizes the proposed efficiency metric.
  Then, calculating these coefficients based on a simple RFID reader model
@@ -3645,7 +3635,7 @@ The main contribution of this efficiency is that it contains a specific
 \begin_inset Formula $\eta_{_{MCRC}}$
 \end_inset
 
- is expressed as:
+ is expressed by:
 \size small
 
 \begin_inset Formula 
@@ -3671,7 +3661,7 @@ reference "fig:Collision-distribution-in"
 
  uniformly.
  The simulations results are done using Monte-Carlo simulations for the
- FSA algorithm under condition of frame of length 
+ FSA algorithm under condition of frame length 
 \begin_inset Formula $0.5\cdot n\leq L\leq2\cdot n$
 \end_inset
 
@@ -3779,6 +3769,7 @@ Distribution of collision probability for a collided slot in FSA, under
 \begin_inset Formula $\frac{n}{2}\leq L\leq2n$
 \end_inset
 
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -3854,7 +3845,7 @@ where
 \end_inset
 
 .
- After substituting (
+ After substituting with (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:approx_P(i)"
@@ -3904,7 +3895,7 @@ reference "eq:eff_proposed_simpl"
 \end_inset
 
  and equate the result to zero.
- After differentiating, the equation can be simplified as:
+ After differentiating, the equation can be simplified to:
 \size small
 
 \begin_inset Formula 
@@ -4075,7 +4066,7 @@ Based on practical ranges for the collision recovery coefficients,
 .
 
 \size default
- Therefore, we can proof that the signs of the polynomial coefficients are
+ Therefore, we can prove that the signs of the polynomial coefficients are
  constant and not changing in all ranges of 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
@@ -4307,7 +4298,7 @@ key "standard"
 \end_inset
 
  collided tags.
- Therefore, the collision recovery coefficient can be expressed as 
+ Therefore, the collision recovery coefficient can be expressed by 
 \begin_inset Formula $\alpha_{i}=\left(1-PER_{i}\right)$
 \end_inset
 
@@ -4330,13 +4321,13 @@ key "standard"
 \end_inset
 
  is the standard deviation of the Additive White Gaussian Noise (AWGN) per
- slot, and at last, we used normalized signal power, i.e.
+ slot, and at last, a normalized signal power is used, i.e.
  
 \begin_inset Formula $E\left\{ x^{2}\right\} =1$
 \end_inset
 
 .
- Moreover, we assumed that the equivalent channel coefficients 
+ Moreover, the equivalent channel coefficients 
 \begin_inset Formula $h$
 \end_inset
 
@@ -4564,7 +4555,8 @@ Percentages of the mean reading time reduction
 \begin_inset Formula $SNR$
 \end_inset
 
- values 
+ values.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Percentages-of-saving_MCR_perfect"
@@ -4728,7 +4720,8 @@ Percentages of the mean reading time reduction
 \begin_inset Formula $\alpha_{4}=0.4$
 \end_inset
 
-) 
+).
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Percentages-of-saving_MCR_with"
@@ -4774,8 +4767,7 @@ In this section we present a new FSA reading efficiency metric called time
 \begin_inset Formula $i$
 \end_inset
 
- collided tags, where this ability varies based on the number of collided
- tags.
+ collided tags, where it varies based on the number of collided tags.
  Moreover, it takes into consideration the different slot durations.
  
 \end_layout
@@ -4828,7 +4820,7 @@ e\SpecialChar \@.
 \begin_inset Formula $\eta_{_{TAMCRC}}$
 \end_inset
 
- can be expressed as:
+ can be expressed by:
 \end_layout
 
 \begin_layout Standard
@@ -5361,12 +5353,13 @@ L_{TAMCRC}=\left(-\frac{b}{4a}-S+0.5\sqrt{-4S^{2}-2P+\frac{q}{S}}\right)\cdot n\
 
 
 \size default
-The proposed equation gives again a linear relation with reference to the
- number of tags 
+ The proposed equation gives a linear relation with reference to the number
+ of tags 
 \begin_inset Formula $n$
 \end_inset
 
-, and includes the effect of different collision recovery coefficients and
+.
+ It considers the effect of different collision recovery coefficients and
  the slot durations constant.
  The values of these coefficients are set based on the RFID reader type
  as shown in 
@@ -5442,11 +5435,13 @@ reference "eq:TAMCR efficiency"
 
 \end_inset
 
-) versus full range of the slot durations constant 
-\begin_inset Formula $C_{t}$
+).
+ The comparison presents the relation between the frame length and the full
+ range of the slot durations constant 
+\begin_inset Formula $C_{t}=[0\rightarrow1]$
 \end_inset
 
- for different values of collision recovery coefficients 
+ and different values of collision recovery coefficients 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
@@ -5515,7 +5510,8 @@ reference "fig:Percentages-of-saving-TMCRA-perfect"
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 
-, as it is considered as a practical value used in the EPCglobal C1 G2 standards
+.
+ It is considered as a practical value used in the EPCglobal C1 G2 standards
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -5523,8 +5519,10 @@ key "standard"
 
 \end_inset
 
- and different values of SNR, as each SNR leads to corresponding values
- for the collision recovery coefficients 
+.
+ The simulation results are done using different values of SNR, as each
+ SNR leads to corresponding values for the collision recovery coefficients
+ 
 \begin_inset Formula $\alpha_{2}$
 \end_inset
 
@@ -5574,7 +5572,7 @@ reference "fig:Percentages-of-saving-TMCRA-perfect"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5609,7 +5607,7 @@ Percentages of the mean reading time reduction
 \begin_inset Formula $C_{t}=0.2$
 \end_inset
 
- 
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Percentages-of-saving-TMCRA-perfect"
@@ -5704,13 +5702,13 @@ reference "fig:Percentages-of-saving-TMCRA-Estimation"
 \end_inset
 
 .
- FSA assuming a perfect number of tags estimation algorithm leads to less
- number of iterations in the reading process.
+ FSA with perfect number of tags estimation algorithm leads to less number
+ of iterations in the reading process.
  Thus, it results in the minimum value of the mean reduction in reading
  time.
  On the other hand, FSA with simple estimation algorithm e.g.
  lower bound leads to more number of iteration and higher percentage of
- saving time.
+ the saved time.
  
 \end_layout
 

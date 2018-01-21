@@ -109,8 +109,7 @@ key "Intro_RFID"
 \end_inset
 
 , such as no line-of-sight connection, fully automotive identification process,
- robustness, identification speed, bidirectional communication, reliability
- in different environment conditions, bunch detection, and secured communication.
+ robustness, identification speed, and secured communication.
  Thus, RFID became the optimum solution for several applications where other
  identification technologies like bar-codes are unsuitable, e.g.
  inventory tracking, supply chain management, automated manufacturing, etc.
@@ -123,9 +122,9 @@ key "Barcodes_VS_RFID_1,Barcodes_Vs_RFID_2,Barcodes_vs_RFID_4"
 
 .
  Due to the crucial significance of the RFID system in different real-world
- applications, RFID systems have received large attention from both research
- groups and industry.
- Recently, a lot of work has been published on the area of RFID systems
+ applications, they have received large attention from both research groups
+ and industry.
+ Recently, a lot of work has been published in the area of RFID systems
  whether in hardware and software design, or in protocols and applications
  
 \begin_inset CommandInset citation
@@ -145,9 +144,9 @@ Motivation
 
 \begin_layout Standard
 During the past few years, the number of applications that use RFID has
- increased, and their number will potentially further grow in the near future.
- One of its main applications is logistics, where, for example, many tags
- (transponders) may be closely placed on pallets.
+ increased, and will potentially further grow in the near future.
+ One of these applications is logistics, where, for example, many tags (transpon
+ders) are closely placed on pallets.
  Thus, in such systems, we have a single RFID reader that is responsible
  for identifying an unknown number of tags in the reading area as shown
  in figure 
@@ -185,7 +184,7 @@ key "standard"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -203,7 +202,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dense RFID network with single RFID reader 
+Dense RFID network with single RFID reader.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:RFID-System"
@@ -324,9 +324,9 @@ Thesis Contribution
 \begin_layout Standard
 This thesis aims to improve the performance of existing UHF RFID systems,
  mainly by minimizing the total identification delay.
- The accomplished work focused on optimizing the FSA frame length and the
+ The accomplished work focuses on optimizing the FSA frame length and the
  number of tags estimation algorithm for dense RFID networks, taking into
- consideration the MAC/PHY-layer parameters.
+ consideration MAC/PHY-layer parameters.
  All modifications are on the reader side, as the improved system has to
  follow the EPCglobal C1 G2 standard 
 \begin_inset CommandInset citation
@@ -344,21 +344,21 @@ key "standard"
 \end_layout
 
 \begin_layout Enumerate
-A number of tags estimation method is developed, taking into consideration
+A method for number of tags estimation is developed, taking into consideration
  the collision recovery capability of the PHY layer.
  The main advantage of the proposed method is that it provides a new closed-form
  solution for the tag population estimator, which considers the collision
  recovery probability of the used system.
  Simulation results indicate that the proposed solution is more precise
- compared to the state-of the-art.
+ compared to the state-of-the-art.
  Timing comparisons presented in the simulation results show the reduced
  identification delay of the proposed estimation method compared to other
  proposals.
 \end_layout
 
 \begin_layout Enumerate
-A closed-form solution for the optimum frame length for FSA is provided
- by optimizing the Time-Aware Framed Slotted ALOHA reading efficiency, which
+A closed-form solution of the optimum frame length for FSA is provided by
+ optimizing the Time-Aware Framed Slotted ALOHA reading efficiency, which
  considers the differences in the slot durations.
  The simulation results indicate that the proposed solution gives the most
  accurate results with respect to the exact solution.
@@ -367,7 +367,7 @@ A closed-form solution for the optimum frame length for FSA is provided
 
 \begin_layout Enumerate
 An additional closed-form solution for the optimum frame length for FSA
- is settled by optimizing the time and constant collision recovery coefficients
+ is found by optimizing the time and constant collision recovery coefficients
  aware reading efficiency.
  The proposed solution gives a new closed form equation for the frame length
  considering the different slot durations and the collision recovery capability
@@ -375,7 +375,7 @@ An additional closed-form solution for the optimum frame length for FSA
  Moreover, a new method was introduced to calculate the capture probability
  per frame.
  Simulations indicate that the proposed solution gives accurate results
- for all relevant parameter configurations without any need for multi-dimensiona
+ for all relevant parameter configurations without the need for multi-dimensiona
 l look-up tables.
 \end_layout
 
@@ -384,9 +384,9 @@ A new closed-form solution for the optimal FSA frame length is established,
  which considers the differences in the collision recovery probabilities.
  The values of the collision recovery coefficients are extracted from the
  PHY layer parameters.
- Timing comparisons are presented in simulation results to show the mean
- reduction in reading time using the proposed frame length compared to other
- proposals.
+ Timing comparisons are presented in the simulation results to show the
+ mean reduction in reading time using the proposed frame length compared
+ to other proposals.
 \end_layout
 
 \begin_layout Enumerate
@@ -412,12 +412,12 @@ Document Outline
 
 \begin_layout Standard
 A brief outline of this document is presented as follows.
- Chapter 2 introduces the historical background and literature survey of
+ Chapter 2 introduces the historical background and literature review of
  RFID systems.
  Chapter 3 presents the RFID collision problem and the existing anti-collision
  algorithms.
  Moreover, the concept of the proposed cross-layer anti-collision algorithm
- will be defined.
+ is defined.
  Chapter 4 reports the most commonly used number of RFID tags estimation
  algorithms.
  Afterwards, the proposed collision recovery aware maximum likelihood estimation

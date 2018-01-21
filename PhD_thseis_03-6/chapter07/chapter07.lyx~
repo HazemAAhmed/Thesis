@@ -80,13 +80,13 @@ Nowadays, there is a great interest in RFID due to the number of applications
  mechanisms.
  It is the key requirement for different ultra-dense applications, e.g.
  logistics, access management and timing sports events.
- In such applications, dense number of tags is expected, which requires
+ In such applications, a dense number of tags is expected, which requires
  fast identification.
  
 \end_layout
 
 \begin_layout Standard
-The main goal of the thesis is to increase the system throughput and to
+The main goal of this thesis was to increase the system throughput and to
  identify tags faster in the reader range.
  The transmission of tags is scheduled on the MAC layer with an anti-collision
  protocol called DFSA.
@@ -94,7 +94,7 @@ The main goal of the thesis is to increase the system throughput and to
  anti-collision protocol.
  The DFSA reading efficiency is controlled by two main parameters: The accuracy
  of number of tags estimation algorithm and the frame length optimization.
- The PHY layer of the modern RFID receivers has been developed.
+ The PHY layer of the modern RFID receivers has been improved.
  Modern RFID receivers have a collision recovery capability, which means
  that some of collided slots can be converted to successful slots.
  This capability reduces the losses from the collided slots.
@@ -125,7 +125,7 @@ The advanced RFID readers, which are proposed in this thesis decrease the
  mean average of the FSA reading time.
  They incorporate different PHY layer parameters in order to efficiently
  optimize the MAC anti-collision protocols.
- The first three chapters gives an introduction to the UHF RFID systems,
+ The first three chapters give an introduction to the UHF RFID systems,
  where the motivation of the work is discussed.
  Chapter 4 presents a novel closed form solution for a collision recovery
  aware ML estimator, which considers the effects of the collision recovery

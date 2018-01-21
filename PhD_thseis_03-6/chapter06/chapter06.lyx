@@ -74,19 +74,18 @@ Improvements of the EPCglobal C1 G2
 \end_layout
 
 \begin_layout Abstract
-The EPCglobal C1 G2 is the most used UHF RFID standard.
+The EPCglobal C1 G2 is the most mployed UHF RFID standard.
  It allows only for a single tag acknowledgment per slot, even if the PHY
  layer is able to identify multiple collided tags.
- This results in an overall reduced performance.
- Recent studies have focused on this problem e.g.
- 
+ Recent studies have focus on this problem e.g., 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2013_orthogonal"
 
 \end_inset
 
- used the post-preamble proposed in 
+.
+ They use the post-preamble proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2012_orthogonal_codes"
@@ -94,8 +93,7 @@ key "2012_orthogonal_codes"
 \end_inset
 
  with a Multi Input Multi Output (MIMO) receiver to resolve collisions.
- The authors assumed that all the recovered tags can be acknowledged in
- parallel.
+ The authors assume that all the recovered tags can be acknowledged in parallel.
  However, this technique is not compatible with the EPCglobal C1 G2 standards
  
 \begin_inset CommandInset citation
@@ -111,7 +109,7 @@ key "standard"
 \begin_inset Quotes eld
 \end_inset
 
-tag collision
+ACK Collision
 \begin_inset Quotes erd
 \end_inset
 
@@ -139,7 +137,7 @@ commands at the tag side.
 To overcome these pitfalls, this chapter proposes a system that is capable
  of acknowledging multiple tags within a single slot, resulting in a significant
  increase in performance.
- The main advantage of this proposal is that it is compatible with the existing
+ The main advantage of this proposal is the compatibility with the existing
  EPCglobal C1 G2 tags and readers.
  Hence, our improved tags can be read by conventional readers without affecting
  the performance.
@@ -153,7 +151,7 @@ This chapter is organized as follows: Section 1 presents a brief discussion
  about the conventional reading process using the EPCglobal C1 G2 standard.
  In section 2, we describe the proposed new system including the modifications
  of the tags and the reader.
- The performance of the proposed system will be analyzed in section 3.
+ The performance of the proposed system is analyzed in section 3.
  Finally, section 4 provides the practical measurements and the simulation
  results.
 \end_layout
@@ -163,7 +161,7 @@ EPCglobal C1 G2 Reading Process
 \end_layout
 
 \begin_layout Standard
-This section will describe, the conventional reading algorithm of the EPCglobal
+This section describes, the conventional reading algorithm of the EPCglobal
  C1 G2 standard.
  The reader initially powers the tags in the reading area with a 
 \begin_inset CommandInset nomenclature
@@ -274,7 +272,7 @@ key "Aloha1"
 
 \end_inset
 
-, there are three probabilities for each slot: First, empty slot, where,
+, there are three probabilities for each slot: First, empty slot, where
  no tag has selected this slot to transmit its information in it.
  The reader transmits a 
 \begin_inset Quotes eld
@@ -465,7 +463,7 @@ reference "fig:Two-tags-collided"
 \end_inset
 
  presents an example for a collided slot with two collided tags.
- It shows the differences between the conventional systems without and with
+ It shows the differences between the conventional systems with and without
  collision recovery capability.
  According to figure 
 \begin_inset CommandInset ref
@@ -496,10 +494,9 @@ Proposed System Description
 \end_layout
 
 \begin_layout Standard
-In this section, the description of the proposed tags and readers will be
- presented.
- Afterwards, the performance of the proposed system will be compared to
- conventional systems.
+In this section, the description of the proposed tags and readers is presented.
+ Afterwards, the performance of the proposed system is compared to conventional
+ systems.
  The proposed system has the same hardware of conventional systems.
  The main difference between the proposed system and the conventional one
  is the signal format between the new reader and the new tags.
@@ -656,7 +653,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Tag response of the proposed tags including the new pilot sequences 
+Tag response of the proposed tags including the new pilot sequences.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Tag-response-of-proposed"
@@ -677,20 +675,13 @@ name "fig:Tag-response-of-proposed"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Set of 8 orthogonal sequences 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2012_orthogonal_codes"
-
-\end_inset
-
-
+Set of 8 orthogonal sequences.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Set-of-8"
@@ -1265,7 +1256,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Modified part of the proposed tag's state diagram
+Modified part of the proposed tag's state diagram.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Modified-part-of"
@@ -1389,7 +1380,8 @@ Switch
 \end_inset
 
  command,which is used for switching the proposed tags from the conventional
- mode to the new mode 
+ mode to the new mode.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Switch-command"
@@ -1621,7 +1613,7 @@ reference "tab:Set-of-8"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1659,7 +1651,7 @@ ACK
 \begin_inset Quotes erd
 \end_inset
 
- commands and EPCs
+ commands and EPCs.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Pesudo-parallel-successful"
@@ -1683,7 +1675,7 @@ name "fig:Pesudo-parallel-successful"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1702,7 +1694,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of an inventory round using the proposed reader and 3 collided tags
+Example of an inventory round using the proposed reader and 3 collided tags.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1823,7 +1815,7 @@ In the conventional DFSA, the reading efficiency is the probability of a
 \end_inset
 
  tags are active in one slot.
- It can be presented as 
+ It can be presented by 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "DFSA_shoute_Random"
@@ -1841,7 +1833,7 @@ P(R)=\binom{n}{R}\left(\frac{1}{L}\right)^{R}\left(1-\frac{1}{L}\right)^{n-R}\la
 
 \end_inset
 
-Thus, the reading efficiency of the conventional system is presented as:
+Thus, the reading efficiency of the conventional system is presented by:
 \begin_inset Formula 
 \begin{equation}
 \eta_{conv}=\left(\frac{n}{L}\right)\left(1-\frac{1}{L}\right)^{n-1}
@@ -1854,7 +1846,7 @@ In the proposed system, the reader has the capability to resolve up to
 \end_inset
 
  collided tags.
- Therefore, the proposed reading efficiency can be presented as:
+ Therefore, the proposed reading efficiency can be presented by:
 \begin_inset Formula 
 \begin{equation}
 \eta_{proposed}=\sum_{R=1}^{M}P(R)\cdot R_{sol}\label{eq:parallel_eff}
@@ -1889,37 +1881,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Example for unique pilot collision scenarios for up to eight colliding tags
- per slot 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2013_orthogonal"
-
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
+ per slot.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -2418,7 +2380,7 @@ reference "fig:Pesudo-parallel-successful"
 \begin_inset Formula $t_{s}$
 \end_inset
 
- is divided in to two parts: The first part presents the 
+ is divided into two parts: The first part presents the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2467,7 +2429,7 @@ t_{s}=t_{s(a)}+t_{s(b)},\label{eq:successful_slot_time}
 \begin_inset Formula $t_{s(b)}$
 \end_inset
 
- can be expressed as:
+ can be expressed by:
 \end_layout
 
 \begin_layout Standard
@@ -2584,7 +2546,7 @@ reference "tab:System-Parameters-of"
 
 \end_inset
 
-, it can be expressed as:
+, it can be expressed y:
 \end_layout
 
 \begin_layout Standard
@@ -2596,11 +2558,11 @@ reference "tab:System-Parameters-of"
 \end_inset
 
 Based on the above discussion, the proposed reading efficiency formula consideri
-ng the advantages of the new system is formulated as:
+ng the advantages of the new system is formulated as follows:
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2625,7 +2587,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Proposed reader to tag communication link
+Proposed reader to tag communication link.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Proposed-reader-to"
@@ -2668,7 +2630,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Proposed tag reply
+Proposed tag reply.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Proposed-tag-reply"
@@ -2692,7 +2654,8 @@ name "fig:Proposed-tag-reply"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Communication link measurement 
+Communication link measurement.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:RN16"
@@ -2719,14 +2682,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-System Parameters of EPCglobal C1 G2 standard 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "standard"
-
-\end_inset
-
-
+System Parameters of EPCglobal C1 G2 standard.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:System-Parameters-of"
@@ -3003,7 +2959,7 @@ nal pilots as a function of the normalized frame length
 \begin_inset Formula $L/n$
 \end_inset
 
- 
+ .
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Reading-efficiency-for"
@@ -3169,7 +3125,8 @@ Comparison between the average reading time
 \begin_inset Formula $n$
 \end_inset
 
- for different systems 
+ for different systems.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Mean-reading-time"

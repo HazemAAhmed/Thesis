@@ -112,7 +112,7 @@ The main focus of the thesis is to optimize the DFSA anti-collision algorithm
  the performance of the system.
  Since my work is focused on passive UHF RFID systems that work with simple
  tags which are only capable of in-complex operations, almost all proposed
- changes and signal processing is performed on the reader side except in
+ changes and signal processing are performed on the reader side except in
  chapter 6, a new compatible changes of EPCglobal C1 G2 standard are proposed.
 \end_layout
 
