@@ -120,13 +120,13 @@ Collision Recovery Aware Tag Estimation
 \end_layout
 
 \begin_layout Standard
-This chapter is organized as follows: Section 1 shows the conventional number
- of tags estimation algorithms with performance analysis comparisons between
- them.
+This chapter is organized as follows.
+ Section 1 shows the conventional number of tags estimation algorithms with
+ performance analysis comparisons between them.
  Section 2 presents the new collision recovery aware number of tags estimation
  method.
  Using this algorithm, a closed form solution for the estimated number of
- tags will be presented.
+ tags is presented.
  The proposed solution presents a direct relation between the estimated
  number of tags and the frame length, as well as the number of successful
  and collided slots and the PHY layer collision recovery probability.
@@ -157,8 +157,8 @@ key "Letter_2012"
 
 \end_inset
 
-, the most common estimation algorithms are classified into two groups:
- Direct Q-slot family and indirect Q-frame family.
+, the most common estimation algorithms are classified into two groups;
+ namely; direct Q-slot family and indirect Q-frame family.
 \end_layout
 
 \begin_layout Subsection
@@ -210,7 +210,7 @@ key "2007_Q+-"
 \end_inset
 
 , when the Q-Algorithm starts, it takes tags’ replies slot by slot.
- Then, it classifies slots into three categories: success, collision and
+ Then, it classifies slots into three categories; success, collision and
  idle slot.
  The next frame size is updated using those three factors.
  Specifically, when the result of tags’ replies in a slot is idle, it subtracts
@@ -228,7 +228,7 @@ key "2007_Q+-"
 placement t
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -302,7 +302,7 @@ if
 \begin_inset Formula $slot\,number$
 \end_inset
 
- is equal to 
+ == 
 \begin_inset Formula $2^{Q}-1$
 \end_inset
 
@@ -460,25 +460,7 @@ else
 \begin_inset space ~
 \end_inset
 
-end if
-\end_layout
 
-\begin_layout Plain Layout
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-slot result = the result of recognition in this slot.
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset space ~
 \end_inset
 
@@ -509,7 +491,45 @@ slot result = the result of recognition in this slot.
 \begin_inset space ~
 \end_inset
 
-if slot result == ’success’ then
+end if
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $slot\,result$
+\end_inset
+
+ = the result of recognition in this slot.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+if 
+\begin_inset Formula $slot\,result$
+\end_inset
+
+ == ’success’ then
 \end_layout
 
 \begin_layout Plain Layout
@@ -555,7 +575,11 @@ if slot result == ’success’ then
 \begin_inset space ~
 \end_inset
 
-else if slot result == ’idle’ then
+else if 
+\begin_inset Formula $slot\,result$
+\end_inset
+
+ == ’empty’ then
 \end_layout
 
 \begin_layout Plain Layout
@@ -601,7 +625,11 @@ else if slot result == ’idle’ then
 \begin_inset space ~
 \end_inset
 
-else if slot result == ’collision’ then
+else if 
+\begin_inset Formula $slot\,result$
+\end_inset
+
+ == ’collision’ then
 \end_layout
 
 \begin_layout Plain Layout
@@ -712,7 +740,7 @@ key "standard"
 \end_inset
 
 .
- Every start of each slot, it rounds the 
+ At the beginning of each slot, it rounds the 
 \begin_inset Formula $Q_{f}$
 \end_inset
 
@@ -802,10 +830,10 @@ key "Vogt_1"
 .
  It is not related to any theoretical lower bound.
  Additionally, it claims that each collided slot involves two collided tags.
- Therefore, it is presented as:
+ Therefore, it is presented by
 \begin_inset Formula 
 \begin{equation}
-\hat{n}_{i}=S_{i}+2\cdot C_{i}\label{eq:lowerbound}
+\hat{n}_{i}=S_{i}+2\cdot C_{i},\label{eq:lowerbound}
 \end{equation}
 
 \end_inset
@@ -869,10 +897,10 @@ key "DFSA_shoute_Random"
 \begin_inset Formula $C_{rate}$
 \end_inset
 
- is expressed as follows:
+ is expressed as
 \begin_inset Formula 
 \begin{equation}
-C_{rate}=\frac{P_{c}}{1-Ps}\label{eq:Schout_1}
+C_{rate}=\frac{P_{c}}{1-Ps}.\label{eq:Schout_1}
 \end{equation}
 
 \end_inset
@@ -885,13 +913,13 @@ For dense RFID networks,
 \begin_inset Formula $C_{rate}$
 \end_inset
 
- can be thus calculated as follows:
+ can be thus calculated as 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-C_{rate}=\underset{n\rightarrow\infty}{\mbox{lim}}\frac{P_{c}}{1-Ps}\cong0.418
+C_{rate}=\underset{n\rightarrow\infty}{\mbox{lim}}\frac{P_{c}}{1-Ps}\cong0.418.
 \end{equation}
 
 \end_inset
@@ -911,10 +939,10 @@ Thus, the average number of tags involved in a collision slot
 \begin_inset Formula $C_{tag}$
 \end_inset
 
- is then computed as follows:
+ is then computed as
 \begin_inset Formula 
 \begin{equation}
-C_{tag}=\frac{1}{C_{rate}}\cong2.39
+C_{tag}=\frac{1}{C_{rate}}\cong2.39.
 \end{equation}
 
 \end_inset
@@ -923,10 +951,10 @@ Therefore, Schoute's method estimates the number of estimated tags
 \begin_inset Formula $\hat{n}$
 \end_inset
 
- as follows:
+ to be
 \begin_inset Formula 
 \begin{equation}
-\hat{n}_{i}=S_{i}+2.39\cdot C_{i}
+\hat{n}_{i}=S_{i}+2.39\cdot C_{i},
 \end{equation}
 
 \end_inset
@@ -981,10 +1009,10 @@ key "2006_C_ratio"
 \end_inset
 
  is the frame index.
- Therefore, the C-Ratio can be expressed by:
+ Therefore, the C-Ratio can be expressed by
 \begin_inset Formula 
 \begin{equation}
-C_{ratio}\triangleq\frac{C_{i}}{L_{i}}=1-\left(1-\frac{1}{L_{i}}\right)^{n_{i}}-\left(1+\frac{n_{i}}{L_{i}-1}\right)\label{eq:C-Ratio}
+C_{ratio}\triangleq\frac{C_{i}}{L_{i}}=1-\left(1-\frac{1}{L_{i}}\right)^{n_{i}}-\left(1+\frac{n_{i}}{L_{i}-1}\right).\label{eq:C-Ratio}
 \end{equation}
 
 \end_inset
@@ -1022,10 +1050,10 @@ key "C_ratio_Modified"
 , the authors used the same concept as the C-Ratio.
  However, they presumed independent binomial distributions of the tags in
  each slot.
- Thus, the modified C-Ratio is expressed by:
+ Thus, the modified C-Ratio is expressed by
 \begin_inset Formula 
 \begin{equation}
-\frac{C_{i}}{L_{i}}=\sum_{j=2}^{n_{i}}\binom{n_{i}}{j}\left(\frac{1}{L_{i}}\right)^{j}\left(1-\frac{1}{L_{i}}\right)^{n_{i}-1}\label{eq:Modified_C-ratio}
+\frac{C_{i}}{L_{i}}=\sum_{j=2}^{n_{i}}\binom{n_{i}}{j}\left(\frac{1}{L_{i}}\right)^{j}\left(1-\frac{1}{L_{i}}\right)^{n_{i}-1}.\label{eq:Modified_C-ratio}
 \end{equation}
 
 \end_inset
@@ -1077,10 +1105,10 @@ key "Aloha4_Vogt"
 \end_inset
 
 .
- It is presented by:
+ It is presented by
 \begin_inset Formula 
 \begin{equation}
-\varepsilon_{conv}(L,\,S,\,C,\,E)=\underset{n}{\mbox{min}}\left\{ \left|E_{exp}-E\right|+\left|S_{exp}-S\right|+\left|C_{exp}-C\right|\right\} \label{eq:MSE}
+\varepsilon_{conv}(L,\,S,\,C,\,E)=\underset{n}{\mbox{min}}\left\{ \left|E_{exp}-E\right|+\left|S_{exp}-S\right|+\left|C_{exp}-C\right|\right\} ,\label{eq:MSE}
 \end{equation}
 
 \end_inset
@@ -1088,7 +1116,7 @@ key "Aloha4_Vogt"
  where 
 \begin_inset Formula 
 \begin{equation}
-E_{exp}=L_{i}\left(1-\frac{1}{L_{i}}\right)^{n},S_{exp}=n\left(1-\frac{1}{L_{i}}\right)^{n-1},C_{exp}=L_{i}-E_{exp}-S_{exp}\label{eq:binomial}
+E_{exp}=L_{i}\left(1-\frac{1}{L_{i}}\right)^{n},\,S_{exp}=n\left(1-\frac{1}{L_{i}}\right)^{n-1},\,C_{exp}=L_{i}-E_{exp}-S_{exp}.\label{eq:binomial}
 \end{equation}
 
 \end_inset
@@ -1189,10 +1217,10 @@ key "Vogt_1"
 
 \end_inset
 
- and can be presented by: 
+ and can be presented by 
 \begin_inset Formula 
 \begin{equation}
-P_{e}=\left(1-\frac{1}{L}\right)^{n},\,P_{s}=\frac{n}{L}\left(1-\frac{1}{L}\right)^{n-1},\,P_{c}=1-P_{e}-P_{s}\label{eq:binomial_prob}
+P_{e}=\left(1-\frac{1}{L}\right)^{n},\,P_{s}=\frac{n}{L}\left(1-\frac{1}{L}\right)^{n-1},\,P_{c}=1-P_{e}-P_{s}.\label{eq:binomial_prob}
 \end{equation}
 
 \end_inset
@@ -1213,7 +1241,7 @@ The probability that in
 \begin_inset Formula $C$
 \end_inset
 
- times is:
+ times is
 \begin_inset Formula 
 \begin{equation}
 P(\hat{n}|L,S,C,E)=\frac{L!}{E!S!C!}P_{e}^{E}P_{s}^{S}P_{c}^{C}\label{eq:chen-1}
@@ -1238,7 +1266,7 @@ This probability is the general term of the multi-nomial expansion of
 \begin_inset Formula $n$
 \end_inset
 
- when 
+, when 
 \begin_inset Formula $E$
 \end_inset
 
@@ -1285,12 +1313,12 @@ key "Modified_chen,simple_estimation_chen,2012_estimation_interpolation"
 .
  It presents the absolute difference between the actual number of tags and
  the estimated one divided by the actual number of tags in the reading area.
- Accordingly, it is defined as: 
+ Accordingly, it is defined to be 
 \size small
 
 \begin_inset Formula 
 \begin{equation}
-\epsilon=\left|\frac{\hat{n}-n}{n}\right|\times100\,\%\label{eq:relative error}
+\epsilon=\left|\frac{\hat{n}-n}{n}\right|\times100\,\%.\label{eq:relative error}
 \end{equation}
 
 \end_inset
@@ -1483,8 +1511,15 @@ key "Letter_2012"
 .
  This leads us to search for a method, that gives accepted accuracy and
  suitable for dense RFID networks.
- Moreover, all these methods do not take into consideration the collision
- recovery capabilities effect of the modern RFID PHY layer.
+ Moreover, methods in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen,Modified_chen,Letter_2012"
+
+\end_inset
+
+ do not take into consideration the collision recovery capabilities effect
+ of the modern RFID PHY layer.
 \begin_inset Float figure
 wide false
 sideways false
@@ -1563,14 +1598,14 @@ key "PHY111,PHY112"
  the reading area.
  Therefore, it is important to take into consideration the collision recovery
  capability.
- Li 
+ The authors in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Capture_2011"
 
 \end_inset
 
- used the estimation approach of 
+ use the estimation approach of 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Aloha4_Vogt"
@@ -1635,7 +1670,7 @@ key "Chen"
 \begin_inset Formula $L$
 \end_inset
 
-:
+
 \end_layout
 
 \begin_layout Standard
@@ -1679,7 +1714,7 @@ where
 ons per slot.
  Owing to the fact that modern RFID readers have a collision recovery capability
 , thereby, the PHY layer is able to convert part of collided slots into
- successful slots based on the following relation:
+ successful slots based on the following relation
 \end_layout
 
 \begin_layout Standard
@@ -1723,8 +1758,8 @@ where
 
  is a variable that indicates the collision recovery capability of the PHY
  layer.
- The calculation of the collision recovery probability will be discussed
- in details in the following sections.
+ The calculation of the collision recovery probability is discussed in detail
+ in the following sections.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1820,7 +1855,7 @@ reference "eq:chen"
 \begin_inset Formula $\alpha$
 \end_inset
 
- is estimated, as it will be shown in details in the following section.
+ is estimated, as it is shown in detail in the following section.
  Finally, the expected corresponding values of 
 \begin_inset Formula $C_{b}$
 \end_inset
@@ -1833,21 +1868,21 @@ reference "eq:chen"
 \begin_inset Formula $E_{b}$
 \end_inset
 
- are calculated as:
+ are calculated as
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-E_{b}=E,\,C_{b}=\left\lfloor \frac{C}{1-\alpha}\right\rfloor ,\,S_{b}=S-\left\lceil \frac{\alpha}{1-\alpha}\right\rceil C\label{eq:inv_equation}
+E_{b}=E,\,C_{b}=\left\lfloor \frac{C}{1-\alpha}\right\rfloor ,\,S_{b}=S-\left\lceil \frac{\alpha}{1-\alpha}\right\rceil C,\label{eq:inv_equation}
 \end{equation}
 
 \end_inset
 
-Under the condition:
+Under the condition
 \begin_inset Formula 
 \begin{equation}
-L=E_{b}+S_{b}+C_{b}\label{eq:condition}
+L=E_{b}+S_{b}+C_{b}.\label{eq:condition}
 \end{equation}
 
 \end_inset
@@ -1862,7 +1897,7 @@ Thus,
 
 .
  Therefore, the proposed collision recovery aware ML conditional probability
- can be formalized as:
+ can be formalized as
 \begin_inset Float figure
 wide false
 sideways false
@@ -1913,7 +1948,7 @@ name "fig:Approximation"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-P(\hat{n}|L,S,C,E,\alpha)=\frac{L!}{E_{b}!S_{b}!C_{b}!}P_{e}^{E_{b}}P_{s}^{S_{b}}P_{c}^{C_{b}}\label{eq:proposed probability}
+P(\hat{n}|L,S,C,E,\alpha)=\frac{L!}{E_{b}!S_{b}!C_{b}!}P_{e}^{E_{b}}P_{s}^{S_{b}}P_{c}^{C_{b}}.\label{eq:proposed probability}
 \end{equation}
 
 \end_inset
@@ -1998,13 +2033,13 @@ key "Letter_2012"
 \end_inset
 
 .
- Thus, the probability functions can be presented as follows: 
+ Thus, the probability functions can be presented as 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-P_{e}=e^{-\gamma},\,P_{s}=\gamma\cdot e^{-\gamma},\,P_{c}=1-e^{-\gamma}-\gamma\cdot e^{-\gamma}\label{eq:probabilities}
+P_{e}=e^{-\gamma},\,P_{s}=\gamma\cdot e^{-\gamma},\,P_{c}=1-e^{-\gamma}-\gamma\cdot e^{-\gamma}.\label{eq:probabilities}
 \end{equation}
 
 \end_inset
@@ -2023,10 +2058,10 @@ reference "eq:proposed probability"
 
 \end_inset
 
-), the proposed conditional probability is:
+), the proposed conditional probability is
 \begin_inset Formula 
 \begin{equation}
-P(\hat{n}|L,S,C,E,\alpha)=\left(\frac{L!}{E_{b}!S_{b}!C_{b}!}\right)\gamma^{S_{b}}\cdot e^{-\gamma\cdot L}\cdot\left(e^{-\gamma}-1-\gamma\right)^{C_{b}}\label{eq:non-normalized probability}
+P(\hat{n}|L,S,C,E,\alpha)=\left(\frac{L!}{E_{b}!S_{b}!C_{b}!}\right)\gamma^{S_{b}}\cdot e^{-\gamma\cdot L}\cdot\left(e^{-\gamma}-1-\gamma\right)^{C_{b}}.\label{eq:non-normalized probability}
 \end{equation}
 
 \end_inset
@@ -2037,10 +2072,10 @@ The term of
 
  is not a function of the number of tags.
  It is only an offset and can be normalized.
- Thus, the proposed normalized conditional probability is:
+ Thus, the proposed normalized conditional probability is
 \begin_inset Formula 
 \begin{equation}
-P(\hat{n}|L,S,C,E,\alpha)\simeq\gamma^{S_{b}}\cdot e^{-\gamma\cdot L}\cdot\left(e^{-\gamma}-1-\gamma\right)^{C_{b}}\label{eq:final probability}
+P(\hat{n}|L,S,C,E,\alpha)\simeq\gamma^{S_{b}}\cdot e^{-\gamma\cdot L}\cdot\left(e^{-\gamma}-1-\gamma\right)^{C_{b}}.\label{eq:final probability}
 \end{equation}
 
 \end_inset
@@ -2108,7 +2143,7 @@ reference "eq:final probability"
 \end_inset
 
  and equating the results to zero.
- After differentiating, the equation can be simplified to:
+ After differentiating, the equation can be simplified to be
 \end_layout
 
 \begin_layout Standard
@@ -2116,7 +2151,7 @@ reference "eq:final probability"
 \size small
 \begin_inset Formula 
 \begin{equation}
-e^{-\gamma}\left(1+\frac{\gamma\left(\gamma\cdot L-S_{b}\right)}{\left(\gamma\cdot L-S_{b}-\gamma\cdot C_{b}\right)}\right)-1=0\label{eq:after_diff}
+e^{-\gamma}\left(1+\frac{\gamma\left(\gamma\cdot L-S_{b}\right)}{\left(\gamma\cdot L-S_{b}-\gamma\cdot C_{b}\right)}\right)-1=0.\label{eq:after_diff}
 \end{equation}
 
 \end_inset
@@ -2150,7 +2185,7 @@ key "Comm_Letter_ours_2015"
 \begin_inset Formula $e^{-\gamma}$
 \end_inset
 
- around one which leads to:
+ around one which leads to be
 \end_layout
 
 \begin_layout Standard
@@ -2173,7 +2208,7 @@ reference "eq:after_diff"
 \end_inset
 
 ) and some additional simplifications, the final equation is a fourth order
- polynomial as follows:
+ polynomial
 \end_layout
 
 \begin_layout Standard
@@ -2183,7 +2218,7 @@ reference "eq:after_diff"
 \begin_inset Formula 
 \begin{eqnarray}
 \underset{(a)}{\underbrace{\frac{1}{120}\left(L-C_{b}\right)}}\gamma^{4}+\underset{(b)}{\underbrace{\frac{1}{24}\left(L-C_{b}-\frac{S_{b}}{5}\right)}}\gamma^{3}+\underset{(c)}{\underbrace{\frac{1}{6}\left(L-C_{b}-\frac{S_{b}}{4}\right)}}\gamma^{2}\nonumber \\
-+\underset{(d)}{\underbrace{\frac{1}{2}\left(L-C_{b}-\frac{S_{b}}{3}\right)}}\gamma-\underset{(e)}{\underbrace{\left(C_{b}+\frac{S_{b}}{2}\right)}}=0\label{eq:final_fourth-2}
++\underset{(d)}{\underbrace{\frac{1}{2}\left(L-C_{b}-\frac{S_{b}}{3}\right)}}\gamma-\underset{(e)}{\underbrace{\left(C_{b}+\frac{S_{b}}{2}\right)}}=0.\label{eq:final_fourth-2}
 \end{eqnarray}
 
 \end_inset
@@ -2204,7 +2239,7 @@ key "Descartes_rule"
 
 \end_inset
 
-:
+
 \end_layout
 
 \begin_layout Standard
@@ -2336,7 +2371,7 @@ reference "eq:final_fourth-2"
 \end_inset
 
  be the number of real positive solutions.
- According to Descartes’ rules of sign:
+ According to Descartes’ rules of sign
 \end_layout
 
 \begin_layout Itemize
@@ -2364,8 +2399,8 @@ reference "eq:final_fourth-2"
 
 \begin_layout Standard
 Hence, there is only one valid real positive solution for the equation.
- Hereby, the valid solution will be identified.
- There are two possible solutions: 
+ Hereby, the valid solution is identified.
+ There are two possible solutions 
 \end_layout
 
 \begin_layout Standard
@@ -2398,7 +2433,7 @@ reference "eq:roots-2"
 \end_inset
 
 .
- So, the solution will be either 
+ So, the solution is either 
 \begin_inset Formula $\gamma_{1}$
 \end_inset
 
@@ -2491,7 +2526,7 @@ reference "eq:roots-2"
 
 \begin_layout Standard
 Based on the above discussion, the proposed closed form solution for the
- collision recovery aware tag estimation is:
+ collision recovery aware tag estimation is
 \end_layout
 
 \begin_layout Standard
@@ -2499,7 +2534,7 @@ Based on the above discussion, the proposed closed form solution for the
 \size small
 \begin_inset Formula 
 \begin{equation}
-\hat{n}=\left(-\frac{b}{4a}+S+0.5\sqrt{-4S^{2}-2P-\frac{q}{S}}\right)\cdot L\label{eq:closed form-4}
+\hat{n}=\left(-\frac{b}{4a}+S+0.5\sqrt{-4S^{2}-2P-\frac{q}{S}}\right)\cdot L.\label{eq:closed form-4}
 \end{equation}
 
 \end_inset
@@ -2590,7 +2625,8 @@ Collision recovery probability
 \begin_inset Formula $\alpha$
 \end_inset
 
- as a function of the SNR 
+ as a function of the SNR.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Capture-probability-versus-1"
@@ -2620,8 +2656,8 @@ The collision recovery capability is the ability of the reader to actively
  This capability does not only exist in modern RFID readers, but also in
  the simple readers, e.g.
  when the tags are well separated.
- Thus, the received signal power of the nearest tag will be much stronger
- than the received signal power from the far tag.
+ Thus, the received signal power of the nearest tag is much stronger than
+ the received signal power from the far tag.
  Therefore, this ability is a function of two main parameters: First, the
  characterization of the RFID reader, (e.g.
  receiver type, number of antennas, etc.).
@@ -2776,7 +2812,7 @@ System has no collision recovery capability
 \begin_inset Formula $(\alpha=0)$
 \end_inset
 
- 
+ .
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:System-has-no"
@@ -2824,7 +2860,7 @@ System has collision recovery capability
 \begin_inset Formula $(\alpha=0.7)$
 \end_inset
 
-
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Relative-estimation-error07"
@@ -2857,6 +2893,7 @@ Relative estimation error
 \begin_inset Formula $\nicefrac{n}{L}$
 \end_inset
 
+.
  
 \end_layout
 
@@ -2881,8 +2918,8 @@ Performance Analysis
 \begin_layout Standard
 In this section, the performance comparison between the proposed collision
  recovery aware number of tags estimation and the most common state-of-the-art
- estimation algorithms will be presented.
- Again, the relative estimation error will be used as a comparison metric.
+ estimation algorithms are presented.
+ Again, the relative estimation error is used as a comparison metric.
 \end_layout
 
 \begin_layout Standard
@@ -3046,7 +3083,7 @@ reference "fig:Relative-estimation-error07"
  to the existing methods in the state-of-the-art 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "ref_schoute,Chen"
+key "ref_schoute,Chen,Vogt_1"
 
 \end_inset
 
@@ -3131,7 +3168,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3154,6 +3191,7 @@ System has no collision recovery capability
 \begin_inset Formula $(\alpha=0)$
 \end_inset
 
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -3179,7 +3217,7 @@ name "fig:System-has-no-time"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3202,6 +3240,7 @@ System has collision recovery capability
 \begin_inset Formula $(\alpha=0.7)$
 \end_inset
 
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -3235,7 +3274,7 @@ Mean identification time
 \begin_inset Formula $n$
 \end_inset
 
- 
+ .
 \end_layout
 
 \end_inset
@@ -3355,8 +3394,8 @@ reference "fig:System-has-collision-time"
 \end_inset
 
 .
- Therefore, in the following chapter, new proposals regarding the FSA frame
- length taking into consideration the PHY-layer properties will be presented.
+ Therefore, in the next chapter, new proposals regarding the FSA frame length
+ taking into consideration the PHY-layer properties are presented.
 \end_layout
 
 \end_body

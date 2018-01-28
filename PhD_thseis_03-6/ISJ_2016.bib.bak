@@ -122,7 +122,7 @@
 }
 
 @Article{2013_orthogonal,
-  Title                    = {A smart collision recovery receiver for RFIDs},
+  Title                    = {{A smart collision recovery receiver for RFIDs}},
   Author                   = {Kaitovic, Jelena and Langwieser, Robert and Rupp, Markus},
   Journal                  = {EURASIP Journal on Embedded Systems},
   Year                     = {2013},

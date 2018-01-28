@@ -122,14 +122,14 @@ ACK
 \end_inset
 
 commands at the tag side.
- Moreover, this parallel acknowledgment will also cause Electronic Product
- Code (EPC) collisions at the reader side.
+ Moreover, this parallel acknowledgment causes Electronic Product Code (EPC)
+ collisions at the reader side.
  The EPC packet is much longer than the 
 \begin_inset Formula $RN16$
 \end_inset
 
- packet, so it needs an advanced collision recovery algorithm, which will
- decrease the system performance.
+ packet, so it needs an advanced collision recovery algorithm, which decreases
+ the system performance.
  
 \end_layout
 
@@ -147,9 +147,10 @@ To overcome these pitfalls, this chapter proposes a system that is capable
 \end_layout
 
 \begin_layout Standard
-This chapter is organized as follows: Section 1 presents a brief discussion
- about the conventional reading process using the EPCglobal C1 G2 standard.
- In section 2, we describe the proposed new system including the modifications
+This chapter is organized as follows.
+ Section 1 presents a brief discussion about the conventional reading process
+ using the EPCglobal C1 G2 standard.
+ Section 2 describes the proposed new system including the modifications
  of the tags and the reader.
  The performance of the proposed system is analyzed in section 3.
  Finally, section 4 provides the practical measurements and the simulation
@@ -1179,10 +1180,7 @@ Wait
 \end_inset
 
  state waiting for a new command.
-\end_layout
-
-\begin_layout Standard
-Figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Modified-part-of"
@@ -1302,7 +1300,7 @@ Query
 \end_inset
 
  command.
- The conventional tags will consider the 
+ The conventional tags consider the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1310,8 +1308,8 @@ Switch
 \begin_inset Quotes erd
 \end_inset
 
- command as an unknown command, but the proposed tags will recognize that
- they are working in the new system.
+ command as an unknown command, but the proposed tags recognize that they
+ are working in the new system.
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2562,7 +2560,7 @@ ng the advantages of the new system is formulated as follows:
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2676,7 +2674,7 @@ name "fig:RN16"
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3027,8 +3025,7 @@ Switch
 \end_inset
 
  command to make the existing tags switch to the new mode.
- The conventional tags will not recognize this command, so they will simply
- ignore it.
+ The conventional tags don't recognize this command, so they ignore it.
  Afterwards, the reader sends the 
 \begin_inset Quotes eld
 \end_inset
@@ -3125,7 +3122,8 @@ Comparison between the average reading time
 \begin_inset Formula $n$
 \end_inset
 
- for different systems 
+ for different systems.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Mean-reading-time"
@@ -3175,8 +3173,8 @@ key "2013_orthogonal"
  maximum reading efficiency.
  This means that, two tags, on average, are identified per classical slot.
  However, this method is not compatible with the EPCglobal C1 G2 standard
- and can not be applied in practice, because it will produce a collision
- in the tag side.
+ and can not be applied in practice, because it produces a collision in
+ the tag side.
  The second scenario uses only single acknowledgment system.
  It acknowledges only a single tag and neglect the other tags replies.
  It results in 

@@ -122,14 +122,14 @@ ACK
 \end_inset
 
 commands at the tag side.
- Moreover, this parallel acknowledgment will also cause Electronic Product
- Code (EPC) collisions at the reader side.
+ Moreover, this parallel acknowledgment causes Electronic Product Code (EPC)
+ collisions at the reader side.
  The EPC packet is much longer than the 
 \begin_inset Formula $RN16$
 \end_inset
 
- packet, so it needs an advanced collision recovery algorithm, which will
- decrease the system performance.
+ packet, so it needs an advanced collision recovery algorithm, which decreases
+ the system performance.
  
 \end_layout
 
@@ -147,9 +147,10 @@ To overcome these pitfalls, this chapter proposes a system that is capable
 \end_layout
 
 \begin_layout Standard
-This chapter is organized as follows: Section 1 presents a brief discussion
- about the conventional reading process using the EPCglobal C1 G2 standard.
- In section 2, we describe the proposed new system including the modifications
+This chapter is organized as follows.
+ Section 1 presents a brief discussion about the conventional reading process
+ using the EPCglobal C1 G2 standard.
+ Section 2 describes the proposed new system including the modifications
  of the tags and the reader.
  The performance of the proposed system is analyzed in section 3.
  Finally, section 4 provides the practical measurements and the simulation
@@ -1179,10 +1180,7 @@ Wait
 \end_inset
 
  state waiting for a new command.
-\end_layout
-
-\begin_layout Standard
-Figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Modified-part-of"
@@ -1302,7 +1300,7 @@ Query
 \end_inset
 
  command.
- The conventional tags will consider the 
+ The conventional tags consider the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1310,8 +1308,8 @@ Switch
 \begin_inset Quotes erd
 \end_inset
 
- command as an unknown command, but the proposed tags will recognize that
- they are working in the new system.
+ command as an unknown command, but the proposed tags recognize that they
+ are working in the new system.
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1822,21 +1820,21 @@ key "DFSA_shoute_Random"
 
 \end_inset
 
-:
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-P(R)=\binom{n}{R}\left(\frac{1}{L}\right)^{R}\left(1-\frac{1}{L}\right)^{n-R}\label{eq:multinomial_with_single acc}
+P(R)=\binom{n}{R}\left(\frac{1}{L}\right)^{R}\left(1-\frac{1}{L}\right)^{n-R}.\label{eq:multinomial_with_single acc}
 \end{equation}
 
 \end_inset
 
-Thus, the reading efficiency of the conventional system is presented by:
+Thus, the reading efficiency of the conventional system is presented by
 \begin_inset Formula 
 \begin{equation}
-\eta_{conv}=\left(\frac{n}{L}\right)\left(1-\frac{1}{L}\right)^{n-1}
+\eta_{conv}=\left(\frac{n}{L}\right)\left(1-\frac{1}{L}\right)^{n-1}.
 \end{equation}
 
 \end_inset
@@ -1846,10 +1844,10 @@ In the proposed system, the reader has the capability to resolve up to
 \end_inset
 
  collided tags.
- Therefore, the proposed reading efficiency can be presented by:
+ Therefore, the proposed reading efficiency can be presented by
 \begin_inset Formula 
 \begin{equation}
-\eta_{proposed}=\sum_{R=1}^{M}P(R)\cdot R_{sol}\label{eq:parallel_eff}
+\eta_{proposed}=\sum_{R=1}^{M}P(R)\cdot R_{sol}.\label{eq:parallel_eff}
 \end{equation}
 
 \end_inset
@@ -2429,14 +2427,14 @@ t_{s}=t_{s(a)}+t_{s(b)},\label{eq:successful_slot_time}
 \begin_inset Formula $t_{s(b)}$
 \end_inset
 
- can be expressed by:
+ can be expressed by
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray}
-t_{s(a)} & = & T_{qRep}+T_{1}+T_{2}+T_{RN16}\label{eq:ts(a)}\\
-t_{s(b)} & = & T_{ACK}+T_{1}+T_{2}+T_{EPC}\nonumber 
+t_{s(a)} & = & T_{qRep}+T_{1}+T_{2}+T_{RN16}.\label{eq:ts(a)}\\
+t_{s(b)} & = & T_{ACK}+T_{1}+T_{2}+T_{EPC}.
 \end{eqnarray}
 
 \end_inset
@@ -2515,7 +2513,7 @@ ACK
 \end_inset
 
  commands to the resolved tags.
- Therefore, the duration of the proposed pesudo-parallel slot is:
+ Therefore, the duration of the proposed pesudo-parallel slot is
 \end_layout
 
 \begin_layout Standard
@@ -2546,13 +2544,13 @@ reference "tab:System-Parameters-of"
 
 \end_inset
 
-, it can be expressed y:
+, it can be expressed by
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\varphi=\left(\frac{1}{0.3+0.7\cdot R_{sol}}\right)\label{eq:pseud_parallel_factor}
+\varphi=\left(\frac{1}{0.3+0.7\cdot R_{sol}}\right).\label{eq:pseud_parallel_factor}
 \end{equation}
 
 \end_inset
@@ -2576,7 +2574,7 @@ status open
 \begin_inset Graphics
 	filename WithSwitchP1.emf
 	lyxscale 12
-	width 60page%
+	width 65page%
 
 \end_inset
 
@@ -2619,7 +2617,7 @@ status open
 \begin_inset Graphics
 	filename WithSwitchP1_RN16.emf
 	lyxscale 12
-	width 60page%
+	width 65page%
 
 \end_inset
 
@@ -3027,8 +3025,7 @@ Switch
 \end_inset
 
  command to make the existing tags switch to the new mode.
- The conventional tags will not recognize this command, so they will simply
- ignore it.
+ The conventional tags don't recognize this command, so they ignore it.
  Afterwards, the reader sends the 
 \begin_inset Quotes eld
 \end_inset
@@ -3176,8 +3173,8 @@ key "2013_orthogonal"
  maximum reading efficiency.
  This means that, two tags, on average, are identified per classical slot.
  However, this method is not compatible with the EPCglobal C1 G2 standard
- and can not be applied in practice, because it will produce a collision
- in the tag side.
+ and can not be applied in practice, because it produces a collision in
+ the tag side.
  The second scenario uses only single acknowledgment system.
  It acknowledges only a single tag and neglect the other tags replies.
  It results in 

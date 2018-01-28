@@ -76,12 +76,12 @@ List of Own Publications
 \begin_layout Enumerate
 H.
  A.
- Ahmed; H.
- Salah; J.
- Robert; A.
+ Ahmed, H.
+ Salah, J.
+ Robert, A.
  Heuberger, "A Closed-Form Solution for ALOHA Frame Length Optimizing Multiple
  Collision Recovery Coefficients’ Reading Efficiency," in IEEE Systems Journal
- , vol.PP, no.99, pp.1-4
+ , IEEE Early Access Articles
 \end_layout
 
 \begin_layout Enumerate
@@ -99,13 +99,29 @@ H.
 \end_layout
 
 \begin_layout Enumerate
-Hamed Salah, Hazem A.
+H.
+ Salah, H.
+ A.
+ Ahmed, J.
+ Robert and A.
+ Heuberger, "Multi-Antenna UHF RFID Reader Utilizing Stimulated Rate Tolerance,"
+ in IEEE Journal of Radio Frequency Identification, vol.
+ 1, no.
+ 2, pp.
+ 124-134, June 2017.
+\end_layout
+
+\begin_layout Enumerate
+H.
+ Salah, H.
+ A.
  Ahmed, Joerg Ropert, and Albert Heuberger, "Performance Evaluation of Rate
- Estimation for UHF RFID Systems" International Journal of RF Technologies,
+ Estimation for UHF RFID Systems," in International Journal of RF Technologies,
  vol.
  7, no.
  2-3, pp.
- 87-104, 2016
+ 87-104, Nov.
+ 2016
 \end_layout
 
 \begin_layout Enumerate
@@ -115,9 +131,9 @@ H.
  Salah, J.
  Robert and A.
  Heuberger, "Time aware closed form frame slotted ALOHA frame length optimizatio
-n," 2016 IEEE Wireless Communications and Networking Conference, Doha, 2016,
- pp.
- 1-5.
+n," in IEEE Wireless Communications and Networking Conference, Doha, pp.
+ 1-5, Oct.
+ 2016.
 \end_layout
 
 \begin_layout Enumerate
@@ -127,9 +143,9 @@ H.
  Salah, J.
  Robert and A.
  Heuberger, "A closed form solution for frame slotted ALOHA utilizing time
- and multiple collision recovery coefficients," 2016 IEEE Topical Conference
- on Wireless Sensors and Sensor Networks (WiSNet), Austin, TX, 2016, pp.
- 11-14.
+ and multiple collision recovery coefficients," in IEEE Topical Conference
+ on Wireless Sensors and Sensor Networks (WiSNet), Austin, TX, pp.
+ 11-14, Apr 2016.
 \end_layout
 
 \begin_layout Enumerate
@@ -139,10 +155,10 @@ H.
  Salah, J.
  Robert and A.
  Heuberger, "An Efficient RFID Tag Estimation Method Using Biased Chebyshev
- Inequality for Dynamic Frame Slotted ALOHA," Smart SysTech 2014; European
+ Inequality for Dynamic Frame Slotted ALOHA," in Smart SysTech, European
  Conference on Smart Objects, Systems and Technologies, Dortmund, Germany,
- 2014, pp.
- 1-4.
+ pp.
+ 1-4, July 2014.
 \end_layout
 
 \begin_layout Enumerate
@@ -152,9 +168,9 @@ H.
  Ahmed, J.
  Robert and A.
  Heuberger, "A Study of Software Defined Radio Receivers for Passive RFID
- Systems," Smart SysTech 2014; European Conference on Smart Objects, Systems
- and Technologies, Dortmund, Germany, 2014, pp.
- 1-5.
+ Systems," in Smart SysTech, European Conference on Smart Objects, Systems
+ and Technologies, Dortmund, Germany, pp.
+ 8-11, July 2014.
 \end_layout
 
 \begin_layout Enumerate
@@ -164,10 +180,10 @@ H.
  Salah, J.
  Robert and A.
  Heuberger, "A New Optimization Criteria For Frame Slotted ALOHA Utilizing
- Time And The Collision Recovery Coefficients," Smart SysTech 2015; European
+ Time And The Collision Recovery Coefficients," in Smart SysTech, European
  Conference on Smart Objects, Systems and Technologies, Aachen, Germany,
- 2015, pp.
- 1-4.
+ pp.
+ 1-4, July 2015.
 \end_layout
 
 \begin_layout Enumerate
@@ -176,10 +192,10 @@ H.
  A.
  Ahmed, J.
  Robert and A.
- Heuberger, "FFT Based Rate Estimation for UHF RFID Systems," Smart SysTech
- 2015; European Conference on Smart Objects, Systems and Technologies, Aachen,
- Germany, 2015, pp.
- 1-5.
+ Heuberger, "FFT Based Rate Estimation for UHF RFID Systems," in Smart SysTech,
+ European Conference on Smart Objects, Systems and Technologies, Aachen,
+ Germany, pp.
+ 10-15, July 2015.
 \end_layout
 
 \begin_layout Enumerate
@@ -189,9 +205,10 @@ H.
  Salah, J.
  Robert and A.
  Heuberger, "Backwards compatible improvement of the EPCglobal class 1 gen
- 2 standard," 2015 IEEE International Conference on RFID Technology and
- Applications (RFID-TA), Tokyo, 2015, pp.
- 114-119.
+ 2 standard," in IEEE International Conference on RFID Technology and Applicatio
+ns (RFID-TA), Tokyo, pp.
+ 114-119, Sept.
+ 2015.
 \end_layout
 
 \begin_layout Enumerate
@@ -201,9 +218,10 @@ H.
  Salah, J.
  Robert and A.
  Heuberger, "A closed form solution for frame slotted ALOHA utilizing time
- and multiple collision recovery coefficients," 2016 IEEE Topical Conference
- on Wireless Sensors and Sensor Networks (WiSNet), Austin, TX, 2016, pp.
- 11-14.
+ and multiple collision recovery coefficients," in IEEE Topical Conference
+ on Wireless Sensors and Sensor Networks (WiSNet), Austin, TX, pp.
+ 11-14, Jan.
+ 2016.
 \end_layout
 
 \begin_layout Enumerate
@@ -213,9 +231,9 @@ H.
  Ahmed, J.
  Robert and A.
  Heuberger, "Maximum Likelihood decoding for non-synchronized UHF RFID tags,"
- 2016 IEEE Topical Conference on Wireless Sensors and Sensor Networks (WiSNet),
- Austin, TX, 2016, pp.
- 89-92.
+ in IEEE Topical Conference on Wireless Sensors and Sensor Networks (WiSNet),
+ Austin, TX, pp.
+ 89-92, Jan 2016.
 \end_layout
 
 \begin_layout Enumerate
@@ -225,19 +243,7 @@ H.
  Salah, J.
  Robert and A.
  Heuberger "A Closed Form Solution For Collision Recovery Aware Number of
- Tags Estimation", IEEE Sensor Letter.
- (Submitted).
-\end_layout
-
-\begin_layout Enumerate
-H.
- Salah, H.
- A.
- Ahmed, J.
- Robert and A.
- Heuberger "Multiple Antennas Collision Recovery Receiver Based on Stimulating
- The Rate Tolerance for UHF RFID Systems" IEEE Systems Journal.
- (accepted)
+ Tags Estimation", Submitted to IEEE Journal of Radio Frequency Identification.
 \end_layout
 
 \end_body

@@ -638,13 +638,13 @@ key "Query_tree"
  Using this algorithm, the broadcast is a query signal asking the tags for
  a reply.
  If there is a collision, the reader starts splitting the collided tags
- into two groups by sending a new query signal with a single bit 0 or 1
- randomly.
+ into two groups by sending a new query signal with a single bit '0' or
+ '1' randomly.
  Tags in the reading area receive this signal and match this bit with their
  ID.
  If this bit matches their ID, they transmit their ID.
- If a collision took place again, the reader adds another random bit 0 or
- 1 to its next query signal.
+ If a collision took place again, the reader adds another random bit '0'
+ or '1' to its next query signal.
  This process is repeated until the reader receives a successful single
  tag reply.
 \end_layout
@@ -659,8 +659,8 @@ reference "fig:Query-tree-anti-collision"
 
  presents an example for the query tree algorithm resolving the collision
  of 4 tags in a reading area.
- At time slot 1, the reader broadcasts a query signal asking them for a
- reply.
+ At time slot 1, the reader broadcasts a query signal asking the tags for
+ a reply.
  A collision between the four tags is taking place.
  The reader sends a '0' in a new query signal at time slot 2.
  However, there are three tags sharing this bit, so a new collision between
@@ -719,9 +719,9 @@ Probabilistic Anti-collision Protocols
 \end_layout
 
 \begin_layout Standard
-The main disadvantage of using tree-based protocols is that these protocols
- are not efficient in dense networks, due to the increase in identification
- time 
+The main disadvantage of using tree-based protocols is that they are not
+ efficient in dense networks, due to the increase in identification time
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Aloha1"
@@ -741,7 +741,8 @@ key "Aloha1"
  ALOHA anti-collision protocols are therefore the most commonly used in
  UHF active and passive RFID.
  ALOHA anti-collision protocols can be classified into the following four
- groups: 
+ groups.
+ 
 \end_layout
 
 \begin_layout Paragraph*
@@ -951,7 +952,7 @@ reference "fig:Example-for-frame"
  a collided slot.
  According to the FSA rules, tags 3 and 4 are not allowed to resubmit their
  IDs again during the same frame.
- Thus in slot 
+ Thus, in slot 
 \begin_inset Formula $4$
 \end_inset
 
@@ -1160,13 +1161,13 @@ key "L_equal_n"
 
 \end_inset
 
-:
+ to be:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\eta_{conv}=\frac{S}{L}\label{eq:eff basic equ}
+\eta_{conv}=\frac{S}{L}.\label{eq:eff basic equ}
 \end{equation}
 
 \end_inset
@@ -1185,13 +1186,13 @@ reference "eq:eff basic equ"
 
 \end_inset
 
-), the conventional definition of the reading efficiency is:
+), the conventional definition of the reading efficiency is
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\eta_{conv}=\frac{n}{L}\left(1-\frac{1}{L}\right)^{n-1}\label{eq:eff calss f(L)}
+\eta_{conv}=\frac{n}{L}\left(1-\frac{1}{L}\right)^{n-1}.\label{eq:eff calss f(L)}
 \end{equation}
 
 \end_inset
@@ -1236,7 +1237,7 @@ reference "eq:eff calss f(L)"
  is maximized when:
 \begin_inset Formula 
 \begin{equation}
-L_{opt}=n\label{eq:L=n}
+L_{opt}=n.\label{eq:L=n}
 \end{equation}
 
 \end_inset
@@ -1246,9 +1247,9 @@ L_{opt}=n\label{eq:L=n}
 \end_inset
 
  in the interrogation region is unknown.
- Furthermore, the number of tags may even vary, e\SpecialChar \@.
+ Furthermore, the number of tags may even vary e\SpecialChar \@.
 g\SpecialChar \@.
- when the tags are mounted
+, when the tags are mounted
  on moving goods.
  Therefore, such applications employ DFSA 
 \begin_inset CommandInset citation
@@ -1333,9 +1334,10 @@ name "fig:Framed-Slotted-ALOHA"
 
  At the end of the frame, the reader checks if there are any successful
  or collided slots.
- If yes, the reader estimates the remaining number of tags in the reading
- area, then optimizes the next frame length and starts again normal FSA.
- If not, the reading cycle will be terminated.
+ If there is any, the reader estimates the remaining number of tags in the
+ reading area, then optimizes the next frame length and starts another normal
+ FSA.
+ If not, the reading cycle is terminated.
 \begin_inset Float figure
 wide false
 sideways false
@@ -1417,10 +1419,10 @@ reference "fig:Conventional-variable-frame"
 
 .
  Then each slot is checked.
- If there is no tag reply, the frame length should be decreased.
+ If there is no tag reply, the frame length is decreased.
  If it is a collided slot, the frame length is increased.
- Finally, if the slot is a successful slot, the frame length will remain
- as it is.
+ Finally, if the slot is a successful slot, the frame length remains the
+ same.
  
 \begin_inset Float figure
 wide false
@@ -1507,7 +1509,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1554,7 +1556,7 @@ status open
 \begin_inset Graphics
 	filename FSA_timing_diagram_Collided.emf
 	lyxscale 12
-	width 32page%
+	width 34page%
 
 \end_inset
 
@@ -1593,7 +1595,7 @@ status open
 \begin_inset Graphics
 	filename FSA_timing_diagram_Empty.emf
 	lyxscale 12
-	width 32page%
+	width 34page%
 
 \end_inset
 
@@ -1664,8 +1666,7 @@ description "Random Number 16"
 \end_inset
 
 , which is a 16 bits random number.
- When the reader receives this RN16 it will acknowledge this tag with an
- 
+ When the reader receives this RN16 it acknowledges this tag with an 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1682,7 +1683,7 @@ description "Acknowledgment"
 
 \end_inset
 
- with its RN16, it will reply with its unique Electronic Product Code (EPC)
+ with its RN16, it replies with its unique Electronic Product Code (EPC)
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "EPC"
@@ -1691,7 +1692,7 @@ description "Electronic Product Code"
 \end_inset
 
 .
- Finally, the reader will send a 
+ Finally, the reader sends a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1718,9 +1719,9 @@ Query
  command for tags in the reading area.
  In the presented example, three tags select this slot.
  Therefore, the reader receives simultaneously three different RN16s.
- In this case, the conventional RFID reader will not be able to decode any
- of these RN16s.
- The tags will wait for the next frame to be identified.
+ In this case, the conventional RFID reader is not able to decode any of
+ these RN16s.
+ The tags waits for the next frame to be identified.
  Afterwards, the reader broadcasts a 
 \begin_inset Quotes eld
 \end_inset
@@ -1747,8 +1748,8 @@ Query
 \end_inset
 
  command, and waits for a tag reply during a certain time out period.
- If there is no tag reply during this time, the reader will terminate the
- slot by sending a new 
+ If there is no tag reply during this time, the reader terminates the slot
+ by sending a new 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1765,8 +1766,8 @@ Cross Layer Anti-Collision Protocol
 \end_layout
 
 \begin_layout Standard
-Recently, RFID receivers have been developed, that are able to convert part
- of the collided slots into successful slots.
+Recently, RFID receivers, that are able to convert part of the collided
+ slots into successful slots have been developed.
  Moreover, new RFID readers can even identify the type of the slots and
  terminate the empty and collided slots earlier.
  In this section, a brief discussion about these two parameters is presented.
@@ -1792,9 +1793,8 @@ key "2013_capture"
 \end_inset
 
 , the collision recovery capability of the RFID system depends on different
- factors: First, the capabilities of the receiver, e.g., number of antennas.
- Second, the distance between the collided tags.
- Finally, the type of the channel.
+ factors, namely; the capabilities of the receiver, e.g., number of antennas,
+ the distance between the collided tags, and the type of the channel.
  
 \end_layout
 
@@ -1808,7 +1808,7 @@ key "Capture_2011"
 
 ) have concentrated on collision recovery using the spatial diversity of
  the received signal.
- They have proposed the following reading efficiency equation:
+ They proposed the following reading efficiency equation:
 \end_layout
 
 \begin_layout Standard
@@ -1834,7 +1834,7 @@ where
 \end_inset
 
 .
- The authors have assumed unlimited and equal collision resolving probability
+ The authors assumed unlimited and equal collision resolving probability
  coefficients.
  For example, the probability to resolve two collided tags is identical
  to the probability to resolve ten collided tags, which is an unpractical
@@ -1848,7 +1848,7 @@ key "2012_journal_CR,PHY111,PHY112,PHY113"
 \end_inset
 
  considered the limited capability of a RFID reader to resolve collisions.
- They have proposed a limited reading efficiency expressed as:
+ They have proposed a limited reading efficiency expressed by
 \end_layout
 
 \begin_layout Standard
@@ -1902,7 +1902,7 @@ reference "eq:rff_PHY"
 ), the reading efficiency strongly depends on the capability of the PHY
  layer to resolve the collision.
  Thus, in this thesis, the effect of the collision recovery capability on
- the MAC layer optimization will be addressed in more details.
+ the MAC layer optimization is addressed in more details.
 \begin_inset Float figure
 wide false
 sideways false
@@ -2231,10 +2231,10 @@ reference "fig:Empty-Slot-Duration-1"
 \end_layout
 
 \begin_layout Standard
-According to the above discussion, the reading efficiency equation will
- be affected by the different slots durations.
- In this thesis, the different slot duration lengths will be addressed in
- more details in the MAC layer optimization.
+According to the above discussion, the reading efficiency equation is affected
+ by the different slots durations.
+ In this thesis, the different slot duration lengths are addressed in more
+ details in the MAC layer optimization.
  
 \end_layout
 
