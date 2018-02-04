@@ -1,0 +1,6799 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+%\usepackage{lettrine}
+%\usepackage{hyperref}
+%\usepackage{atbegshi}
+%\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.5in
+\topmargin 1.6in
+\rightmargin 1.2in
+\bottommargin 1.6in
+\headheight 1.5in
+\headsep 0.3in
+\footskip 0.3in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Frame Length Optimization
+\end_layout
+
+\begin_layout Standard
+In FSA, there are two main factors controlling the reading efficiency, and
+ hence the reading time in RFID systems.
+ These two factors are precision of the number of tags estimation, which
+ is discussed in chapter 4, and the optimal FSA frame length calculation,
+ which is discussed in this chapter.
+ Previous studies have focused on the frame length calculations using the
+ conventional Dynamic Framed Slotted ALOHA algorithms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt"
+
+\end_inset
+
+.
+ In such systems, only the single tag reply is considered as a successful
+ slot, and if multiple tags respond simultaneously, a collision occurs.
+ Then all tags' replies in collided slots are discarded.
+ In such systems, the optimum frame length is equal to the number of tags
+ in the reading area 
+\begin_inset Formula $L=n$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2010_Vogt_problem"
+
+\end_inset
+
+.
+ However, as mentioned before, modern system can recover collisions and
+ convert a part of the collided slots into successful ones 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2009_capture"
+
+\end_inset
+
+.
+ In such systems, it is more beneficial to increase the number of collided
+ slots compared to the number of empty slots by decreasing the optimum frame
+ length.
+ This is because these systems gain more from the collided slots compared
+ to the empty slots by converting the collided slots to successful slots.
+ In addition, most of the previous studies assumed constant slot durations
+ regardless the type of the slot 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt,2010_Vogt_problem,Vogt_1,DFSA_shoute_Random"
+
+\end_inset
+
+.
+ However, the durations of the slots in RFID systems depend on the slot
+ type, i.e., empty, successful, or collided.
+ In such systems, the empty slot duration is shorter than the collided slot
+ durations and shorter than the successful slot duration.
+ Therefore, in such systems, it is better to increase the frame length,
+ because the losses from the empty slots is less than the losses from the
+ collided ones.
+ To solve the above contradiction, this chapter discusses the optimum DFSA
+ frame length taking into consideration the collision recovery capability
+ and the different slot durations.
+ These optimizations are discussed in different scenarios depending on the
+ RFID system.
+\end_layout
+
+\begin_layout Standard
+This chapter is organized as follows.
+ Section 1 discusses the effect of the different slot durations, where a
+ new closed form solution for the optimum frame length is proposed.
+ In Section 2, the effect of the collision recovery probability with constant
+ coefficients in addition to the time differences in slot durations is considere
+d.
+ Then, a new closed form solution for the optimum frame length, which maximizes
+ the system performance, is presented.
+ Section 3 illustrates the influence of using multiple collision recovery
+ coefficients assuming constant slot durations, thus eliciting a new reading
+ efficiency called multiple collision recovery coefficients reading efficiency.
+ Then, a novel closed form solution for the optimum frame length is also
+ derived for this system.
+ Section 4 shows a new closed form solution for the optimum frame length
+ for a system; taking into consideration the time difference in slot durations,
+ in addition to the multiple collision recovery coefficients.
+ Finally, Section 5 presents performance comparisons between the proposed
+ frame lengths and the existing state-of-the-art FSA algorithms.
+\end_layout
+
+\begin_layout Section
+Time Aware System
+\end_layout
+
+\begin_layout Standard
+Recently, some research groups have focused on optimizing the frame length
+ in case of non-equal slot durations.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "4_2_numerical_time_Lopt,Ref_4_4_2013_Cap_time"
+
+\end_inset
+
+, the authors proposed a numerical solution for the optimal frame length.
+ This method depends on searching for the optimal frame length, which maximizes
+ the reading efficiency.
+ Moreover, it also depends on the tag-to-reader data rate, which makes the
+ searching process more complicated.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ICC_2006"
+
+\end_inset
+
+, the mean number of resolved tags in unit time is optimized.
+ This is done by considering the different slot durations.
+ However, this approach is based on a complex multidimensional table look-up,
+ which may be time consuming.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "optimizin_total_latency"
+
+\end_inset
+
+ suggested to search for the optimum frame length that minimizes the mean
+ time needed to resolve a number of tags.
+ However, the authors reached a recursive Bellman-equation, which is difficult
+ to be applied in systems with real-time restrictions.
+\end_layout
+
+\begin_layout Standard
+In this section, we propose a novel closed form solution for the optimum
+ frame length in FSA for RFID systems.
+ The proposed solution gives a direct and linear relation between the frame
+ length 
+\begin_inset Formula $L$
+\end_inset
+
+, and the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ in the reading area.
+ Furthermore, it includes a factor representing the different slot durations.
+\end_layout
+
+\begin_layout Subsection
+Closed Form Solution for Time Aware System
+\end_layout
+
+\begin_layout Standard
+For calculating the proposed optimal time-aware frame size 
+\begin_inset Formula $L_{_{TA}}$
+\end_inset
+
+, which considers the different slot durations, it is important to define
+ the time-aware reading efficiency 
+\begin_inset Formula $\eta_{_{TA}}$
+\end_inset
+
+.
+ The time-aware reading efficiency is defined as the ratio between the total
+ successful time and the total frame time to be
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{TA}}=\frac{t_{s}\cdot S}{t_{e}\cdot E+t_{s}\cdot S+t_{c}\cdot C}\,,\label{eq:eff-semi_simple}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $t_{s}\cdot S$
+\end_inset
+
+, 
+\begin_inset Formula $t_{e}\cdot E,$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{c}\cdot E$
+\end_inset
+
+ are respectively the expected total successful, idle, and collided times.
+ Furthermore, 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $E$
+\end_inset
+
+, and 
+\begin_inset Formula $C$
+\end_inset
+
+ are the expected numbers of successful, empty and collided slots.
+ 
+\begin_inset Formula $t_{s}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ are respectively the successful, idle, and collided slot durations.
+\end_layout
+
+\begin_layout Standard
+The next step is to derive the new optimum frame length 
+\begin_inset Formula $L_{TA}$
+\end_inset
+
+ under the time-aware environment.
+ According to EPCglobal C1 G2, 
+\begin_inset Formula $L$
+\end_inset
+
+ is always integer.
+ Thus, 
+\begin_inset Formula $L_{TA}$
+\end_inset
+
+ can be optimized by finding the value of 
+\begin_inset Formula $L$
+\end_inset
+
+ which maximizes the time-aware reading efficiency.
+ This is achieved by differentiating the reading efficiency in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff-semi_simple"
+
+\end_inset
+
+) with respect to the frame length 
+\begin_inset Formula $L$
+\end_inset
+
+ and equating the result to zero, where 
+\begin_inset Formula $L$
+\end_inset
+
+ can only have integer values
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\eta_{TA}}{\partial L}=0.
+\end{equation}
+
+\end_inset
+
+
+\size default
+According to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: number of slot definition"
+
+\end_inset
+
+), 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, and 
+\begin_inset Formula $C$
+\end_inset
+
+ are function of 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ Taking into consideration that 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{s},$
+\end_inset
+
+ 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ are constants for a given system specification, the equation is
+\size small
+
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{(t_{e}E+t_{s}S+t_{c}C)t_{s}\frac{\partial}{\partial L}(S)-t_{s}S\frac{\partial}{\partial L}(t_{e}E+t_{s}S+t_{c}C)}{(t_{e}E+t_{s}S+t_{c}C)^{2}} & = & 0.
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+After multiplying both sides by the denominator and dividing by 
+\begin_inset Formula $t_{s}$
+\end_inset
+
+ (non-zero constant), the equation can be simplified to be
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+(t_{e}E+t_{c}C)\frac{\partial}{\partial L}(S)+t_{s}S\frac{\partial}{\partial L}(S)=S\frac{\partial}{\partial L}(t_{e}E+t_{c}C)+t_{s}S\frac{\partial}{\partial L}S.
+\end{equation}
+
+\end_inset
+
+
+\size default
+After subtracting the term which is multiplied by 
+\begin_inset Formula $t_{s},$
+\end_inset
+
+ the equation finally becomes
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+\left\{ t_{e}E+t_{c}C\right\} \frac{\partial}{\partial L}(S)=S\frac{\partial}{\partial L}\left\{ t_{e}E+t_{c}C\right\} .\label{eq:simple differentiation-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Then, substituting by the values of 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, and 
+\begin_inset Formula $C$
+\end_inset
+
+ from (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: number of slot definition"
+
+\end_inset
+
+) leads to
+\size small
+
+\begin_inset Formula 
+\begin{eqnarray}
+\left\{ t_{e}\underset{E}{\underbrace{L\left(1-\frac{1}{L}\right)^{n}}}+t_{c}\underset{C}{\underbrace{(L-\left(1-\frac{1}{L}\right)^{n-1}(L-n-1))}}\right\} \nonumber \\
+\times\frac{\partial}{\partial L}\underset{S}{\underbrace{n\left(1-\frac{1}{L}\right)^{n-1}}}\nonumber \\
+=\underset{S}{\underbrace{n\left(1-\frac{1}{L}\right)^{n-1}}}\label{eq:complex differentiation-1}\\
+\times\frac{\partial}{\partial L}\left\{ t_{e}\underset{E}{\underbrace{L\left(1-\frac{1}{L}\right)^{n}}}+t_{c}\underset{C}{\underbrace{(L-\left(1-\frac{1}{L}\right)^{n-1}(L-n-1))}}\right\} .\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+By simplifying the result, the final exact equation for the proposed time-aware
+ frame length is given by the following implicit equation
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Exponential.emf
+	lyxscale 50
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The exponential function 
+\begin_inset Formula $e^{-\frac{n}{L}}$
+\end_inset
+
+ compared to the second order Taylor series approximation 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Second-order-Taylor"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\left(1-\frac{n}{L_{_{TA}}}\right)=\left(1-C_{t}\right)\left(1-\frac{1}{L_{_{TA}}}\right)^{n},\label{eq:Lopt comlex expresion-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of tags, and 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ is the slot durations constant defined as 
+\begin_inset Formula $C_{t}=\frac{t_{e}}{t_{c}}$
+\end_inset
+
+ with 
+\begin_inset Formula $0<C_{t}\leq1$
+\end_inset
+
+, as 
+\begin_inset Formula $t_{e}\leq t_{c}$
+\end_inset
+
+ in practical applications.
+ Equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion-1"
+
+\end_inset
+
+) shows the exact relation between the proposed time-aware frame length
+ 
+\begin_inset Formula $L_{TA}$
+\end_inset
+
+ and the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Unfortunately, (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion-1"
+
+\end_inset
+
+) is an implicit equation.
+ Thus, an approximation is used to convert it to explicit equation.
+ The equation can be expressed as
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+\left(1-\frac{1}{\beta}\right)=\left(1-C_{_{t}}\right)\left(1-\frac{1}{\beta n}\right)^{n},\label{eq:bita equation-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $\beta=\frac{L_{TA}}{n}$
+\end_inset
+
+.
+ As we are focusing on systems with many tags, the following approximation
+ can be used
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+\underset{n\rightarrow\infty}{\lim}\left(1-\frac{1}{\beta n}\right)^{n}=e^{-\frac{1}{\beta}},\label{eq:approx_1-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+which simplifies (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion-1"
+
+\end_inset
+
+) to be
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+\left(1-\frac{1}{\beta}\right)=\left(1-C_{_{t}}\right)e^{-\frac{1}{\beta}}\label{eq:first_approx-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+The analysis of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion-1"
+
+\end_inset
+
+) indicates that the relevant values for 
+\begin_inset Formula $\beta=\frac{L_{TA}}{n}$
+\end_inset
+
+ are in the region close to 1.
+ Hence, a Taylor series for 
+\begin_inset Formula $e^{-\frac{1}{\beta}}$
+\end_inset
+
+ around one is developed which leads to be
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+e^{-\frac{1}{\beta}}\simeq1-\frac{1}{\beta}+\frac{1}{2\beta^{2}}\label{eq:taylor-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Second-order-Taylor"
+
+\end_inset
+
+, this approximation is very accurate in the range of 
+\begin_inset Formula $\frac{n}{L}\leq1$
+\end_inset
+
+.
+ After substituting by (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:first_approx-1"
+
+\end_inset
+
+) and with additional simplifications, it leads to be
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+\beta^{2}C_{_{t}}-\beta C_{_{t}}+0.5(C_{_{t}}-1)=0\label{eq:quadratic equation-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+By solving (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:quadratic equation-1"
+
+\end_inset
+
+), and rejecting the negative solution we finally obtain
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+L_{_{TA}}=\frac{n}{2}\left(1+\sqrt{\frac{2}{C_{_{t}}}-1}\right).\label{eq:closed form-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+The proposed equation gives a linear relation in reference to the number
+ of tags 
+\begin_inset Formula $n$
+\end_inset
+
+, and includes the slot durations constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+, which can be easily varied as a function of the transmission rate and
+ the working standard.
+\end_layout
+
+\begin_layout Subsection
+Slot Durations Constant Calculation for the EPCglobal C1 G2
+\end_layout
+
+\begin_layout Standard
+In this section, the calculation method of the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ from the PHY layer parameters is discussed.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Slot-Durations-During-1"
+
+\end_inset
+
+ shows the timing constrains of FSA inventory rounds for collided and empty
+ slots according to the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+.
+ Each slot contains different sequences of reader-to-tag commands and correspond
+ing tags' replies.
+ The slot durations constant is 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename timing_te_tc.emf
+	lyxscale 20
+	width 65page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+FSA inventory rounds for collided and empty slots according to the EPCglobal
+ C1 G2 standard 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Slot-Durations-During-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+C_{t}=\frac{t_{e}}{t_{c}}.\label{eq:ct-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+As shown from figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Slot-Durations-During-1"
+
+\end_inset
+
+, the empty slot duration 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+ is given by
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+t_{e}=T_{QRep}+T_{1}+T_{3}.\label{eq:te_disc-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Here, 
+\begin_inset Formula $T_{QRep}$
+\end_inset
+
+ is the query repeat command time
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+T_{QRep}=T_{FS}+T_{command},\label{eq:TQ-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+with, 
+\begin_inset Formula $T_{FS}=3.5\cdot T_{ari}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{command}=6\cdot T_{ari}$
+\end_inset
+
+, and 
+\begin_inset Formula $T_{ari}=\frac{DR}{2.75}T_{pri}$
+\end_inset
+
+.
+ By substituting in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TQ-1"
+
+\end_inset
+
+) we get
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Available slots duration constants 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ of the EPCglobal C1 G2 standard 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Slots-durations-constant-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="18" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Divide Ratio: 
+\begin_inset Formula $DR$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Modulation: 
+\begin_inset Formula $M$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pilot Length: 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.47$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $12$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.41$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.35$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.28$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.23$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.18$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.14$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $64/3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.7$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $12$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.65$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.57$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.43$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.35$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.22$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+T_{QRep}=3.5\cdot DR\cdot T_{pri},\label{eq:TQ2-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $T_{ari}$
+\end_inset
+
+ is reader symbol duration, 
+\begin_inset Formula $T_{pri}=\frac{1}{\text{\ensuremath{BLF}}}$
+\end_inset
+
+, 
+\begin_inset Formula $BLF$
+\end_inset
+
+ is the tag backscatter link frequency and 
+\begin_inset Formula $DR$
+\end_inset
+
+ is the so-called divide ratio constant that can take two values 
+\begin_inset Formula $DR=8\,\mbox{or}\,\frac{64}{3}$
+\end_inset
+
+.
+ Finally, 
+\begin_inset Formula $M$
+\end_inset
+
+ equals to 
+\begin_inset Formula $1,\,2,\,4,\,\mbox{or}\,8$
+\end_inset
+
+, which represents the modulation types FM0, Miller 2, 4, or 8, respectively.
+ 
+\begin_inset Formula $T_{1}$
+\end_inset
+
+ is the time from the reader transmission to the tag response, which can
+ be expressed by
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+T_{1}=\textrm{max}\left\{ DR\cdot T_{pri},\,10\cdot T_{pri}\right\} \label{eq:T1-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Next, 
+\begin_inset Formula $T_{3}$
+\end_inset
+
+ is the time that the reader waits after 
+\begin_inset Formula $T_{1}$
+\end_inset
+
+ before issuing another command.
+ As it has no constraints, it can be assumed to be zero.
+ After substituting by (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TQ2-1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:T1-1"
+
+\end_inset
+
+) in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:te_disc-1"
+
+\end_inset
+
+), 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+ can be expressed by
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{eqnarray}
+t_{e} & = & T_{pri}\cdot\left(3.5\cdot DR+\textrm{max}\left\{ \mbox{\ensuremath{DR}},\,10\right\} \right).\label{eq:te_equation-1}
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+Next, the collided slot duration 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ is given by
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+t_{c}=T_{QRep}+T_{1}+T_{2}+T_{RN16},\label{eq:tc description-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $T_{2}$
+\end_inset
+
+ is the reader response time starting from the end of the tag response,
+ 
+\begin_inset Formula $T_{2}=6\cdot T_{pri}$
+\end_inset
+
+, and 
+\begin_inset Formula $T_{RN16}$
+\end_inset
+
+ is the duration of 
+\begin_inset Formula $16$
+\end_inset
+
+ bits temporary data, 
+\begin_inset Formula $6$
+\end_inset
+
+ bits preamble, 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ pilot tones, i\SpecialChar \@.
+e\SpecialChar \@.
+ 
+\begin_inset Formula $T_{RN16}=(22+n_{p})\cdot T_{pri}$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ can be expressed by
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+t_{c}=T_{pri}\cdot\left(3.5\cdot DR+\textrm{max}\left\{ DR,\,10\right\} +6+22\cdot M+n_{p}\cdot M\right).\label{eq:tc_equation-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+From (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:te_equation-1"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:tc_equation-1"
+
+\end_inset
+
+), the final expression of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+C_{t}=\frac{3.5\cdot DR+\textrm{max}\left\{ \mbox{\ensuremath{DR}},\,10\right\} }{3.5\cdot DR+\textrm{max}\left\{ DR,\,10\right\} +6+22\cdot M+n_{p}\cdot M}.\label{eq:ct_final-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Slots-durations-constant-1"
+
+\end_inset
+
+ shows the values of the slot durations constant of the EPCglobal C1 G2
+ standard.
+ According to table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Slots-durations-constant-1"
+
+\end_inset
+
+, the slot durations constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ varies from 
+\begin_inset Formula $0.1$
+\end_inset
+
+ to 
+\begin_inset Formula $0.7$
+\end_inset
+
+, and this affects the optimum frame length directly.
+ 
+\end_layout
+
+\begin_layout Subsection
+Closed Form Solution vs.
+ Numerical Solution
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Non-quantized-Frame-length_time"
+
+\end_inset
+
+ displays the behavior of the proposed frame length formula in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form-1"
+
+\end_inset
+
+) compared to the numerical solution in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "optimizin_total_latency"
+
+\end_inset
+
+ for the complete range of the slot durations constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ for 
+\begin_inset Formula $0<C_{t}\leq1$
+\end_inset
+
+.
+ In the simulation, a fixed number of 
+\begin_inset Formula $n=100$
+\end_inset
+
+ tags is used.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frame size ct-1"
+
+\end_inset
+
+, the proposed equation approaches the numerical solution proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "optimizin_total_latency"
+
+\end_inset
+
+ in the full range of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ with very small bias coming from the Taylor series approximation in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:taylor-1"
+
+\end_inset
+
+).
+ According to the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the frame length can take only quantized values (power of 
+\begin_inset Formula $2$
+\end_inset
+
+).
+ Thus, in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Quantized-Frame-Length_time"
+
+\end_inset
+
+ only the next quantized frame length is selected, which decreases the effect
+ of the Taylor approximation.
+ According to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Quantized-Frame-Length_time"
+
+\end_inset
+
+, the proposed frame length fully matches the numerical solution in the
+ full range of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Lopt_vs_ct_acurate_proposed.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Non-quantized Frame length
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Non-quantized-Frame-length_time"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Lopt_vs_ct_acurate_proposed_quantized_new.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Quantized Frame Length
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Quantized-Frame-Length_time"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Time aware optimum frame length 
+\begin_inset Formula $L_{TA}$
+\end_inset
+
+ using (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form-1"
+
+\end_inset
+
+) compared to the numerical solution as a function of the slot durations
+ constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ (
+\begin_inset Formula $n=100$
+\end_inset
+
+ tags).
+ The conventional case with identical slot durations corresponds to 
+\begin_inset Formula $C_{t}=1$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Frame size ct-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Mean Reading Time Reduction
+\end_layout
+
+\begin_layout Standard
+In conventional FSA systems, the slot durations are considered as constant
+ slots.
+ Thus, the total identification time is calculated by counting the average
+ total number of slots needed to identify the complete number of tags in
+ the reading area.
+ Then, according to literature, the mean reduction in number of slots is
+ calculated according to the following equation
+\begin_inset Formula 
+\begin{equation}
+\unit[\zeta]{\%}=\left(\frac{\mbox{Slots_{conv.}}-\mbox{Slots_{proposed}}}{\mbox{Slots_{conv.}}}\right)\times100
+\end{equation}
+
+\end_inset
+
+In time aware systems, the slot durations are variable.
+ Therefore, the total identification time can only be calculated as time
+ in seconds.
+ Afterwards, the percentage of mean reading time reduction is calculated
+ as
+\begin_inset Formula 
+\begin{equation}
+\unit[\zeta_{t}]{\%}=\left(\frac{\mbox{T{}_{conv.}}-\mbox{T{}_{proposed}}}{\mbox{\mbox{T{}_{conv.}}}}\right)\times100
+\end{equation}
+
+\end_inset
+
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Saving-time-versus"
+
+\end_inset
+
+ shows simulation results for the reading time reduction of the proposed
+ optimal time-aware frame length 
+\begin_inset Formula $L_{TA}$
+\end_inset
+
+ with reference to the classical optimal frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ as a function of the slot durations constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+ These simulations assume a perfect knowledge of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ According to the figure, 
+\begin_inset Formula $C_{t}=0$
+\end_inset
+
+ means that the idle slot durations time 
+\begin_inset Formula $t_{e}=0$
+\end_inset
+
+.
+ In this case, the optimum frame length 
+\begin_inset Formula $L$
+\end_inset
+
+ is theoretically infinite.
+ According to the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the frame length takes only quantized values (power of 
+\begin_inset Formula $2$
+\end_inset
+
+).
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Quantized-Frame-Length_time"
+
+\end_inset
+
+, the number of tags in the reading area 
+\begin_inset Formula $n=100$
+\end_inset
+
+ tags.
+ Thus, the quantized optimum frame length is 
+\begin_inset Formula $L=1024$
+\end_inset
+
+ slots.
+ In this case, the proposed time-aware frame length can reduce the average
+ reading time up to 
+\begin_inset Formula $12\%$
+\end_inset
+
+ compared to the conventional optimization criterion.
+ When 
+\begin_inset Formula $C_{t}=1$
+\end_inset
+
+, the slot durations have identical length i.e., 
+\begin_inset Formula $t_{e}=t_{c}$
+\end_inset
+
+, as in the conventional FSA, therefore, the reading efficiency in this
+ case is obtained when 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+\begin_inset Float figure
+placement t
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename savin_time_with_ct.emf
+	lyxscale 40
+	width 65page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TA}$
+\end_inset
+
+ using the proposed TAFSA for an ideally known number of tags as a function
+ of the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Saving-time-versus"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In practice, the number of tags in the interrogation region is unknown.
+ Hence, the anti-collision algorithms in real RFID systems consist of two
+ stages.
+ One estimates the number of tags in the interrogation area 
+\begin_inset Formula $\hat{n}$
+\end_inset
+
+ whereas the other calculates the optimal frame length 
+\begin_inset Formula $L_{opt}$
+\end_inset
+
+ based on 
+\begin_inset Formula $\hat{n}$
+\end_inset
+
+ for maximizing the reading efficiency.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentage-of-Time"
+
+\end_inset
+
+ illustrates the mean reduction of the reading time using the proposed time-awar
+e frame length for the proposed ML number of tags estimation and the most
+ well-known tag estimation algorithms using the value of the slot durations
+ constant 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+.
+ The main purpose of these simulations is to show the practical effect on
+ the reading time by working with the proposed frame length using different
+ tag estimation algorithms.
+ Each curve presents the mean reduction of the reading time between the
+ proposed frame length and the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ using the same estimation algorithm.
+ Results in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentage-of-Time"
+
+\end_inset
+
+ is calculated using Monte-Carlo simulations for FSA with 
+\begin_inset Formula $1000$
+\end_inset
+
+ iterations for each 
+\begin_inset Formula $n$
+\end_inset
+
+ value.
+\end_layout
+
+\begin_layout Standard
+In case of the Lower bound 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt"
+
+\end_inset
+
+ and Schoute 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DFSA_shoute_Random"
+
+\end_inset
+
+ number of tags estimation algorithms, the reading time is reduced by 
+\begin_inset Formula $13\,\%$
+\end_inset
+
+ to 
+\begin_inset Formula $16\,\%$
+\end_inset
+
+.
+ In case of more accurate estimation algorithm such as Vogt 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2010_Vogt_problem"
+
+\end_inset
+
+ and the proposed ML in chapter 4, the mean reduction of reading time is
+ between 
+\begin_inset Formula $9\,\%$
+\end_inset
+
+ and 
+\begin_inset Formula $\unit[12]{\%}$
+\end_inset
+
+.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentage-of-Time"
+
+\end_inset
+
+, the better the estimation algorithms, the less reading time reduction,
+ because it decreases the number of iterations in FSA process.
+ However, using a non-accurate number of tags estimation algorithms, FSA
+ needs more iterations, with more FSA frame length adaptations.
+ That gives more importance for the proposed formula compared to the classical
+ frame length adaptations.
+ 
+\begin_inset Float figure
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename saving_time_comparisions.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TA}$
+\end_inset
+
+ as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ using the proposed TAFSA compared to the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ for different estimation algorithms, 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Percentage-of-Time"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Time and Collision Recovery System
+\end_layout
+
+\begin_layout Standard
+As mentioned in chapter 4, modern RFID readers can convert a part of collided
+ slots into successful slots, which is called the collision recovery capability
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ According to the state-of-the-art 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "4_1_closed_form_Lopt_not_accurate,optimizin_total_latency,Capture_2011"
+
+\end_inset
+
+, the previous research is divided into three diverse groups.
+ The first group considered only the average collision recovery probability
+ for the frame length optimizations, such as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+.
+ The authors propose a closed form equation for the optimum frame length
+ maximizing the reading throughput per frame.
+ The second group observes only the different slot durations, such as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "4_1_closed_form_Lopt_not_accurate,optimizin_total_latency"
+
+\end_inset
+
+ as shown in the first proposal in the previous section.
+ However, no closed form solution for the optimum frame length is derived.
+ They calculate the optimum frame length numerically.
+ The third group contemplates the different slot durations and the collision
+ recovery probability, such as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_time_2015,Ref_4_4_2013_Cap_time,2012_curve_fitting"
+
+\end_inset
+
+.
+ Both 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_time_2015,Ref_4_4_2013_Cap_time"
+
+\end_inset
+
+ give numerical solutions for the optimum frame length versus the collision
+ recovery probability and the number of tags.
+ The main problems of their numerical solutions are the multiple degrees
+ of freedom.
+ The solutions require a complex multidimensional look-up table, which has
+ to consider all possible degrees of freedom.
+ The authors in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_curve_fitting"
+
+\end_inset
+
+ use curve fitting to find a closed form solution for the optimum frame
+ length at a specific collision recovery probability and timing.
+ However, this solution cannot be generalized for all values of slot's timing
+ and collision recovery probabilities.
+\end_layout
+
+\begin_layout Standard
+In this section, a closed form solution for the optimum frame length is
+ derived by optimizing the reading throughput per frame, which does not
+ require any look-up table 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_time_2015,Ref_4_4_2013_Cap_time"
+
+\end_inset
+
+.
+ In addition, the average collision recovery probability and the different
+ slot durations are considered.
+ Moreover, the calculation method of the collision recovery probability
+ based on the PHY layer is clarified.
+\end_layout
+
+\begin_layout Subsection
+Closed Form Solution for Time and Collision Recovery System
+\end_layout
+
+\begin_layout Standard
+In this subsection, the proposed optimal time and collision recovery aware
+ frame size 
+\begin_inset Formula $L_{_{TCA}}$
+\end_inset
+
+is derived, which considers the different slot durations and the collision
+ recovery probability.
+ Thus, a new reading efficiency called Time and Collision Recovery Aware
+ reading efficiency 
+\begin_inset Formula $\eta_{_{TCA}}$
+\end_inset
+
+ is introduced.
+ The main properties of this efficiency are the consideration of the different
+ slot durations and the average collision recovery probability.
+\end_layout
+
+\begin_layout Standard
+In this efficiency, we added the average collision recovery probability
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ to the time aware efficiency in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff-semi_simple"
+
+\end_inset
+
+).
+ Therefore, the time and collision recovery probability aware efficiency
+ can then be written as
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{_{TCA}}}=\frac{t_{s}\cdot S_{c}}{t_{e}\cdot E_{c}+t_{s}\cdot S_{c}+t_{c}\cdot C_{c}}.\label{eq:eff-TAC}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $E_{c}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{c}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{c}$
+\end_inset
+
+ are respectively the expected number of empty, successful, an collided
+ slots after adding the effect of the collision recovery probability 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Their relation is given by
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+E_{c}=E,\,S_{c}=S+\alpha\cdot C,\,C_{c}=(1-\alpha)\cdot C.\label{eq:Succ and Coll with cap}
+\end{equation}
+
+\end_inset
+
+
+\size default
+The target is to find the optimum frame length 
+\begin_inset Formula $L_{TCA}$
+\end_inset
+
+ which maximizes the proposed reading efficiency in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff-TAC"
+
+\end_inset
+
+).
+ This is again achieved by differentiating the reading efficiency 
+\begin_inset Formula $\eta_{_{_{TCA}}}$
+\end_inset
+
+ of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff-TAC"
+
+\end_inset
+
+) with respect to the frame length 
+\begin_inset Formula $L$
+\end_inset
+
+ and equate the result to zero.
+\end_layout
+
+\begin_layout Standard
+Clearly, the frame length 
+\begin_inset Formula $L$
+\end_inset
+
+ is an integer value.
+ Therefore, differentiating the equation is not fully correct.
+ However, the resulting error is negligible as it is shown later.
+ According to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Succ and Coll with cap"
+
+\end_inset
+
+), 
+\begin_inset Formula $E_{c}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{c}$
+\end_inset
+
+, and 
+\begin_inset Formula $C_{c}$
+\end_inset
+
+ are functions of 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ However, 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{s},$
+\end_inset
+
+ 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ are constants for a given system configuration.
+ Thus, the equation can be simplified to be
+\size small
+
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{(t_{e}E_{c}+t_{s}S_{c}+t_{c}C_{c})t_{s}\frac{d}{dL}(S_{c})-t_{s}S_{c}\frac{d}{dL}(t_{e}E_{c}+t_{s}S_{c}+t_{c}C_{c})}{(t_{e}E_{c}+t_{s}S_{c}+t_{c}C_{c})^{2}}=0
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+After multiplying both sides by the denominator and dividing by 
+\begin_inset Formula $t_{s}$
+\end_inset
+
+ (non-zero constant), and subtracting the term, which is multiplied by 
+\begin_inset Formula $t_{s},$
+\end_inset
+
+ the equation results in
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+\left(t_{e}E_{c}+t_{c}C_{c}\right)\frac{d}{dL}(S_{c})=S_{c}\frac{d}{dL}\left(t_{e}E_{c}+t_{c}C_{c}\right).\label{eq:simple differentiation}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Then, the substitution by the values of 
+\begin_inset Formula $E_{c}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{c}$
+\end_inset
+
+, and 
+\begin_inset Formula $C_{c}$
+\end_inset
+
+ from (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Succ and Coll with cap"
+
+\end_inset
+
+) leads to the final exact equation for the proposed time and collision
+ recovery probability aware frame length
+\size small
+
+\begin_inset Formula 
+\begin{eqnarray}
+(1-\alpha)\cdot(1-\frac{n}{L_{_{TCA}}})+\alpha\cdot C_{t}\cdot\left(1-\frac{1}{L_{_{TCA}}}\right)\label{eq:Lopt comlex expresion}\\
++\left(C_{t}-1\right)\cdot(1-\alpha)\cdot\left(1-\frac{1}{L_{_{TCA}}}\right)^{n} & = & 0,\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of tags, and 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ is the slot durations constant defined by 
+\begin_inset Formula $C_{t}=\frac{t_{e}}{t_{c}}$
+\end_inset
+
+.
+ Equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion"
+
+\end_inset
+
+) shows the exact relation between the proposed collision recovery, the
+ time-aware optimum frame length 
+\begin_inset Formula $L_{_{CTA}}$
+\end_inset
+
+ and the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ This equation takes into consideration the collision recovery probability
+ and the different slot durations.
+ However, this solution depends on a recursive equation.
+ For reaching an explicit equation, (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion"
+
+\end_inset
+
+) can be expressed by
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{eqnarray}
+(1-\alpha)\cdot(1-\frac{1}{\beta})+\alpha\cdot C_{t}\cdot\left(1-\frac{1}{\beta n}\right)\label{eq:bita equation}\\
++\left(C_{t}-1\right)\cdot(1-\alpha)\cdot\left(1-\frac{1}{\beta n}\right)^{n} & = & 0,\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $\beta=\frac{L_{TCA}}{n}$
+\end_inset
+
+.
+ As we are focusing on systems with many tags 
+\begin_inset Formula $n$
+\end_inset
+
+, again the following approximation can be used
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+\underset{n\rightarrow\infty}{\lim}\left(1-\frac{1}{\beta n}\right)^{n}=e^{-\frac{1}{\beta}},\label{eq:approx_1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+which simplifies (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:bita equation"
+
+\end_inset
+
+) to
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{eqnarray}
+(1-\alpha)\cdot\left(1-\frac{1}{\beta}\right)+\alpha\cdot C_{t}\cdot\left(1-\frac{1}{\beta n}\right)\label{eq:first_approx}\\
++(1-\alpha)\cdot\left(C_{t}-1\right)e^{-\frac{1}{\beta}} & = & 0.\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+The analysis of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion"
+
+\end_inset
+
+) indicates that the relevant values for 
+\size footnotesize
+
+\begin_inset Formula $\beta=\frac{L_{TCA}}{n}$
+\end_inset
+
+
+\size default
+ are again in the region close to one 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ref_4_4_2013_Cap_time"
+
+\end_inset
+
+.
+ Hence, we can develop a Taylor series for 
+\begin_inset Formula $e^{-\frac{1}{\beta}}$
+\end_inset
+
+ around one which leads to be
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+e^{-\frac{1}{\beta}}\simeq1-\frac{1}{\beta}+\frac{1}{2\beta^{2}}.\label{eq:taylor}
+\end{equation}
+
+\end_inset
+
+
+\size default
+After substituting in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:first_approx"
+
+\end_inset
+
+) and some additional simplifications, we get
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+\beta^{2}C_{t}-\beta C_{t}(1+\frac{\alpha}{n})-0.5\left(1-\alpha\right)\cdot\left(1-C_{t}\right)=0.\label{eq:quadratic equation}
+\end{equation}
+
+\end_inset
+
+
+\size default
+As 
+\begin_inset Formula $\frac{\alpha}{n}\ll1,$
+\end_inset
+
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:quadratic equation"
+
+\end_inset
+
+) can be expressed by
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+\beta^{2}C_{t}-\beta C_{t}-0.5\left(1-\alpha\right)\cdot\left(1-C_{t}\right)=0.\label{eq:final quadratic equation}
+\end{equation}
+
+\end_inset
+
+
+\size default
+By solving (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final quadratic equation"
+
+\end_inset
+
+) and rejecting the negative solution we finally reach the final solution
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+L_{_{TCA}}=\frac{n}{2}\left(\left(1-\alpha\right)+\sqrt{\left(1-\alpha\right)^{2}+\frac{2}{C_{t}}\left(1-\alpha\right)\cdot\left(1-C_{t}\right)}\right).\label{eq:closed form}
+\end{equation}
+
+\end_inset
+
+
+\size default
+According to state-of-the-art, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_time_2015"
+
+\end_inset
+
+ is the only work which used the same performance metric 
+\begin_inset Formula $\eta_{_{_{TCA}}}$
+\end_inset
+
+to get the optimum frame length.
+ However, in this work the authors did not propose any closed form solution
+ and they have to rely on multi-dimensional look-up tables.
+\end_layout
+
+\begin_layout Standard
+As mentioned before, the value of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ strongly depends on the receiver type and the SNR.
+ The value of collision recovery 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ could be one of the values of figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Capture-probability-versus-1"
+
+\end_inset
+
+, depending on the receiver type and the value of SNR.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Lopt_vs_n_diff_Ct_diff_alpha_new.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Non-quantized Frame Length.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Non-quantized"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Lopt_vs_Ct_quantized_0.001_0.01_new_new.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Quantized Frame Length.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Quantized-Frame-Length"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Optimum frame length 
+\begin_inset Formula $L_{_{TCA}}$
+\end_inset
+
+ using (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+) compared to the numerical solution as a function of the slot durations
+ constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ (
+\begin_inset Formula $n=100$
+\end_inset
+
+ tags) for the capture probabilities 
+\begin_inset Formula $\alpha=0.25,\,0.5,\,0.75$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Frame size ct"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Closed Form Solution vs.
+ Numerical Solution
+\end_layout
+
+\begin_layout Standard
+Now, the proposed closed form equation in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+) is compared with the numerical results in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_time_2015"
+
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Non-quantized"
+
+\end_inset
+
+ shows both algorithms for the full range of the slot durations constant
+ 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+ Assuming a fixed number of 
+\begin_inset Formula $n=100$
+\end_inset
+
+ tags, figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Non-quantized"
+
+\end_inset
+
+ indicates that the proposed closed form approaches the numerical solution
+ for different 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ in the full range of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+ Due to the Taylor series approximations in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:taylor"
+
+\end_inset
+
+), there are slight differences between the proposed closed form and the
+ numerical solution.
+ However, as previously mentioned, the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ frame length is allowed to take only quantized values (power of 
+\begin_inset Formula $2$
+\end_inset
+
+).
+ Thus, the next quantized frame length is selected and this eliminates the
+ approximation error.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Quantized-Frame-Length"
+
+\end_inset
+
+ shows that the proposed frame length fully matches the numerical solution
+ in the full range of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Mean Reduction of Reading Time
+\end_layout
+
+\begin_layout Standard
+As mentioned previously, the most common performance metric of comparison
+ is the mean reduction in reading time compared to the conventional frame
+ length 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving_ct_alpha_perfect"
+
+\end_inset
+
+ illustrates simulation results for the reading time reduction of the proposed
+ optimal TCA frame length 
+\begin_inset Formula $L_{TCA}$
+\end_inset
+
+ with reference to the classical optimal frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ for 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+ and different values of the collision recovery probability 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ These simulations assume a perfect knowledge of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving_ct_alpha_perfect"
+
+\end_inset
+
+, the mean reading time reduction increases when the value of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ increases, which gives more advantage to the proposed solution compared
+ to the conventional one.
+ Results in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving_ct_alpha_perfect"
+
+\end_inset
+
+ is calculated using Monte-Carlo simulations for FSA with 
+\begin_inset Formula $1000$
+\end_inset
+
+ iterations for each 
+\begin_inset Formula $n$
+\end_inset
+
+ value.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename saving_time_Ct_alpha_perfect_estimation_new.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TCA}$
+\end_inset
+
+ using the proposed TCA as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ for perfect number of tags estimation using 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+ and different values of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Percentages-of-saving_ct_alpha_perfect"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving_ct_alpha_with"
+
+\end_inset
+
+ shows the mean reduction of the reading time using the proposed TCA frame
+ length compared to the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ taking into consideration the effect of the number of tags estimation algorithm
+s.
+ The simulations use 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+ and average collision recovery capability 
+\begin_inset Formula $\alpha=0.7$
+\end_inset
+
+.
+ Results in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving_ct_alpha_with"
+
+\end_inset
+
+ is calculated using Monte-Carlo simulations for FSA with 
+\begin_inset Formula $1000$
+\end_inset
+
+ iterations for each 
+\begin_inset Formula $n$
+\end_inset
+
+ value.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving_ct_alpha_with"
+
+\end_inset
+
+, the proposed solution results in 
+\begin_inset Formula $\unit[18]{\%}$
+\end_inset
+
+ average saving in reading time compared to the conventional FSA using the
+ proposed ML estimation algorithm.
+ As discussed in the previous section, the minimum mean reading time reduction
+ is obtained upon having perfect knowledge of the number of tags in the
+ reading area, because it results in the minimum number of iterations for
+ FSA process.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename saving_time_Ct_alpha_with_estimation.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TCA}$
+\end_inset
+
+ using the proposed TCA as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ for different anti-collision algorithms using 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha=0.7$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Percentages-of-saving_ct_alpha_with"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Multiple Collision Recovery System
+\end_layout
+
+\begin_layout Standard
+To simplify the analysis, previous sections considered systems with equal
+ collision recovery probability coefficients regardless the number of collided
+ tags per slot.
+ For example, the probability to resolve two collided tags is equal to the
+ probability to resolve three or four collided tags per slot.
+ However, in practice, the probability of recovering one tag from two collided
+ tags is more than the probability to identify a single tag from three collided
+ tags.
+ Therefore, in this section, the collision recovery probability is considered
+ as a variable coefficient 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+, where 
+\begin_inset Formula $i$
+\end_inset
+
+ is the number of collided tags per slot.
+\end_layout
+
+\begin_layout Standard
+In this section, a new reading efficiency metric called multiple collision
+ recovery coefficients reading efficiency 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+ is proposed.
+ It includes a unique collision resolving coefficient for each number of
+ collided tags.
+ Hence, a novel closed form solution for the optimum FSA frame length is
+ proposed, which maximizes the proposed efficiency metric.
+ Then, these coefficients is calculated based on a simple RFID reader model
+ to show how the proposed system could be applied on real-life applications.
+\end_layout
+
+\begin_layout Subsection
+Closed Form Solution for Multiple Collision Recovery Aware System
+\end_layout
+
+\begin_layout Standard
+This section introduces a new FSA efficiency metric called Multiple Collision
+ Recovery Coefficients Reading Efficiency 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+.
+ Afterwards, a closed form solution for the new optimum frame length 
+\begin_inset Formula $L_{MCRC}$
+\end_inset
+
+ under multiple collision recovery coefficients environment is presented.
+\end_layout
+
+\begin_layout Standard
+The main contribution of this efficiency is that it contains a specific
+ collision recovery coefficient 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ for each probability of collision 
+\begin_inset Formula $P_{col.}(i)$
+\end_inset
+
+.
+ These new coefficients indicate the ability of the reader to recover one
+ tag from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags.
+ The proposed reading efficiency 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+ is expressed by
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{MCRC}}=P(1)+\sum_{i=2}^{n}\alpha_{i}P_{col.}(i).
+\end{equation}
+
+\end_inset
+
+
+\size default
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Collision-distribution-in"
+
+\end_inset
+
+ presents the distribution of the average collision probability in a frame
+ of length 
+\begin_inset Formula $0.5\cdot n\leq L\leq2\cdot n$
+\end_inset
+
+ uniformly.
+ The simulations results are done using Monte-Carlo simulations of the FSA
+ algorithm under condition of frame length 
+\begin_inset Formula $0.5\cdot n\leq L\leq2\cdot n$
+\end_inset
+
+ uniformly, which is the practical range of the frame length in RFID systems
+ according to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ref_4_4_2013_Cap_time"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Collision-distribution-in"
+
+\end_inset
+
+, the probability that the collided slot comes from two, three, or four
+ collided tags is equal to 
+\size small
+
+\begin_inset Formula $P_{col.}(2)+P_{col.}(3)+P_{col.}(4)\backsimeq96\%$
+\end_inset
+
+ 
+\size default
+, and for the remaining tag collisions 
+\size small
+
+\begin_inset Formula $\sum_{i=5}^{^{n}}P_{col.}(i)\backsimeq4\%$
+\end_inset
+
+
+\size default
+.
+ Moreover, the values of the collision recovery coefficients 
+\begin_inset Formula $\alpha_{i},\,i>4$
+\end_inset
+
+ are practically very small.
+ Therefore, the proposed 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+ for the practical RFID environment can be expressed as
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{MCRC}}=P(1)+\alpha_{2}P_{col.}(2)+\alpha_{3}P_{col.}(3)+\alpha_{4}P_{col.}(4),\label{eq:new coll prob}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+, and 
+\begin_inset Formula $\alpha_{4}$
+\end_inset
+
+ are respectively the second, third, and fourth collision recovery coefficients.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename collision distribution.emf
+	lyxscale 15
+	width 65page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Distribution of collision probability for a collided slot in FSA, under
+ condition of 
+\begin_inset Formula $\frac{n}{2}\leq L\leq2n$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Collision-distribution-in"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The next step is to derive a closed form solution for the new optimum frame
+ length 
+\begin_inset Formula $L_{MCRC}$
+\end_inset
+
+ under multiple collision recovery coefficients environment.
+ 
+\begin_inset Formula $L_{MCRC}$
+\end_inset
+
+ can be optimized by finding the value of 
+\begin_inset Formula $L$
+\end_inset
+
+ which maximizes 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+.
+ According to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2013_orthogonal"
+
+\end_inset
+
+, if 
+\begin_inset Formula $L\gg1$
+\end_inset
+
+, and 
+\begin_inset Formula $n\gg i$
+\end_inset
+
+, we can assume a Poisson distribution
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+P(i)\backsimeq\frac{1}{i!}\cdot\beta^{-i}\cdot e^{-\frac{1}{\beta}},\label{eq:approx_P(i)}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $\beta=\frac{L}{n}$
+\end_inset
+
+.
+ After substituting with (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:approx_P(i)"
+
+\end_inset
+
+) in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:new coll prob"
+
+\end_inset
+
+) we get
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{MCRC}}=e^{-\frac{1}{\beta}}\cdot\left(\beta^{-1}+\frac{\alpha_{2}}{2}\beta^{-2}+\frac{\alpha_{3}}{6}\beta^{-3}+\frac{\alpha_{4}}{24}\beta^{-4}\right).\label{eq:eff_proposed_simpl}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Now we have to find the value of 
+\begin_inset Formula $\beta$
+\end_inset
+
+ which maximizes 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+.
+ This is achieved by differentiating the reading efficiency in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff_proposed_simpl"
+
+\end_inset
+
+) with respect to 
+\begin_inset Formula $\beta$
+\end_inset
+
+ and equate the result to zero.
+ After differentiating, the equation can be simplified to be
+\size small
+
+\begin_inset Formula 
+\begin{eqnarray}
+-e^{-\frac{1}{\beta}}\cdot\left(\beta^{-2}+\beta^{-3}(\alpha_{2}-1)+\frac{\beta^{-4}}{2}(\alpha_{3}-\alpha_{2})+\frac{\beta^{-5}}{6}(\alpha_{4}-\alpha3)\right.\label{eq:diff_large}\\
+\left.-\frac{\beta^{-6}.\alpha_{4}}{24}\right)=0.\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+Multiplying the equation by 
+\begin_inset Formula $-e^{\frac{1}{\beta}}\cdot\beta^{6}$
+\end_inset
+
+, it finally results in
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+\underset{a}{\underbrace{1}}\beta^{4}+\underset{b}{\underbrace{(\alpha_{2}-1)}}\beta^{3}+\underset{c}{\underbrace{\frac{(\alpha_{3}-\alpha_{2})}{2}}}\beta^{2}+\underset{d}{\underbrace{\frac{(\alpha_{4}-\alpha_{3})}{6}}}\beta-\underset{e}{\underbrace{\frac{\alpha_{4}}{24}}}=0.\label{eq:final_fourth}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final_fourth"
+
+\end_inset
+
+) has four roots 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Math_book_quartic"
+
+\end_inset
+
+
+\size small
+
+\begin_inset Formula 
+\begin{eqnarray}
+\beta_{1,2} & = & -\frac{b}{4a}-S\pm0.5\sqrt{\underset{X}{\underbrace{-4S^{2}-2P+\frac{q}{S}}}}\label{eq:roots}\\
+\beta_{3,4} & = & -\frac{b}{4a}+S\pm0.5\sqrt{\underset{Y}{\underbrace{-4S^{2}-2P-\frac{q}{S}}}},\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $P=\frac{8ac-3b^{2}}{8a^{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $q=\frac{b^{3}-4abc+8a^{2}d}{8a^{3}}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+and,
+\size footnotesize
+ 
+\size small
+
+\begin_inset Formula $S=0.5\sqrt{-\frac{2}{3}P+\frac{1}{3a}\left(Q+\frac{\triangle_{0}}{Q}\right)}$
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $Q=\sqrt[3]{\frac{\triangle_{1}+\sqrt{\triangle_{1}^{2}-4\triangle_{0}^{3}}}{2}}$
+\end_inset
+
+.
+\size footnotesize
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+with, 
+\size small
+
+\begin_inset Formula $\triangle_{0}=c^{2}-3bd+12ae$
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\triangle_{1}=2c^{3}-9bcd+27ad^{2}-72ace$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Based on practical ranges for the collision recovery coefficients, 
+\size small
+
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ , 
+\begin_inset Formula $0\leq\alpha_{i}\leq1$
+\end_inset
+
+
+\size default
+, and 
+\size small
+
+\begin_inset Formula $\alpha_{2}\geq\alpha_{3}\geq\alpha_{4}$
+\end_inset
+
+.
+
+\size default
+ Therefore, we can prove that the signs of the polynomial coefficients are
+ constant and not changing in all ranges of 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and are presented as {
+\begin_inset Formula $a>0$
+\end_inset
+
+, 
+\begin_inset Formula $b<0$
+\end_inset
+
+, 
+\begin_inset Formula $c<0$
+\end_inset
+
+, 
+\begin_inset Formula $d<0$
+\end_inset
+
+, and 
+\begin_inset Formula $e<0$
+\end_inset
+
+}.
+\end_layout
+
+\begin_layout Standard
+According to Descartes’ rules of sign 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
+\end_inset
+
+, there is only one valid real positive solution for the equation.
+ After analyzing (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final_fourth"
+
+\end_inset
+
+) using Descartes’ rules of sign 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
+\end_inset
+
+, the proposed closed form optimum frame length 
+\begin_inset Formula $L_{MCRC}$
+\end_inset
+
+ under the multiple collision recovery coefficients environment is
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+L_{MCRC}=\left(-\frac{b}{4a}+S+0.5\sqrt{-4S^{2}-2P-\frac{q}{S}}\right)\cdot n.\label{eq:closed form-2}
+\end{equation}
+
+\end_inset
+
+
+\size default
+According to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form-2"
+
+\end_inset
+
+), the proposed equation gives a linear relation with reference to the number
+ of tags 
+\begin_inset Formula $n$
+\end_inset
+
+, and includes the effect of different collision recovery coefficients.
+ When the RFID reader has no collision resolving capability, i.e.
+ 
+\begin_inset Formula $\alpha_{2}=\alpha_{3}=\alpha_{4}=0$
+\end_inset
+
+, the proposed formula gives 
+\begin_inset Formula $L_{MCRC}=n$
+\end_inset
+
+, which is identical to the frame length in the conventional case.
+ When the RFID reader has a full and equal collision resolving capability
+ for the two, three, and four collided tags per slot, i.e.
+ 
+\begin_inset Formula $\alpha_{2}=\alpha_{3}=\alpha_{4}=1$
+\end_inset
+
+, the proposed formula gives 
+\begin_inset Formula $L_{MCRC}=0.452\cdot n$
+\end_inset
+
+, which matches the results in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Collision Recovery Coefficients Calculations
+\end_layout
+
+\begin_layout Standard
+Now the calculation of the collision recovery coefficients 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{4}$
+\end_inset
+
+ is clarified, which are the main optimization variables in our proposal.
+ The values of these coefficients are strongly dependent on the receiver
+ type.
+ Calculations of the collision recovery coefficients are done based on an
+ RFID reader model that utilizes the capture effect.
+ The reader resolves the collision based on the strongest tag reply.
+ Therefore, the collision can be resolved with a certain probability, if
+ the strongest tag reply is stronger than the summation of the other collided
+ tags at the same slot.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename collision_recovery_coefficients.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulation results for the average collision recovery coefficients 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ as a function of the SNR using the strongest tag reply receiver.
+ 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+, and 
+\begin_inset Formula $\alpha_{4}$
+\end_inset
+
+ are respectively the collision recovery probability for two, three, and
+ four collided tags per slot.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Collision-recovery-coefficients"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The main advantage of this reader is that it does not need any channel state
+ information (CSI) to recover the strongest tag.
+ According to EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, collisions in RFID systems occur only within the 
+\begin_inset Formula $16$
+\end_inset
+
+ bits packet called 
+\begin_inset Formula $RN16$
+\end_inset
+
+.
+ If any single bit error occurs in this packet, the total packet must be
+ considered lost.
+ Therefore, the meaning of the collision recovery probability coefficients
+ 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ is the probability that the RFID reader can identify a complete 
+\begin_inset Formula $RN16$
+\end_inset
+
+ packet from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags.
+ Therefore, the collision recovery coefficient can be expressed by 
+\begin_inset Formula $\alpha_{i}=\left(1-PER_{i}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $PER_{i}$
+\end_inset
+
+ is the Packet Error Rate for 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags.
+ In this work, we measure the SNR for each slot, then we calculate the average
+ SNR per frame as 
+\begin_inset Formula $E\left\{ \frac{\left|h\right|^{2}\cdot x^{2}}{\sigma^{2}}\right\} $
+\end_inset
+
+ , where 
+\begin_inset Formula $\text{\sigma}$
+\end_inset
+
+ is the standard deviation of the Additive White Gaussian Noise (AWGN) per
+ slot, and at last, a normalized signal power is used, i.e.
+ 
+\begin_inset Formula $E\left\{ x^{2}\right\} =1$
+\end_inset
+
+.
+ Moreover, the equivalent channel coefficients 
+\begin_inset Formula $h$
+\end_inset
+
+ follow Rayleigh fading, which is a common assumption for dense RFID application
+s 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2010_Trans_CR"
+
+\end_inset
+
+, because there is no dominant Line-of-Site communication link between the
+ tags and the reader 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2010_Trans_CR"
+
+\end_inset
+
+.
+ The channel coefficients are independent on zero mean circularly symmetric
+ complex Gaussian random variables with normalized energy 
+\begin_inset Formula $E\left\{ \left|h\right|^{2}\right\} =1$
+\end_inset
+
+, and all tags are statistically identical, which means all of them experience
+ the same average path loss.
+ Therefore, the average SNR per frame is 
+\begin_inset Formula $E\left\{ \frac{1}{\sigma^{2}}\right\} $
+\end_inset
+
+.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename frame_Length_SNR.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Normalized frame length 
+\begin_inset Formula $(L/n)$
+\end_inset
+
+ comparison using the proposed formula in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form-2"
+
+\end_inset
+
+) and the numerical solution as a function of the SNR.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Frame-length-comparision"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Collision-recovery-coefficients"
+
+\end_inset
+
+ shows the values of the collision recovery coefficients versus the average
+ SNR per frame using the strongest tag reply receiver.
+ In these simulations, a sampling frequency of 
+\begin_inset Formula $f_{s}=\unit[8]{MHz}$
+\end_inset
+
+ is used, and the tags used FM0 as an encoding scheme.
+ Finally, to clarify the worst-case effect of the collision recovery coefficient
+s, we used the highest symbol rate 
+\begin_inset Formula $\unit[\mbox{BLF}=640]{kHz}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Closed Form Solution vs.
+ Numerical Solution
+\end_layout
+
+\begin_layout Standard
+For each RFID reader, each SNR leads to corresponding values for the collision
+ recovery coefficients 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\alpha_{4}$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frame-length-comparision"
+
+\end_inset
+
+ shows a comparison between the proposed formula (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form-2"
+
+\end_inset
+
+) and the numerical solution which maximizes the reading efficiency in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff_proposed_simpl"
+
+\end_inset
+
+) versus the SNR.
+ Both simulations used the same receiver model, which is the strongest tag
+ reply receiver, which is presented in the previous section.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frame-length-comparision"
+
+\end_inset
+
+, the proposed formula gives identical results compared to the numerical
+ solution at the complete SNR range.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename saving_time_MCR_alpha_2_3_4_perfect_estimation_new.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{MCRC}$
+\end_inset
+
+ using the proposed MCRC as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ for perfect number of tags estimation using 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+ and different 
+\begin_inset Formula $SNR$
+\end_inset
+
+ values.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Percentages-of-saving_MCR_perfect"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Mean Reading Time Reduction
+\end_layout
+
+\begin_layout Standard
+The total average number of slots needed to identify a complete bunch of
+ tags is calculated using the strongest tag reply receiver in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2013_capture"
+
+\end_inset
+
+.
+ FSA with initial frame length 
+\begin_inset Formula $L_{ini.}=16$
+\end_inset
+
+ is used as anti-collision algorithm.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving_MCR_perfect"
+
+\end_inset
+
+ illustrates a comparison between the percentages of saving time using the
+ proposed MCRC and the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ assuming perfect number of tags estimation.
+ The simulation uses 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+ and different 
+\begin_inset Formula $SNR$
+\end_inset
+
+ values.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving_MCR_perfect"
+
+\end_inset
+
+, when the value of the 
+\begin_inset Formula $SNR$
+\end_inset
+
+ increases, the collision recovery probability increases as well.
+ Hence, the mean reading time reduction also increases.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving_MCR_with"
+
+\end_inset
+
+ shows the percentages of saving time with the proposed MCRC compared to
+ the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ using different anti-collision algorithms with 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+ and 
+\begin_inset Formula $SNR=\unit{\unit[10]{dB}}$
+\end_inset
+
+.
+ Results in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving_MCR_with"
+
+\end_inset
+
+ is calculated using Monte-Carlo simulations for FSA with 
+\begin_inset Formula $1000$
+\end_inset
+
+ iterations for each 
+\begin_inset Formula $n$
+\end_inset
+
+ value.
+\end_layout
+
+\begin_layout Standard
+In this section, the FSA reading efficiency is proposed for equal slot durations
+ system with multiple collision recovery coefficients.
+ However, there are differences in the slot durations depending on the slot
+ type.
+ Therefore, in the following section, the FSA reading efficiency considers
+ the differences in slot durations as well as the differences in the collision
+ recovery coefficients.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename saving_time_MCR_alpha_2_3_4_with_estimation_new.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{MCRC}$
+\end_inset
+
+ using the proposed MCRC frame length as a function of the number of tags
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ using different anti-collision algorithms with 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+ and 
+\begin_inset Formula $SNR=\unit{\unit[10]{dB}}$
+\end_inset
+
+ with strongest tag reply receiver, which leads to (
+\begin_inset Formula $\alpha_{2}=0.6$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}=0.5$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{4}=0.4$
+\end_inset
+
+).
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Percentages-of-saving_MCR_with"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Time and Multiple Collision Recovery System
+\end_layout
+
+\begin_layout Standard
+In this section, a new FSA reading efficiency metric called time aware multiple
+ collision recovery coefficients reading efficiency 
+\begin_inset Formula $\eta_{_{TAMCRC}}$
+\end_inset
+
+ is presented.
+ The main contribution of this new efficiency is, that it contains a unique
+ collision recovery coefficient 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ for each probability of collision 
+\begin_inset Formula $P(i)$
+\end_inset
+
+.
+ These new coefficients indicate the ability of the reader to recover one
+ tag from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags, where it varies based on the number of collided tags.
+ Moreover, it takes into consideration the different slot durations.
+ 
+\end_layout
+
+\begin_layout Subsection
+Closed Form Solution for Time Multiple Collision Recovery Aware System
+\end_layout
+
+\begin_layout Standard
+As shown in the previous section, the probability that a collision is resulted
+ from two or three collided tags is 
+\begin_inset Formula $\simeq85\%$
+\end_inset
+
+.
+ Moreover, the values of the remaining collision recovery coefficient 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ when 
+\begin_inset Formula $i\geq4$
+\end_inset
+
+, i\SpecialChar \@.
+e\SpecialChar \@.
+, 4 or more collided tags are small.
+ Therefore, only up to three collided tags are considered.
+ The next step is normalizing the slot duration 
+\begin_inset Formula $t_{k}$
+\end_inset
+
+ of successful and collided tags to unity.
+ Furthermore, it is assumed that empty slots are shorter than successful
+ slots (i\SpecialChar \@.
+e\SpecialChar \@.
+ 
+\begin_inset Formula $t_{0}\leq t_{k}$
+\end_inset
+
+), which is the case for practical readers.
+ Then, the proposed reading efficiency 
+\begin_inset Formula $\eta_{_{TAMCRC}}$
+\end_inset
+
+ can be expressed by
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{TAMCRC}}=\frac{P(1)+\alpha_{2}P_{col.}(2)+\alpha_{3}P_{col.}(3)}{1+P(0)\cdot(C_{t}-1)},\label{eq:TAMCR efficiency}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $C_{t}=\frac{t_{0}}{t_{k}}$
+\end_inset
+
+ represents the slots durations constant, and 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+ are respectively the second, third collision recovery coefficients.
+\end_layout
+
+\begin_layout Standard
+The next step is to derive a closed form for the new optimum frame length
+ 
+\begin_inset Formula $L_{_{TAMCRC}}$
+\end_inset
+
+ which maximizes 
+\begin_inset Formula $\eta_{_{TAMCRC}}$
+\end_inset
+
+.
+ After substituting by (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:approx_P(i)"
+
+\end_inset
+
+) in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TAMCR efficiency"
+
+\end_inset
+
+) we obtain
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{TAMCRC}}=\frac{e^{-\frac{1}{\beta}}\cdot\left(\beta^{-1}+\frac{\alpha_{2}}{2}\beta^{-2}+\frac{\alpha_{3}}{6}\beta^{-3}\right)}{1+e^{-\frac{1}{\beta}}\cdot(C_{t}-1)},\label{eq:eff_TAMCR_sub}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where, 
+\begin_inset Formula $\beta=\frac{L}{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now we have to find the value of 
+\begin_inset Formula $\beta$
+\end_inset
+
+ which maximizes 
+\begin_inset Formula $\eta_{_{TAMCRC}}$
+\end_inset
+
+.
+ This is achieved by differentiating the reading efficiency in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff_TAMCR_sub"
+
+\end_inset
+
+) with respect to 
+\begin_inset Formula $\beta$
+\end_inset
+
+ and equate the result to zero
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\eta_{_{TAMCRC}}}{\partial\beta}=0.\label{eq:diff}
+\end{equation}
+
+\end_inset
+
+
+\size default
+After differentiating and simplifications, the final equation is a fourth
+ order polynomial
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+a\cdot\beta^{4}+b\cdot\beta^{3}+c\cdot\beta^{2}+d\cdot\beta+e=0,\label{eq:final_fourth-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where, 
+\size small
+
+\begin_inset Formula $a=\underset{(<0)}{\underbrace{-C_{t}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula $b=\underset{(<0)}{\underbrace{C_{t}\cdot(1-\alpha_{2})-1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula $c=\underset{(>0)}{\underbrace{\underset{(>0)}{\underbrace{2-C_{t}-\alpha_{2}}}+\underset{(>0)}{\underbrace{\frac{C_{t}}{2}(\alpha_{2}-\alpha_{3})}}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula $d=\underset{(>0)}{\underbrace{\frac{1}{2}(\alpha_{2}-\alpha_{3})+\frac{1}{2}\alpha_{2}\cdot(1-C_{t})+\frac{1}{6}C_{t}\cdot\alpha_{3}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula $e=\underset{(>0)}{\underbrace{\frac{1}{6}\alpha_{3}\cdot(2-C_{t})}}$
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+As 
+\begin_inset Formula $0\leq\alpha_{i}\leq1$
+\end_inset
+
+, 
+\begin_inset Formula $0<C_{t}\leq1$
+\end_inset
+
+, and 
+\begin_inset Formula $\alpha_{2}\geq\alpha_{3}$
+\end_inset
+
+, (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final_fourth-1"
+
+\end_inset
+
+) has four roots 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Math_book_quartic"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{eqnarray}
+\beta_{1,2} & = & -\frac{b}{4a}-S\pm0.5\sqrt{\underset{X}{\underbrace{-4S^{2}-2P+\frac{q}{S}}}}\label{eq:roots-1}\\
+\beta_{3,4} & = & -\frac{b}{4a}+S\pm0.5\sqrt{\underset{Y}{\underbrace{-4S^{2}-2P-\frac{q}{S}}}},\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+with 
+\begin_inset Formula $P=\frac{8ac-3b^{2}}{8a^{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $q=\frac{b^{3}-4abc+8a^{2}d}{8a^{3}}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+and
+\size scriptsize
+ 
+\size small
+
+\begin_inset Formula $S=0.5\sqrt{-\frac{2}{3}P+\frac{1}{3a}\left(Q+\frac{\triangle_{0}}{Q}\right)}$
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $Q=\sqrt[3]{\frac{\triangle_{1}+\sqrt{\triangle_{1}^{2}-4\triangle_{0}^{3}}}{2}}$
+\end_inset
+
+
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+with
+\size scriptsize
+ 
+\size small
+
+\begin_inset Formula $\triangle_{0}=c^{2}-3bd+12ae$
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\triangle_{1}=2c^{3}-9bcd+27ad^{2}-72ace$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to the practical ranges of the collision recovery coefficients
+ 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+, it can be proved that the signs of the polynomial coefficients are constant
+ and do not change in all ranges of 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{t}.$
+\end_inset
+
+ Thus, their signs are 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $a<0$
+\end_inset
+
+, 
+\begin_inset Formula $b<0$
+\end_inset
+
+, 
+\begin_inset Formula $c>0$
+\end_inset
+
+, 
+\begin_inset Formula $d>0$
+\end_inset
+
+, and 
+\begin_inset Formula $e>0$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename frame_length_numerical.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Non-quantized Frame length.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Non-quantized-Frame-length_cr_t"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename frame_length_numerical_quantized_new.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Quantized Frame Length.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Quantized-Frame-Length-cr-t"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Normalized optimum frame length 
+\begin_inset Formula $L_{_{TAMCRC}}$
+\end_inset
+
+ using (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form-3"
+
+\end_inset
+
+) compared to the numerical solution as a function of the slot durations
+ constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ (
+\begin_inset Formula $n=100$
+\end_inset
+
+ tags).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Frame-length-comparision_TAMCR"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+According to Descartes’ rules of sign 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
+\end_inset
+
+, there is only one valid real positive solution for the equation.
+ After analyzing (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final_fourth"
+
+\end_inset
+
+) using Descartes’ rules of sign 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
+\end_inset
+
+, the proposed closed form optimum frame length 
+\begin_inset Formula $L_{TAMCRC}$
+\end_inset
+
+ under time and multiple collision recovery coefficients environment leads
+ to be
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+L_{TAMCRC}=\left(-\frac{b}{4a}-S+0.5\sqrt{-4S^{2}-2P+\frac{q}{S}}\right)\cdot n.\label{eq:closed form-3}
+\end{equation}
+
+\end_inset
+
+
+\size default
+ The proposed equation gives a linear relation with reference to the number
+ of tags 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ It considers the effect of different collision recovery coefficients and
+ the slot durations constant.
+ The values of these coefficients are set based on the RFID reader type
+ as shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_orthogonal_codes"
+
+\end_inset
+
+.
+ The value of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ can be calculated based on the transmission rate as shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Comm_Letter_ours_2015"
+
+\end_inset
+
+.
+ Based on (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form-3"
+
+\end_inset
+
+), if the RFID reader has no collision resolving capability (
+\begin_inset Formula $\alpha_{2}=\alpha_{3}=0$
+\end_inset
+
+) and equal slots durations are used (
+\begin_inset Formula $C_{t}=1$
+\end_inset
+
+), we get 
+\begin_inset Formula $L_{TAMCR}=n$
+\end_inset
+
+.
+ This is identical to the optimum frame length in the conventional case.
+\end_layout
+
+\begin_layout Subsection
+Closed Form Solution vs.
+ Numerical Solution
+\end_layout
+
+\begin_layout Standard
+In this section, the accuracy of the proposed closed form compared to the
+ numerical solution is discussed.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Non-quantized-Frame-length_cr_t"
+
+\end_inset
+
+ illustrates a frame length comparison between the proposed formula in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form-3"
+
+\end_inset
+
+) and the numerical solution, which maximizes the reading efficiency in
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TAMCR efficiency"
+
+\end_inset
+
+).
+ The comparison presents the relation between the frame length and the full
+ range of the slot durations constant 
+\begin_inset Formula $C_{t}=[0\rightarrow1]$
+\end_inset
+
+ and different values of collision recovery coefficients 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+.
+ Both simulations used the same receiver model, which is the strongest tag
+ reply receiver.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frame-length-comparision_TAMCR"
+
+\end_inset
+
+, the proposed formula approaches the numerical solution within the full
+ range of the complete range of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+ As mentioned before, the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ only allows taking quantized frame lengths (power of 
+\begin_inset Formula $2$
+\end_inset
+
+).
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Quantized-Frame-Length-cr-t"
+
+\end_inset
+
+ shows that the proposed frame length fully matches the numerical solution
+ in the full range of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Mean Reading Time Reduction
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving-TMCRA-perfect"
+
+\end_inset
+
+ presents the saved time using the proposed TMCRC compared to the conventional
+ frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ assuming perfect number of tags estimation.
+ The simulation results are based on the slot durations constant 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+.
+ It is considered as a practical value used in the EPCglobal C1 G2 standards
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+.
+ The simulation results are done using different values of SNR, as each
+ SNR leads to corresponding values for the collision recovery coefficients
+ 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\alpha_{4}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving-TMCRA-perfect"
+
+\end_inset
+
+, when the value of the SNR increases, the collision recovery probability
+ increases.
+ Hence, the mean reduction in reading time also increases.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename saving_time_Ct_alpha_2_3_perfect_estimation_new.emf
+	lyxscale 50
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TMCRC}$
+\end_inset
+
+ using the proposed TMCRC as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ for perfect number of tags estimation using 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Percentages-of-saving-TMCRA-perfect"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving-TMCRA-Estimation"
+
+\end_inset
+
+ shows the percentages of saving time using the proposed TMCRC compared
+ to the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ using different anti-collision algorithms with 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+ and strongest tag reply receiver with average 
+\begin_inset Formula $SNR=\unit{\unit[8]{dB}}$
+\end_inset
+
+, which is corresponding to 
+\begin_inset Formula $\alpha_{2}=0.52$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}=0.45$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\alpha_{4}=0.35$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+.
+ Results in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving-TMCRA-Estimation"
+
+\end_inset
+
+ is calculated using Monte-Carlo simulations for FSA with 
+\begin_inset Formula $1000$
+\end_inset
+
+ iterations for each 
+\begin_inset Formula $n$
+\end_inset
+
+ value.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentages-of-saving-TMCRA-Estimation"
+
+\end_inset
+
+, the mean reduction in reading time for different estimation algorithms
+ is between 
+\begin_inset Formula $10\%$
+\end_inset
+
+ and 
+\begin_inset Formula $18\%$
+\end_inset
+
+.
+ FSA with perfect number of tags estimation algorithm leads to less number
+ of iterations in the reading process.
+ Thus, it results in the minimum mean reading time reduction value.
+ On the other hand, FSA with simple estimation algorithm e.g.
+ lower bound leads to more number of iteration and higher percentage of
+ the saved time.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename saving_time_Ct_alpha_2_3_with_estimation_new.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Percentages of the mean reading time reduction 
+\begin_inset Formula $\zeta_{TMCRC}$
+\end_inset
+
+ using the proposed TMCRC as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ compared to the conventional frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ using different anti-collision algorithms with 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+ and 
+\begin_inset Formula $SNR=\unit{\unit[10]{dB}}$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Percentages-of-saving-TMCRA-Estimation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+Comparison of the Proposed Algorithms
+\end_layout
+
+\begin_layout Standard
+The most crucial performance metric in RFID systems is the average total
+ reading time for an existing number of tags in the reading area.
+ This section summarizes the performance of the DFSA using the proposed
+ frame lengths.
+ It compares between the average total reading time of the proposed frame
+ lengths and the conventional one which takes 
+\begin_inset Formula $L_{opt}=n$
+\end_inset
+
+.
+ Furthermore, it illustrates how far are the proposed systems compared to
+ the theoretical lower limit of the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, which gives the minimum identification time for UHF RFID system.
+ The theoretical lower limit is achieved when the system identifies a single
+ tag per slot.
+ Therefore, the minimum number of slots required to identify 
+\begin_inset Formula $n$
+\end_inset
+
+ tags is 
+\begin_inset Formula $n$
+\end_inset
+
+ successful slots.
+ 
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Main_comp_no_patent"
+
+\end_inset
+
+ shows the simulation results of the average reading time for DFSA using
+ the following parameters.
+ Slots durations constant 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+, with 
+\begin_inset Formula $te=\unit[60]{\mu s}$
+\end_inset
+
+ , 
+\begin_inset Formula $tc=\unit[300]{\mu s}$
+\end_inset
+
+, and 
+\begin_inset Formula $ts=\unit[1060]{\mu s}$
+\end_inset
+
+, which are the practical values from real measurements using a 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "USRP"
+description "Universal Software Defined Radio Peripheral"
+
+\end_inset
+
+Universal Software Defined Radio Peripheral (USRP B210) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "USRP"
+
+\end_inset
+
+.
+ The strongest tag reply receiver is used with average 
+\begin_inset Formula $SNR=\unit[10]{dB}$
+\end_inset
+
+, which leads to the following collision recovery coefficients, 
+\begin_inset Formula $\alpha_{2}=0.6$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}=0.5$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{4}=0.4$
+\end_inset
+
+.
+ Results in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Main_comp_no_patent"
+
+\end_inset
+
+ is calculated using Monte-Carlo simulations for FSA with 
+\begin_inset Formula $1000$
+\end_inset
+
+ iterations for each 
+\begin_inset Formula $n$
+\end_inset
+
+ value.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Summary_total_time_NoEstimation_no_patent_sec.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Using simple number of tags estimation algorithm (Lower Bound).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Summary_no_estimation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Summary_total_time_with_nopatent_Sec.emf
+	lyxscale 40
+	width 65page%
+	height 25pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Using the proposed collision recovery aware ML number of tags estimation
+ algorithm.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Summary_with_no_patent"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average reading time 
+\begin_inset Formula $\tau$
+\end_inset
+
+ of the proposed systems, the conventional FSA and the theoretical limit
+ as a function of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Main_comp_no_patent"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Summary_no_estimation"
+
+\end_inset
+
+ shows the average reading time for DFSA using lower bound number of tags
+ estimation algorithm.
+ The main objective of these simulations is to evaluate the performance
+ of the proposed frame lengths formulas without the effect of the proposed
+ ML number of tags estimation algorithm.
+ As discussed in chapter 4, the lower bound number of tags estimation neglects
+ the collision recovery capability of the PHY layer and gives the minimum
+ number of the remaining tags in the reading area.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Summary_no_estimation"
+
+\end_inset
+
+, the Time Aware frame length proposal gives 
+\begin_inset Formula $\unit[16]{\%}$
+\end_inset
+
+ saving in the average total reading time compared to the conventional FSA.
+ The Time and Constant Collision Recovery Aware frame length proposal saves
+ 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ more than the Time Aware frame length, because of the new information about
+ the collision recovery coefficient.
+ In the time and constant collision recovery aware, the average collision
+ recovery probability is 
+\begin_inset Formula $\alpha=\alpha_{2}=0.6$
+\end_inset
+
+.
+ In case of the time and multiple collision recovery frame length, the algorithm
+ achieves 
+\begin_inset Formula $\unit[30]{\%}$
+\end_inset
+
+ average saving in the reading time compared to the conventional DFSA.
+ This is due to considering the different values of the collision recovery
+ coefficients 
+\begin_inset Formula $\alpha_{2}=0.6$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}=0.5$
+\end_inset
+
+.
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Performance analysis for the proposed frame length formulas, where 
+\begin_inset Formula $C_{t}=0.2$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{2}=0.7$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}=0.6$
+\end_inset
+
+
+\size small
+ 
+\size default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Performance-comparison-between"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average reading time reduction using the proposed frame length formulas
+ compared to the conventional DFSA 
+\begin_inset Formula $L=n$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Average-reading-time_table_1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Simple estimation algorithm 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Proposed estimation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Lower Bound 
+\size footnotesize
+(LB)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Maximum Likelihood (ML)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Time and no CR 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[16]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[8]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Time and constant CR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[26]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[18]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Time and multiple CR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[30]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[22]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average remaining room of improvement for the proposed frame length formulas
+ to reach the theoretical lower limit of EPCglobal C1 G2 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Average-remaining-room_table2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Simple estimation algorithm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Proposed estimation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Lower Bound 
+\size footnotesize
+(LB)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Maximum Likelihood (ML)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Time and no CR 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[35]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[20]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Time and constant CR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[25]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[15]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Time and multiple CR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[15]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Summary_with_no_patent"
+
+\end_inset
+
+ shows the average reading time with the proposed collision recovery aware
+ ML number of tags estimation.
+ The main target is to evaluate the performance of the proposed frame lengths
+ formulas using the proposed ML number of tags estimation algorithm.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Summary_with_no_patent"
+
+\end_inset
+
+, the time aware frame length proposal gives 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ saving in the average total reading time compared to the conventional FSA.
+ The time and constant collision recovery aware frame length proposal results
+ in  
+\begin_inset Formula $\unit[18]{\%}$
+\end_inset
+
+ average saving in the reading time compared to the conventional DFSA.
+ In case of the time and multiple collision recovery frame length, the proposed
+ solution results in 
+\begin_inset Formula $\unit[22]{\%}$
+\end_inset
+
+ average saving in the reading time compared to the conventional DFSA.
+\end_layout
+
+\begin_layout Standard
+According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Main_comp_no_patent"
+
+\end_inset
+
+, the percentage of saving in reading time with a simple number of tags
+ estimation algorithm is more than the percentage of saving time using the
+ proposed ML number of tags estimation.
+ This is because the total identification time with simple number of tags
+ estimation is more than that with the proposed ML number of tags estimation.
+ Thus, the number of reading cycles and frame length adaptation with simple
+ number of tags estimation is more than the number of reading cycles with
+ the proposed number of tags estimation.
+ However, the average reading time for DFSA using the proposed frame length
+ formulas with the proposed ML estimation is less than the average reading
+ time with simple number of tags estimation.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Performance-comparison-between"
+
+\end_inset
+
+ shows a summary of the performance analysis for the proposed frame length
+ formulas with simple number of tags estimation and with ML number of tags
+ estimation.
+\end_layout
+
+\begin_layout Standard
+According to the above results, there is still a gap of 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ between the proposed systems and the theoretical limit of the EPCglobal
+ C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+.
+ The main reason of this is that the allowed optimization was only in the
+ reader side.
+ To follow the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the tags could not be modified.
+ Consequently, in the next chapter, backwards compatible improvement of
+ the EPCglobal C1 G2 standard are proposed.
+ The proposed system is compatible with the EPCglobal C1 G2 standard, i.e.
+ the proposed tags could be jointly operated with conventional tags and
+ identified by conventional readers without affecting the performance.
+ Additionally, conventional tags can also be operated together with the
+ proposed tags and can be identified by the proposed reader.
+\end_layout
+
+\end_body
+\end_document
