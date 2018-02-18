@@ -1,0 +1,315 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Conclusions and Future Work
+\end_layout
+
+\begin_layout Standard
+Nowadays, there is a great interest in RFID due to the number of applications
+ used in this field.
+ RFID systems provide low cost and low power object identification and tracking
+ mechanisms.
+ It is the key requirement for different ultra-dense applications, e.g., logistics
+, access management and timing sports events.
+ In such applications, a dense number of tags is expected, which requires
+ fast identification.
+ 
+\end_layout
+
+\begin_layout Standard
+The main goal of this thesis is to increase the system throughput and to
+ identify tags faster in the reader range.
+ The transmission of tags is scheduled on the MAC layer with an anti-collision
+ protocol called DFSA.
+ The identification time directly depends on the DFSA reading efficiency
+ anti-collision protocol.
+ The DFSA reading efficiency is controlled by two main parameters, the accuracy
+ of number of tags estimation algorithm and the frame length optimization.
+ The PHY layer of the modern RFID receivers has been improved.
+ Modern RFID receivers have a collision recovery capability, which means
+ that some of collided slots can be converted to successful slots.
+ This capability reduces the losses from the collided slots.
+ Moreover, modern RFID receivers have the capability to identify the type
+ of slot and terminate it as soon as it recognizes that it is not a successful
+ slot.
+ This capability reduces the losses from the empty slots.
+\end_layout
+
+\begin_layout Standard
+The main focus of this thesis is to optimize the DFSA anti-collision algorithm
+ taking into consideration the PHY layer parameters, e.g., the collision recovery
+ capability and the differences in slots durations.
+ Thus, the thesis aims to establish and propose advanced algorithms to increase
+ the performance of the system.
+ Since the work is focused on passive UHF RFID systems, which employ simple
+ tags with in-complex operations.
+ Thus, the proposed changes and algorithms are performed on the reader side
+ except in chapter 6, a new compatible changes of the EPCglobal C1 G2 standard
+ are proposed.
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+The advanced RFID readers, which are proposed in this thesis decrease the
+ mean average of the FSA reading time.
+ They incorporate different PHY layer parameters in order to efficiently
+ optimize the MAC anti-collision protocols.
+ The first three chapters give an introduction to the UHF RFID systems,
+ where the motivation of the work is discussed.
+ Chapter 4 presents a novel closed form solution for a collision recovery
+ aware ML estimator, which considers the effects of the collision recovery
+ probability of the RFID reader.
+ The theoretical derivations lead to a new analytical estimator that can
+ be easily implemented in RFID readers.
+ Using the proposed formula, neither look-up tables nor numerical searching
+ is used.
+ Furthermore, the estimator gives more precise relative number of tags estimatio
+n error compared to the existing state-of-art proposals.
+ Moreover, the proposed estimation algorithm reduces the total identification
+ time by 
+\begin_inset Formula $\simeq\unit[10]{\%}$
+\end_inset
+
+ compared to the existing state-of-the-art solutions.
+\end_layout
+
+\begin_layout Standard
+With the sole optimization of number of tags estimation, there is still
+ a room of improvement between the proposed algorithm and the theoretical
+ lower identification time limit for the FSA by 
+\begin_inset Formula $\simeq\unit[30]{\%}$
+\end_inset
+
+.
+ In this regards, chapter 5 presents different proposals of FSA frame length
+ optimization.
+ The first proposal is called 
+\begin_inset Quotes eld
+\end_inset
+
+Time aware frame length
+\begin_inset Quotes erd
+\end_inset
+
+ frame length.
+ In this proposal, the frame length considers only the difference in slots
+ durations and no collision recovery effect is considered.
+ A closed form solution for the optimum frame length is analytically derived.
+ The proposed solution achieves 
+\begin_inset Formula $\unit[8]{\%}$
+\end_inset
+
+ average saving in reading time compared to the conventional FSA with frame
+ length 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+ The second proposal is called 
+\begin_inset Quotes eld
+\end_inset
+
+Multiple collision recovery aware
+\begin_inset Quotes erd
+\end_inset
+
+ frame length.
+ This proposal considers the differences between the collision recovery
+ coefficients.
+ Thus, it considers that the collision recovery capability strongly depends
+ on the number of the collided tags.
+ However, this proposal assumes constant slots durations regardless the
+ slot type.
+ A closed form solution for the optimum frame length is analytically derived.
+ The proposed solution results in 
+\begin_inset Formula $\unit[12]{\%}$
+\end_inset
+
+ average saving in reading time compared to the conventional FSA with frame
+ length 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+ The third proposal is 
+\begin_inset Quotes eld
+\end_inset
+
+Time and constant collision recovery coefficients aware
+\begin_inset Quotes erd
+\end_inset
+
+ frame length.
+ In this proposal, the frame length considers the time differences in slots
+ durations and the collision recovery capability of the receiver.
+ However, it assumes that the receiver has a constant collision recovery
+ capability regardless the number of collided tags.
+ A closed form solution is analyzed for the frame length.
+ The proposed solution results in 
+\begin_inset Formula $\unit[18]{\%}$
+\end_inset
+
+ average saving in reading time compared to the conventional FSA with frame
+ length 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+ Finally, the fourth proposal is 
+\begin_inset Quotes eld
+\end_inset
+
+Time and multiple collision recovery aware
+\begin_inset Quotes erd
+\end_inset
+
+ frame length.
+ This proposal considers the differences in slots durations and the variable
+ collision recovery coefficients.
+ A closed form solution is analyzed for the frame length.
+ The proposed solution results in 
+\begin_inset Formula $\unit[22]{\%}$
+\end_inset
+
+ average saving in reading time compared to the conventional FSA with frame
+ length 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+ For the proposed systems, there is still 
+\begin_inset Formula $\simeq\unit[10]{\%}$
+\end_inset
+
+ room of improvement between the best proposed system and the theoretical
+ limit of the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+.
+ The main reason of this is that, the allowed optimization was only in the
+ reader side.
+ To follow the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the tags could not be modified.
+\end_layout
+
+\begin_layout Standard
+In chapter 6, compatible improvements of the EPCglobal C1 G2 standard are
+ proposed.
+ It presents some modifications on the communication signal of Tag/reader.
+ Using these modifications, the new system approaches the theoreti\SpecialChar \-
+cal lower
+ reading time limit of the EPCglobal C1 G2 standard.
+ The proposed system is compatible with the EPCglobal C1 G2 standard, i.e.
+ the proposed tags could be jointly operated with conventional tags and
+ identified by conventional readers without affecting the performance.
+ Additionally, conventional tags can also be operated together with the
+ proposed tags and can be identified by the proposed reader.
+\end_layout
+
+\begin_layout Section
+Open Issues and Future Work
+\end_layout
+
+\begin_layout Standard
+Despite the effort invested in this dissertation, there are still some remaining
+ issues left that require further investigations.
+ For instance, the influence of the initial frame length of the proposed
+ system is neglected.
+ However, it should be analyzed.
+ In addition, the MAC layer knowledge of the current SNR should send a feedback
+ signal to the PHY layer.
+ In this signal, the MAC layer decides to start resolving the current collided
+ slot either to a successful or unsuccessful slot, depending on the current
+ value of the SNR.
+ Thereby, if the current SNR value is below a certain threshold, it might
+ be better to leave this slot to a normal collided slot.
+ On the other hand, when the current value of the SNR is above this threshold,
+ it would be better to resolve this collided slot to a successful slot.
+ Finally, a practical assessment of the proposed work through measurements
+ would be beneficial for a more comprehensive evaluation.
+\end_layout
+
+\end_body
+\end_document

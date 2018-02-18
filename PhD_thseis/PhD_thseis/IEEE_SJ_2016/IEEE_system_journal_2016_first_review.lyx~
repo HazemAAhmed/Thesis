@@ -1,0 +1,1988 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass IEEEtran
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding default
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.7cm
+\topmargin 1.8cm
+\rightmargin 1.7cm
+\bottommargin 1.9cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A Closed Form Solution For ALOHA Frame Length Optimizing Multiple Collision
+ Recovery Coefficients Reading Efficiency
+\end_layout
+
+\begin_layout Author
+Hazem A.
+ Ahmed, Hamed Salah, Joerg Robert, Albert Heuberger 
+\begin_inset Newline newline
+\end_inset
+
+Lehrstuhl für Informationstechnik Schwerpunkt Kommunikationselektronik (LIKE)
+\begin_inset Newline newline
+\end_inset
+
+Friedrich-Alexander-Universität Erlangen-Nürnberg
+\begin_inset Newline newline
+\end_inset
+
+ Email: {hazem.a.elsaid, hamed.kenawy, joerg.robert, albert.heuberger}@fau.de
+\end_layout
+
+\begin_layout Abstract
+Minimizing the reading time of the tag population is a critical issue in
+ RFID systems.
+ The usual approach to reduce the reading time is to select the frame size
+ attaining the highest throughput per frame.
+ Previous studies have focused on the frame length calculations using the
+ conventional Framed Slotted ALOHA (FSA) algorithms.
+ In such systems, only the answer of a single tag is considered as a successful
+ slot, and if multiple tags respond simultaneously, a collision occurs.
+ Then all the replied tags are discarded.
+ However, modern systems have the capability of recovering this collision
+ and convert the collided slot into a successful slot.
+ Recent studies focused on calculating the optimal frame length taking into
+ consideration the collision recovery probability.
+ However, these studies have assumed a constant collision recovery probability
+ coefficient, i.e.
+ the probability to recover one tag from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags per slot is constant regardless the value of 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ In this work we propose a novel closed form solution for the optimal FSA
+ frame length which considers the differences in the collision recovery
+ probabilities.
+ The values of the collision recovery coefficients are extracted from the
+ physical layer parameters.
+ Timing comparisons are presented in simulation results to show the mean
+ reduction in reading time using the proposed frame length compared to the
+ other proposals.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Radio Frequency Identification (RFID) is an identification technology that
+ wirelessly transmits the identity of a tag that is attached to an object
+ or a person.
+ Recently the number of applications that use RFID technology has increased,
+ and the reading speed became one of the most critical issues in these applicati
+ons.
+ In RFID systems, the tags typically share a common communication channel.
+ Thus, there is a certain probability of tags collisions, i.e.
+ multiple tags answer simultaneously.
+ This collision probability naturally increases in dense networks.
+ According to EPCglobal class 1 gen 2 standards 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the reader is responsible of coordinating the network and has to avoid
+ tags collisions using specific anti-collision algorithms.
+ The conventional anti-collision algorithm is the Framed Slotted ALOHA (FSA)
+ algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha1"
+
+\end_inset
+
+, which is only a Medium Access Control (MAC) layer protocol.
+ In this algorithm, only the single tag reply (successful slot) can be decoded
+ and identified.
+ Therefore, the conventional definition of the expected reading efficiency
+ 
+\begin_inset Formula $\eta_{conv}$
+\end_inset
+
+ is equivalent to the probability of success 
+\begin_inset Formula $P(1)$
+\end_inset
+
+, which is expressed as:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{conv}}=P(1)=\frac{n}{L}\left(1-\frac{1}{L}\right)^{n-1},\label{eq:eff basic equ}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+where 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $n$
+\end_inset
+
+ presents the number of tags in the reading area, and 
+\begin_inset Formula $L$
+\end_inset
+
+ is the frame length.
+ 
+\end_layout
+
+\begin_layout Standard
+The main goal is to find the optimal frame length 
+\begin_inset Formula $L$
+\end_inset
+
+, which maximizes the reading efficiency 
+\begin_inset Formula $\eta_{conv}$
+\end_inset
+
+.
+ Based on (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff basic equ"
+
+\end_inset
+
+), the reading efficiency 
+\begin_inset Formula $\eta_{_{conv}}$
+\end_inset
+
+ is maximized to 
+\begin_inset Formula $\eta_{_{conv(max)}}=36\%$
+\end_inset
+
+ when 
+\begin_inset Formula $L=n$
+\end_inset
+
+ as shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha1"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Some research groups (e.g.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2013_cap_Letter"
+
+\end_inset
+
+) have concentrated more on the effect of the collision resolving probability
+ and the optimum value of the FSA frame length.
+ They have proposed another equation for the reading efficiency:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{PHY[3]}}=P(1)+\alpha\cdot P(c),\label{eq:eff_PHY_2}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $P(c)$
+\end_inset
+
+ is the probability of collision, and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is the average collision resolving probability coefficient.
+ In this efficiency equation, the RFID reader can convert part of the collided
+ slots into successful slots.
+ Based on this efficiency, the authors have calculated a closed form solution
+ for the optimum frame length:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+L_{_{opt[3]}}=\alpha+(1-\alpha)\cdot n.\label{eq:Lopt_letter_2011}
+\end{equation}
+
+\end_inset
+
+
+\size default
+The authors here have assumed unlimited and equal collision resolving probabilit
+y coefficients.
+ For example, the probability to resolve two collided tags is equal to the
+ probability to resolve ten collided tags.
+ However, this is not an accurate assumption, because the collision recovery
+ probabilities decrease when the number of collided tags increases, as we
+ will see in the next sections.
+ Moreover, there is a practical saturation limit for the collision recovery
+ capability.
+\end_layout
+
+\begin_layout Standard
+Another research group 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+ considered the limited RFID reader capability of collision resolving.
+ They have proposed a limited reading efficiency expressed as:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{PHY[5]}}=\sum_{i=1}^{M}P(i),\label{eq:rff_PHY}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\size small
+
+\begin_inset Formula $P(i)=\binom{n}{i}\left(\frac{1}{L}\right)^{i}\left(1-\frac{1}{L}\right)^{n-i}$
+\end_inset
+
+
+\size default
+, and 
+\begin_inset Formula $M$
+\end_inset
+
+ represents the number of collided tags that the reader is capable to recover.
+ The authors assumed that the probability to recover one tag from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags is equal to 
+\begin_inset Formula $100\%$
+\end_inset
+
+ independent of 
+\begin_inset Formula $i$
+\end_inset
+
+, which is not a practical assumption.
+ In reality, the probability to recover a single tag from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags varies based on the receiver type, the number of collided
+ tags 
+\begin_inset Formula $i$
+\end_inset
+
+, and the Signal to Noise Ratio (SNR).
+ According to the efficiency equation in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rff_PHY"
+
+\end_inset
+
+), the authors proposed fixed values for the optimum FSA frame length based
+ on the collision resolving capability of the RFID reader.
+ They calculated these values numerically by searching for the frame length
+ which maximizes their proposed reading efficiency.
+\end_layout
+
+\begin_layout Standard
+In this paper we propose a new reading efficiency metric called Multiple
+ Collision Recovery Coefficients Reading Efficiency 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+, which includes a unique collision resolving coefficient for each number
+ of collided tags.
+ Then, we calculate these coefficients based on a simple RFID reader model
+ to show how the proposed system could be applied on real-life applications.
+ Hence, we propose a novel closed form solution for the optimum FSA frame
+ length which maximize the proposed efficiency metric.
+ This paper is organized as follows: Section II presents the system model
+ under multiple collision recovery coefficients in addition to an example
+ to calculate the collision recovery coefficients.
+ Next, section III presents the proposed closed form for the optimal frame
+ length based on the collision recovery coefficients.
+ Finally, section IV gives numerical results on the improvements of the
+ new optimization criterion, before we conclude in section V.
+ 
+\end_layout
+
+\begin_layout Section
+Frame Length Optimization Under Multiple Collision Recovery Coefficients
+\end_layout
+
+\begin_layout Standard
+In this section, we will present a new FSA efficiency metric called Multiple
+ Collision Recovery Coefficients Reading Efficiency 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+.
+ Afterwards, a closed form solution for the new optimum frame length 
+\begin_inset Formula $L_{MCRC}$
+\end_inset
+
+ under multiple collision recovery coefficients environment will be presented.
+\end_layout
+
+\begin_layout Subsection
+Proposed Multiple Collision Recovery Coefficients Reading Efficiency
+\end_layout
+
+\begin_layout Standard
+The main contribution in this efficiency is that it contains a unique collision
+ recovery coefficient 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ for each probability of collision 
+\begin_inset Formula $P_{col.}(i)$
+\end_inset
+
+.
+ These new coefficients indicate the ability of the reader to recover one
+ tag from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags.
+ The proposed reading efficiency 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+ is expressed as:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{MCRC}}=P(1)+\sum_{i=2}^{n}\alpha_{i}P_{col.}(i).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Collision-distribution-in"
+
+\end_inset
+
+ presents the distribution of the average collision probability in a frame
+ of length 
+\begin_inset Formula $0.5\cdot n\leq L\leq2\cdot n$
+\end_inset
+
+ uniformly, which is the practical range of the frame length in RFID systems
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ref_4_4_2013_Cap_time"
+
+\end_inset
+
+.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Collision-distribution-in"
+
+\end_inset
+
+, the probability that the collided slot comes from two, three, or four
+ collided tags is equal to 
+\size small
+
+\begin_inset Formula $P_{col.}(2)+P_{col.}(3)+P_{col.}(4)\backsimeq96\%$
+\end_inset
+
+ 
+\size default
+, and for the remaining tag collisions 
+\size small
+
+\begin_inset Formula $\sum_{i=5}^{^{n}}P_{col.}(i)\backsimeq4\%$
+\end_inset
+
+
+\size default
+.
+ Moreover, the values of the collision recovery coefficients 
+\begin_inset Formula $\alpha_{i},\, i>4$
+\end_inset
+
+ are practically very small.
+ 
+\end_layout
+
+\begin_layout Standard
+Therefore, the proposed 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+ for the practical RFID environment can be expressed as shown:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{MCRC}}=P(1)+\alpha_{2}P_{col.}(2)+\alpha_{3}P_{col.}(3)+\alpha_{4}P_{col.}(4),\label{eq:new coll prob}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+, and 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+ are respectively the second, third, and fourth collision recovery coefficients.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename collision distribution.emf
+	lyxscale 15
+	width 100col%
+	height 15pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Distribution of collision probability for a collided slot in FSA, under
+ condition of 
+\begin_inset Formula $\frac{n}{2}\leq L\leq2n$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Collision-distribution-in"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Proposed Closed Form Frame Length
+\end_layout
+
+\begin_layout Standard
+The next step is to derive a closed form solution for the new optimum frame
+ length 
+\begin_inset Formula $L_{MCRC}$
+\end_inset
+
+ under multiple collision recovery coefficients environment.
+ 
+\begin_inset Formula $L_{MCRC}$
+\end_inset
+
+ can be optimized by finding the value of 
+\begin_inset Formula $L$
+\end_inset
+
+ which maximizes 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+.
+ According to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2013_orthogonal"
+
+\end_inset
+
+, if 
+\begin_inset Formula $L\gg1$
+\end_inset
+
+, and 
+\begin_inset Formula $n\gg i$
+\end_inset
+
+, we can assume a Poisson distribution:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+P(i)\backsimeq\frac{1}{i!}\cdot\beta^{-i}\cdot e^{-\frac{1}{\beta}},\label{eq:approx_P(i)}
+\end{equation}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $\beta=\frac{L}{n}$
+\end_inset
+
+.
+ After substituting by (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:approx_P(i)"
+
+\end_inset
+
+) in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:new coll prob"
+
+\end_inset
+
+) we get:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{MCRC}}=e^{-\frac{1}{\beta}}\cdot\left(\beta^{-1}+\frac{\alpha_{2}}{2}\beta^{-2}+\frac{\alpha_{3}}{6}\beta^{-3}+\frac{\alpha_{4}}{24}\beta^{-4}\right).\label{eq:eff_proposed_simpl}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Now we have to find the value of 
+\begin_inset Formula $\beta$
+\end_inset
+
+ which maximizes 
+\begin_inset Formula $\eta_{_{MCRC}}$
+\end_inset
+
+.
+ This is achieved by differentiating the reading efficiency in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff_proposed_simpl"
+
+\end_inset
+
+) with respect to 
+\begin_inset Formula $\beta$
+\end_inset
+
+ and equate the result to zero.
+ After differentiating, the equation can be simplified as:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{eqnarray}
+-e^{-\frac{1}{\beta}}\cdot\left(\beta^{-2}+\beta^{-3}(\alpha_{2}-1)+\frac{\beta^{-4}}{2}(\alpha_{3}-\alpha_{2})+\frac{\beta^{-5}}{6}(\alpha_{4}-\alpha3)\right.\label{eq:diff_large}\\
+\left.-\frac{\beta^{-6}.\alpha_{4}}{24}\right)=0.\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+After multiplying the equation by 
+\begin_inset Formula $-e^{\frac{1}{\beta}}\cdot\beta^{6}$
+\end_inset
+
+, the equation finally results in:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\underset{a}{\underbrace{1}}\beta^{4}+\underset{b}{\underbrace{(\alpha_{2}-1)}}\beta^{3}+\underset{c}{\underbrace{\frac{(\alpha_{3}-\alpha_{2})}{2}}}\beta^{2}+\underset{d}{\underbrace{\frac{(\alpha_{4}-\alpha_{3})}{6}}}\beta-\underset{e}{\underbrace{\frac{\alpha_{4}}{24}}}=0.\label{eq:final_fourth}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final_fourth"
+
+\end_inset
+
+) has four roots 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Math_book_quartic"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{eqnarray}
+\beta_{1,2} & = & -\frac{b}{4a}-S\pm0.5\sqrt{\underset{X}{\underbrace{-4S^{2}-2P+\frac{q}{S}}}}\label{eq:roots}\\
+\beta_{3,4} & = & -\frac{b}{4a}+S\pm0.5\sqrt{\underset{Y}{\underbrace{-4S^{2}-2P-\frac{q}{S}}}},\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+where 
+\size footnotesize
+
+\begin_inset Formula $P=\frac{8ac-3b^{2}}{8a^{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $q=\frac{b^{3}-4abc+8a^{2}d}{8a^{3}}$
+\end_inset
+
+
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+and,
+\size footnotesize
+ 
+\size scriptsize
+
+\begin_inset Formula $S=0.5\sqrt{-\frac{2}{3}P+\frac{1}{3a}\left(Q+\frac{\triangle_{0}}{Q}\right)}$
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $Q=\sqrt[3]{\frac{\triangle_{1}+\sqrt{\triangle_{1}^{2}-4\triangle_{0}^{3}}}{2}}$
+\end_inset
+
+
+\size footnotesize
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+with, 
+\size scriptsize
+
+\begin_inset Formula $\triangle_{0}=c^{2}-3bd+12ae$
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\triangle_{1}=2c^{3}-9bcd+27ad^{2}-72ace$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to practical ranges for the collision recovery coefficients, 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ ,
+\size footnotesize
+ 
+\begin_inset Formula $0\leq\alpha_{i}\leq1$
+\end_inset
+
+
+\size default
+, and 
+\size footnotesize
+
+\begin_inset Formula $\alpha_{2}\geq\alpha_{3}\geq\alpha_{4}$
+\end_inset
+
+
+\size default
+.
+ Therefore, we can proof that the signs of the polynomial coefficients are
+ constant and not changing in all ranges of 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and can be as follows: 
+\begin_inset Formula $a=+$
+\end_inset
+
+, 
+\begin_inset Formula $b=-$
+\end_inset
+
+, 
+\begin_inset Formula $c=-$
+\end_inset
+
+, 
+\begin_inset Formula $d=-$
+\end_inset
+
+, and 
+\begin_inset Formula $e=-$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+According to Descartes’ rules of sign 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Descartes_rule"
+
+\end_inset
+
+, there is only one valid real positive solution for the equation.
+ Now, we will identify which solution is the valid one.
+ There are two possibilities for the solutions: 
+\end_layout
+
+\begin_layout Standard
+1.
+ One positive real solution and the remaining three solutions are negative.
+ In this case, all solutions are real and we need just to identify what
+ is the root which has the largest values from the four solutions.
+ According to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:roots"
+
+\end_inset
+
+), the value of the square roots 
+\begin_inset Formula $\sqrt{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sqrt{Y}$
+\end_inset
+
+ are positive real, because we do not have complex solutions.
+ This means, 
+\begin_inset Formula $\beta_{1}>\beta_{2}$
+\end_inset
+
+ and also 
+\begin_inset Formula $\beta_{3}>\beta_{4}$
+\end_inset
+
+.
+ So, the solution will be either 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ or 
+\begin_inset Formula $\beta_{3}$
+\end_inset
+
+.
+ Moreover, the value of 
+\begin_inset Formula $S$
+\end_inset
+
+ should be also positive real, and 
+\begin_inset Formula $q$
+\end_inset
+
+ has always negative real value.
+ so 
+\begin_inset Formula $\beta_{3}>\beta_{1}$
+\end_inset
+
+ which means in this case that our solution is 
+\begin_inset Formula $\beta_{3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+2.
+ Two complex solutions, one real positive solution, and one negative solution.
+ In this case, we have either 
+\begin_inset Formula $\beta_{1,2}$
+\end_inset
+
+ or 
+\begin_inset Formula $\beta_{3,4}$
+\end_inset
+
+ real solutions.
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ should be positive real number, and the complex value comes only from the
+ square roots 
+\begin_inset Formula $\sqrt{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sqrt{Y}$
+\end_inset
+
+.
+ Moreover, 
+\begin_inset Formula $q$
+\end_inset
+
+ has always a negative real value.
+ Therefore, in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:roots"
+
+\end_inset
+
+) the value of 
+\begin_inset Formula $X<Y$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\beta_{1,2}$
+\end_inset
+
+ must be the complex roots, and as 
+\begin_inset Formula $\beta_{3}>\beta_{4}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{4}$
+\end_inset
+
+ is the negative root and 
+\begin_inset Formula $\beta_{3}$
+\end_inset
+
+ is the positive real root.
+\end_layout
+
+\begin_layout Standard
+Based on the above discussion, the proposed closed form optimum frame length
+ 
+\begin_inset Formula $L_{MCRC}$
+\end_inset
+
+ under the multiple collision recovery coefficients environment is:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+L_{MCRC}=\left(-\frac{b}{4a}+S+0.5\sqrt{-4S^{2}-2P-\frac{q}{S}}\right)\cdot n\label{eq:closed form}
+\end{equation}
+
+\end_inset
+
+
+\size default
+According to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+), the proposed equation gives a linear relation wrt.
+ the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+, and includes the effect of different collision recovery coefficients.
+ In case that the RFID reader has no collision resolving capability, i.e.
+ 
+\begin_inset Formula $\alpha_{2}=\alpha_{3}=\alpha_{4}=0$
+\end_inset
+
+, the proposed formula gives 
+\begin_inset Formula $L_{MCRC}=n$
+\end_inset
+
+, which is identical to the frame length in the conventional case.
+ When the RFID reader has a full and equal collision resolving capability
+ for the two, three, and four collided tags per slot, i.e.
+ 
+\begin_inset Formula $\alpha_{2}=\alpha_{3}=\alpha_{4}=1$
+\end_inset
+
+, the proposed formula gives 
+\begin_inset Formula $L_{MCRC}=0.452\cdot n$
+\end_inset
+
+, which matches the results in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Collision Recovery Coefficients Calculations
+\end_layout
+
+\begin_layout Standard
+Now the calculation of the the collision recovery coefficients 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\alpha_{4}$
+\end_inset
+
+ will be clarified, which are the main optimization variables in our proposal
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+.
+ The values of these coefficients are strongly depend on the receiver type.
+ 
+\color red
+Calculations of the collision recovery coefficients are done based on a
+ RFID reader model that utilizes the capture effect.
+ The reader resolves the collision based on the strongest tag reply.
+ Therefore, the collision can be resolved with a certain probability, if
+ the strongest tag reply is stronger than the summation of the other collided
+ tags at the same slot.
+ The main advantage of this reader is that it does not need any channel
+ state information (CSI) to recover the strongest tag.
+
+\color inherit
+ According to EPCglobal C1G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, collisions in RFID systems occur only within the 
+\begin_inset Formula $16$
+\end_inset
+
+ bits packet called 
+\begin_inset Formula $RN16$
+\end_inset
+
+.
+ If any single bit error occurs in this packet, the total packed has to
+ be considered lost.
+ Therefore, the meaning of the collision recovery probability coefficients
+ 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ is the probability that the RFID reader can identify a complete 
+\begin_inset Formula $RN16$
+\end_inset
+
+ packet from 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags.
+ Therefore, the collision recovery coefficient can be expressed as 
+\begin_inset Formula $\alpha_{i}=\left(1-PER_{i}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $PER_{i}$
+\end_inset
+
+ is the Packet Error Rate for 
+\begin_inset Formula $i$
+\end_inset
+
+ collided tags.
+
+\color red
+ In this work, we measure the SNR for each slot, then we calculate the average
+ SNR per frame as 
+\begin_inset Formula $E\left\{ \frac{\left|h\right|^{2}\cdot x^{2}}{\sigma^{2}}\right\} $
+\end_inset
+
+ , where 
+\begin_inset Formula $\text{\sigma}$
+\end_inset
+
+ is the standard deviation of the Additive White Gaussian Noise (AWGN) per
+ slot, and we used normalized signal power, i.e.
+ 
+\begin_inset Formula $E\left\{ x^{2}\right\} =1$
+\end_inset
+
+ .
+ Based on 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2010_Trans_CR"
+
+\end_inset
+
+, we assumed that the equivalent channel coefficients 
+\begin_inset Formula $h$
+\end_inset
+
+ follow Rayleigh fading.
+ The channel coefficients are independent zero mean circularly symmetric
+ complex Gaussian random variables with normalized energy 
+\begin_inset Formula $E\left\{ \left|h\right|^{2}\right\} =1$
+\end_inset
+
+, and all tags are statistically identical, which means all of them experience
+ the same average path loss.
+ Therefore, the average SNR per frame is 
+\begin_inset Formula $E\left\{ \frac{1}{\sigma^{2}}\right\} $
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Collision-recovery-coefficients"
+
+\end_inset
+
+ shows the values of the collision recovery coefficients versus the average
+ SNR per frame using the strongest tag reply receiver.
+ In these simulations, we used a sampling frequency of 
+\begin_inset Formula $f_{s}=\unit[8]{MHz}$
+\end_inset
+
+, and tags use FM0 as an encoding scheme.
+ Finally, to clarify the worst case effect of the collision recovery coefficient
+s, we used the highest symbol rate 
+\begin_inset Formula $\unit[640]{kHz}$
+\end_inset
+
+
+\color inherit
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename collision_recovery_coefficients.emf
+	lyxscale 12
+	width 100col%
+	height 15pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Collision recovery coefficients versus SNR using the strongest tag reply
+ receiver.
+ (example) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Collision-recovery-coefficients"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Simulation Results
+\end_layout
+
+\begin_layout Standard
+For each RFID reader, each SNR leads to corresponding values for the collision
+ recovery coefficients 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\alpha_{4}$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frame-length-comparision"
+
+\end_inset
+
+ shows a comparison frame length comparison between the proposed formula
+ in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+) and the numerical solution which maximizes the reading efficiency in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff_proposed_simpl"
+
+\end_inset
+
+) versus the SNR.
+ Both simulations used the same receiver model, which is the strongest tag
+ reply receiver.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frame-length-comparision"
+
+\end_inset
+
+, the proposed formula gives identical results compared to the numerical
+ solution at the complete SNR range.
+ 
+\end_layout
+
+\begin_layout Standard
+According to practical measurements, the typical range of the SNR for successful
+ slots is 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $4$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ to 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\unit[12]{dB}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+.
+ Therefore, we calculated the total average number of slots needed to identify
+ a complete bunch of tags using the strongest tag reply receiver.
+ FSA with initial frame length 
+\begin_inset Formula $L_{ini.}=16$
+\end_inset
+
+ is used as an anti-collision algorithm.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Average-number-of"
+
+\end_inset
+
+ shows a comparison between the proposed formula and the frame length proposed
+ by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+ for the boundary of the practical range of the SNR.
+ The authors of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+ used the reading efficiency equation in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff_PHY_2"
+
+\end_inset
+
+) assuming constant collision recovery coefficient 
+\begin_inset Formula $\alpha=\alpha_{2}$
+\end_inset
+
+ regardless the number of collided slots.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+, the authors assumed limited collision recovery capability.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+However, they have assumed a unity collision recovery coefficients 
+\begin_inset Formula $\alpha_{2}=\alpha_{3}=\alpha_{4}=1$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ as shown in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rff_PHY"
+
+\end_inset
+
+).
+ Based on figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Using_a"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Using_b"
+
+\end_inset
+
+, the proposed formula gives better performance than the frame lengths of
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+.
+ As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Using_a"
+
+\end_inset
+
+, the performance of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+ is closer than 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+ to our proposed performance, because the values of the collision recovery
+ coefficients are small.
+ So the effect of remaining terms in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+ is smaller than the effect of assuming 
+\begin_inset Formula $\alpha_{2}=\alpha_{3}=\alpha_{4}=1$
+\end_inset
+
+.
+ However, in case of high SNR 
+\begin_inset Formula $\unit[12]{dB}$
+\end_inset
+
+, the values of the collision recovery coefficients are bigger to make the
+ performance of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+ is closer than 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+ to our proposed performance as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Using_b"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color red
+To characterize the performance of the proposed solution, we will define
+ a performance metric called Relative Average Saving Time (RAST).
+\end_layout
+
+\begin_layout Standard
+
+\color red
+\begin_inset Formula 
+\begin{equation}
+\mbox{RAST\ensuremath{_{\mbox{[i]}}}}=\left(\frac{\mbox{\ensuremath{T}\ensuremath{_{\mbox{[i]}}}- \ensuremath{T}\ensuremath{_{\mbox{proposed}}}}}{T\ensuremath{_{\mbox{\mbox{[i]}}}}}\right)\times100,\label{eq:AST}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $T_{\mbox{[i]}}$
+\end_inset
+
+ is the average number of slots using [i] algorithm.
+ 
+\begin_inset Formula $\ensuremath{T}\ensuremath{_{\mbox{proposed}}}$
+\end_inset
+
+ is the average number of slots using the proposed formula.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Average-number-of"
+
+\end_inset
+
+, the RAST of [3] and [5] are constants regardless the number of tags.
+ At 
+\begin_inset Formula $\mbox{SNR}=\unit[4]{dB}$
+\end_inset
+
+ RAST
+\begin_inset Formula $_{\mbox{[3]}}\mbox{\simeq}10\%$
+\end_inset
+
+ and RAST
+\begin_inset Formula $_{\mbox{[5]}}\simeq19\%$
+\end_inset
+
+.
+ At 
+\begin_inset Formula $\mbox{SNR}=\unit[12]{dB}$
+\end_inset
+
+, RAST
+\begin_inset Formula $_{\mbox{[3]}}\simeq25\%$
+\end_inset
+
+ and RAST
+\begin_inset Formula $_{\mbox{[5]}}\simeq12\%$
+\end_inset
+
+.
+\color inherit
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename frame_Length_SNR.emf
+	lyxscale 12
+	width 100col%
+	height 15pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Frame length comparison between the proposed formula and the numerical solution
+ versus the SNR using the strongest tag reply receiver.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Frame-length-comparision"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+This paper proposes a novel closed form solution for the optimum value of
+ the FSA frame length in RFID systems.
+ The proposed equation takes into account the effects of the practical limitatio
+ns and the differences in collision recovery probability coefficients of
+ the RFID readers.
+ The theoretical derivations lead to a new optimization criterion that can
+ be easily implemented in RFID readers.
+ The proposed frame length equation gives the most accurate results in the
+ complete range of the collision recovery coefficients 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ compared to other solutions.
+ Timing comparisons are presented to show the saving in reading time using
+ the proposed frame length compared to the other proposals.
+\end_layout
+
+\begin_layout Section*
+Acknowledgment
+\end_layout
+
+\begin_layout Standard
+The authors are grateful to department OK at Fraunhofer IIS in Erlangen,
+ Germany, for the support of this work.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename time_Low_SNR.emf
+	lyxscale 10
+	width 100col%
+	height 15pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $SNR=\unit[4]{dB}$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Using_a"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename time_High_SNR.emf
+	lyxscale 10
+	width 100col%
+	height 15pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $SNR=\unit[12]{dB}$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Using_b"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average number of slots needed to identify a complete bunch of tags using
+ the proposed formula, frame length proposed by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capture_2011"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2012_journal_CR"
+
+\end_inset
+
+.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Average-number-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Lopt_PJY_MAC"
+options "ieeetr"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

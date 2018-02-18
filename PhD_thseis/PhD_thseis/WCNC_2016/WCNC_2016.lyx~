@@ -1,0 +1,2986 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass IEEEtran
+\options conference
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.3cm
+\topmargin 2.2cm
+\rightmargin 1.3cm
+\bottommargin 2.3cm
+\headheight 1.5cm
+\headsep 1cm
+\footskip 1.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Time Aware Closed Form Frame Slotted ALOHA Frame Length Optimization
+\end_layout
+
+\begin_layout Author
+Hazem A.
+ Ahmed, Hamed Salah, Joerg Robert, Albert Heuberger 
+\begin_inset Newline newline
+\end_inset
+
+Lehrstuhl für Informationstechnik Schwerpunkt Kommunikationselektronik (LIKE)
+\begin_inset Newline newline
+\end_inset
+
+Friedrich-Alexander-Universität Erlangen-Nürnberg
+\begin_inset Newline newline
+\end_inset
+
+ Email: {hazem.a.elsaid, hamed.kenawy, joerg.robert, albert.heuberger}@fau.de
+\end_layout
+
+\begin_layout Abstract
+Calculating the optimal frame length for Frame Slotted ALOHA in RFID systems
+ is a critical issue as it highly affects the reading efficiency, and hence
+ the reading time.
+ Most previous studies have focused mainly on the conventional definition
+ of the reading efficiency, which is the ratio between the number of successful
+ slots and the total number of slots (frame length).
+ However, the duration of the slots in RFID systems depends on whether the
+ slot is idle, successful, or collided.
+ Some other state-of-the-art studies have focused on optimizing the frame
+ length taking into consideration the differences in slot durations.
+ However, they do not deliver a closed form solution for the optimum frame
+ length in terms of the differences in slots durations.
+ Therefore, this paper proposes a closed form solution for the optimum frame
+ length for FSA by optimizing the Time-Aware Framed Slotted ALOHA (TAFSA)
+ efficiency, which considers the differences in the slot durations.
+ Simulations indicate that the proposed solution gives the most accurate
+ results with respect to the exact solution.
+ Moreover a gain of approx.
+ 10% in terms of reading time wrt\SpecialChar \@.
+ the classical algorithm using parameters
+ of the ISO 18000-6C UHF-RFID standard.
+ However, the results can also be applied to other systems based on Frame
+ Slotted ALOHA.
+\end_layout
+
+\begin_layout Section
+INTRODUCTION
+\end_layout
+
+\begin_layout Standard
+Over the recent years, the number of applications that use Radio-Frequency
+ Identification Systems (RFID) has increased, and their number is expected
+ to further grow in the near future.
+ One main application is the area of logistics, where e\SpecialChar \@.
+g\SpecialChar \@.
+ hundreds of tags
+ (transponders) may be closely placed on pallets.
+ This naturally requires fast RFID readers (interrogators), in order not
+ to slow down the delivery process of the actual goods.
+ Commonly used RFID standards in the area of logistics (e\SpecialChar \@.
+g\SpecialChar \@.
+ ISO 18000-6C
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+) is based on TDMA (time division multiple access), which leads to a certain
+ probability of tag-collisions on the communications channel.
+ As the tags are of low price and simple design, they neither can sense
+ the channel nor communicate with the others.
+ Moreover, they are identified once during the reading process 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+.
+ Hence, the readers are responsible for coordinating the network, and for
+ the avoidance of collisions using anti-collision algorithms.
+ 
+\end_layout
+
+\begin_layout Standard
+According to the previously published RFID work, Frame Slotted Aloha (FSA)
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FSA_2012"
+
+\end_inset
+
+ is the most widely used anti-collision protocol for RFID systems due to
+ its simplicity and robustness.
+ In FSA, the communication timing between the reader and the tags is divided
+ into TDMA frames, each frame includes a specific number of slots.
+ During the reading process, each active tag randomly assigns itself to
+ one of the available slots in a frame.
+ Therefore, each slot can take one of the three different states: 1) Successful
+ Slot: Only one tag chooses this slot, is fully identified, and then deactivated
+ by the reader within the following frames.
+ 2) Collided Slot: Multiple tags reply, resulting in a collision.
+ The collided tags normally remain in their active state and retry their
+ transmission in the next frame.
+ 3) Idle Slot: No tag responds and the slot remains unused.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Total_slots.emf
+	lyxscale 20
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Equal and unequal views of slots in Frame Slotted ALOHA with frame length
+ 
+\begin_inset Formula $L=6$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Differences-between-the"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Increasing the reading speed can directly be translated into the maximization
+ of the number of successful slots wrt\SpecialChar \@.
+ the number of idle or collided slots.
+ Based on the Random Access Theory, for a given number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+, the expected number of empty 
+\begin_inset Formula $E,$
+\end_inset
+
+ successful 
+\begin_inset Formula $S,$
+\end_inset
+
+ and collided 
+\begin_inset Formula $C$
+\end_inset
+
+ slots in each frame with a length of 
+\begin_inset Formula $L$
+\end_inset
+
+ slots can be expressed by the following equations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+E=L\left(1-\frac{1}{L}\right)^{n},\, S=n\left(1-\frac{1}{L}\right)^{n-1},\, C=L-E-S\label{eq: number of slot definition}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The conventional definition of the expected reading efficiency 
+\begin_inset Formula $\eta_{conv}$
+\end_inset
+
+ is given by the ratio between the expected number of successful slots 
+\begin_inset Formula $S$
+\end_inset
+
+ in a frame and the frame length 
+\begin_inset Formula $L$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "L_equal_n"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Quote
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\eta_{conv}=\frac{S}{L}\label{eq:eff basic equ}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Based on (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: number of slot definition"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff basic equ"
+
+\end_inset
+
+), this results in the conventional efficiency:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\eta_{conv}=\frac{n}{L}\left(1-\frac{1}{L}\right)^{n-1}\label{eq:eff calss f(L)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The main goal for optimizing the FSA algorithm is finding the optimal frame
+ length 
+\begin_inset Formula $L$
+\end_inset
+
+, which maximizes the reading efficiency 
+\begin_inset Formula $\eta_{conv}$
+\end_inset
+
+.
+ Based on (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff calss f(L)"
+
+\end_inset
+
+), the reading efficiency 
+\begin_inset Formula $\eta_{conv}$
+\end_inset
+
+ is maximized when 
+\begin_inset Formula $L_{opt}=n$
+\end_inset
+
+ as shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "L_equal_n"
+
+\end_inset
+
+.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "prodanoff2010optimal,empirical_Lopt"
+
+\end_inset
+
+ the authors proposed another formula for the optimal frame length that
+ minimizes the total census delay, i.e 
+\begin_inset Formula $L_{opt}=\frac{n}{ln(2)}$
+\end_inset
+
+.
+ Moreover, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt"
+
+\end_inset
+
+ computes the optimum frame length empirically, which minimizes the reading
+ time which almost matches the results in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "prodanoff2010optimal,empirical_Lopt"
+
+\end_inset
+
+.
+ However, in practice efficient RFID readers can quickly identify the type
+ of a slot (i\SpecialChar \@.
+e\SpecialChar \@.
+ idle, successful, or collided).
+ Hence, the durations of the different slot types are not identical, which
+ reduces the overall reading time.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Differences-between-the"
+
+\end_inset
+
+ shows two frames, each one with a frame length of 
+\begin_inset Formula $L=6$
+\end_inset
+
+ slots.
+ The first frame in (a) presents the conventional view of the frame with
+ equal slots durations 
+\begin_inset Formula $t_{Slot}$
+\end_inset
+
+ for all slot types.
+ The second frame in (b) presents the behavior of the real RFID slots behavior.
+ Here, the slot duration depends on the slot type.
+ In the recent years, some research groups concentrated on optimizing the
+ frame length in the case of non-equal slot durations: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "4_2_numerical_time_Lopt"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ref_4_4_2013_Cap_time"
+
+\end_inset
+
+, proposed a numerical solution for the optimal frame length.
+ This method depends on searching for the optimal frame length which maximizes
+ the reading efficiency.
+ Moreover, this searching depends also on the tag to reader data rate, which
+ makes the searching process more complicated.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ICC_2006"
+
+\end_inset
+
+ optimized the mean number of resolved tags in unit time by taking into
+ consideration the different slot durations.
+ However, this approach bases on a complex multidimensional table look-up,
+ which is relatively time consuming.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "optimizin_total_latency"
+
+\end_inset
+
+ proposed to search for the optimum frame length that minimizes the mean
+ time needed to resolve a bunch of tags.
+ However, the author reached to a recursive Bellman-equation, which is complex
+ to be applied in systems with real time restrictions.
+ In this paper, we propose a novel closed form solution for the optimum
+ frame length in FSA for RFID systems.
+ The proposed solution gives a direct relation between the frame length
+ 
+\begin_inset Formula $L$
+\end_inset
+
+, and the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+ in the reading area.
+ Furthermore, it includes a factor representing the different slot durations.
+\end_layout
+
+\begin_layout Standard
+This paper is organized as follows: Section II presents the proposed closed
+ form for the optimal frame length based on the Time-Aware FSA efficiency.
+ Next, section III shows how theoretically we calculate the slots duration
+ constant for the ISO 18000-6C protocol in addition to a real measurements
+ example of one collided and empty slot duration.
+ Finally, section IV gives numerical results proofing the validation of
+ the proposed formula compared to the numerical solution, and shows the
+ improvements of the new optimization criterion, before we conclude in section
+ V.
+ 
+\end_layout
+
+\begin_layout Section
+PROPOSED OPTIMAL FRAME LENGTH FOR UNEQUAL SLOT DURATIONS
+\end_layout
+
+\begin_layout Standard
+For calculating the proposed optimal Time-Aware frame size 
+\begin_inset Formula $L_{_{TA}}$
+\end_inset
+
+, which takes into consideration the different slot durations, we firstly
+ have to define the Time-Aware reading efficiency 
+\begin_inset Formula $\eta_{_{TA}}$
+\end_inset
+
+.
+ Let the Time-Aware reading efficiency be the ratio between the total successful
+ time and the total frame time:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\eta_{_{TA}}=\frac{t_{s}\cdot S}{t_{e}\cdot E+t_{s}\cdot S+t_{c}\cdot C},\label{eq:eff-semi_simple}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $t_{s}\cdot S$
+\end_inset
+
+, 
+\begin_inset Formula $t_{e}\cdot E,$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{c}\cdot E$
+\end_inset
+
+ are respectively the expected total successful, idle, and collided times.
+ Furthermore, 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $E$
+\end_inset
+
+, and 
+\begin_inset Formula $C$
+\end_inset
+
+ are the expected numbers of successful, empty and collided slots, and 
+\begin_inset Formula $t_{s}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ are respectively the successful, idle, and collided slot durations.
+ The next step is to derive the new optimum frame length 
+\begin_inset Formula $L_{TA}$
+\end_inset
+
+ under the Time-Aware environment.
+ 
+\begin_inset Formula $L_{TA}$
+\end_inset
+
+ can be optimized by finding the value of 
+\begin_inset Formula $L$
+\end_inset
+
+ which maximizes the Time-Aware reading efficiency.
+ This is achieved by differentiating the reading efficiency in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eff-semi_simple"
+
+\end_inset
+
+) with respect to the frame length 
+\begin_inset Formula $L$
+\end_inset
+
+ and equate the result to zero:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\eta_{TA}}{\partial L}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: number of slot definition"
+
+\end_inset
+
+), 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, and 
+\begin_inset Formula $C$
+\end_inset
+
+ are a function of 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ Taking into account that 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{s},$
+\end_inset
+
+ 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ are constants for a given system specification, we get:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{(t_{e}E+t_{s}S+t_{c}C)t_{s}\frac{\partial}{\partial L}(S)-t_{s}S\frac{\partial}{\partial L}(t_{e}E+t_{s}S+t_{c}C)}{(t_{e}E+t_{s}S+t_{c}C)^{2}} & = & 0
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After multiplying both sides by the denominator and dividing by 
+\begin_inset Formula $t_{s}$
+\end_inset
+
+ (non-zero constant), the equation can be simplified to: 
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+(t_{e}E+t_{c}C)\frac{\partial}{\partial L}(S)+t_{s}S\frac{\partial}{\partial L}(S)=S\frac{\partial}{\partial L}(t_{e}E+t_{c}C)+t_{s}S\frac{\partial}{\partial L}S
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After subtracting the term which is multiplied by 
+\begin_inset Formula $t_{s},$
+\end_inset
+
+ the equation finally results in:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\left\{ t_{e}E+t_{c}C\right\} \frac{\partial}{\partial L}(S)=S\frac{\partial}{\partial L}\left\{ t_{e}E+t_{c}C\right\} \label{eq:simple differentiation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then, substituting the values of 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, and 
+\begin_inset Formula $C$
+\end_inset
+
+ from (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: number of slot definition"
+
+\end_inset
+
+) leads to:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{eqnarray}
+\left\{ t_{e}\underset{E}{\underbrace{L\left(1-\frac{1}{L}\right)^{n}}}+t_{c}\underset{C}{\underbrace{(L-\left(1-\frac{1}{L}\right)^{n-1}(L-n-1))}}\right\} \label{eq:complex differentiation}\\
+\times\frac{\partial}{\partial L}\underset{S}{\underbrace{n\left(1-\frac{1}{L}\right)^{n-1}}}\nonumber \\
+=\underset{S}{\underbrace{n\left(1-\frac{1}{L}\right)^{n-1}}}\nonumber \\
+\times\frac{\partial}{\partial L}\left\{ t_{e}\underset{E}{\underbrace{L\left(1-\frac{1}{L}\right)^{n}}}+t_{c}\underset{C}{\underbrace{(L-\left(1-\frac{1}{L}\right)^{n-1}(L-n-1))}}\right\} \nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By simplifying the result, the final exact equation for the proposed Time-Aware
+ frame length is given by the implicit equation:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\left(1-\frac{n}{L_{_{TA}}}\right)=\left(1-C_{t}\right)\left(1-\frac{1}{L_{_{TA}}}\right)^{n},\label{eq:Lopt comlex expresion}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of tags, and 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ is the slot duration constant defined as 
+\begin_inset Formula $C_{t}=\frac{t_{e}}{t_{c}}$
+\end_inset
+
+ with 
+\begin_inset Formula $0<C_{t}\leq1$
+\end_inset
+
+, as 
+\begin_inset Formula $t_{e}\leq t_{c}$
+\end_inset
+
+ in practical applications.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion"
+
+\end_inset
+
+) shows the exact relation between the proposed Time-Aware frame length
+ 
+\begin_inset Formula $L_{TA}$
+\end_inset
+
+ and the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+, which takes into consideration the time difference in the slot durations.
+\end_layout
+
+\begin_layout Standard
+Unfortunately, (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion"
+
+\end_inset
+
+) is an implicit equation.
+ We will now derive an approximate, but explicit equation.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion"
+
+\end_inset
+
+) can be also expressed as:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\left(1-\frac{1}{\beta}\right)=\left(1-C_{_{t}}\right)\left(1-\frac{1}{\beta n}\right)^{n},\label{eq:bita equation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\size footnotesize
+
+\begin_inset Formula $\beta=\frac{L_{TA}}{n}$
+\end_inset
+
+
+\size default
+ .
+ As we are focusing on systems with many tags we can use the approximation
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\underset{n\rightarrow\infty}{\lim}\left(1-\frac{1}{\beta n}\right)^{n}=e^{-\frac{1}{\beta}},\label{eq:approx_1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which simplifies (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion"
+
+\end_inset
+
+) to:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\left(1-\frac{1}{\beta}\right)=\left(1-C_{_{t}}\right)e^{-\frac{1}{\beta}}.\label{eq:first_approx}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Analysis of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lopt comlex expresion"
+
+\end_inset
+
+) indicate that the relevant values for 
+\size footnotesize
+
+\begin_inset Formula $\beta=\frac{L_{TA}}{n}$
+\end_inset
+
+
+\size default
+ are in the region close to one.
+ Hence, we can develop a Taylor series for 
+\begin_inset Formula $e^{-\frac{1}{\beta}}$
+\end_inset
+
+ around one which leads to:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+e^{-\frac{1}{\beta}}\simeq1-\frac{1}{\beta}+\frac{1}{2\beta^{2}}\label{eq:taylor}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After substituting (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:first_approx"
+
+\end_inset
+
+) and additional simplifications we get:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+\beta^{2}C_{_{t}}-\beta C_{_{t}}+0.5(C_{_{t}}-1)=0\label{eq:quadratic equation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By solving (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:quadratic equation"
+
+\end_inset
+
+), and rejecting the negative solution we finally obtain:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{equation}
+L_{_{TA}}=\frac{n}{2}\left(1+\sqrt{\frac{2}{C_{_{t}}}-1}\right)\label{eq:closed form}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The proposed equation gives a linear relation wrt.
+ the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+, and includes the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+, which can be easily varied as a function of the transmission rate and
+ the working standard.
+\end_layout
+
+\begin_layout Section
+SLOT DURATION CONSTANT CALCULATION FOR THE ISO 18000-6C PROTOCOL
+\end_layout
+
+\begin_layout Standard
+In this section, we will discuss in details how we calculate the slot duration
+ constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ from the physical layer parameters.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Slot-Durations-During"
+
+\end_inset
+
+ shows the timings of collided and empty slots.
+ Each slot contains different sequences of reader to tag commands and tag
+ replies.
+ Based on the EPCglobal C1 G2 standard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+, the slot duration constant is
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+C_{t}=\frac{t_{e}}{t_{c}},\label{eq:ct}
+\end{equation}
+
+\end_inset
+
+w
+\size default
+here the empty slot duration 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+ is given by:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+t_{e}=T_{QRep}+T_{1}+T_{3}.\label{eq:te_disc}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here, 
+\begin_inset Formula $T_{QRep}$
+\end_inset
+
+ is the query repeat command time:
+\size footnotesize
+
+\begin_inset Formula 
+\begin{equation}
+T_{QRep}=T_{FS}+T_{command},\label{eq:TQ}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with, 
+\begin_inset Formula $T_{FS}=3.5\cdot T_{ari}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{command}=6\cdot T_{ari}$
+\end_inset
+
+, and 
+\begin_inset Formula $T_{ari}=\frac{DR}{2.75}T_{pri}$
+\end_inset
+
+.
+ By substituting in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TQ"
+
+\end_inset
+
+) we get
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+T_{QRep}=3.5\cdot DR\cdot T_{pri},\label{eq:TQ2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $T_{ari}$
+\end_inset
+
+ is reader symbol duration, 
+\begin_inset Formula $T_{pri}=\frac{1}{\text{\ensuremath{BLF}}}$
+\end_inset
+
+, 
+\begin_inset Formula $BLF$
+\end_inset
+
+ is the tag backscatter link frequency and 
+\begin_inset Formula $DR$
+\end_inset
+
+ is the so-called divide ratio constant that can take the two values 
+\begin_inset Formula $DR=8\,\mbox{or}\,\frac{64}{3}$
+\end_inset
+
+.
+ Finally, 
+\begin_inset Formula $M$
+\end_inset
+
+ equals to 
+\begin_inset Formula $1,\,2,\,4,\,\mbox{or}\,8$
+\end_inset
+
+, which represents the modulation types FM0, Miller 2, 4, or 8, respectively.
+ 
+\begin_inset Formula $T_{1}$
+\end_inset
+
+ is the time from the reader transmission to the tag response, which can
+ be expressed as:
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename timing_te_tc.pdf
+	lyxscale 30
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Slot durations during tag inventory rounds for the ISO 18000-6C standard
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Slot-Durations-During"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+T_{1}=\textrm{max}\left\{ DR\cdot T_{pri},\,10\cdot T_{pri}\right\} \label{eq:T1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Next, 
+\begin_inset Formula $T_{3}$
+\end_inset
+
+ is the time that the reader waits after 
+\begin_inset Formula $T_{1}$
+\end_inset
+
+ before issuing another command.
+ As it has no constraints, it can be assumed to be zero.
+ After substituting (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TQ2"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:T1"
+
+\end_inset
+
+) in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:te_disc"
+
+\end_inset
+
+), 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+ can be expressed as:
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Available slots duration constants 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ of the EPCglobal C1 G2 standards 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Slots-durations-constant"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="18" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Divide Ratio: 
+\begin_inset Formula $DR$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Modulation: 
+\begin_inset Formula $M$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pilot Length: 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.47$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $12$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.41$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.35$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.28$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.23$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.18$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.14$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $64/3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.7$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $12$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.65$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.57$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.43$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.35$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.22$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename tc_measured_2.emf
+	lyxscale 12
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Collided slot timing
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Collided-Slot-Duration"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename te_measured_multiple_2.emf
+	lyxscale 12
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Empty slot timing 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Empty-Slot-Duration"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Slots durations measurements, 
+\begin_inset Formula $f_{s}=\unit[8]{MHz}$
+\end_inset
+
+, tag Backscatter Link Frequency 
+\begin_inset Formula $BLF=\unit[160]{kbps}$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Measured-Slots-durations"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{eqnarray}
+t_{e} & = & T_{pri}\cdot\left(3.5\cdot DR+\textrm{max}\left\{ \mbox{\ensuremath{DR}},\,10\right\} \right).\label{eq:te_equation}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Next, the collided slot duration 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ is given by:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+t_{c}=T_{QRep}+T_{1}+T_{2}+T_{RN16},\label{eq:tc description}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $T_{2}$
+\end_inset
+
+ is the reader response time starting from the end of the tag response,
+ 
+\begin_inset Formula $T_{2}=6\cdot T_{pri}$
+\end_inset
+
+, and 
+\begin_inset Formula $T_{RN16}$
+\end_inset
+
+ is the duration of 
+\begin_inset Formula $16$
+\end_inset
+
+ bits temporary data, 
+\begin_inset Formula $6$
+\end_inset
+
+ bits preamble, 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ pilot tones, i\SpecialChar \@.
+e\SpecialChar \@.
+ 
+\begin_inset Formula $T_{RN16}=(22+n_{p})\cdot T_{pri}$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+ can be expressed as:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+t_{c}=T_{pri}\cdot\left(3.5\cdot DR+\textrm{max}\left\{ DR,\,10\right\} +6+22\cdot M+n_{p}\cdot M\right).\label{eq:tc_equation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From equations (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:te_equation"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:tc_equation"
+
+\end_inset
+
+), the final expression of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+C_{t}=\frac{3.5\cdot DR+\textrm{max}\left\{ \mbox{\ensuremath{DR}},\,10\right\} }{3.5\cdot DR+\textrm{max}\left\{ DR,\,10\right\} +6+22\cdot M+n_{p}\cdot M}.\label{eq:ct_final}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Slots-durations-constant"
+
+\end_inset
+
+ shows the values of the slots durations constant of the EPCglobal C1 G2
+ standards.
+ According to table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Slots-durations-constant"
+
+\end_inset
+
+, the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ varies from 
+\begin_inset Formula $0.1$
+\end_inset
+
+ to 
+\begin_inset Formula $0.7$
+\end_inset
+
+, and this affects the optimum frame length directly.
+ 
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Measured-Slots-durations"
+
+\end_inset
+
+ shows an example of a real measurements for slots durations using a Universal
+ Software Radio Peripheral (USRP B210) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "USRP"
+
+\end_inset
+
+.
+ In these measurements, we used sampling frequency of 
+\begin_inset Formula $f_{s}=\unit[8]{MHz}$
+\end_inset
+
+, because the total RFID bandwidth in the European system is 
+\begin_inset Formula $\unit[4]{MHz}$
+\end_inset
+
+, tags Backscatter Link Frequency 
+\begin_inset Formula $BLF=\unit[160]{kbps}$
+\end_inset
+
+.
+ Furthermore, we used the modulation type Miller 
+\begin_inset Formula $M=4$
+\end_inset
+
+ with extended pilots, 
+\begin_inset Formula $n_{p}=16$
+\end_inset
+
+.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Measured-Slots-durations"
+
+\end_inset
+
+, the slot duration constant 
+\begin_inset Formula $C_{t}=0.18$
+\end_inset
+
+, which verify the theoretical results in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Slots-durations-constant"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+SIMULATION RESULTS
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frame size ct"
+
+\end_inset
+
+ shows the behavior of the proposed frame length formula in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+) compared to the numerical solution in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "optimizin_total_latency"
+
+\end_inset
+
+ for the complete range the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ for 
+\begin_inset Formula $0<C_{t}\leq1$
+\end_inset
+
+.
+ In the simulation, we used a fixed number of 
+\begin_inset Formula $n=100$
+\end_inset
+
+ tags.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frame size ct"
+
+\end_inset
+
+, the proposed equation approaches the numerical solution proposed at 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "optimizin_total_latency"
+
+\end_inset
+
+ in the full range of 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ with a very small bias comes from the Taylor series approximation in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:taylor"
+
+\end_inset
+
+).
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Maximum-reading-efficiency"
+
+\end_inset
+
+ shows a the maximum reading efficiency using the proposed frame length
+ formula in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+) and the numerical solution of the frame length proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "optimizin_total_latency"
+
+\end_inset
+
+.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Maximum-reading-efficiency"
+
+\end_inset
+
+, the proposed formula gives identical results with the numerical solution.
+ However, unlike the complex table look-up presented in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "optimizin_total_latency"
+
+\end_inset
+
+, our approach only is based on a linear equation, which is a function of
+ the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Lopt_vs_ct_acurate_proposed.emf
+	lyxscale 20
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Optimum frame length 
+\begin_inset Formula $L_{TA}$
+\end_inset
+
+ as a function of the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ (
+\begin_inset Formula $n=100$
+\end_inset
+
+ tags).
+ The conventional case with identical slot durations corresponds to 
+\begin_inset Formula $C_{t}=1$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Frame size ct"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Max_eff_comp_test_2.emf
+	lyxscale 12
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Maximum reading efficiency 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Maximum-reading-efficiency"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Saving-time-versus"
+
+\end_inset
+
+ shows simulation results for the reading time reduction of the proposed
+ optimal Time-Aware frame length 
+\begin_inset Formula $L_{TA}$
+\end_inset
+
+ wrt\SpecialChar \@.
+ the classical optimal frame length 
+\begin_inset Formula $L=n$
+\end_inset
+
+ as a function of the slot duration constant 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+.
+ These simulations assume a perfect knowledge of the number of tags 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ According to the figure, 
+\begin_inset Formula $C_{t}=0$
+\end_inset
+
+ means that the idle slot duration time 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+ is quite small wrt.
+ the collided slot duration time 
+\begin_inset Formula $t_{c}$
+\end_inset
+
+.
+ In this case, the proposed Time-Aware frame length can reduce the average
+ reading time by up to 
+\begin_inset Formula $12\%$
+\end_inset
+
+ compared to the conventional optimization criterion.
+ With 
+\begin_inset Formula $C_{t}=1$
+\end_inset
+
+, which means that the slot durations are of identical length, we obtain
+ the efficiency of the classical optimization, i\SpecialChar \@.
+e\SpecialChar \@.
+ 
+\begin_inset Formula $L=n$
+\end_inset
+
+.
+ According to practical example in section III, we have a slot duration
+ constant 
+\begin_inset Formula $C_{t}=0.18$
+\end_inset
+
+.
+ Based on (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:closed form"
+
+\end_inset
+
+), the optimum frame length should be 
+\begin_inset Formula $L_{TA}=2n$
+\end_inset
+
+.
+ In this case we can expect an average reading time reduction of 
+\begin_inset Formula $5\,\%$
+\end_inset
+
+.
+\begin_inset Float figure
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename savin_time_with_ct.emf
+	lyxscale 20
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Percentages of saving time using the proposed TAFSA for an ideally known
+ number of tags (1000 iterations for each step) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Saving-time-versus"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In practice, the number of tags in the interrogation region is unknown.
+ Hence, the anti-collision algorithms in real RFID systems consist of two
+ stages: The first stage estimates the number of tags in the interrogation
+ area 
+\begin_inset Formula $\hat{n}$
+\end_inset
+
+.
+ The second stage calculates the optimal frame length 
+\begin_inset Formula $L_{opt}$
+\end_inset
+
+ based on 
+\begin_inset Formula $\hat{n}$
+\end_inset
+
+ for maximizing the reading efficiency.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentage-of-Time"
+
+\end_inset
+
+ shows the mean reduction of the reading time using the proposed Time-Aware
+ frame length for some well-known tag estimation algorithms using the value
+ of the slot duration constant 
+\begin_inset Formula $C_{t}=0.18$
+\end_inset
+
+.
+ The main issue of these simulations is to show the practical effect on
+ the reading time by working with the proposed frame length using different
+ tag estimation algorithms.
+ Each curve presents the mean reduction of the reading time between the
+ proposed frame length and the conventional frame length using the same
+ estimation algorithm.
+ When a simple tag estimation technique is used like Lower bound 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aloha4_Vogt"
+
+\end_inset
+
+ or Schoute 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DFSA_shoute_Random"
+
+\end_inset
+
+, we can reduce the reading time in the order of 
+\begin_inset Formula $10$
+\end_inset
+
+ to 
+\begin_inset Formula $12\,\%$
+\end_inset
+
+, and we gain around 
+\begin_inset Formula $9\,\%$
+\end_inset
+
+ for better estimation algorithms like MFML 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MFML"
+
+\end_inset
+
+ and Biased Chebyshev 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Biased_vogt"
+
+\end_inset
+
+.
+ According to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Percentage-of-Time"
+
+\end_inset
+
+, in case of better estimation algorithms, the mean reading time reduction
+ approaches the curves assuming perfect knowledge of the number of tags.
+ As a result, the newly proposed closed form algorithm provides additional
+ improvements wrt.
+ the classical optimization algorithm when the tag estimation provides inaccurat
+e results.
+ 
+\end_layout
+
+\begin_layout Section
+CONCLUSION
+\end_layout
+
+\begin_layout Standard
+This paper proposes a novel closed form solution for the optimum frame length
+ in unequal slot duration FSA.
+ The theoretical derivations lead to a new optimization criterion that can
+ be easily implemented in RFID readers.
+ The proposed frame length equation gives the most accurate results compared
+ to the exact solution, and the numerical methods.
+ However, we propose a direct linear relation with the number of tags in
+ the reading area.
+ The proposed optimization method reduces the average reading time by 
+\begin_inset Formula $5\,\%$
+\end_inset
+
+ in case of a perfect knowledge of the number of tags.
+ In realistic systems, where the number of tags has to be estimated, the
+ gain reaches up to 
+\begin_inset Formula $12\,\%$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The future work will especially focus on additional improvements, if the
+ exact number of tags is unknown, and the initial frame size is optimized.
+\begin_inset Float figure
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename saving_time_comparisions.emf
+	lyxscale 20
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Percentages of saving time using the proposed TAFSA for different anti-collision
+ algorithms (1000 iterations for each step) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Percentage-of-Time"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Acknowledgment
+\end_layout
+
+\begin_layout Standard
+The authors are grateful to department OK at Fraunhofer IIS in Erlangen,
+ Germany, for the support of this work.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Lopt_second_review"
+options "ieeetr"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
