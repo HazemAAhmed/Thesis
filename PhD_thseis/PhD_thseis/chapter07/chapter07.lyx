@@ -111,10 +111,9 @@ The main focus of this thesis is to optimize the DFSA anti-collision algorithm
  Thus, the thesis aims to establish and propose advanced algorithms to increase
  the performance of the system.
  Since the work is focused on passive UHF RFID systems, which employ simple
- tags with in-complex operations.
- Thus, the proposed changes and algorithms are performed on the reader side
- except in chapter 6, a new compatible changes of the EPCglobal C1 G2 standard
- are proposed.
+ tags with in-complex operations, almost all proposed changes and signal
+ processing are performed on the reader side except in chapter 6, a new
+ compatible changes of EPCglobal C1 G2 standard are proposed.
 \end_layout
 
 \begin_layout Section
@@ -133,16 +132,16 @@ The advanced RFID readers, which are proposed in this thesis decrease the
  probability of the RFID reader.
  The theoretical derivations lead to a new analytical estimator that can
  be easily implemented in RFID readers.
- Using the proposed formula, neither look-up tables nor numerical searching
- is used.
+ Using the proposed formula, we need neither look-up tables nor numerical
+ searching.
  Furthermore, the estimator gives more precise relative number of tags estimatio
-n error compared to the existing state-of-art proposals.
+n error compared to the other state-of-art proposals.
  Moreover, the proposed estimation algorithm reduces the total identification
- time by 
-\begin_inset Formula $\simeq\unit[10]{\%}$
+ time by almost 
+\begin_inset Formula $\unit[10]{\%}$
 \end_inset
 
- compared to the existing state-of-the-art solutions.
+ compared to the best other state-of-the-art solution.
 \end_layout
 
 \begin_layout Standard
@@ -177,7 +176,7 @@ Time aware frame length
 \end_inset
 
 .
- The second proposal is called 
+ The second proposal is 
 \begin_inset Quotes eld
 \end_inset
 
@@ -278,8 +277,7 @@ key "standard"
 In chapter 6, compatible improvements of the EPCglobal C1 G2 standard are
  proposed.
  It presents some modifications on the communication signal of Tag/reader.
- Using these modifications, the new system approaches the theoreti\SpecialChar \-
-cal lower
+ Using these modifications, the new system approaches the theoretical lower
  reading time limit of the EPCglobal C1 G2 standard.
  The proposed system is compatible with the EPCglobal C1 G2 standard, i.e.
  the proposed tags could be jointly operated with conventional tags and

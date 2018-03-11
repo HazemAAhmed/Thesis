@@ -5908,15 +5908,15 @@ reference "fig:Main_comp_no_patent"
 \end_inset
 
 , with 
-\begin_inset Formula $te=\unit[60]{\mu s}$
+\begin_inset Formula $t_{e}=\unit[60]{\mu s}$
 \end_inset
 
  , 
-\begin_inset Formula $tc=\unit[300]{\mu s}$
+\begin_inset Formula $t_{c}=\unit[300]{\mu s}$
 \end_inset
 
 , and 
-\begin_inset Formula $ts=\unit[1060]{\mu s}$
+\begin_inset Formula $t_{s}=\unit[1060]{\mu s}$
 \end_inset
 
 , which are the practical values from real measurements using a 

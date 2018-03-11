@@ -183,8 +183,8 @@ reference "fig:RFID-System-components"
 \end_inset
 
 , the conventional RFID system consists of three main components: First,
- the RFID tag or transponder which is attached to the object requested to
- be identified or tracked.
+ RFID tag or transponder which is attached to the object requested to be
+ identified or tracked.
  Second, the RFID reader or interrogator, which controls data transmission
  and the whole identification process.
  Finally, the processing device, which is commonly called 
@@ -214,7 +214,7 @@ The tag is the device, which is attached to the object.
  This information includes its unique EPC, which is a standardized identificatio
 n code.
  When tags are within the reading range of the reader, they receive a command
- from the reader asking them for their EPC.
+ from the reader asking them about their EPC.
  They reply with their identification data to the reader, which processes
  the information according to the current application.
  Generally, RFID tags are divided into the following categories: 
@@ -280,7 +280,7 @@ key "Semi-passive_1,Semi_passive_2"
 \end_inset
 
  Euro, which makes such tags not suitable for dense RFID applications with
- hundreds or thousands of tags.
+ hundreds or thousands of tags .
 \end_layout
 
 \begin_layout Paragraph*
@@ -298,7 +298,7 @@ key "Passive_tags_1,Passive_tags_2"
 
 .
  They are extremely simple and inexpensive devices.
- The approximate price of such tags is less than 
+ The approximate price of such ags is less than 
 \begin_inset Formula $0.10$
 \end_inset
 
@@ -452,17 +452,17 @@ key "Antenna_CP,AntennaCP"
 \end_layout
 
 \begin_layout Subsection
-Middleware
+Middle-ware
 \end_layout
 
 \begin_layout Standard
-Middleware is a layer of software created to connect other components together,
- e.g.
+Middleware is a layer of software created to connect other components together
+ – e.g.
  hardware components, software programs, enterprise applications, databases,
  etc.
  Middleware gives software developers the ability to communicate and manage
  data throughout an entire system, rather than on each individual application.
- RFID middleware goes beyond simply connecting devices; rather, it allows
+ RFID middle-ware goes beyond simply connecting devices; rather, it allows
  users to collect, manipulate, and disseminate data with ease.
  The EPCglobal standards 
 \begin_inset CommandInset citation
@@ -532,7 +532,7 @@ key "HF_RFID"
 \end_inset
 
  as a maximum reading range.
- Third, RFID systems use the Ultra High Frequency (UHF) 
+ Third, the Ultra High Frequency (UHF) 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "UHF"
@@ -540,7 +540,7 @@ description "Ultra High Frequency"
 
 \end_inset
 
- band 
+ band RFID systems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "UHF_RFID"
@@ -552,8 +552,8 @@ key "UHF_RFID"
 \begin_inset Formula $\unit[10]{m}$
 \end_inset
 
-) and can transfer data faster, i.e., read many more tags per second than
- the low/high-frequency tags.
+) and can transfer data faster (i.e.
+ read many more tags per second) than the low/high-frequency tags.
  However, the UHF radio waves have a shorter wavelength,which makes their
  signal more likely to be attenuated (or weakened) and they cannot pass
  through metal or water.
@@ -916,7 +916,7 @@ In RFID systems, both readers and tags communicate using the same frequency.
  interfere control commands of the readers.
  Thereby, the collision problem is the main source of delays in the identificati
 on process.
- There are two types of collisions, reader collisions and tag collisions.
+ There are two types of collisions: reader collisions and tag collisions.
  The following sections describe both types and their effects on the system
  performance.
  
@@ -1046,7 +1046,7 @@ Reader-to-Reader Collision
 \end_layout
 
 \begin_layout Standard
-Reader-to-reader collision or interference, occurs when the signal generated
+Reader-to-reader collision, or interference, occurs when the signal generated
  by a reader acts as a jamming signal for a neighbor reader as shown in
  figure 
 \begin_inset CommandInset ref
@@ -1115,7 +1115,8 @@ Tag Collisions
 \end_layout
 
 \begin_layout Standard
-Tag collisions are common in dense RFID systems 
+This type of collision is the most common type of collision in dense RFID
+ systems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Tags_collision_2,Tags_collision_1,Tags_collision_3,Tags_collision_4"
@@ -1140,7 +1141,7 @@ reference "fig:Multiple-tags-to"
 \end_layout
 
 \begin_layout Standard
-Tags anti-collision protocols can be classified into two main types, PHY
+Tags anti-collision protocols can be classified into two main types: PHY
  layer protocols and MAC layers protocols.
  The main motivation of this thesis is to minimize the total identification
  time for a dense and passive RFID network.

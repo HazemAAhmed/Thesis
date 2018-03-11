@@ -1849,7 +1849,7 @@ where
  to the probability to resolve ten collided tags, which is an unpractical
  assumption, because the more collided tags per slot are, the lower the
  collision recovery capability is.
- Another research groups 
+ Other research groups 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2012_journal_CR,PHY111,PHY112,PHY113"
@@ -2203,7 +2203,7 @@ reference "fig:Collided-Slot-Duration-1"
 
 \end_inset
 
- shows a real collided slot between two tags.
+ shows a real collided slot for two tags.
  The number of Amplitude Shift Keying (ASK) levels in the RN16 is 
 \begin_inset Formula $A_{L}=2^{N_{c}}$
 \end_inset

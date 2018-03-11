@@ -113,7 +113,7 @@ The main focus of this thesis is to optimize the DFSA anti-collision algorithm
  Since the work is focused on passive UHF RFID systems, which employ simple
  tags with in-complex operations.
  Thus, the proposed changes and algorithms are performed on the reader side
- except in chapter 6, a new compatible changes of EPCglobal C1 G2 standard
+ except in chapter 6, a new compatible changes of the EPCglobal C1 G2 standard
  are proposed.
 \end_layout
 
@@ -278,7 +278,8 @@ key "standard"
 In chapter 6, compatible improvements of the EPCglobal C1 G2 standard are
  proposed.
  It presents some modifications on the communication signal of Tag/reader.
- Using these modifications, the new system approaches the theoretical lower
+ Using these modifications, the new system approaches the theoreti\SpecialChar \-
+cal lower
  reading time limit of the EPCglobal C1 G2 standard.
  The proposed system is compatible with the EPCglobal C1 G2 standard, i.e.
  the proposed tags could be jointly operated with conventional tags and

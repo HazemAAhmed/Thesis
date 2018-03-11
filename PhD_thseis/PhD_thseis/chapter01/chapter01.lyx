@@ -178,10 +178,49 @@ key "standard"
  probability of tag-collisions on the communication channel.
  Owing to their low price and simple design, tags can neither sense the
  channel nor communicate with the other tags.
- Hence, the readers are responsible for co\SpecialChar \-
-ordinating the network, and avoiding
+ Hence, the readers are responsible for coordinating the network, and avoiding
  collisions using anti-collision algorithms.
  
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename system.emf
+	lyxscale 12
+	width 40page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dense RFID network with single RFID reader.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:RFID-System"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -239,8 +278,8 @@ The robustness of the number of tags estimation: The optimum FSA frame length
 
 \begin_layout Enumerate
 The accuracy of the FSA frame length: If the frame length is higher than
- the optimum value, many empty slots exist in this frame, which reduces
- the reading efficiency.
+ the optimum value, many empty slots in this frame will be present, which
+ reduces the reading efficiency.
  If the frame length is lower than the optimum value, this will produce
  many collided slots, which again reduces the reading efficiency.
  Thereby, choosing the optimum value in FSA frame length is the most crucial
@@ -276,46 +315,6 @@ key "PHY3,PHY4"
 Based on the previous discussion, the number of tags estimation algorithm
  and the optimum FSA frame length strongly depend on the PHY layer properties
  of the system being used.
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename system.emf
-	lyxscale 12
-	width 40page%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Dense RFID network with single RFID reader.
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:RFID-System"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section

@@ -4693,7 +4693,7 @@ reference "fig:Percentages-of-saving_MCR_perfect"
 \end_inset
 
  increases, the collision recovery probability increases as well.
- Hence, the mean reading time reduction (saving time) also increases.
+ Hence, the mean reading time reduction also increases.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4868,7 +4868,9 @@ As shown in the previous section, the probability that a collision is resulted
 \begin_inset Formula $i\geq4$
 \end_inset
 
-, can be neglected.
+, i\SpecialChar \@.
+e\SpecialChar \@.
+, 4 or more collided tags are small.
  Therefore, only up to three collided tags are considered.
  The next step is normalizing the slot duration 
 \begin_inset Formula $t_{k}$
@@ -5224,7 +5226,11 @@ According to the practical ranges of the collision recovery coefficients
 \begin_inset Formula $C_{t}.$
 \end_inset
 
- Thus, their signs are: 
+ Thus, their signs are 
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset Formula $a<0$
 \end_inset
 
@@ -5244,7 +5250,7 @@ According to the practical ranges of the collision recovery coefficients
 \begin_inset Formula $e>0$
 \end_inset
 
-.
+
 \begin_inset Newline newline
 \end_inset
 
@@ -5509,7 +5515,7 @@ reference "eq:TAMCR efficiency"
 ).
  The comparison presents the relation between the frame length and the full
  range of the slot durations constant 
-\begin_inset Formula $C_{t}=[0,\cdots,1]$
+\begin_inset Formula $C_{t}=[0\cdots1]$
 \end_inset
 
  and different values of collision recovery coefficients 
@@ -5639,7 +5645,7 @@ reference "fig:Percentages-of-saving-TMCRA-perfect"
 
 , when the value of the SNR increases, the collision recovery probability
  increases.
- Hence, the mean reduction in reading time (saving time) also increases.
+ Hence, the mean reduction in reading time also increases.
 \begin_inset Float figure
 wide false
 sideways false
@@ -5695,7 +5701,11 @@ name "fig:Percentages-of-saving-TMCRA-perfect"
 
 \end_inset
 
- Figure 
+
+\end_layout
+
+\begin_layout Standard
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Percentages-of-saving-TMCRA-Estimation"
@@ -5908,15 +5918,15 @@ reference "fig:Main_comp_no_patent"
 \end_inset
 
 , with 
-\begin_inset Formula $t_{e}=\unit[60]{\mu s}$
+\begin_inset Formula $te=\unit[60]{\mu s}$
 \end_inset
 
  , 
-\begin_inset Formula $t_{c}=\unit[300]{\mu s}$
+\begin_inset Formula $tc=\unit[300]{\mu s}$
 \end_inset
 
 , and 
-\begin_inset Formula $t_{s}=\unit[1060]{\mu s}$
+\begin_inset Formula $ts=\unit[1060]{\mu s}$
 \end_inset
 
 , which are the practical values from real measurements using a 

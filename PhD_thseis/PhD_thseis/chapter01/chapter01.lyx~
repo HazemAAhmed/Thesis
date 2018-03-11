@@ -178,7 +178,8 @@ key "standard"
  probability of tag-collisions on the communication channel.
  Owing to their low price and simple design, tags can neither sense the
  channel nor communicate with the other tags.
- Hence, the readers are responsible for coordinating the network, and avoiding
+ Hence, the readers are responsible for co\SpecialChar \-
+ordinating the network, and avoiding
  collisions using anti-collision algorithms.
  
 \end_layout
