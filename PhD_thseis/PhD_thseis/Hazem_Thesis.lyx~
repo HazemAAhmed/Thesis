@@ -325,6 +325,113 @@ s lead to tags identification in a significantly shorter time, which is
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Kurzzusammenfassung
+\end_layout
+
+\begin_layout Standard
+Mit Hilfe von Radio Frequency Identification (RFID) können Personen oder
+ Objekte drahtlos erfasst werden.
+ Dies geschieht mit Hilfe von Transpondern (Tags), die an die Personen oder
+ Objekte angebracht sind.
+ Mit der Einführung des EPCglobal Class 1 Gen 2 Standards im Jahr 2005 ist
+ die Bedeutung von RFID deutlich gestiegen.
+ Es wurde beispielsweise im Bereich der Logistik Barcodes durch RFID ergänzt.
+ Bei vielen Anwendungen ist die Identifikationszeit von großen Tag-Populationen
+ ein sehr kritischer Leistungsparameter.
+ Aktuell werden daher verschiedene Ansätze untersucht, diese Identifikationszeit
+ deutlich zu reduzieren.
+ Im Rahmen der vorliegenden Dissertation erfolgt dies unter Optimierung
+ des Medienzugriffs (engl.
+ Medium Access Control, MAC).
+ 
+\end_layout
+
+\begin_layout Standard
+Der EPCglobal Class 1 Gen 2 Standard verwendet für den Zugriff ein auf Framed
+ Slotted ALOHA (FSA) basierendes Verfahren.
+ Dazu Unterteilt das Lesegerät den Rahmen (engl.
+ Frame) für den Kanalzugriff in eine vorher festgelegte Anzahl von Zeitschlitzen
+ (engl.
+ Slots).
+ Jedes Tag wählt mit Hilfe eines Zufallsgenerators einen Zeitschlitz aus
+ und antwortet dem Lesegerät in diesem.
+ Bei FSA gelten nur Zeitschlitze mit einer Tag-Antwort als erfolgreich.
+ Leere und Zeitschlitze mit mehreren Tag-Antworten gelten als Verlust, die
+ die Lesedauer deutlich erhöhen.
+ Moderne RFID-Lesegeräte haben jedoch auf der Bitübertragungsschicht (engl.
+ Physical Layer) die Fähigkeit, auch in kollidierten Zeitschlitzen mit mehreren
+ Tag-Antworten zumindest eine Tag-Antwort erfolgreich dekodieren zu können.
+ Diese Fähigkeit wird „Collision Recovery“ bezeichnet.
+ Zudem können moderne RFID-Lesegeräte den Typ des Zeitschlitzes frühzeitig
+ erkennen.
+ Somit können sie z.B.
+ im Falle eines leeren Zeitschlitzes diesen frühzeitig beenden, was als
+ „Time-Aware“ bezeichnet wird.
+ 
+\end_layout
+
+\begin_layout Standard
+Die Leistung von FSA hängt allgemein von zwei Hauptparametern ab: Der genauen
+ Schätzung der Anzahl der Tags im Lesebereich und der anschließenden Optimierung
+ der Rahmenlänge, d.h.
+ der Anzahl der Zeitschlitze.
+ In der vorliegenden Arbeit wird ein neuartiges Tag-Schätzverfahren vorgestellt,
+ das insbesondere die Collision Recovery moderner RFID-Lesegeräte berücksichtigt.
+ Simulationsergebnisse belegen, dass die vorgeschlagene Lösung im Vergleich
+ zum Stand der Technik die Anzahl der Tags deutlich genauer erfassen kann.
+\end_layout
+
+\begin_layout Standard
+Zudem werden im Rahmen der Arbeit geschlossene Lösungen für die Berechnung
+ der optimalen Rahmenlänge unter Verwendung verschiedener Szenarien hergeleitet.
+ Das erste Szenario ist das „Time-Aware“ FSA, das nur die unterschiedlichen
+ Längen der Zeitschlitze berücksichtigt.
+ Die Fähigkeit des Lesegerätes zur Wiederherstellung von kollidierten Zeitschlit
+zen wird dabei noch nicht berücksichtigt.
+ Das zweite Szenario ist das „Time-Aware-System“ mit konstanten Wahrscheinlichke
+iten für die Collision Recovery, für das ebenfalls eine geschlossene Lösung
+ hergeleitet wurde.
+ Im dritten Szenario wird schließlich eine geschlossene Lösung hergeleitet,
+ die die unterschiedliche Wahrscheinlichkeit zur Auflösung von Kollisionen
+ in Abhängigkeit von der Anzahl der kollidierten Tags berücksichtigt.
+ Dazu werden die Wahrscheinlichkeiten zur Auflösung einer Kollision in Abhängigk
+eit der Anzahl der kollidierten Tags aus der Bitübertragungsschicht extrahiert.
+ Schließlich wird eine Kombination von „Time-aware“ und „Multiple-Collision-Reco
+very-Coefficients“ vorgeschlagen und ebenfalls eine geschlossene Lösung
+ abgeleitet.
+ Sie berücksichtigt die unterschiedlichen Wahrscheinlichkeiten für die Auflösung
+en von Kollisionen und die unterschiedlichen Längen der Zeitschlitze.
+ Für jedes Szenario wird die Leistungsfähigkeit anhand der Auslesezeit für
+ eine hohe Anzahl von Tags gegenüber dem Stand der Technik verglichen.
+ Diese Arbeit konzentriert sich auf den EPCglobal C1 G2 Standard.
+ Daher können die Tags nicht modifiziert werden, sodass alle Optimierungen
+ nur auf der Seite des RFID-Lesegerätes vorgenommen wurden.
+ 
+\end_layout
+
+\begin_layout Standard
+Allerdings wurden im Rahmen der Arbeit auch Möglichkeiten zur Leistungssteigerun
+g untersucht, bei dem auch die Tags modifiziert werden.
+ Dementsprechend werden kompatible Verbesserungen für den EPCglobal C1 G2
+ Standard vorgeschlagen.
+ Kompatibel heißt in dem Zusammenhang, dass sich die Tags bei einem üblichen
+ Lesegerät exakt nach dem EPCglobal C1 G2 Standard verhalten.
+ Neue RFID-Lesegeräte können allerdings die höhere Leistungsfähigkeit der
+ modifizierten Tags ausnutzen, die auf der Identifikation von mehreren Tags
+ je Zeitschlitz basiert.
+ Simulationsergebnisse belegen eine deutliche Reduktion der Lesezeit, war
+ für zeitkritische Anwendungen von hoher Wichtigkeit ist.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
@@ -477,10 +584,7 @@ printnomenclature[5em]
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
+aaa
 \end_layout
 
 \begin_layout Standard
@@ -491,6 +595,7 @@ printnomenclature[5em]
 \end_layout
 
 \begin_layout Standard
+aaa
 \begin_inset Newpage newpage
 \end_inset
 
@@ -498,6 +603,15 @@ printnomenclature[5em]
 \end_layout
 
 \begin_layout Standard
+aaa
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+aaa
 \begin_inset Newpage newpage
 \end_inset
 

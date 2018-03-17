@@ -78,6 +78,11 @@ figs-within-sections
 Design and Implementation of Anti-collision Algorithms for Dense RFID Systems
 \end_layout
 
+\begin_layout Title
+Design und Implementierung eines neuen Anti-Kollisions-Algorithmus für dichte
+ RFID-Systeme
+\end_layout
+
 \begin_layout Author
 
 \series bold
@@ -90,10 +95,6 @@ Der Technischen Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnber
 \end_inset
 
 zur Erlangung des Grades
-\begin_inset Newline newline
-\end_inset
-
-
 \begin_inset Newline newline
 \end_inset
 
