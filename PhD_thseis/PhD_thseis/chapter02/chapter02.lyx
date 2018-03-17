@@ -1,0 +1,1155 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Background and Literature Review
+\end_layout
+
+\begin_layout Standard
+This chapter provides an overview of the historical development of RFID.
+ In addition, it describes the basic principles and the major technical
+ aspects related to the RFID technology and its standardization.
+ At the end of this chapter, the major issues in dense networks are presented.
+\end_layout
+
+\begin_layout Standard
+In section 1 an overview is given about the historical development of RFID.
+ Secondly, section 2 presents the main components of the system followed
+ by section 3, in which the operating frequency bands in RFID are shown.
+ Finally, section 4 describes the RFID collision problem.
+ 
+\end_layout
+
+\begin_layout Section
+Historical Development of RFID
+\end_layout
+
+\begin_layout Standard
+In the year 1935, the first notion of RFID systems was invented by a Scottish
+ physicist called Robert Alexander for detecting aircrafts 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_History_2"
+
+\end_inset
+
+.
+ Next, in 1950, the British government developed the first prototype of
+ the RFID system, which is known as Identification Friend or Foe (IFF) system
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_history_3"
+
+\end_inset
+
+.
+ This system was designed for aeronautical applications.
+ Between the 1950s and the 1960s, there was a big development in the area
+ of RFID for different applications, e.g.
+ the application of microwave 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_history_1"
+
+\end_inset
+
+ and radio transmission systems that modulate passive responders 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_History_2"
+
+\end_inset
+
+.
+ In the 1970s, RFID was intensively applied to logistics, transportation,
+ vehicle tracking, livestock tracking as well as industrial automation.
+ The first US patent in this field was published in 1973 for the invention
+ of an active RFID tag with re-writable memory 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_history_3"
+
+\end_inset
+
+.
+ In 2008, the US Department of Defense have announced that they plan to
+ use Electronic Product Code (EPC) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Intro_RFID"
+
+\end_inset
+
+ technology to track goods in their supply chain.
+ In Europe, RFID is intended to improve industrial applications and to enable
+ short-range systems for animal control 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_history_1"
+
+\end_inset
+
+.
+ In Japan, RFID is used for contact-less payments in transportation systems
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFID_History_2"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+System Components
+\end_layout
+
+\begin_layout Standard
+As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:RFID-System-components"
+
+\end_inset
+
+, the conventional RFID system consists of three main components: First,
+ RFID tag or transponder which is attached to the object requested to be
+ identified or tracked.
+ Second, the RFID reader or interrogator, which controls data transmission
+ and the whole identification process.
+ Finally, the processing device, which is commonly called 
+\begin_inset Quotes eld
+\end_inset
+
+Middleware
+\begin_inset Quotes erd
+\end_inset
+
+.
+ It is always a software processing device.
+ All the external processing depending on the application is done through
+ this device using the EPC code which is identified by the reader from the
+ tag.
+ In the following sections, each component is described in detail.
+ 
+\end_layout
+
+\begin_layout Subsection
+Tag
+\end_layout
+
+\begin_layout Standard
+The tag is the device, which is attached to the object.
+ It stores information and might be incorporated to sensors.
+ This information includes its unique EPC, which is a standardized identificatio
+n code.
+ When tags are within the reading range of the reader, they receive a command
+ from the reader asking them about their EPC.
+ They reply with their identification data to the reader, which processes
+ the information according to the current application.
+ Generally, RFID tags are divided into the following categories: 
+\end_layout
+
+\begin_layout Paragraph*
+Active tags
+\end_layout
+
+\begin_layout Standard
+They have a fully autonomous power source 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Active_Tags_1,Active_tags_2"
+
+\end_inset
+
+.
+ The approximate price for a single tag is 
+\begin_inset Formula $\unit[\simeq]{10}$
+\end_inset
+
+ Euro, because they incorporate circuits with a microprocessor and a memory
+ to read, write, rewrite, or erase data from an external device.
+ There are several advantages of active tags: First, they support long reading
+ distance, i.e.
+ more than 100 meters.
+ In addition, they also support immunity to multi-path fading, especially
+ in harsh environment with excessive amounts of metals, such as shipping
+ containers.
+ Owing to their power supply property, they can be easily connected with
+ sensors, thus, monitoring the environment depending on the application
+ e.g.
+ food or drug shipments.
+ However, such tags are not suitable for applications which require dense
+ RFID network, due to their cost.
+\end_layout
+
+\begin_layout Paragraph*
+Semi-passive tags
+\end_layout
+
+\begin_layout Standard
+In semi-passive tags, batteries are used on-board to power the controller
+ or the chip.
+ They may contain additional devices such as sensors 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Semi-passive_1,Semi_passive_2"
+
+\end_inset
+
+.
+ The signals generated by the reader are only used to activate tags in coverage.
+ Then, the tag's reply is generated using the energy emitted from the internal
+ batteries.
+ Semi-passive tags can communicate over longer distances than the normal
+ passive tags.
+ Moreover, the circuitry activation of the semi-passive tags is faster than
+ in passive tags.
+ However, the approximate price for the semi-passive tags is 
+\begin_inset Formula $\unit[\simeq]{4}$
+\end_inset
+
+ Euro, which makes such tags not suitable for dense RFID applications with
+ hundreds or thousands of tags .
+\end_layout
+
+\begin_layout Paragraph*
+Passive tags
+\end_layout
+
+\begin_layout Standard
+Passive tags are the most commonly used in tracking and supply chain markets
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Passive_tags_1,Passive_tags_2"
+
+\end_inset
+
+.
+ They are extremely simple and inexpensive devices.
+ The approximate price of such ags is less than 
+\begin_inset Formula $0.10$
+\end_inset
+
+ Euro.
+ Passive tags do not contain any power source, so they derive all of the
+ required energy for their operation from the signals emitted by the reader.
+ This energy activates the circuit of the tags.
+ Then, they send a reply signal that includes their information.
+ The maximum communication range is up to a few meters.
+ The aim of this thesis is to improve the identification efficiency for
+ dense RFID applications.
+ Thus, passive tags are the focus of this thesis.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename RFID system.emf
+	lyxscale 10
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Main UHF RFID system components with single reader and back-scatter UHF
+ tag 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:RFID-System-components"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Reader
+\end_layout
+
+\begin_layout Standard
+The RFID reader is the most important element in an RFID system 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Active_Tags_1"
+
+\end_inset
+
+, because it is responsible of accessing the tag information and coordinate
+ the complete reading process.
+ The reader decodes the received data from the tags and then sends this
+ information to the middleware.
+ The reader performance depends strongly on two factors: First, the decoder
+ architecture, and second, the antenna design.
+\end_layout
+
+\begin_layout Paragraph*
+Decoder architecture
+\end_layout
+
+\begin_layout Standard
+According to the previous discussion, this thesis focuses on passive RFID
+ tags.
+ Thus, the reader's transmission power must be sufficient to feed the surroundin
+g passive tags 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FSA4"
+
+\end_inset
+
+.
+ These tags obtain energy from the transmitted signal using the back-scattering
+ technique.
+ The back-scattering technique uses the reflection of the reader’s carrier
+ wave where the tag modulates the signal which includes its data.
+ Then, the reader detects the tag's response, processes the signal and reads
+ the information sent by the tag.
+\end_layout
+
+\begin_layout Paragraph
+Antennas
+\end_layout
+
+\begin_layout Standard
+The polarization of the used antenna is one of the most critical issues
+ which controls the identification performance 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Antenna"
+
+\end_inset
+
+.
+ In RFID systems, there are two types of antenna polarization: First, linearly
+ polarized antennas, where the electrical field component of the transmitted
+ signal is propagated in a plane (either vertically or horizontally).
+ They must have a known RFID tag orientation and the RFID tag must be fixed
+ upon the same plane as the antenna in order to get a consistent reading
+ performance 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Antenna_LP1"
+
+\end_inset
+
+.
+ Second, circularly polarized antennas, where the electromagnetic fields
+ are emitted in a corkscrew-like fashion.
+ They broadcast electromagnetic waves on two planes making one complete
+ revolution in a single wavelength.
+ Compared to linearly polarized antennas of the same gain, circularly polarized
+ antennas have a shorter read range because they lose about 
+\begin_inset Formula $\unit[3]{dB}$
+\end_inset
+
+ splitting their power across two separate planes.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Antenna_CP,AntennaCP"
+
+\end_inset
+
+.
+ When deciding which type of antenna to choose for a RFID system, it depends
+ on how the RFID tags should be oriented with respect to the antennas.
+ If all the tags, which are needed to be identified, are on the same plane
+ and about the same height, then a linearly polarized antenna should be
+ considered.
+ If the tag orientation is something that is not reliable or consistent,
+ then a circularly polarized antenna is a better choice.
+\end_layout
+
+\begin_layout Subsection
+Middle-ware
+\end_layout
+
+\begin_layout Standard
+Middleware is a layer of software created to connect other components together
+ – e.g.
+ hardware components, software programs, enterprise applications, databases,
+ etc.
+ Middleware gives software developers the ability to communicate and manage
+ data throughout an entire system, rather than on each individual application.
+ RFID middle-ware goes beyond simply connecting devices; rather, it allows
+ users to collect, manipulate, and disseminate data with ease.
+ The EPCglobal standards 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "standard"
+
+\end_inset
+
+ define specifications that standardize the interfaces between RFID tags,
+ RFID readers and enterprise systems.
+\end_layout
+
+\begin_layout Section
+Frequency Bands
+\end_layout
+
+\begin_layout Standard
+Similar to how a radio must be tuned to different frequencies to hear different
+ channels, RFID tags and readers have to be tuned to the same frequency
+ in order to communicate.
+ There are several different frequencies can be employed by a RFID system.
+ First, RFID systems use the Low Frequency (LF) 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "LF"
+description "Low Frequency"
+
+\end_inset
+
+ band 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LF_RFID"
+
+\end_inset
+
+.
+ The LF tags have a long wave-length and are better to penetrate thin metallic
+ substances.
+ Additionally, the LF RFID systems are ideal for reading objects with high-water
+ content, such as fruits or vegetables.
+ However, the LF RFID systems have a limited reading range with 
+\begin_inset Formula $\unit[0.5]{m}$
+\end_inset
+
+.
+ Second, RFID systems use the High Frequency (HF) 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "HF"
+description "High Frequency"
+
+\end_inset
+
+ band 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HF_RFID"
+
+\end_inset
+
+.
+ The HF tags work well on objects made of metal and can work around goods
+ with medium to high water content.
+ However, they have 
+\begin_inset Formula $\unit[1]{m}$
+\end_inset
+
+ as a maximum reading range.
+ Third, the Ultra High Frequency (UHF) 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UHF"
+description "Ultra High Frequency"
+
+\end_inset
+
+ band RFID systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "UHF_RFID"
+
+\end_inset
+
+.
+ UHF tags typically offer much better reading range (approximate 
+\begin_inset Formula $\unit[10]{m}$
+\end_inset
+
+) and can transfer data faster (i.e.
+ read many more tags per second) than the low/high-frequency tags.
+ However, the UHF radio waves have a shorter wavelength,which makes their
+ signal more likely to be attenuated (or weakened) and they cannot pass
+ through metal or water.
+ Due to their high data transfer rate, the UHF RFID tags are well suited
+ for dense applications, such as boxes of goods as they pass through a gate.
+ Finally, the microwave tags are usually smaller than the UHF tags and have
+ a larger reading range.
+ The microwave tags are more expensive than the UHF tags due to low demand,
+ but they share the same advantages and disadvantages 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Passive_tags_1"
+
+\end_inset
+
+.
+ 
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Frequency Bands for RFID Systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HF_RFID"
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Frequency-Bands-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Frequency Band
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Range 
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Common Frequencies
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Low Frequency (LF)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\unit[0.5]{m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\unit[125]{kHz}$
+\end_inset
+
+, 
+\begin_inset Formula $\unit[134]{kHz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+High Frequency (HF)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\unit{\unit[1-3]{m}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\unit[13.56]{MHz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Ultra High Frequency (UHF)
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\unit[10]{m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\unit[866]{MHz}$
+\end_inset
+
+ Europe
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\unit[915]{MHz}$
+\end_inset
+
+ USA
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Microwave (
+\begin_inset Formula $\mbox{\ensuremath{\mu}W}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+ 
+\begin_inset Formula $\unit[>10]{m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\unit[2.45]{GHz}$
+\end_inset
+
+, 
+\begin_inset Formula $\unit[5.8]{GHz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Frequency-Bands-for"
+
+\end_inset
+
+ presents the most common frequencies as well as the maximum communication
+ range for each band.
+\end_layout
+
+\begin_layout Section
+Collision Problems
+\end_layout
+
+\begin_layout Standard
+In RFID systems, both readers and tags communicate using the same frequency.
+ Thus, simultaneous transmission can happen which leads to collisions.
+ Collisions destroy the identification number EPC of the tag and may also
+ interfere control commands of the readers.
+ Thereby, the collision problem is the main source of delays in the identificati
+on process.
+ There are two types of collisions: reader collisions and tag collisions.
+ The following sections describe both types and their effects on the system
+ performance.
+ 
+\end_layout
+
+\begin_layout Subsection
+Readers Collisions
+\end_layout
+
+\begin_layout Standard
+There are two main types of readers collisions or interferences in RFID
+ systems: multiple readers-to-tag collision and reader-to-reader collision.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Reader_Tag_interfierence.emf
+	lyxscale 12
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Multiple readers to a single tag collision.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Multiple-readers-collisions"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Multiple Readers-to-Tag Collision
+\end_layout
+
+\begin_layout Standard
+Multiple readers-to-tag collision occurs when one tag is simultaneously
+ located in an overlapped area between two neighbor reading areas
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Reader_collision_1,Reader_collision_2"
+
+\end_inset
+
+, and both readers communicate simultaneously with the shared tag as shown
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Multiple-readers-collisions"
+
+\end_inset
+
+.
+ In this situation, the tag will not be able to determine such communication,
+ due to the interference between the two readers commands.
+ Therefore, the tag most likely will not respond to any reader.
+ Finally, this slot would be an empty one leading to losses in the total
+ identification time.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Reader_Reader_interfierence.emf
+	lyxscale 12
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Multiple readers interference.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Multiple-readers-interference"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Paragraph*
+Reader-to-Reader Collision
+\end_layout
+
+\begin_layout Standard
+Reader-to-reader collision, or interference, occurs when the signal generated
+ by a reader acts as a jamming signal for a neighbor reader as shown in
+ figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Multiple-readers-interference"
+
+\end_inset
+
+.
+ This signal might prevent the second reader from communicating with its
+ tags in its reading area 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Reader_collision_3,Reader_collision_4"
+
+\end_inset
+
+.
+ This interference affects the total identification time of the interfered
+ system.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Tags_collision.emf
+	lyxscale 12
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Multiple tags to a single reader collision.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Multiple-tags-to"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tag Collisions
+\end_layout
+
+\begin_layout Standard
+This type of collision is the most common type of collision in dense RFID
+ systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tags_collision_2,Tags_collision_1,Tags_collision_3,Tags_collision_4"
+
+\end_inset
+
+.
+ In such systems, there is a single RFID reader and multiple tags as shown
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Multiple-tags-to"
+
+\end_inset
+
+.
+ The main objective is to identify all tags in the reading area in the minimum
+ possible time.
+ However, in dense networks, the number of tag collisions increases, which
+ decreases the reading efficiency, and hence increases the reading time.
+ 
+\end_layout
+
+\begin_layout Standard
+Tags anti-collision protocols can be classified into two main types: PHY
+ layer protocols and MAC layers protocols.
+ The main motivation of this thesis is to minimize the total identification
+ time for a dense and passive RFID network.
+ Therefore, in the following chapters, there are different proposals to
+ enhance the MAC layer anti-collision protocols taking into consideration
+ the PHY layer parameters.
+ 
+\end_layout
+
+\end_body
+\end_document
